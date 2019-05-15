@@ -15,7 +15,7 @@ namespace BeeyApi.POCO.Emails
 
         public RegistrationEmail()
         {
-            Subject = "Registrace účtu na beey.io";
+            Subject = "Registrace účtu Beey";
         }
     }
 }
