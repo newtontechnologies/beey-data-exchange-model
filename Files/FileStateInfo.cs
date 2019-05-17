@@ -11,7 +11,7 @@ namespace BeeyApi.POCO.Files
         public string FileName { get; set; }
         public int BufferSize { get; set; }
 
-        public int TotalFileSize { get; set; } = 0;
+        public long? TotalFileSize { get; set; } = 0;
         public long CurrentFileOffset { get; set; } = 0;
 
         public string Tag { get; set; }
