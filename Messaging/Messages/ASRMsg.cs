@@ -17,11 +17,5 @@ namespace BeeyApi.Messaging.Messages
             Speaker,
             SpeakerRecovery,
         }
-
-        /// <summary>
-        /// ppc can mark this message to not processit multiple times
-        /// </summary>
-        [JsonIgnore]
-        public bool FromPpc { get; set; }
     }
 }

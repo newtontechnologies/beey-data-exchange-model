@@ -8,6 +8,8 @@ namespace BeeyApi.POCO.Transcriptions
 {
     public abstract class NgEvent
     {
+        public TimeSpan Begin { get; set; }
+        public TimeSpan? End { get; set; }
         public NgEvent() { }
 #pragma warning disable IDE0060 // Remove unused parameter
         public NgEvent(JObject source) { }

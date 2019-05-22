@@ -8,9 +8,6 @@ namespace BeeyApi.POCO.Transcriptions
 {
     public partial class NgSpeakerEvent : NgEvent
     {
-        public TimeSpan Begin { get; set; }
-
-        public TimeSpan? End { get; set; }
         public string SpeakerId { get; set; }
         public NgSpeakerEvent(JObject source) : base(source)
         {
