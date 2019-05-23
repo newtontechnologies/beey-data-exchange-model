@@ -19,11 +19,6 @@ namespace BeeyApi.Messaging.Messages
             IsTerminated = Completed | Failed | Interrupted,
         }
 
-        /// <summary>
-        /// ppc can mark this message to not processit multiple times
-        /// </summary>
-        [JsonIgnore]
-        public bool FromPpc { get; set; }
         public string Language { get; internal set; }
     }
 }
