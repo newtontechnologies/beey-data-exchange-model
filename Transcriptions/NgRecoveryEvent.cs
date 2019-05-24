@@ -8,7 +8,6 @@ namespace BeeyApi.POCO.Transcriptions
 {
     public partial class NgRecoveryEvent : NgEvent
     {
-        public TimeSpan Begin { get; set; }
         public NgRecoveryEvent() : base(null) { }
         public NgRecoveryEvent(JObject source) : base(source)
         {

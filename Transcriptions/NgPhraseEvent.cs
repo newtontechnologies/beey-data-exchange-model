@@ -9,7 +9,6 @@ namespace BeeyApi.POCO.Transcriptions
 {
     public partial class NgPhraseEvent : NgEvent
     {
-        public TimeSpan Begin { get; set; }
         public TimeSpan End { get; set; }
 
         public string Text { get; set; }

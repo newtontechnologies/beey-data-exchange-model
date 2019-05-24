@@ -8,7 +8,6 @@ namespace BeeyApi.POCO.Transcriptions
 {
     public partial class DiarSpeakerEvent : NgEvent
     {
-        public TimeSpan Begin { get; set; }
         public TimeSpan End { get; set; }
 
         public string SpeakerId { get; set; }
