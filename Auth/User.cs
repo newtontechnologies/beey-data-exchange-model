@@ -40,6 +40,10 @@ namespace BeeyApi.POCO.Auth
 
         [JsonConverter(typeof(StringEnumConverter))]
         public UserRole UserRole { get; set; }
+
+        [JsonIgnoreWebDeserialize]
+        public int? TranscribedMinutes { get; set; }
+        public int CreditMinutes { get; set; }
     }
 }
 
