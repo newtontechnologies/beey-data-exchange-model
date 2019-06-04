@@ -20,5 +20,6 @@ namespace BeeyApi.Messaging.Messages
         }
 
         public string Language { get; internal set; }
+        public TimeSpan? Transcribed { get; internal set; }
     }
 }

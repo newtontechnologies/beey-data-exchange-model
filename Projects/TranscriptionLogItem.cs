@@ -1,4 +1,5 @@
-﻿using BeeyApi.POCO.Auth;
+﻿using Backend.Serialization;
+using BeeyApi.POCO.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,20 @@ namespace BeeyApi.POCO.Projects
     /// </summary>
     public partial class TranscriptionLogItem : EntityBase
     {
+        [JsonIgnoreWebDeserialize]
+        public int UserId { get; set; }
+        [JsonIgnoreWebDeserialize]
         public User User { get; set; }
+        [JsonIgnoreWebDeserialize]
         public string Filename { get; set; }
+
+        [JsonIgnoreWebDeserialize]
+        public int ProjectId { get; set; }
+        [JsonIgnoreWebDeserialize]
         public Project Project { get; set; }
-
-        public TimeSpan Length { get; set; }
-
+        [JsonIgnoreWebDeserialize]
+        public int TranscribedMinutes { get; set; }
+        [JsonIgnoreWebDeserialize]
         public string TranscriptionSettings { get; set; }
 
     }
