@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using TranscriptionCore;
 
+#pragma warning disable nullable
 namespace BeeyApi.POCO.Transcriptions
 {
     public partial class NgPhraseEvent : NgEvent

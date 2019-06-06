@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+#pragma warning disable nullable
 namespace BeeyApi.Messaging.Messages
 {
     public partial class TranscriptionMsg : Message<TranscriptionMsg.MessageKind>

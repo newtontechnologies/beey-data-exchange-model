@@ -9,12 +9,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
+#pragma warning disable nullable
 namespace BeeyApi.POCO.Projects
 {
     public partial class Project : EntityBase
     {
-
-
         [JsonIgnoreWebDeserialize]
         public TimeSpan Length { get; set; }
 

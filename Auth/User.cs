@@ -13,6 +13,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
+#pragma warning disable nullable
 namespace BeeyApi.POCO.Auth
 {
     public partial class User : EntityBase

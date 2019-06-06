@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using TranscriptionCore;
 
+#pragma warning disable nullable
 namespace BeeyApi.POCO.Transcriptions
 {
     public partial class DBSpeaker

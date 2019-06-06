@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
+#pragma warning disable nullable
 namespace BeeyApi.POCO.Transcriptions
 {
     public partial class DiarSpeakerEvent : NgEvent

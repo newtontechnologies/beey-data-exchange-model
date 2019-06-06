@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+#pragma warning disable nullable
 namespace BeeyApi.Messaging
 {
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]

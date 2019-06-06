@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
+#pragma warning disable nullable
 namespace BeeyApi.POCO.Files
 {
     public partial class FileWrapper : EntityBase
