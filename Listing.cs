@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BeeyApi.POCO
+namespace Beey.DataExchangeModel
 {
     public partial class Listing<T>
     {

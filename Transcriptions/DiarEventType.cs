@@ -1,4 +1,4 @@
-﻿namespace BeeyApi.POCO.Transcriptions
+﻿namespace Beey.DataExchangeModel.Transcriptions
 {
     public enum DiarEventType
     {

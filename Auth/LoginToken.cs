@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
-namespace BeeyApi.POCO.Auth
+namespace Beey.DataExchangeModel.Auth
 {
     public partial class LoginToken
     {

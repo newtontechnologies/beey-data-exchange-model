@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
-namespace BeeyApi.POCO.Transcriptions
+namespace Beey.DataExchangeModel.Transcriptions
 {
     public partial class DiarEventList
     {

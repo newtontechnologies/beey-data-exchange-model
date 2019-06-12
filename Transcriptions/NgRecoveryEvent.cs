@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
 #pragma warning disable nullable
-namespace BeeyApi.POCO.Transcriptions
+namespace Beey.DataExchangeModel.Transcriptions
 {
     public partial class NgRecoveryEvent : NgEvent
     {

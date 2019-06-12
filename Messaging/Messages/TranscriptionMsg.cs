@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
-namespace BeeyApi.Messaging.Messages
+namespace Beey.DataExchangeModel.Messaging.Messages
 {
     public partial class TranscriptionMsg : Message<TranscriptionMsg.MessageKind>
     {

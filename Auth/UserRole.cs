@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BeeyApi.POCO.Auth
+namespace Beey.DataExchangeModel.Auth
 {
     public enum UserRole : int
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
-namespace BeeyApi.POCO.Emails
+namespace Beey.DataExchangeModel.Emails
 {
     public partial class PlainEmail : Email
     {

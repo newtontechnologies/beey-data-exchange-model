@@ -1,6 +1,6 @@
-﻿using Backend.Serialization;
-using BeeyApi.POCO.Auth;
-using BeeyApi.POCO.Files;
+﻿using Beey.DataExchangeModel.Serialization;
+using Beey.DataExchangeModel.Auth;
+using Beey.DataExchangeModel.Files;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
-namespace BeeyApi.POCO.Projects
+namespace Beey.DataExchangeModel.Projects
 {
     public partial class Project : EntityBase
     {

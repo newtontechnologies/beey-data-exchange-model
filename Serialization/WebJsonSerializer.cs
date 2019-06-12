@@ -9,7 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace Backend.Serialization
+namespace Beey.DataExchangeModel.Serialization
 {
     public class WebJsonSerializer : JsonSerializer
     {

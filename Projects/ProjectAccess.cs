@@ -1,12 +1,12 @@
-﻿using Backend.Serialization;
-using BeeyApi.POCO.Auth;
+﻿using Beey.DataExchangeModel.Serialization;
+using Beey.DataExchangeModel.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
-namespace BeeyApi.POCO.Projects
+namespace Beey.DataExchangeModel.Projects
 {
     public partial class ProjectAccess : EntityBase
     {

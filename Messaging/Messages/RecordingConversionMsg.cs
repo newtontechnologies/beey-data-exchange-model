@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BeeyApi.Messaging.Messages
+namespace Beey.DataExchangeModel.Messaging.Messages
 {
     public partial class RecordingConversionMsg : Message<RecordingConversionMsg.MessageKind>
     {

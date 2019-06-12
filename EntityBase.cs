@@ -1,11 +1,11 @@
-﻿using Backend.Serialization;
+﻿using Beey.DataExchangeModel.Serialization;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace BeeyApi.POCO
+namespace Beey.DataExchangeModel
 {
     public abstract class EntityBase
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
-namespace BeeyApi.POCO.Projects
+namespace Beey.DataExchangeModel.Projects
 {
     public partial class ParamsProjectInit
     {

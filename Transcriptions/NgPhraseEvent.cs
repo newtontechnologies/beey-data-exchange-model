@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 using TranscriptionCore;
 
 #pragma warning disable nullable
-namespace BeeyApi.POCO.Transcriptions
+namespace Beey.DataExchangeModel.Transcriptions
 {
     public partial class NgPhraseEvent : NgEvent
     {

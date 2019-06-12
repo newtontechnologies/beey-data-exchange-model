@@ -1,5 +1,5 @@
-﻿using Backend.Serialization;
-using BeeyApi.POCO.Projects;
+﻿using Beey.DataExchangeModel.Serialization;
+using Beey.DataExchangeModel.Projects;
 #if Backend
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 #endif
@@ -14,7 +14,7 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
-namespace BeeyApi.POCO.Auth
+namespace Beey.DataExchangeModel.Auth
 {
     public partial class User : EntityBase
     {

@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
-namespace BeeyApi.Messaging
+namespace Beey.DataExchangeModel.Messaging
 {
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public abstract class Message : IEquatable<Message>

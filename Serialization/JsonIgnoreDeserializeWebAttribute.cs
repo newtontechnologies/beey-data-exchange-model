@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Backend.Serialization
+namespace Beey.DataExchangeModel.Serialization
 {
 
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]

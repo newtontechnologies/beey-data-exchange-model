@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
-namespace Backend.Serialization
+namespace Beey.DataExchangeModel.Serialization
 {
     /// <summary>
     /// There have to be custom binder to limit type serialization

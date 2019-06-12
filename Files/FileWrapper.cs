@@ -1,4 +1,4 @@
-﻿using Backend.Serialization;
+﻿using Beey.DataExchangeModel.Serialization;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
-namespace BeeyApi.POCO.Files
+namespace Beey.DataExchangeModel.Files
 {
     public partial class FileWrapper : EntityBase
     {
