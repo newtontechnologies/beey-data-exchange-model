@@ -1,4 +1,4 @@
-﻿using BeeyApi.Messaging;
+﻿using Beey.DataExchangeModel.Messaging;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;

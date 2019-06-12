@@ -1,6 +1,6 @@
 ﻿// just fake classes that are used instead of dependencies when POCO classes are not used on server
 
-#if !Backend
+#if !BeeyServer
 namespace System.ComponentModel.DataAnnotations.Schema
 {
     /// <summary>

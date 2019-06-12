@@ -1,4 +1,4 @@
-﻿using BeeyApi.Messaging;
+﻿using Beey.DataExchangeModel.Messaging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using NodaTime;
