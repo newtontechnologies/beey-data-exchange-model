@@ -1,6 +1,6 @@
 ﻿using Beey.DataExchangeModel.Serialization;
 using Beey.DataExchangeModel.Projects;
-#if Backend
+#if BeeyServer
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 #endif
 using Newtonsoft.Json;
@@ -22,7 +22,7 @@ namespace Beey.DataExchangeModel.Auth
         [NotMapped]
         public string Password
         {
-#if Backend
+#if BeeyServer
             set
             {
                 _PasswordSalt = null; //resalt with new pawssword
