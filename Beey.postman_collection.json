@@ -1,0 +1,1738 @@
+{
+	"info": {
+		"_postman_id": "d6fbd01a-249e-48fd-b2e2-940e76b445f5",
+		"name": "Beey",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "get user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15f26f3d-adc1-4447-b5bd-b39cbd3c070b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Admin/Users?id=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Admin",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modify user (change password..)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ff6790ee-dd0d-4238-9d6b-af76195d7cc0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Id\":\"{{currentUserId}}\",\n\t\"Password\":\"TNPGod\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/API/Admin/Users?id={{currentUserId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Admin",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{currentUserId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modify user (OVP pass)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ff6790ee-dd0d-4238-9d6b-af76195d7cc0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Id\":\"{{currentUserId}}\",\n\t\"Password\":\"OVPGod\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/API/Admin/Users?id={{currentUserId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Admin",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{currentUserId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Email\": \"pokusnik.kokosnik@newtontech.cz\",\n    \"UserRole\": \"Promo\",\n    \"Password\": \"mělník\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/API/Admin/Users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Admin",
+								"Users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/API/Admin/Users/List?skip=0&count=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Admin",
+								"Users",
+								"List"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "count",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register new user and Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "33ed4314-94c7-4c9c-a287-e4cf64ef559a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/API/RegisterAndLogin?email=example@example.org",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"RegisterAndLogin"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "example@example.org"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user Info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "33ed4314-94c7-4c9c-a287-e4cf64ef559a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/UserInfo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"UserInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post user settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15f26f3d-adc1-4447-b5bd-b39cbd3c070b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\tName: \"value\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/API/UserSettings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"UserSettings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15f26f3d-adc1-4447-b5bd-b39cbd3c070b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/UserSettings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"UserSettings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email",
+			"item": [
+				{
+					"name": "Send Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"To\":[\"example@example.org\"],\n    \"CC\":[],\n    \"BCC\":[],\n    \"From\":\"pokus@beey.io\",\n    \"Subject\":\"nejkulaťoulinkatější slon\",\n    \"Body\":\"some random text\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/API/Admin/Email",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Admin",
+								"Email"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Create project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5b07497f-c8f1-43e9-9f3e-4d3f6e32c3d2",
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"projekticek\",\n    \"CustomPath\":\"to je/uplne jedno/je to jenom string/\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/API/Project",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "814aaa4f-77ca-46e6-97ae-a2dcfc1046f1",
+								"exec": [
+									"pm.globals.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Project?id={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modify project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1baa87bd-93a0-4b88-8673-bf5457e8d7da",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Id\":\"{{lastProjectID}}\",\n    \"Name\": \"projekticek modifikovanickovany\",\n    \"Tags\": [\"neco\",\"ledasco\",\"zlo\"],\n    \"Size\": 123456,\n    \"Settings\":{\"nastav\":\"veni\"}\n}"
+						},
+						"url": {
+							"raw": "{{url}}/API/Project?id={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								}
+							]
+						},
+						"description": "modify project.. some properties.. like \"Size\" will be ignored"
+					},
+					"response": []
+				},
+				{
+					"name": "delete Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "918f7a9f-c8ae-41e6-9bf1-904cc9cfa4c6",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"projekticek\",\n    \"CustomPath\":\"to je/uplne jedno/je to jenom string/\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/API/Project?id={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list projects, order on created",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/API/Project/Access/List?skip=0&count=50&orderon=created&orderby=ascending",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Access",
+								"List"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "count",
+									"value": "50"
+								},
+								{
+									"key": "orderon",
+									"value": "created"
+								},
+								{
+									"key": "orderby",
+									"value": "ascending"
+								}
+							]
+						},
+						"description": "Iterate accesslist for curent user"
+					},
+					"response": []
+				},
+				{
+					"name": "list projects, order on updated",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/API/Project/Access/List?skip=0&count=50&orderon=updated&orderby=descending",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Access",
+								"List"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "count",
+									"value": "50"
+								},
+								{
+									"key": "orderon",
+									"value": "updated"
+								},
+								{
+									"key": "orderby",
+									"value": "descending"
+								}
+							]
+						},
+						"description": "Iterate accesslist for curent user"
+					},
+					"response": []
+				},
+				{
+					"name": "get Project path",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "20317751-cf6e-488b-af78-eff104e38c2e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Project/Access?id={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Access"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								}
+							]
+						},
+						"description": "Project can have different path for each user. Paths arre stored in acesslist"
+					},
+					"response": []
+				},
+				{
+					"name": "change project path",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "918f7a9f-c8ae-41e6-9bf1-904cc9cfa4c6",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CustomPath\":\"novy zcela nahodny string\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/API/Project/Access?id={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Access"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								}
+							]
+						},
+						"description": "Project can have different path for each user. Paths arre stored in acesslist\n\nWeb does not have access to most of access properties.. Only CustomPath for now"
+					},
+					"response": []
+				},
+				{
+					"name": "share project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "918f7a9f-c8ae-41e6-9bf1-904cc9cfa4c6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/API/Project/Share?id={{lastProjectID}}&shareTo=jan.vacl@newtontech.cz",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Share"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "shareTo",
+									"value": "jan.vacl@newtontech.cz"
+								}
+							]
+						},
+						"description": "Project can have different path for each user. Paths arre stored in acesslist\n\nWeb does not have access to most of access properties.. Only CustomPath for now"
+					},
+					"response": []
+				},
+				{
+					"name": "list project sharing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "918f7a9f-c8ae-41e6-9bf1-904cc9cfa4c6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Project/Share?id={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Share"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								}
+							]
+						},
+						"description": "Project can have different path for each user. Paths arre stored in acesslist\n\nWeb does not have access to most of access properties.. Only CustomPath for now"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Messaging",
+			"item": [
+				{
+					"name": "Get project cache",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Messaging/Cache/Project?id={{lastProjectID}}&from=2019-01-18T12:00%2B02:00",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Messaging",
+								"Cache",
+								"Project"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "from",
+									"value": "2019-01-18T12:00%2B02:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Cache",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Messaging/Cache/User?from=2019-01-18T12:00%2B02:00",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Messaging",
+								"Cache",
+								"User"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2019-01-18T12:00%2B02:00"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "recognize file",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"description": "soupor",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/API/Files/Recognize?lang=cz&projectId={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Files",
+								"Recognize"
+							],
+							"query": [
+								{
+									"key": "lang",
+									"value": "cz"
+								},
+								{
+									"key": "projectId",
+									"value": "{{lastProjectID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload only file",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"description": "soupor",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/API/Files/Recognize?lang=cz&projectId={{lastProjectID}}&transcribe=false",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Files",
+								"Recognize"
+							],
+							"query": [
+								{
+									"key": "lang",
+									"value": "cz"
+								},
+								{
+									"key": "projectId",
+									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "transcribe",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload custom trsx to  project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "soupor",
+									"value": "",
+									"description": "soupor.trsx",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/API/Project/Trsx?id={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Trsx"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "download file (customTrsx)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "20317751-cf6e-488b-af78-eff104e38c2e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/API/Files/Download?projectId={{lastProjectID}}&fileid={{currentTrsxID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Files",
+								"Download"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "fileid",
+									"value": "{{currentTrsxID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Speaker",
+			"item": [
+				{
+					"name": "get speaker",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "814aaa4f-77ca-46e6-97ae-a2dcfc1046f1",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Speaker?id={{lastSpeakerID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Speaker"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastSpeakerID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list speakers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/API/Speaker/List?skip=1000&count=50",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Speaker",
+								"List"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "1000"
+								},
+								{
+									"key": "count",
+									"value": "50"
+								}
+							]
+						},
+						"description": "Iterate accesslist for curent user"
+					},
+					"response": []
+				},
+				{
+					"name": "list speakers search",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/API/Speaker/List?skip=0&count=50&search=poslanec",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Speaker",
+								"List"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "count",
+									"value": "50"
+								},
+								{
+									"key": "search",
+									"value": "poslanec"
+								}
+							]
+						},
+						"description": "Iterate accesslist for curent user"
+					},
+					"response": []
+				},
+				{
+					"name": "delete speaker",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "918f7a9f-c8ae-41e6-9bf1-904cc9cfa4c6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"projekticek\",\n    \"CustomPath\":\"to je/uplne jedno/je to jenom string/\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/API/Speaker?id={{lastSpeakerID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Speaker"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastSpeakerID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create speaker",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5b07497f-c8f1-43e9-9f3e-4d3f6e32c3d2",
+								"exec": [
+									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<s id=\"80\" surname=\"Kokosník\" firstname=\"Pokusník\" sex=\"x\" lang=\"cz\">\r\n\t<a name=\"role\" date=\"0001-01-01T00:00:00Z\">poslanec /ANO/</a>\r\n</s>"
+						},
+						"url": {
+							"raw": "{{url}}/API/Speaker",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Speaker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Speaker",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5b07497f-c8f1-43e9-9f3e-4d3f6e32c3d2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<s id=\"80\" surname=\"Kokosník\" firstname=\"Pokusník\" sex=\"x\" lang=\"cz\" dbid=\"{{lastSpeakerID}}\">\r\n\t<a name=\"role\" date=\"0001-01-01T00:00:00Z\">poslanec</a>\r\n\t<a name=\"role\" date=\"0001-01-01T00:00:00Z\">osoba/</a>\r\n</s>"
+						},
+						"url": {
+							"raw": "{{url}}/API/Speaker",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Speaker"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login (OVP)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33ed4314-94c7-4c9c-a287-e4cf64ef559a",
+						"exec": [
+							"pm.globals.set(\"authToken\", pm.response.json().Token);",
+							"pm.globals.set(\"currentUser\", pm.response.json().User);",
+							"pm.globals.set(\"currentUserId\", pm.response.json().User.Id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/API/Login?email=ladislav.seps@newtontech.cz&password=OVPgod",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"API",
+						"Login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "ladislav.seps@newtontech.cz"
+						},
+						{
+							"key": "password",
+							"value": "OVPgod"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get password settings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33ed4314-94c7-4c9c-a287-e4cf64ef559a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/API/PasswordSettings",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"API",
+						"PasswordSettings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login (TNP)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33ed4314-94c7-4c9c-a287-e4cf64ef559a",
+						"exec": [
+							"pm.globals.set(\"authToken\", pm.response.json().Token);",
+							"pm.globals.set(\"currentUser\", pm.response.json().User);",
+							"pm.globals.set(\"currentUserId\", pm.response.json().User.Id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/API/Login?email=ladislav.seps@newtontech.cz&password=TNPGod",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"API",
+						"Login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "ladislav.seps@newtontech.cz"
+						},
+						{
+							"key": "password",
+							"value": "TNPGod"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangePassword O->T (as logged user)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33ed4314-94c7-4c9c-a287-e4cf64ef559a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/API/ChangePassword?password=OVPgod&newpassword=TNPGod",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"API",
+						"ChangePassword"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "OVPgod"
+						},
+						{
+							"key": "newpassword",
+							"value": "TNPGod"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangePassword T->O (as logged user) Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33ed4314-94c7-4c9c-a287-e4cf64ef559a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/API/ChangePassword?password=TNPGod&newpassword=OVPgod",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"API",
+						"ChangePassword"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "TNPGod"
+						},
+						{
+							"key": "newpassword",
+							"value": "OVPgod"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "597f7b5b-def4-4a3c-aa22-9c4cb192e625",
+						"type": "text/javascript",
+						"exec": [
+							"pm.globals.unset(\"authToken\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authToken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/API/Logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"API",
+						"Logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "95eebb22-bc1f-4946-804f-1470b6e2a4bf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ca918e7e-8585-43c2-9494-ec860ed6abb8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f2d8f2cc-7ade-48ff-8810-922e77fb54bd",
+			"key": "url",
+			"value": "localhost:61497",
+			"type": "string"
+		}
+	]
+}
