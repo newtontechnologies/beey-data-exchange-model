@@ -1,8 +1,5 @@
 ﻿using Beey.DataExchangeModel.Serialization;
 using Beey.DataExchangeModel.Projects;
-#if BeeyServer
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-#endif
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
