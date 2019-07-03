@@ -39,7 +39,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\RecordingInfoMsg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\TranscriptionMsg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\PassChange.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Auth\PasswordHistoryEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Files\FileWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ParamsProjectInit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\Project.cs" />
