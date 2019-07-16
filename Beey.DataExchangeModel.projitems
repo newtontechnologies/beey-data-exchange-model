@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Fakes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConcurrentEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\DerivedTypesBinder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonIgnoreDeserializeWebAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonIgnoreWeb.cs" />

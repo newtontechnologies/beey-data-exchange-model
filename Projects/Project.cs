@@ -8,11 +8,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 #pragma warning disable nullable
 namespace Beey.DataExchangeModel.Projects
 {
-    public partial class Project : EntityBase
+    public partial class Project : ConcurrentEntity
     {
         [JsonIgnoreWebDeserialize]
         public TimeSpan Length { get; set; }
@@ -51,5 +52,8 @@ namespace Beey.DataExchangeModel.Projects
 
         [JsonIgnoreWeb]
         public ICollection<ProjectAccess> ProjectAcesses { get; set; }
+
+        [JsonIgnoreWebDeserialize]
+        public int ShareCount { get; set; }
     }
 }
