@@ -24,6 +24,15 @@ namespace System.ComponentModel.DataAnnotations
     {
         public KeyAttribute() { }
     }
+
+    /// <summary>
+    /// fake for distribution outside of server
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false, Inherited = true)]
+    public sealed class ConcurrencyCheckAttribute : Attribute
+    {
+        public ConcurrencyCheckAttribute() { }
+    }
 }
 
 #endif
