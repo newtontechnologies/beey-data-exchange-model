@@ -424,10 +424,11 @@
 							"listen": "test",
 							"script": {
 								"id": "5b07497f-c8f1-43e9-9f3e-4d3f6e32c3d2",
-								"type": "text/javascript",
 								"exec": [
-									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);"
-								]
+									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
+									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -468,7 +469,8 @@
 							"script": {
 								"id": "814aaa4f-77ca-46e6-97ae-a2dcfc1046f1",
 								"exec": [
-									"pm.globals.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);"
+									"pm.globals.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);",
+									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 								],
 								"type": "text/javascript"
 							}
@@ -513,7 +515,7 @@
 							"script": {
 								"id": "1baa87bd-93a0-4b88-8673-bf5457e8d7da",
 								"exec": [
-									""
+									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 								],
 								"type": "text/javascript"
 							}
@@ -533,7 +535,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Id\":\"{{lastProjectID}}\",\n    \"Name\": \"projekticek modifikovanickovany\",\n    \"Tags\": [\"neco\",\"ledasco\",\"zlo\"],\n    \"Size\": 123456,\n    \"Settings\":{\"nastav\":\"veni\"}\n}"
+							"raw": "{\n\t\"Id\": \"{{lastProjectID}}\",\n\t\"AccessToken\": {{lastAccessToken}},\n    \"Name\": \"projekticek modifikovanickovany\",\n    \"Tags\": [\"neco\",\"ledasco\",\"zlo\"],\n    \"Size\": 123456,\n    \"Settings\": {\"nastav\":\"veni\"}\n}"
 						},
 						"url": {
 							"raw": "{{url}}/API/Project?id={{lastProjectID}}",
@@ -606,6 +608,21 @@
 				},
 				{
 					"name": "list projects, order on created",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5698f828-e48c-4321-b66b-a8fbea8e08f5",
+								"exec": [
+									"if (pm.response.json().ListedCount > 0) {",
+									"    pm.globals.set(\"lastProjectID\", pm.response.json().List[0].ProjectId);",
+									"    pm.globals.set(\"lastAccessToken\", pm.response.json().List[0].Project.AccessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -619,7 +636,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/API/Project/Access/List?skip=0&count=50&orderon=created&orderby=ascending&from=2019-07-13 13:37:79&to=2019-07-13 15:53:31",
+							"raw": "{{url}}/API/Project/Access/List?skip=0&count=50&orderon=created&orderby=ascending",
 							"host": [
 								"{{url}}"
 							],
@@ -648,11 +665,13 @@
 								},
 								{
 									"key": "from",
-									"value": "2019-07-13 13:37:79"
+									"value": "2019-07-13 13:37:79",
+									"disabled": true
 								},
 								{
 									"key": "to",
-									"value": "2019-07-13 15:53:31"
+									"value": "2019-07-13 15:53:31",
+									"disabled": true
 								}
 							]
 						},
@@ -662,6 +681,21 @@
 				},
 				{
 					"name": "list projects, order on updated",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5f64e3a0-2056-4aca-b688-97242d15d25e",
+								"exec": [
+									"if (pm.response.json().ListedCount > 0) {",
+									"    pm.globals.set(\"lastProjectID\", pm.response.json().List[0].ProjectId);",
+									"    pm.globals.set(\"lastAccessToken\", pm.response.json().List[0].Project.AccessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -675,7 +709,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/API/Project/Access/List?skip=0&count=50&orderon=updated&orderby=descending&from=2019-07-13 13:37:79&to=2019-07-13 15:53:31",
+							"raw": "{{url}}/API/Project/Access/List?skip=0&count=50&orderon=updated&orderby=descending",
 							"host": [
 								"{{url}}"
 							],
@@ -704,11 +738,13 @@
 								},
 								{
 									"key": "from",
-									"value": "2019-07-13 13:37:79"
+									"value": "2019-07-13 13:37:79",
+									"disabled": true
 								},
 								{
 									"key": "to",
-									"value": "2019-07-13 15:53:31"
+									"value": "2019-07-13 15:53:31",
+									"disabled": true
 								}
 							]
 						},
@@ -822,7 +858,7 @@
 							"script": {
 								"id": "918f7a9f-c8ae-41e6-9bf1-904cc9cfa4c6",
 								"exec": [
-									""
+									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 								],
 								"type": "text/javascript"
 							}
@@ -846,7 +882,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/API/Project/Share?id={{lastProjectID}}&shareTo=jan.vacl@newtontech.cz",
+							"raw": "{{url}}/API/Project/Share?id={{lastProjectID}}&shareTo=jan.vacl@newtontech.cz&accessToken={{lastAccessToken}}",
 							"host": [
 								"{{url}}"
 							],
@@ -863,6 +899,10 @@
 								{
 									"key": "shareTo",
 									"value": "jan.vacl@newtontech.cz"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{lastAccessToken}}"
 								}
 							]
 						},
@@ -1028,7 +1068,7 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/API/Files/Recognize?lang=cz&projectId={{lastProjectID}}",
+							"raw": "{{url}}/API/Files/Recognize?lang=cz&projectId={{lastProjectID}}&accessToken={{lastAccessToken}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1045,6 +1085,10 @@
 								{
 									"key": "projectId",
 									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{lastAccessToken}}"
 								}
 							]
 						}
@@ -1073,7 +1117,7 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/API/Files/Recognize?lang=cz&projectId={{lastProjectID}}&transcribe=false",
+							"raw": "{{url}}/API/Files/Recognize?lang=cz&projectId={{lastProjectID}}&transcribe=false&accessToken={{lastAccessToken}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1094,6 +1138,10 @@
 								{
 									"key": "transcribe",
 									"value": "false"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{lastAccessToken}}"
 								}
 							]
 						}
@@ -1102,6 +1150,18 @@
 				},
 				{
 					"name": "upload custom trsx to  project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "32341c59-253e-4e39-8b51-c68177e7795b",
+								"exec": [
+									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1122,7 +1182,7 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/API/Project/Trsx?id={{lastProjectID}}",
+							"raw": "{{url}}/API/Project/Trsx?id={{lastProjectID}}&accessToken={{lastAccessToken}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1135,6 +1195,10 @@
 								{
 									"key": "id",
 									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{lastAccessToken}}"
 								}
 							]
 						}
