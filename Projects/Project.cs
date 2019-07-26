@@ -56,6 +56,21 @@ namespace Beey.DataExchangeModel.Projects
 
         [JsonIgnoreWebDeserialize]
         public int ShareCount { get; set; }
+        [JsonIgnoreWebDeserialize]
+        [NotMapped]
+        public ICollection<string> SharedAmongUsers
+        {
+            get
+            {
+                if (ProjectAcesses != null && ProjectAcesses.Any()
+                    && ProjectAcesses.First().User != null)
+                {
+                    return ProjectAcesses.Select(pa => pa.User.Email).ToList();
+                }
+
+                return null;
+            }
+        }
 
         [JsonIgnoreWeb]
         public ICollection<ProjectMetadata> ProjectMetadata { get; set; }
