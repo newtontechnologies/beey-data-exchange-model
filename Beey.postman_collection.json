@@ -470,6 +470,7 @@
 								"id": "814aaa4f-77ca-46e6-97ae-a2dcfc1046f1",
 								"exec": [
 									"pm.globals.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);",
+									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
 									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 								],
 								"type": "text/javascript"
