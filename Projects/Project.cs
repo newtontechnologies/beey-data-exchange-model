@@ -26,6 +26,7 @@ namespace Beey.DataExchangeModel.Projects
         public string _tags { get; set; }
         [JsonIgnoreWeb]
         public string _settings { get; set; }
+        [JsonIgnoreWebDeserialize]
         [NotMapped]
         public JArray Tags { get => _tags == null ? null : JArray.Parse(_tags); set => _tags = value?.ToString(); }
         [NotMapped]
