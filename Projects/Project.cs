@@ -55,5 +55,8 @@ namespace Beey.DataExchangeModel.Projects
 
         [JsonIgnoreWebDeserialize]
         public int ShareCount { get; set; }
+
+        [JsonIgnoreWeb]
+        public ICollection<ProjectMetadata> ProjectMetadata { get; set; }
     }
 }
