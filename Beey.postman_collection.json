@@ -1524,6 +1524,152 @@
 			]
 		},
 		{
+			"name": "ProjectMetadata",
+			"item": [
+				{
+					"name": "get tags",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Project/Metadata/Tags?projectId={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Metadata",
+								"Tags"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add tag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "713507fe-e5ef-492a-aa8f-865613ff06eb",
+								"exec": [
+									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Project/Metadata/Tag?projectId={{lastProjectID}}&accessToken={{lastAccessToken}}&tag=tag zbrusu",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Metadata",
+								"Tag"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{lastAccessToken}}"
+								},
+								{
+									"key": "tag",
+									"value": "tag zbrusu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete tag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "245d0230-e4dc-440c-a067-dc5744df8c28",
+								"exec": [
+									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Project/Metadata/Tag?projectId={{lastProjectID}}&accessToken={{lastAccessToken}}&tag=tag zbrusu",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Metadata",
+								"Tag"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{lastAccessToken}}"
+								},
+								{
+									"key": "tag",
+									"value": "tag zbrusu"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "login (OVP)",
 			"event": [
 				{
