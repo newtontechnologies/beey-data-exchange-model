@@ -63,6 +63,7 @@ namespace Beey.DataExchangeModel.Projects
             get
             {
                 if (ProjectAcesses != null && ProjectAcesses.Any()
+                    // check if Users are included
                     && ProjectAcesses.First().User != null)
                 {
                     return ProjectAcesses.Select(pa => pa.User.Email).ToList();
