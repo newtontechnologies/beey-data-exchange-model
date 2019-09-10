@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
+#pragma warning disable 8625,8603
 namespace Beey.DataExchangeModel
 {
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]

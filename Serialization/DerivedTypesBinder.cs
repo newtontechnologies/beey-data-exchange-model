@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
+#pragma warning disable 8618,8603,8625
 namespace Beey.DataExchangeModel.Serialization
 {
     /// <summary>

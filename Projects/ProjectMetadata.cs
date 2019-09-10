@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+#pragma warning disable 8618
 namespace Beey.DataExchangeModel.Projects
 {
     public class ProjectMetadata : EntityBase

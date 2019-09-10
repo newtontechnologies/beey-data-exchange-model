@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
+#pragma warning disable 8618
 namespace Beey.DataExchangeModel.Files
 {
     public partial class FileStateInfo

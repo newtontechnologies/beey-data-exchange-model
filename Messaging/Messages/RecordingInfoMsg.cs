@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
+#pragma warning disable 8618,8603
 namespace Beey.DataExchangeModel.Messaging.Messages
 {
     public partial class RecordingInfoMsg : Message<RecordingInfoMsg.MessageKind>

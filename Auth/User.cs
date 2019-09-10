@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
+#pragma warning disable 8618,8601,8603
 namespace Beey.DataExchangeModel.Auth
 {
     public partial class User : EntityBase

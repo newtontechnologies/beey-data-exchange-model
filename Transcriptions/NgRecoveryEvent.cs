@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
 #pragma warning disable nullable
+#pragma warning disable 8625
 namespace Beey.DataExchangeModel.Transcriptions
 {
     public partial class NgRecoveryEvent : NgEvent

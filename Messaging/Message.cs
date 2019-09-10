@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
+#pragma warning disable 8618
 namespace Beey.DataExchangeModel.Messaging
 {
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
