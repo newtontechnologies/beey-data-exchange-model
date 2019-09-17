@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "47d5e7be-a6dd-46a4-adec-bcbcb20596cc",
+		"_postman_id": "a930fed5-ceea-444e-bf2a-95d354051d54",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1097,6 +1097,48 @@
 					"response": []
 				},
 				{
+					"name": "transcribe uploaded file",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/API/Files/Transcribe?lang=cz&projectId={{lastProjectID}}&accessToken={{lastAccessToken}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Files",
+								"Transcribe"
+							],
+							"query": [
+								{
+									"key": "lang",
+									"value": "cz"
+								},
+								{
+									"key": "projectId",
+									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{lastAccessToken}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "upload only file",
 					"request": {
 						"method": "POST",
@@ -1525,7 +1567,7 @@
 			]
 		},
 		{
-			"name": "ProjectMetadata",
+			"name": "Project metadata",
 			"item": [
 				{
 					"name": "get tags",
@@ -1662,6 +1704,107 @@
 								{
 									"key": "tag",
 									"value": "tag zbrusu"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project progress control",
+			"item": [
+				{
+					"name": "Progress state",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Project/ProgressControl/State?id={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"ProgressControl",
+								"State"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Progress messages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Project/ProgressControl/Messages?id={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"ProgressControl",
+								"Messages"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Progress kill",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Project/ProgressControl/Stop?id={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"ProgressControl",
+								"Stop"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
 								}
 							]
 						}
