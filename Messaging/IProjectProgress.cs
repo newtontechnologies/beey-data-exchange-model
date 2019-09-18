@@ -15,5 +15,14 @@ namespace Beey.DataExchangeModel.Messaging
 
         System.Threading.Tasks.Task StopAsync();
     }
-    public enum ProcessState { None, Running, Completed, Failed }
+    [Flags]
+    public enum ProcessState
+    {
+        // zero value causes problems when checking for Final
+        None = 1,
+        Running = 2,
+        Completed = 4,
+        Failed = 8,
+        Final = Completed | Failed
+    }
 }
