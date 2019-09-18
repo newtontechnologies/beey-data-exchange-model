@@ -1780,7 +1780,7 @@
 					"response": []
 				},
 				{
-					"name": "Progress kill",
+					"name": "Progress stop",
 					"request": {
 						"method": "GET",
 						"header": [
