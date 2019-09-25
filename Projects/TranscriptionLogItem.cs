@@ -28,7 +28,9 @@ namespace Beey.DataExchangeModel.Projects
         [JsonIgnoreWebDeserialize]
         public Project Project { get; set; }
         [JsonIgnoreWebDeserialize]
-        public int TranscribedMinutes { get; set; }
+        public string ProjectName { get; set; }
+        [JsonIgnoreWebDeserialize]
+        public decimal TranscribedMinutes { get; set; }
         [JsonIgnoreWebDeserialize]
         public string TranscriptionSettings { get; set; }
 
