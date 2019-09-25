@@ -41,7 +41,7 @@ namespace Beey.DataExchangeModel.Auth
         public UserRole UserRole { get; set; }
 
         [JsonIgnoreWebDeserialize]
-        public int? TranscribedMinutes { get; set; }
+        public decimal TranscribedMinutes { get; set; }
         public int CreditMinutes { get; set; }
     }
 }
