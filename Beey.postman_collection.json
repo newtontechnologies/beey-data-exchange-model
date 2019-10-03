@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a930fed5-ceea-444e-bf2a-95d354051d54",
+		"_postman_id": "68ae279d-5b61-44a8-8bd7-8515a3861498",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -375,7 +375,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Email",
@@ -412,7 +413,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Project",
@@ -959,7 +961,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Messaging",
@@ -1042,7 +1045,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Files",
@@ -1282,7 +1286,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/API/Files/Download?projectId={{lastProjectID}}&fileid={{currentTrsxID}}",
+							"raw": "{{url}}/API/Files/Download?projectId={{lastProjectID}}&fileId={{currentTrsxID}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1297,7 +1301,7 @@
 									"value": "{{lastProjectID}}"
 								},
 								{
-									"key": "fileid",
+									"key": "fileId",
 									"value": "{{currentTrsxID}}"
 								}
 							]
@@ -1305,7 +1309,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Speaker",
@@ -1564,7 +1569,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Project metadata",
@@ -1710,7 +1716,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Project progress control",
@@ -1811,7 +1818,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "login (OVP)",
@@ -2104,5 +2112,6 @@
 			"value": "localhost:61497",
 			"type": "string"
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
