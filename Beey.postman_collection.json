@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "68ae279d-5b61-44a8-8bd7-8515a3861498",
+		"_postman_id": "f1fd8c89-90e5-448e-bc8d-ad8d4120598d",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -375,8 +375,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Email",
@@ -413,8 +412,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Project",
@@ -961,8 +959,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Messaging",
@@ -1045,8 +1042,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Files",
@@ -1309,8 +1305,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Speaker",
@@ -1499,7 +1494,7 @@
 							"script": {
 								"id": "5b07497f-c8f1-43e9-9f3e-4d3f6e32c3d2",
 								"exec": [
-									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);"
+									"pm.globals.set(\"lastSpeakerID\", xml2Json(pm.response.text()).s.$.dbid);"
 								],
 								"type": "text/javascript"
 							}
@@ -1569,8 +1564,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Project metadata",
@@ -1716,8 +1710,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Project progress control",
@@ -1818,8 +1811,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "login (OVP)",
@@ -2112,6 +2104,5 @@
 			"value": "localhost:61497",
 			"type": "string"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
