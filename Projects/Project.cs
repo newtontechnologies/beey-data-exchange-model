@@ -17,6 +17,9 @@ namespace Beey.DataExchangeModel.Projects
     public partial class Project : ConcurrentEntity
     {
         [JsonIgnoreWebDeserialize]
+        public bool ConversionFinished { get; set; }
+
+        [JsonIgnoreWebDeserialize]
         public TimeSpan Length { get; set; }
 
         [JsonIgnoreWebDeserialize]
