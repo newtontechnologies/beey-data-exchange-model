@@ -17,11 +17,11 @@ namespace Beey.DataExchangeModel.Messaging.Messages
         [Flags]
         public enum MessageKind
         {
-            Started,
-            Completed,
-            Failed,
+            Started = 1,
+            Completed = 2,
+            Failed = 4,
+            UploadedBytes = 8,
             IsTerminated = Completed | Failed,
-            UploadedBytes,
         }
 
         public class UploadConfig

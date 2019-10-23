@@ -12,10 +12,10 @@ namespace Beey.DataExchangeModel.Messaging.Messages
         [Flags]
         public enum MessageKind
         {
-            Started,
-            Completed,
-            Failed,
-            Interrupted,
+            Started = 1,
+            Completed = 2,
+            Failed = 4,
+            Interrupted = 8,
             IsTerminated = Completed | Failed | Interrupted,
         }
     }
