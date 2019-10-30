@@ -1,20 +1,21 @@
-﻿using System;
+﻿using Beey.DataExchangeModel.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public interface IProjectProgress
+    public partial class ProjectProgress
     {
-        int ProjectId { get; }
-        IEnumerable<Message> MessageHistory { get; }
-        ProcessState UploadState { get; }
-        ProcessState TranscodingState { get; }
-        ProcessState TranscriptionState { get; }
-        ProcessState DiarizationState { get; }
-
-        System.Threading.Tasks.Task StopAsync();
+        public ProcessState UploadState { get; set; }
+        public ProcessState TranscodingState { get; set; }
+        public ProcessState TranscriptionState { get; set; }
+        public ProcessState DiarizationState { get; set; }
     }
+
+    [JsonConverter(typeof(StringEnumConverter))]
     [Flags]
     public enum ProcessState
     {
