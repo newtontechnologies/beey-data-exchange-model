@@ -11,9 +11,9 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Fakes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConcurrentEntity.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\IProjectProgress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\RecognitionMsg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\TagChangeMsg.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messaging\ProjectProgress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectMetadata.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\DerivedTypesBinder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonIgnoreDeserializeWebAttribute.cs" />
