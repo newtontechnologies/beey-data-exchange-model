@@ -9,6 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using Beey.DataExchangeModel.Lexicons;
 
 #pragma warning disable nullable
 #pragma warning disable 8618,8601,8603
@@ -43,6 +44,8 @@ namespace Beey.DataExchangeModel.Auth
         [JsonIgnoreWebDeserialize]
         public decimal TranscribedMinutes { get; set; }
         public int CreditMinutes { get; set; }
+        [JsonIgnoreWeb]
+        public List<UserLex> UserLexes { get; set; }
     }
 }
 
