@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f1fd8c89-90e5-448e-bc8d-ad8d4120598d",
+		"_postman_id": "47a31014-7b46-4668-9034-f661c9a80f52",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -375,7 +375,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Email",
@@ -412,7 +413,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Project",
@@ -959,7 +961,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Messaging",
@@ -1042,7 +1045,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Files",
@@ -1305,7 +1309,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Speaker",
@@ -1564,7 +1569,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Project metadata",
@@ -1710,7 +1716,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Project progress control",
@@ -1811,7 +1818,144 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Lexicon",
+			"item": [
+				{
+					"name": "list user lexicons",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Lexicon/User/List",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Lexicon",
+								"User",
+								"List"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user lexicon",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Lexicon/User?language=cz",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Lexicon",
+								"User"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "cz"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add user lexicon",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "nejkulaťoulinkatější:nejkulaťoulinkatější\r\nŘ.Í.Z.E.K:řýzenéyntelygentňýzázemýproekstrémňýkachny"
+						},
+						"url": {
+							"raw": "{{url}}/API/Lexicon/User?language=cz",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Lexicon",
+								"User"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "cz"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user lexicon",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Lexicon/User?language=cz",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Lexicon",
+								"User"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "cz"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "login (OVP)",
@@ -2104,5 +2248,6 @@
 			"value": "localhost:61497",
 			"type": "string"
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
