@@ -12,8 +12,11 @@ namespace Beey.DataExchangeModel.Messaging.Messages
         public enum MessageKind
         {
             Started,
+            Progress,
             Completed,
             Failed,
         }
+
+        public TimeSpan MediaElapsed { get; set; }
     }
 }
