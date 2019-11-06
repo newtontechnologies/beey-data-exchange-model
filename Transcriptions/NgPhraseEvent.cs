@@ -14,6 +14,7 @@ namespace Beey.DataExchangeModel.Transcriptions
         public TimeSpan End { get; set; }
 
         public string Text { get; set; }
+        public double Confidence { get; set; }
         public NgPhraseEvent()
         { }
         public NgPhraseEvent(JObject source) : base(source)
@@ -23,6 +24,9 @@ namespace Beey.DataExchangeModel.Transcriptions
             End = TimeSpan.FromMilliseconds(source["e"].Value<long>());
 
             Text = source["t"].Value<string>();
+
+            if (source.TryGetValue("c", out var token))
+                Confidence = token.Value<double>();
         }
 
         public override JObject Serialize()
@@ -32,7 +36,8 @@ namespace Beey.DataExchangeModel.Transcriptions
                     new JProperty("b", (long)Begin.TotalMilliseconds),
                     new JProperty("e", (long)End.TotalMilliseconds),
                     new JProperty("k", "p"),
-                    new JProperty("t", Text)
+                    new JProperty("t", Text),
+                    new JProperty("c", Confidence)
                     );
         }
 
