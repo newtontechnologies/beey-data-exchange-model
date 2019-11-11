@@ -43,7 +43,9 @@ namespace Beey.DataExchangeModel.Transcriptions
 
         public TranscriptionPhrase ToPhrase()
         {
-            return new TranscriptionPhrase() { Begin = Begin, End = End, Text = Text };
+            var result = new TranscriptionPhrase() { Begin = Begin, End = End, Text = Text };
+            result.Elements.Add("c", Confidence.ToString(System.Globalization.CultureInfo.InvariantCulture));
+            return result;
         }
     }
 }
