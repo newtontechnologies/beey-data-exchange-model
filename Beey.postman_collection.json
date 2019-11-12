@@ -1911,7 +1911,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "nejkulaťoulinkatější:nejkulaťoulinkatější\r\nŘ.Í.Z.E.K:řýzenéyntelygentňýzázemýproekstrémňýkachny"
+							"raw": "[\r\n    {\r\n        \"Text\": \"Ř.Í.Z.E.K\",\r\n        \"Pronunciation\": \"řýzenéyntelygentňýzázemýproekstrémňýkachny\",\r\n    },\r\n    {\r\n        \"Text\": \"nejkulaťoulinkatější\",\r\n        \"Pronunciation\": \"nejkulaťoulinkatější\",\r\n    },\r\n]"
 						},
 						"url": {
 							"raw": "{{url}}/API/Lexicon/User?language=cz",
