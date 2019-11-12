@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "47a31014-7b46-4668-9034-f661c9a80f52",
+		"_postman_id": "35a6ba2a-45bf-48f3-87e5-df1f0f6ea65b",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1846,7 +1846,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/API/Lexicon/User/List",
+							"raw": "{{url}}/API/Lexicon/User/List?",
 							"host": [
 								"{{url}}"
 							],
@@ -1959,6 +1959,101 @@
 									"key": "language",
 									"value": "cz"
 								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Export",
+			"item": [
+				{
+					"name": "export srt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "814aaa4f-77ca-46e6-97ae-a2dcfc1046f1",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Export?projectId={{lastProjectID}}&formatId=srt",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Export"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "formatId",
+									"value": "srt"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get export formats",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "814aaa4f-77ca-46e6-97ae-a2dcfc1046f1",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Export/Formats",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Export",
+								"Formats"
 							]
 						}
 					},
