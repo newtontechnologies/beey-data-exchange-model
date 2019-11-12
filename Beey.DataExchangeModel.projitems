@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Fakes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConcurrentEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Lexicons\LexiconEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Lexicons\UserLex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\RecognitionMsg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\TagChangeMsg.cs" />
