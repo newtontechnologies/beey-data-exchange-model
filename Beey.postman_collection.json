@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "35a6ba2a-45bf-48f3-87e5-df1f0f6ea65b",
+		"_postman_id": "33eec228-6e18-468c-8776-ce80e2a173a1",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1835,39 +1835,6 @@
 			"name": "Lexicon",
 			"item": [
 				{
-					"name": "list user lexicons",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/API/Lexicon/User/List?",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"Lexicon",
-								"User",
-								"List"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": "",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "get user lexicon",
 					"request": {
 						"method": "GET",
@@ -1899,44 +1866,9 @@
 					"response": []
 				},
 				{
-					"name": "add user lexicon",
+					"name": "post user lexicon",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\r\n    {\r\n        \"Text\": \"Ř.Í.Z.E.K\",\r\n        \"Pronunciation\": \"řýzenéyntelygentňýzázemýproekstrémňýkachny\",\r\n    },\r\n    {\r\n        \"Text\": \"nejkulaťoulinkatější\",\r\n        \"Pronunciation\": \"nejkulaťoulinkatější\",\r\n    },\r\n]"
-						},
-						"url": {
-							"raw": "{{url}}/API/Lexicon/User?language=cz",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"Lexicon",
-								"User"
-							],
-							"query": [
-								{
-									"key": "language",
-									"value": "cz"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete user lexicon",
-					"request": {
-						"method": "DELETE",
 						"header": [
 							{
 								"key": "Authorization",
@@ -1944,6 +1876,10 @@
 								"value": "{{authToken}}"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"text\": \"Ř.Í.Z.E.K\",\r\n        \"pronunciation\": \"řýzenéyntelygentňýzázemýproekstrémňýkachne\",\r\n    },\r\n    {\r\n        \"text\": \"nejkulaťoulinkatější\",\r\n        \"pronunciation\": \"nejkulaťoulinkatější\",\r\n    },\r\n]"
+						},
 						"url": {
 							"raw": "{{url}}/API/Lexicon/User?language=cz",
 							"host": [
