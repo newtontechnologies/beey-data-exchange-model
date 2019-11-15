@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "user",
+			"name": "User",
 			"item": [
 				{
 					"name": "get user",
@@ -370,6 +370,90 @@
 							"path": [
 								"API",
 								"UserSettings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - get transcription log",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15f26f3d-adc1-4447-b5bd-b39cbd3c070b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Admin/Users/TranscriptionLog?id=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Admin",
+								"Users",
+								"TranscriptionLog"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user transcription log",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15f26f3d-adc1-4447-b5bd-b39cbd3c070b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/UserTranscriptionLog?id=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"UserTranscriptionLog"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
 							]
 						}
 					},
