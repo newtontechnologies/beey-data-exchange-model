@@ -1962,7 +1962,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {\r\n        \"text\": \"Ř.Í.Z.E.K\",\r\n        \"pronunciation\": \"řýzenéyntelygentňýzázemýproekstrémňýkachne\",\r\n    },\r\n    {\r\n        \"text\": \"nejkulaťoulinkatější\",\r\n        \"pronunciation\": \"nejkulaťoulinkatější\",\r\n    },\r\n]"
+							"raw": "[\r\n    {\r\n        \"text\": \"Ř.Í.Z.E.K\",\r\n        \"pronunciation\": \"řýzenéyntelygentňýzázemýproekstrémňýkachny\",\r\n    },\r\n    {\r\n        \"text\": \"nejkulaťoulinkatější\",\r\n        \"pronunciation\": \"nejkulaťoulinkatější\",\r\n    },\r\n]"
 						},
 						"url": {
 							"raw": "{{url}}/API/Lexicon/User?language=cz",
@@ -1973,6 +1973,86 @@
 								"API",
 								"Lexicon",
 								"User"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "cz"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validate lexicon entry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Lexicon/ValidateEntry?language=cz&text=Ř.Í.Z.E.K&pronunciation=řízenéinteligentnízázemíproextrémníkachny",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Lexicon",
+								"ValidateEntry"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "cz"
+								},
+								{
+									"key": "text",
+									"value": "Ř.Í.Z.E.K"
+								},
+								{
+									"key": "pronunciation",
+									"value": "řízenéinteligentnízázemíproextrémníkachny"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validate lexicon",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"text\": \"Ř.Í.Z.E.K\",\r\n        \"pronunciation\": \"řízenéinteligentnízázemíproextrémníkachny\",\r\n    },\r\n    {\r\n        \"text\": \"nejkulaťoulinkatější\",\r\n        \"pronunciation\": \"nejkulaťoulinkatější\",\r\n    },\r\n]"
+						},
+						"url": {
+							"raw": "{{url}}/API/Lexicon/Validate?language=cz",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Lexicon",
+								"Validate"
 							],
 							"query": [
 								{
