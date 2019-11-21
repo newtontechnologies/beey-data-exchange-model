@@ -26,15 +26,19 @@ namespace Beey.DataExchangeModel.Messaging.Messages
 
         public class UploadConfig
         {
-            public UploadConfig(bool transcribe, bool saveMedia, bool saveTrsx)
+            public UploadConfig(bool transcribe, bool saveMedia, bool saveTrsx, string Language, bool WithPPC)
             {
                 Transcribe = transcribe;
                 SaveMedia = saveMedia;
                 SaveTrsx = saveTrsx;
+                this.Language = Language;
+                this.WithPPC = WithPPC;
             }
 
             public bool Transcribe { set; get; }
             public bool SaveTrsx { set; get; }
+            public string Language { get; }
+            public bool WithPPC { get; }
             public bool SaveMedia { set; get; }
         }
     }
