@@ -58,7 +58,7 @@ namespace Beey.DataExchangeModel.Messaging
         public bool Equals(Message other) => this.Id == other.Id;
     }
 
-    public abstract class Message<T> : Message where T : Enum
+    public abstract partial class Message<T> : Message where T : Enum
     {
         public Message()
         {
