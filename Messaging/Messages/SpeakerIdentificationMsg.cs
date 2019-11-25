@@ -18,6 +18,9 @@ namespace Beey.DataExchangeModel.Messaging.Messages
         {
             Speaker,
             Unidentified,
+            Started,
+            Completed,
+            Failed,
         }
     }
 }
