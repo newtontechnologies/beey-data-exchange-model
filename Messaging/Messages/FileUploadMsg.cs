@@ -40,6 +40,8 @@ namespace Beey.DataExchangeModel.Messaging.Messages
             public string Language { get; }
             public bool WithPPC { get; }
             public bool SaveMedia { set; get; }
+
+            public int UserID { set; get; }
         }
     }
 }
