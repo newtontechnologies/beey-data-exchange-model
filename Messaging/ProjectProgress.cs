@@ -13,6 +13,7 @@ namespace Beey.DataExchangeModel.Messaging
         public ProcessState TranscodingState { get; set; }
         public ProcessState TranscriptionState { get; set; }
         public ProcessState DiarizationState { get; set; }
+        public ProcessState SpeakerIdentificationState { get; set; }
     }
 
     [JsonConverter(typeof(StringEnumConverter))]
