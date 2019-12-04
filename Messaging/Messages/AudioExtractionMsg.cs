@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Beey.DataExchangeModel.Messaging.Messages2;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Messaging.Messages
 {
-    public partial class AudioExtractionMsg : Message<AudioExtractionMsg.MessageKind>
+    public partial class AudioExtractionMsg : Message<AudioExtractionMsgKind>
     {
         public enum MessageKind
         {
@@ -16,4 +17,6 @@ namespace Beey.DataExchangeModel.Messaging.Messages
             Failed,
         }
     }
+
+
 }

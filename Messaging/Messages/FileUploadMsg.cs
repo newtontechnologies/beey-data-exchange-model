@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Beey.DataExchangeModel.Messaging.Messages2;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 #pragma warning disable 8618
 namespace Beey.DataExchangeModel.Messaging.Messages
 {
-    public partial class FileUploadMsg : Message<FileUploadMsg.MessageKind>
+    public partial class FileUploadMsg : Message<FileUploadMsgKind>
     {
         public long? FileOffset { get; internal set; }
         public UploadConfig Config { get; set; }
@@ -44,4 +45,5 @@ namespace Beey.DataExchangeModel.Messaging.Messages
             public int UserID { set; get; }
         }
     }
+    
 }

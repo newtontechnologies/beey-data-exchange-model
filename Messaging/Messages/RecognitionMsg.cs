@@ -1,18 +1,20 @@
-﻿using System;
+﻿using Beey.DataExchangeModel.Messaging.Messages2;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Beey.DataExchangeModel.Messaging.Messages
 {
-    class RecognitionMsg : Message<RecognitionMsg.MessageKind>
+    class RecognitionMsg : Message<RecognitionMsgKind>
     {
         [Flags]
         public enum MessageKind
         {
             Started = 1,
-            Finished = 2,
+            Completed = 2,
             Cancelled = 4,
-            IsTerminated = Finished | Cancelled,
+            IsTerminated = Completed | Cancelled,
         }
     }
+    
 }

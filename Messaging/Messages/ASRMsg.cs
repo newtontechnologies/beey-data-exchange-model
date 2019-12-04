@@ -1,4 +1,5 @@
-﻿using Beey.DataExchangeModel.Transcriptions;
+﻿using Beey.DataExchangeModel.Messaging.Messages2;
+using Beey.DataExchangeModel.Transcriptions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 #pragma warning disable 8618
 namespace Beey.DataExchangeModel.Messaging.Messages
 {
-    public partial class ASRMsg : Message<ASRMsg.MessageKind>
+    public partial class ASRMsg : Message<ASRMsgKind>
     {
         public NgEvent Event { get; set; }
         public enum MessageKind
@@ -20,4 +21,5 @@ namespace Beey.DataExchangeModel.Messaging.Messages
             SpeakerRecovery,
         }
     }
+    
 }

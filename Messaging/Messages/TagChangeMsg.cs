@@ -1,4 +1,5 @@
-﻿using Beey.DataExchangeModel.Transcriptions;
+﻿using Beey.DataExchangeModel.Messaging.Messages2;
+using Beey.DataExchangeModel.Transcriptions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 #pragma warning disable 8618
 namespace Beey.DataExchangeModel.Messaging.Messages
 {
-    public partial class TagChangeMsg : Message<TagChangeMsg.MessageKind>
+    public partial class TagChangeMsg : Message<TagChangeMsgKind>
     {
         public string Tag { get; set; }
         public enum MessageKind
@@ -19,4 +20,5 @@ namespace Beey.DataExchangeModel.Messaging.Messages
             Removed,
         }
     }
+    
 }

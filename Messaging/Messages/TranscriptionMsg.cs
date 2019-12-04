@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Beey.DataExchangeModel.Messaging.Messages2;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 #pragma warning disable 8618
 namespace Beey.DataExchangeModel.Messaging.Messages
 {
-    public partial class TranscriptionMsg : Message<TranscriptionMsg.MessageKind>
+    public partial class TranscriptionMsg : Message<TranscriptionMsgKind>
     {
         [Flags]
         public enum MessageKind
@@ -24,4 +25,5 @@ namespace Beey.DataExchangeModel.Messaging.Messages
         public string Language { get; internal set; }
         public TimeSpan? Transcribed { get; internal set; }
     }
+    
 }

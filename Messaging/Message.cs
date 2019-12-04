@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Beey.DataExchangeModel.Messaging.Messages2;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
@@ -58,14 +59,15 @@ namespace Beey.DataExchangeModel.Messaging
         public bool Equals(Message other) => this.Id == other.Id;
     }
 
-    public abstract partial class Message<T> : Message where T : Enum
+    public abstract partial class Message<T> : Message
+        where T : MessageKind<T, Message<T>>
     {
         public Message()
         {
 
         }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(MessageKindConverter))]
         public T Kind { get; set; }
     }
 }

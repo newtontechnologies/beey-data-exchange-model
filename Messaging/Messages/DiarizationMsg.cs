@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Beey.DataExchangeModel.Messaging.Messages2;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Messaging.Messages
 {
-    public partial class DiarizationMsg : Message<DiarizationMsg.MessageKind>
+    public partial class DiarizationMsg : Message<DiarizationMsgKind>
     {
         [Flags]
         public enum MessageKind
@@ -19,4 +20,5 @@ namespace Beey.DataExchangeModel.Messaging.Messages
             IsTerminated = Completed | Failed | Interrupted,
         }
     }
+    
 }
