@@ -16,7 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Lexicons\UserLex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages2\MessageKind.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages2\MessageKindConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages2\Test.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\AudioExtractionMsg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\SpeakerIdentificationMsg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\RecognitionMsg.cs" />
