@@ -25,6 +25,6 @@ namespace Beey.DataExchangeModel.Messaging
         Running = 2,
         Completed = 4,
         Failed = 8,
-        Final = Completed | Failed
+        Finished = Completed | Failed
     }
 }
