@@ -16,7 +16,9 @@ namespace Beey.DataExchangeModel.Transcriptions
         public string Text { get; set; }
         public double Confidence { get; set; }
         public NgPhraseEvent()
-        { }
+        {
+            Confidence = 1.0;
+        }
         public NgPhraseEvent(JObject source) : base(source)
         {
             Begin = TimeSpan.FromMilliseconds(source["b"].Value<long>());
@@ -27,6 +29,8 @@ namespace Beey.DataExchangeModel.Transcriptions
 
             if (source.TryGetValue("c", out var token))
                 Confidence = token.Value<double>();
+            else
+                Confidence = 1.0;
         }
 
         public override JObject Serialize()

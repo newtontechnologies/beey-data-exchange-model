@@ -13,6 +13,7 @@ namespace Beey.DataExchangeModel.Messaging
         public ProcessState TranscodingState { get; set; }
         public ProcessState TranscriptionState { get; set; }
         public ProcessState DiarizationState { get; set; }
+        public ProcessState SpeakerIdentificationState { get; set; }
     }
 
     [JsonConverter(typeof(StringEnumConverter))]
@@ -24,6 +25,6 @@ namespace Beey.DataExchangeModel.Messaging
         Running = 2,
         Completed = 4,
         Failed = 8,
-        Final = Completed | Failed
+        Finished = Completed | Failed
     }
 }

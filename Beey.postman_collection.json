@@ -1860,7 +1860,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/API/Project/ProgressControl/Messages?id={{lastProjectID}}",
+							"raw": "{{url}}/API/Project/ProgressControl/Messages?id={{lastProjectID}}&fromId=1&skip=0&count=15",
 							"host": [
 								"{{url}}"
 							],
@@ -1874,6 +1874,21 @@
 								{
 									"key": "id",
 									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "fromId",
+									"value": "1",
+									"description": "can be null"
+								},
+								{
+									"key": "skip",
+									"value": "0",
+									"description": "can be null"
+								},
+								{
+									"key": "count",
+									"value": "15",
+									"description": "can be null"
 								}
 							]
 						}
