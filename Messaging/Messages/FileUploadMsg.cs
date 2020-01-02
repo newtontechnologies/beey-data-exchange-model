@@ -22,6 +22,9 @@ namespace Beey.DataExchangeModel.Messaging.Messages
             Failed = 4,
             UploadedBytes = 8,
             IsTerminated = Completed | Failed,
+
+            DisabledDataCacheReaderCreation = 0x10,
+            RestoreOnStreamNotSupported = 0x20,
         }
 
         public class UploadConfig
