@@ -15,7 +15,7 @@ namespace Beey.DataExchangeModel.Serialization
     {
         public WebJsonSerializer()
         {
-            this.ContractResolver = new DoNotSerializePasswordsResolver();
+            this.ContractResolver = DoNotSerializePasswordsResolver.Instance;
             this.ConfigureForNodaTime(DateTimeZoneProviders.Tzdb);
             this.SerializationBinder = new DerivedTypesBinder();
 
@@ -27,6 +27,7 @@ namespace Beey.DataExchangeModel.Serialization
         /// </summary>
         public class DoNotSerializePasswordsResolver : DefaultContractResolver
         {
+            public static readonly DoNotSerializePasswordsResolver Instance = new DoNotSerializePasswordsResolver();
             protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
             {
                 JsonProperty property = base.CreateProperty(member, memberSerialization);
