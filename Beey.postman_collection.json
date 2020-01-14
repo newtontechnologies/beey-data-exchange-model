@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "33eec228-6e18-468c-8776-ce80e2a173a1",
+		"_postman_id": "82104bdd-b150-43e2-ac51-f72721879ce2",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1157,7 +1157,7 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/API/Files/Recognize?lang=cz&projectId={{lastProjectID}}&accessToken={{lastAccessToken}}",
+							"raw": "{{url}}/API/Files/Recognize?lang=cs-CZ&projectId={{lastProjectID}}&accessToken={{lastAccessToken}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1169,7 +1169,7 @@
 							"query": [
 								{
 									"key": "lang",
-									"value": "cz"
+									"value": "cs-CZ"
 								},
 								{
 									"key": "projectId",
@@ -1204,7 +1204,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "{{url}}/API/Files/Transcribe?lang=cz&projectId={{lastProjectID}}&accessToken={{lastAccessToken}}",
+							"raw": "{{url}}/API/Files/Transcribe?lang=cs-CZ&projectId={{lastProjectID}}&accessToken={{lastAccessToken}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1216,7 +1216,7 @@
 							"query": [
 								{
 									"key": "lang",
-									"value": "cz"
+									"value": "cs-CZ"
 								},
 								{
 									"key": "projectId",
@@ -1258,7 +1258,7 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/API/Files/Recognize?lang=cz&projectId={{lastProjectID}}&transcribe=false&accessToken={{lastAccessToken}}",
+							"raw": "{{url}}/API/Files/Recognize?lang=cs-CZ&projectId={{lastProjectID}}&transcribe=false&accessToken={{lastAccessToken}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1270,7 +1270,7 @@
 							"query": [
 								{
 									"key": "lang",
-									"value": "cz"
+									"value": "cs-CZ"
 								},
 								{
 									"key": "projectId",
@@ -1860,7 +1860,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/API/Project/ProgressControl/Messages?id={{lastProjectID}}&fromId=1&skip=0&count=15",
+							"raw": "{{url}}/API/Project/ProgressControl/Messages?id={{lastProjectID}}&fromId=1&toId=987&skip=0&count=15",
 							"host": [
 								"{{url}}"
 							],
@@ -1878,6 +1878,11 @@
 								{
 									"key": "fromId",
 									"value": "1",
+									"description": "can be null"
+								},
+								{
+									"key": "toId",
+									"value": "987",
 									"description": "can be null"
 								},
 								{
