@@ -1809,6 +1809,147 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get metadata",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Project/Metadata?id={{lastProjectID}}&key=notes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Metadata"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "key",
+									"value": "notes"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add metadata",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "713507fe-e5ef-492a-aa8f-865613ff06eb",
+								"exec": [
+									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Test poznámek jakoby.\n\nProtože nejvíc."
+						},
+						"url": {
+							"raw": "{{url}}/API/Project/Metadata?id={{lastProjectID}}&accessToken={{lastAccessToken}}&key=notes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Metadata"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{lastAccessToken}}"
+								},
+								{
+									"key": "key",
+									"value": "notes"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete metadata",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "245d0230-e4dc-440c-a067-dc5744df8c28",
+								"exec": [
+									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Project/Metadata?id={{lastProjectID}}&accessToken={{lastAccessToken}}&key=notes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Metadata"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{lastAccessToken}}"
+								},
+								{
+									"key": "key",
+									"value": "notes"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
