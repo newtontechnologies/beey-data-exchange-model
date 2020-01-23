@@ -51,6 +51,48 @@
 					"response": []
 				},
 				{
+					"name": "delete user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15f26f3d-adc1-4447-b5bd-b39cbd3c070b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Admin/Users?id=0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Admin",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "modify user (change password..)",
 					"event": [
 						{
