@@ -51,7 +51,7 @@ namespace Beey.DataExchangeModel.Projects
 
 
         [JsonIgnoreWebDeserialize]
-        public int CreatorId { get; set; }
+        public int? CreatorId { get; set; }
         [JsonIgnoreWeb]
         public User Creator { get; set; }
 
