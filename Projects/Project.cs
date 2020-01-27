@@ -59,7 +59,7 @@ namespace Beey.DataExchangeModel.Projects
         public ICollection<ProjectAccess> ProjectAcesses { get; set; }
 
         [JsonIgnoreWebDeserialize]
-        public int ShareCount { get; set; }
+        public int ShareCount { get; set; } = 1;
         [JsonIgnoreWebDeserialize]
         [NotMapped]
         public ICollection<string> SharedAmongUsers
