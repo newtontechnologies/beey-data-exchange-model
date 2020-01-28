@@ -56,6 +56,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Projects\TranscriptionLogItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\UserRole.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UploadConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Auth\" />

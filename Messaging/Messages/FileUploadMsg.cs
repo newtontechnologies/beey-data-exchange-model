@@ -26,25 +26,5 @@ namespace Beey.DataExchangeModel.Messaging.Messages
             DisabledDataCacheReaderCreation = 0x10,
             RestoreOnStreamNotSupported = 0x20,
         }
-
-        public class UploadConfig
-        {
-            public UploadConfig(bool transcribe, bool saveMedia, bool saveTrsx, string Language, bool WithPPC)
-            {
-                Transcribe = transcribe;
-                SaveMedia = saveMedia;
-                SaveTrsx = saveTrsx;
-                this.Language = Language;
-                this.WithPPC = WithPPC;
-            }
-
-            public bool Transcribe { set; get; }
-            public bool SaveTrsx { set; get; }
-            public string Language { get; }
-            public bool WithPPC { get; }
-            public bool SaveMedia { set; get; }
-
-            public int UserID { set; get; }
-        }
     }
 }
