@@ -19,6 +19,7 @@ namespace Beey.DataExchangeModel.Messaging.Messages
             RawFileInfo,
             Duration,
             ApproximateDuration,
+            DurationlessStream,
             Failed,
         }
     }
