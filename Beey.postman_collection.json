@@ -1382,6 +1382,12 @@
 								{
 									"key": "accessToken",
 									"value": "{{lastAccessToken}}"
+								},
+								{
+									"key": "originalTrsx",
+									"value": "false",
+									"description": "default = false",
+									"disabled": true
 								}
 							]
 						}
