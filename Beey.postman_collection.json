@@ -1384,7 +1384,7 @@
 									"value": "{{lastAccessToken}}"
 								},
 								{
-									"key": "originalTrsx",
+									"key": "isOriginalTrsx",
 									"value": "false",
 									"description": "default = false",
 									"disabled": true
