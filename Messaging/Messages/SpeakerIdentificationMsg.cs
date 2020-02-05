@@ -14,6 +14,7 @@ namespace Beey.DataExchangeModel.Messaging.Messages
     public partial class SpeakerIdentificationMsg : Message<SpeakerIdentificationMsg.MessageKind>
     {
         public string XMLSpeaker { get; set; }
+        public int ASRMsgId { get; set; }
         public enum MessageKind
         {
             Speaker,
