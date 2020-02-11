@@ -1086,6 +1086,38 @@
 						"description": "Project can have different path for each user. Paths arre stored in acesslist\n\nWeb does not have access to most of access properties.. Only CustomPath for now"
 					},
 					"response": []
+				},
+				{
+					"name": "reset project processing",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/Project/Reset?id={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Reset"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								}
+							]
+						},
+						"description": "After unsuccessful recognition project might get into unrecoverable state, where all/some API calls won't work. This will fix it."
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
