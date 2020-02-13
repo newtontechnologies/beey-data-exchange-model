@@ -2480,6 +2480,36 @@
 			"response": []
 		},
 		{
+			"name": "get content version",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33ed4314-94c7-4c9c-a287-e4cf64ef559a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/API/ContentVersion",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"API",
+						"ContentVersion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "login (TNP)",
 			"event": [
 				{
