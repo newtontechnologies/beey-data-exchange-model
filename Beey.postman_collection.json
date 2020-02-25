@@ -1210,7 +1210,7 @@
 			"name": "Files",
 			"item": [
 				{
-					"name": "recognize file",
+					"name": "upload file",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1231,32 +1231,24 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/API/Files/Recognize?lang=cs-CZ&projectId={{lastProjectID}}&accessToken={{lastAccessToken}}",
+							"raw": "{{url}}/API/Files/Upload?projectId={{lastProjectID}}&fileSize=123456",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"API",
 								"Files",
-								"Recognize"
+								"Upload"
 							],
 							"query": [
-								{
-									"key": "lang",
-									"value": "cs-CZ"
-								},
 								{
 									"key": "projectId",
 									"value": "{{lastProjectID}}"
 								},
 								{
-									"key": "accessToken",
-									"value": "{{lastAccessToken}}"
-								},
-								{
-									"key": "withPPC",
-									"value": "true",
-									"disabled": true
+									"key": "fileSize",
+									"value": "123456",
+									"description": "required"
 								}
 							]
 						}
@@ -1278,7 +1270,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "{{url}}/API/Files/Transcribe?lang=cs-CZ&projectId={{lastProjectID}}&accessToken={{lastAccessToken}}",
+							"raw": "{{url}}/API/Files/Transcribe?projectId={{lastProjectID}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1289,19 +1281,21 @@
 							],
 							"query": [
 								{
-									"key": "lang",
-									"value": "cs-CZ"
-								},
-								{
 									"key": "projectId",
 									"value": "{{lastProjectID}}"
 								},
 								{
-									"key": "accessToken",
-									"value": "{{lastAccessToken}}"
+									"key": "lang",
+									"value": "cs-CZ",
+									"disabled": true
 								},
 								{
 									"key": "withPPC",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "saveTrsx",
 									"value": "true",
 									"disabled": true
 								}
@@ -1311,60 +1305,7 @@
 					"response": []
 				},
 				{
-					"name": "upload only file",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "",
-									"description": "soupor",
-									"type": "file"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/API/Files/Recognize?lang=cs-CZ&projectId={{lastProjectID}}&transcribe=false&accessToken={{lastAccessToken}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"Files",
-								"Recognize"
-							],
-							"query": [
-								{
-									"key": "lang",
-									"value": "cs-CZ"
-								},
-								{
-									"key": "projectId",
-									"value": "{{lastProjectID}}"
-								},
-								{
-									"key": "transcribe",
-									"value": "false"
-								},
-								{
-									"key": "accessToken",
-									"value": "{{lastAccessToken}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "upload custom trsx to  project",
+					"name": "upload trsx to project",
 					"event": [
 						{
 							"listen": "test",
