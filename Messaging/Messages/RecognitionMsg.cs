@@ -6,6 +6,8 @@ namespace Beey.DataExchangeModel.Messaging.Messages
 {
     class RecognitionMsg : Message<RecognitionMsg.MessageKind>
     {
+        public RecognitionConfig Config { get; set; }
+
         [Flags]
         public enum MessageKind
         {
