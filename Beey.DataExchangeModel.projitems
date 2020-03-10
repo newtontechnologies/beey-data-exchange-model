@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\SpeakerIdentificationMsg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\RecognitionMsg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\TagChangeMsg.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\VideoExtractionMsg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\ProjectProgress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectMetadata.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\DerivedTypesBinder.cs" />
