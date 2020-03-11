@@ -10,6 +10,7 @@ namespace Beey.DataExchangeModel.Messaging
     public partial class ProjectProgress
     {
         public ProcessState UploadState { get; set; }
+        public ProcessState MediaIdentificationState { get; set; }
         public ProcessState TranscodingState { get; set; }
         public ProcessState TranscriptionState { get; set; }
         public ProcessState DiarizationState { get; set; }
