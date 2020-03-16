@@ -79,5 +79,19 @@ namespace Beey.DataExchangeModel.Projects
 
         [JsonIgnoreWeb]
         public ICollection<ProjectMetadata> ProjectMetadata { get; set; }
+
+
+        [JsonIgnoreWebDeserialize]
+        public int? AudioRecordingId { get; set; }
+        public FileWrapper AudioRecording { get; set; }
+
+
+        [JsonIgnoreWebDeserialize]
+        public int? VideoRecordingId { get; set; }
+        public FileWrapper VideoRecording { get; set; }
+
+        [JsonIgnoreWebDeserialize]
+        public int? RecordingManifestId { get; set; }
+        public FileWrapper RecordingManifest { get; set; }
     }
 }
