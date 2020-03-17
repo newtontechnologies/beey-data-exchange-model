@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "82104bdd-b150-43e2-ac51-f72721879ce2",
+		"_postman_id": "99c5352b-75fb-49f7-84a9-e10de0e46049",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -546,6 +546,368 @@
 			"name": "Project",
 			"item": [
 				{
+					"name": "Files",
+					"item": [
+						{
+							"name": "Download Audio",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "20317751-cf6e-488b-af78-eff104e38c2e",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{authToken}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/API/Project/{{lastProjectID}}/Files/Audio",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"API",
+										"Project",
+										"{{lastProjectID}}",
+										"Files",
+										"Audio"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Download Video",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "20317751-cf6e-488b-af78-eff104e38c2e",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{authToken}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/API/Project/{{lastProjectID}}/Files/Video",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"API",
+										"Project",
+										"{{lastProjectID}}",
+										"Files",
+										"Video"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Download DASH manifest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "20317751-cf6e-488b-af78-eff104e38c2e",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{authToken}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/API/Project/{{lastProjectID}}/Files/MpdManifest",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"API",
+										"Project",
+										"{{lastProjectID}}",
+										"Files",
+										"MpdManifest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Download current trsx",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "20317751-cf6e-488b-af78-eff104e38c2e",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{authToken}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/API/Project/{{lastProjectID}}/Files/CurrentTrsx",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"API",
+										"Project",
+										"{{lastProjectID}}",
+										"Files",
+										"CurrentTrsx"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Download original trsx",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "20317751-cf6e-488b-af78-eff104e38c2e",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{authToken}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/API/Project/{{lastProjectID}}/Files/OriginalTrsx",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"API",
+										"Project",
+										"{{lastProjectID}}",
+										"Files",
+										"OriginalTrsx"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload original trsx to project",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "32341c59-253e-4e39-8b51-c68177e7795b",
+										"exec": [
+											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{authToken}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "soupor",
+											"description": "soupor.trsx",
+											"type": "file",
+											"src": "/D:/Users/adm_ladislav.seps/Downloads/Zastupitelstvo-hlavicka-na-konci.mp4.trsx"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/API/Project/{{lastProjectID}}/Files/OriginalTrsx?accessToken={{lastAccessToken}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"API",
+										"Project",
+										"{{lastProjectID}}",
+										"Files",
+										"OriginalTrsx"
+									],
+									"query": [
+										{
+											"key": "accessToken",
+											"value": "{{lastAccessToken}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upload current trsx to project",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "32341c59-253e-4e39-8b51-c68177e7795b",
+										"exec": [
+											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{authToken}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "soupor",
+											"description": "soupor.trsx",
+											"type": "file",
+											"src": "/D:/Users/adm_ladislav.seps/Downloads/Zastupitelstvo-hlavicka-na-konci.mp4.trsx"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/API/Project/{{lastProjectID}}/Files/CurrentTrsx?accessToken={{lastAccessToken}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"API",
+										"Project",
+										"{{lastProjectID}}",
+										"Files",
+										"CurrentTrsx"
+									],
+									"query": [
+										{
+											"key": "accessToken",
+											"value": "{{lastAccessToken}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
 					"name": "Create project",
 					"event": [
 						{
@@ -929,57 +1291,6 @@
 					"response": []
 				},
 				{
-					"name": "change project path",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "918f7a9f-c8ae-41e6-9bf1-904cc9cfa4c6",
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"CustomPath\":\"novy zcela nahodny string\"\n}"
-						},
-						"url": {
-							"raw": "{{url}}/API/Project/Access?id={{lastProjectID}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"Project",
-								"Access"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "{{lastProjectID}}"
-								}
-							]
-						},
-						"description": "Project can have different path for each user. Paths arre stored in acesslist\n\nWeb does not have access to most of access properties.. Only CustomPath for now"
-					},
-					"response": []
-				},
-				{
 					"name": "share project",
 					"event": [
 						{
@@ -1224,9 +1535,9 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "",
 									"description": "soupor",
-									"type": "file"
+									"type": "file",
+									"src": "/D:/Users/adm_ladislav.seps/Downloads/Zastupitelstvo-hlavicka-na-konci.mp4"
 								}
 							]
 						},
@@ -1305,69 +1616,6 @@
 					"response": []
 				},
 				{
-					"name": "upload trsx to project",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "32341c59-253e-4e39-8b51-c68177e7795b",
-								"exec": [
-									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "soupor",
-									"value": "",
-									"description": "soupor.trsx",
-									"type": "file"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/API/Project/Trsx?id={{lastProjectID}}&accessToken={{lastAccessToken}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"Project",
-								"Trsx"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "{{lastProjectID}}"
-								},
-								{
-									"key": "accessToken",
-									"value": "{{lastAccessToken}}"
-								},
-								{
-									"key": "isOriginalTrsx",
-									"value": "false",
-									"description": "default = false",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "download file (customTrsx)",
 					"event": [
 						{
@@ -1421,6 +1669,57 @@
 								}
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "change project path",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "918f7a9f-c8ae-41e6-9bf1-904cc9cfa4c6",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CustomPath\":\"novy zcela nahodny string\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/API/Project/Access?id={{lastProjectID}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"Project",
+								"Access"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProjectID}}"
+								}
+							]
+						},
+						"description": "Project can have different path for each user. Paths arre stored in acesslist\n\nWeb does not have access to most of access properties.. Only CustomPath for now"
 					},
 					"response": []
 				}
