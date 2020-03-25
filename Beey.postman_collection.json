@@ -908,6 +908,111 @@
 					"_postman_isSubFolder": true
 				},
 				{
+					"name": "DashUpgrade",
+					"item": [
+						{
+							"name": "Get Upgrade Status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "20317751-cf6e-488b-af78-eff104e38c2e",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{authToken}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/API/Project/{{lastProjectID}}/DashUpgrade/State",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"API",
+										"Project",
+										"{{lastProjectID}}",
+										"DashUpgrade",
+										"State"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "upgrade project",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "20317751-cf6e-488b-af78-eff104e38c2e",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{authToken}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/API/Project/{{lastProjectID}}/DashUpgrade/Convert",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"API",
+										"Project",
+										"{{lastProjectID}}",
+										"DashUpgrade",
+										"Convert"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
 					"name": "Create project",
 					"event": [
 						{
@@ -1609,63 +1714,6 @@
 									"key": "saveTrsx",
 									"value": "true",
 									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "download file (customTrsx)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "20317751-cf6e-488b-af78-eff104e38c2e",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/API/Files/Download?projectId={{lastProjectID}}&fileId={{currentTrsxID}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"Files",
-								"Download"
-							],
-							"query": [
-								{
-									"key": "projectId",
-									"value": "{{lastProjectID}}"
-								},
-								{
-									"key": "fileId",
-									"value": "{{currentTrsxID}}"
 								}
 							]
 						}
