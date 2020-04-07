@@ -16,6 +16,8 @@ namespace Beey.DataExchangeModel.Messaging.Messages
             Completed,
             Failed,
             StreamingConversionFailed,
+            AudioAvailable,
+            VideoAvailable,
         }
 
         public TimeSpan MediaElapsed { get; set; }
