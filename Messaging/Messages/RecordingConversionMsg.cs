@@ -19,7 +19,5 @@ namespace Beey.DataExchangeModel.Messaging.Messages
             AudioAvailable,
             VideoAvailable,
         }
-
-        public TimeSpan MediaElapsed { get; set; }
     }
 }
