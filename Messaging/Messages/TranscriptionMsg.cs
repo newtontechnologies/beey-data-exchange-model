@@ -18,6 +18,7 @@ namespace Beey.DataExchangeModel.Messaging.Messages
             Completed = 2,
             Failed = 4,
             Interrupted = 8,
+            Progress = 16,
             IsTerminated = Completed | Failed | Interrupted,
         }
 
