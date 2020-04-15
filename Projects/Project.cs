@@ -10,7 +10,7 @@ using System.Linq;
 #pragma warning disable 8618,8601,8603
 namespace Beey.DataExchangeModel.Projects
 {
-    public partial class Project
+    public partial class Project : ConcurrentEntity
     {
         public string Name { get; set; }
         [JsonIgnoreWebDeserialize]
