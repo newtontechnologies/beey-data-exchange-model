@@ -12,6 +12,7 @@ namespace Beey.DataExchangeModel.Messaging.Messages
     public partial class FileUploadMsg : Message<FileUploadMsg.MessageKind>
     {
         public long? FileOffset { get; internal set; }
+        public int? UploadPercentage { get; internal set; }
         public UploadConfig Config { get; set; }
 
         [Flags]
