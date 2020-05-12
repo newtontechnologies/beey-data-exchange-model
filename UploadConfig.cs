@@ -4,10 +4,6 @@ namespace Beey.DataExchangeModel
 {
     public partial class UploadConfig
     {
-        public UploadConfig()
-        {
-        }
-
         public UploadConfig(bool saveMedia, int userId)
         {          
             SaveMedia = saveMedia;
