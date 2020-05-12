@@ -1,5 +1,6 @@
 ﻿using Beey.DataExchangeModel.Tools;
 using System;
+using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Messaging
 {
@@ -46,7 +47,7 @@ namespace Beey.DataExchangeModel.Messaging
             => HashCode.Combine(this.GetType(), this.Subsystem);
 
         public TResult Switch<TResult>(params (MessageNew, Func<TResult>)[] cases)
-            => Switch(default, cases);
+            => Switch(null, cases);
         public TResult Switch<TResult>(Func<TResult> defaultCase, params (MessageNew, Func<TResult>)[] cases)
         {
             foreach (var c in cases)
@@ -61,7 +62,7 @@ namespace Beey.DataExchangeModel.Messaging
         }
 
         public void Switch(params (MessageNew, Action)[] cases)
-            => Switch(default, cases);
+            => Switch(null, cases);
         public void Switch(Action defaultCase, params (MessageNew, Action)[] cases)
         {
             foreach (var c in cases)
@@ -73,7 +74,37 @@ namespace Beey.DataExchangeModel.Messaging
                 }
             }
 
-            if (defaultCase != null) { defaultCase(); }
+            defaultCase?.Invoke();
+        }
+
+        public Task<TResult> SwitchAsync<TResult>(params (MessageNew, Func<Task<TResult>>)[] cases)
+            => SwitchAsync(null, cases);
+        public Task<TResult> SwitchAsync<TResult>(Func<Task<TResult>> defaultCase, params (MessageNew, Func<Task<TResult>>)[] cases)
+        {
+            foreach (var c in cases)
+            {
+                if (this == c.Item1)
+                {
+                    return c.Item2();
+                }
+            }
+
+            return defaultCase != null ? defaultCase() : Task.FromResult<TResult>(default);
+        }
+
+        public Task SwitchAsync(params (MessageNew, Func<Task>)[] cases)
+            => SwitchAsync(null, cases);
+        public Task SwitchAsync(Func<Task> defaultCase, params (MessageNew, Func<Task>)[] cases)
+        {
+            foreach (var c in cases)
+            {
+                if (this == c.Item1)
+                {
+                    return c.Item2();
+                }
+            }
+
+            return defaultCase != null ? defaultCase() : Task.CompletedTask;
         }
 
         /// <summary>
