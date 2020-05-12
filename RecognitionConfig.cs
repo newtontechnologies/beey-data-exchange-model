@@ -8,6 +8,12 @@ namespace Beey.DataExchangeModel
 {
     public partial class RecognitionConfig : SubsystemConfig
     {
+        public bool SaveTrsx { get; }
+        public string Language { get; }
+        public bool WithPPC { get; }
+        public int UserID { get; }
+
+        public RecognitionConfig() { }
         public RecognitionConfig(bool saveTrsx, string language, bool withPPC, int userId)
         {
             SaveTrsx = saveTrsx;
@@ -15,13 +21,6 @@ namespace Beey.DataExchangeModel
             WithPPC = withPPC;
             UserID = userId;
         }
-
-        public bool SaveTrsx { get; }
-        public string Language { get; }
-        public bool WithPPC { get; }
-        public int UserID { get; }
-
-        public RecognitionConfig() { }
 
         protected override void AddToConfiguration(IConfigurationBuilder builder)
         {
