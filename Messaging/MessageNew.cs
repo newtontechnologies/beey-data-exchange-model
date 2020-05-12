@@ -45,6 +45,37 @@ namespace Beey.DataExchangeModel.Messaging
         public override int GetHashCode()
             => HashCode.Combine(this.GetType(), this.Subsystem);
 
+        public TResult Switch<TResult>(params (MessageNew, Func<TResult>)[] cases)
+            => Switch(default, cases);
+        public TResult Switch<TResult>(Func<TResult> defaultCase, params (MessageNew, Func<TResult>)[] cases)
+        {
+            foreach (var c in cases)
+            {
+                if (this == c.Item1)
+                {
+                    return c.Item2();
+                }
+            }
+
+            return defaultCase != null ? defaultCase() : default;
+        }
+
+        public void Switch(params (MessageNew, Action)[] cases)
+            => Switch(default, cases);
+        public void Switch(Action defaultCase, params (MessageNew, Action)[] cases)
+        {
+            foreach (var c in cases)
+            {
+                if (this == c.Item1)
+                {
+                    c.Item2();
+                    return;
+                }
+            }
+
+            if (defaultCase != null) { defaultCase(); }
+        }
+
         /// <summary>
         /// Compares message types only.
         /// </summary>
