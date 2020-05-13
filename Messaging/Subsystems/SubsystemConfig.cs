@@ -9,7 +9,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
     public abstract class SubsystemConfig
     {
-        public static T Extract<T>(MessageNew startedMessage) where T : SubsystemConfig
+        public static T From<T>(MessageNew startedMessage) where T : SubsystemConfig
         {
             var config = ExtractConfig(startedMessage);
             var result = config.Get<T>();
