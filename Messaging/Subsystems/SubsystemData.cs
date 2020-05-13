@@ -14,7 +14,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
             return result;
         }
 
-        public JsonData Serialize(JsonSerializerOptions options = null)
+        public virtual JsonData Serialize(JsonSerializerOptions options = null)
             => new JsonData(JsonSerializer.Serialize(this, typeof(object), options));
         public abstract void Initialize(JsonData data);
 

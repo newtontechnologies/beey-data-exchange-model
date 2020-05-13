@@ -82,5 +82,7 @@ namespace Beey.DataExchangeModel.Tools
 
             }
         }
+
+        public static implicit operator bool(SettableFlag<T> flag) => flag.CurrentEvaluation;
     }
 }
