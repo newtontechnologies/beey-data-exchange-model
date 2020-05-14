@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class MediaIdentificationData : SubsystemData
+    class MediaIdentificationData : SubsystemData<MediaIdentificationData>
     {
         public enum DataKind
         {

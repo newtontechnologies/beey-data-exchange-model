@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class UploadSubsystemData : SubsystemData
+    class UploadSubsystemData : SubsystemData<UploadSubsystemData>
     {
         public enum DataKind
         {

@@ -3,7 +3,7 @@ using System;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class SpeakerIdentificationConfig : SubsystemConfig
+    class SpeakerIdentificationConfig : SubsystemConfig<SpeakerIdentificationConfig>
     {
         public string Language { get; internal set; }
         public string VoiceprintVersion { get; internal set; }

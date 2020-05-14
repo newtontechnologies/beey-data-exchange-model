@@ -9,7 +9,7 @@ using System.Text.Json;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class PpcData : SubsystemData
+    class PpcData : SubsystemData<PpcData>
     {
         private static readonly SimpleJsonConverter<NgEvent> eventConverter 
             = new SimpleJsonConverter<NgEvent>(serialize: e => e.Serialize().ToString());

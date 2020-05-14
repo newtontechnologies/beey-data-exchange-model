@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class DiarizationData : SubsystemData
+    class DiarizationData : SubsystemData<DiarizationData>
     {
         public ASRMsg AsrMsg { get; set; }
         public override void Initialize(JsonData data)

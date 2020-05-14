@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Beey.DataExchangeModel
 {
-    public partial class UploadConfig : SubsystemConfig
+    public partial class UploadConfig : SubsystemConfig<UploadConfig>
     {
         public bool SaveMedia { get; }
         public int UserID { get; }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Beey.DataExchangeModel
 {
-    public partial class RecognitionConfig : SubsystemConfig
+    public partial class RecognitionConfig : SubsystemConfig<RecognitionConfig>
     {
         public bool SaveTrsx { get; }
         public string Language { get; }

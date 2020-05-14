@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 { 
-    class SeekableFileGeneratorData : SubsystemData
+    class SeekableFileGeneratorData : SubsystemData<SeekableFileGeneratorData>
     {
         public enum DataEnum { AudioAvailable, VideoAvailable }
 

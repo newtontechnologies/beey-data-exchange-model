@@ -7,7 +7,7 @@ using System.Text.Json;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class RecognitionData : SubsystemData
+    class RecognitionData : SubsystemData<RecognitionData>
     {
         public ASRMsg AsrMsg { get; set; }
         public TimeSpan? Transcribed { get; set; }
