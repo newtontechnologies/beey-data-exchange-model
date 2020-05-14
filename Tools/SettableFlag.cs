@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nest;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,12 @@ namespace Beey.DataExchangeModel.Tools
 
         public bool CurrentEvaluation { get; private set; }
 
-        public SettableFlag(Flag<T> flag) : base(flag.Tree)
+        public SettableFlag(Flag<T> flag) : this(flag, CreateLeafMemory(flag.Tree))
+        {            
+        }
+        public SettableFlag(Flag<T> flag, bool[] leafMemory) : base(flag.Tree)
         {
-            leafMemory = CreateLeafMemory(Tree);
+            this.leafMemory = leafMemory;
         }
 
         public void Reset()
@@ -83,6 +87,29 @@ namespace Beey.DataExchangeModel.Tools
             }
         }
 
+        #region Operators
+
         public static implicit operator bool(SettableFlag<T> flag) => flag.CurrentEvaluation;
+        public static bool operator !(SettableFlag<T> settableFlag) => !settableFlag.CurrentEvaluation;
+        public static bool operator true(SettableFlag<T> settableFlag) => settableFlag.CurrentEvaluation;
+        public static bool operator false(SettableFlag<T> settableFlag) => !settableFlag.CurrentEvaluation;
+        public static SettableFlag<T> operator &(SettableFlag<T> first, SettableFlag<T> second)
+        {
+            return new SettableFlag<T>(new Flag<T>(new OperatorNode<T>(Operator.And, first.Tree, second.Tree)),
+                first.leafMemory.Concat(second.leafMemory).ToArray())
+            {
+                CurrentEvaluation = first.CurrentEvaluation && second.CurrentEvaluation
+            };
+        }
+        public static SettableFlag<T> operator |(SettableFlag<T> first, SettableFlag<T> second)
+        {
+            return new SettableFlag<T>(new Flag<T>(new OperatorNode<T>(Operator.Or, first.Tree, second.Tree)),
+                first.leafMemory.Concat(second.leafMemory).ToArray())
+            {
+                CurrentEvaluation = first.CurrentEvaluation || second.CurrentEvaluation
+            };
+        }
+
+        #endregion Operators
     }
 }

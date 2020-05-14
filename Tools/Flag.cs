@@ -13,7 +13,7 @@ namespace Beey.DataExchangeModel.Tools
         public Flag(T value) : this(new OperandNode<T>(value))
         { 
         }
-        protected Flag(Node<T> tree)
+        public Flag(Node<T> tree)
         {
             this.Tree = tree;
         }
