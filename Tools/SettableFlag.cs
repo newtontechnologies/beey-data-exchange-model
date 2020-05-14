@@ -90,9 +90,17 @@ namespace Beey.DataExchangeModel.Tools
         #region Operators
 
         public static implicit operator bool(SettableFlag<T> flag) => flag.CurrentEvaluation;
-        public static bool operator !(SettableFlag<T> settableFlag) => !settableFlag.CurrentEvaluation;
         public static bool operator true(SettableFlag<T> settableFlag) => settableFlag.CurrentEvaluation;
         public static bool operator false(SettableFlag<T> settableFlag) => !settableFlag.CurrentEvaluation;
+        public static SettableFlag<T> operator !(SettableFlag<T> settableFlag)
+        {
+            return new SettableFlag<T>(
+                new Flag<T>(new OperatorNode<T>(Operator.Not, settableFlag.Tree)),
+                settableFlag.leafMemory)
+            {
+                CurrentEvaluation = !settableFlag.CurrentEvaluation
+            };
+        }
         public static SettableFlag<T> operator &(SettableFlag<T> first, SettableFlag<T> second)
         {
             return new SettableFlag<T>(new Flag<T>(new OperatorNode<T>(Operator.And, first.Tree, second.Tree)),
