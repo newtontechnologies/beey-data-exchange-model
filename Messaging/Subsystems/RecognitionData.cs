@@ -10,14 +10,17 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
     class RecognitionData : SubsystemData<RecognitionData>
     {
         public ASRMsg AsrMsg { get; set; }
-        public TimeSpan? Transcribed { get; set; }
+        public TimeSpan? RecognitionLength { get; set; }
+        public TimeSpan? Transcribed { get; internal set; }
+
         public override void Initialize(JsonData data)
         {
             if (data.JsonElement.TryGetProperty(nameof(AsrMsg), out var asrMsgProp))
                 AsrMsg = JsonSerializer.Deserialize<ASRMsg>(asrMsgProp.GetRawText());
-
+            if (data.JsonElement.TryGetProperty(nameof(RecognitionLength), out var recognitionLengthProp))
+                RecognitionLength = JsonSerializer.Deserialize<TimeSpan>(recognitionLengthProp.GetRawText());
             if (data.JsonElement.TryGetProperty(nameof(Transcribed), out var transcribedProp))
-                Transcribed = JsonSerializer.Deserialize<TimeSpan>(transcribedProp.GetRawText());
+                RecognitionLength = JsonSerializer.Deserialize<TimeSpan>(transcribedProp.GetRawText());
         }
     }
 }
