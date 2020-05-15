@@ -26,10 +26,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\ProgressMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\ProjectProgress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\StartedMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\DiarizationOrderingData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\DiarizationData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\EmptyConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\EmptyData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\MediaIdentificationData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\LanguageIdentificationData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\PpcData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SeekableFileGeneratorData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SpeakerIdentificationConfig.cs" />

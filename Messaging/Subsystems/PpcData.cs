@@ -14,6 +14,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         private static readonly SimpleJsonConverter<NgEvent> eventConverter 
             = new SimpleJsonConverter<NgEvent>(serialize: e => e.Serialize().ToString());
         private static readonly JsonSerializerOptions options = new JsonSerializerOptions().WithConverters(eventConverter);
+
         public enum DataKind { Phrase, Speaker, SpeakerRecovery }
         public DataKind Kind { get; set; }
         public NgEvent Event { get; set; }
