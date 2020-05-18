@@ -5,6 +5,14 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
 {
     static class JsonExtensions
     {
+        public static JsonSerializerOptions AddConverters(this JsonSerializerOptions options, params JsonConverter[] converters)
+        {
+            foreach (var converter in converters ?? System.Linq.Enumerable.Empty<JsonConverter>())
+            {
+                options.Converters.Add(converter);
+            }
+            return options;
+        }
         public static JsonSerializerOptions WithConverters(this JsonSerializerOptions options, params JsonConverter[] converters)
         {
             var result = options.Clone();

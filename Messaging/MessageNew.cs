@@ -1,12 +1,17 @@
-﻿using Beey.DataExchangeModel.Tools;
+﻿using Beey.DataExchangeModel.Serialization.JsonConverters;
+using Beey.DataExchangeModel.Tools;
 using System;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Messaging
 {
     public abstract partial class MessageNew : IEquatable<MessageNew>, ITuple
     {
+        private static readonly System.Text.Json.JsonSerializerOptions options
+            = new System.Text.Json.JsonSerializerOptions().AddConverters(new MessageJsonConverter());
+
         public int Id { get; protected set; }
         public int? ProjectId { get; protected set; }
         public string Subsystem { get; protected set; }
@@ -23,6 +28,16 @@ namespace Beey.DataExchangeModel.Messaging
             Id = id;
             ProjectId = projectId;
         }
+
+        // TODO: channel is ignored when using System.Text.Json
+        internal static ArraySegment<byte> Serialize(MessageNew message, string channel)
+        {
+            var json = System.Text.Json.JsonSerializer.Serialize<MessageNew>(message, options);
+            var bytes = Encoding.UTF8.GetBytes(json);
+            return new ArraySegment<byte>(bytes);
+        }
+
+        #region Operators
 
         public static bool operator ==(MessageNew first, MessageNew second)
             => Equals(first, second);
@@ -46,6 +61,8 @@ namespace Beey.DataExchangeModel.Messaging
         }
         public override int GetHashCode()
             => HashCode.Combine(this.GetType(), this.Subsystem);
+
+        #endregion Operators
 
         #region Switch and ITuple implementation
 
