@@ -4,17 +4,17 @@ using Beey.DataExchangeModel.Messaging.Subsystems;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 
-namespace Beey.DataExchangeModel
+namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    public partial class RecognitionConfig : SubsystemConfig<RecognitionConfig>
+    public partial class TranscriptionConfig : SubsystemConfig<TranscriptionConfig>
     {
         public bool SaveTrsx { get; }
         public string Language { get; }
         public bool WithPPC { get; }
         public int UserID { get; }
 
-        public RecognitionConfig() { }
-        public RecognitionConfig(bool saveTrsx, string language, bool withPPC, int userId)
+        public TranscriptionConfig() { }
+        public TranscriptionConfig(bool saveTrsx, string language, bool withPPC, int userId)
         {
             SaveTrsx = saveTrsx;
             Language = language;
