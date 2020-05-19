@@ -39,6 +39,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SubsystemConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SubsystemData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\RecognitionData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonTimeSpanConverter.cs" />
     <Compile Include="..\DataExchangeModel\Messaging\Subsystems\UploadSubsystemData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectMetadata.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\TranscriptionConfig.cs" />
@@ -85,7 +86,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Projects\TranscriptionLogItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\UserRole.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UploadConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\UploadConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Auth\" />
