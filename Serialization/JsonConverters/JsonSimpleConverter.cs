@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Serialization.JsonConverters
 {
-    public class SimpleJsonConverter<T> : JsonConverter<T>
+    public class JsonSimpleConverter<T> : JsonConverter<T>
     {
         public delegate T Deserialize(ref Utf8JsonReader reader, JsonSerializerOptions options);
         public delegate void Serialize(Utf8JsonWriter writer, T value, JsonSerializerOptions options);
@@ -23,7 +23,7 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         /// <param name="serializeSimple"></param>
         /// <param name="deserialize"></param>
         /// <param name="deserializeSimple"></param>
-        private SimpleJsonConverter(Serialize serialize, Func<T, string> serializeSimple,
+        private JsonSimpleConverter(Serialize serialize, Func<T, string> serializeSimple,
             Deserialize deserialize, Func<string, T> deserializeSimple)
         {
             this.serialize = serialize;
@@ -39,22 +39,22 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         }
 
         #region constructors
-        public SimpleJsonConverter(Serialize serialize)
+        public JsonSimpleConverter(Serialize serialize)
             : this(serialize, null, null, null)
         { }
-        public SimpleJsonConverter(Func<T, string> serialize)
+        public JsonSimpleConverter(Func<T, string> serialize)
             : this(null, serialize, null, null)
         { }
-        public SimpleJsonConverter(Deserialize deserialize)
+        public JsonSimpleConverter(Deserialize deserialize)
             : this(null, null, deserialize, null)
         { }
-        public SimpleJsonConverter(Func<string, T> deserialize)
+        public JsonSimpleConverter(Func<string, T> deserialize)
             : this(null, null, null, deserialize)
         { }
-        public SimpleJsonConverter(Serialize serialize, Deserialize deserialize)
+        public JsonSimpleConverter(Serialize serialize, Deserialize deserialize)
             : this(serialize, null, deserialize, null)
         { }
-        public SimpleJsonConverter(Func<T, string> serialize, Func<string, T> deserialize)
+        public JsonSimpleConverter(Func<T, string> serialize, Func<string, T> deserialize)
             : this(null, serialize, null, deserialize)
         { }
         #endregion constructors

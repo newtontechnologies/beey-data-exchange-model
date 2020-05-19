@@ -50,8 +50,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\FastActivator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Flag.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\MessageJsonConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\SimpleJsonConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonMessageConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonSimpleConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\SettableFlag.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Tree.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Transcriptions\DBSpeaker.cs" />

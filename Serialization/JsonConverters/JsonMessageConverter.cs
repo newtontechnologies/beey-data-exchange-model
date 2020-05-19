@@ -45,9 +45,9 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         #endregion property names
 
         private static readonly JsonConverter configSerializer
-            = new SimpleJsonConverter<IConfiguration>(serialize: SerializeConfiguration);
+            = new JsonSimpleConverter<IConfiguration>(serialize: SerializeConfiguration);
         private static readonly JsonConverter dataSerializer
-            = new SimpleJsonConverter<JsonData>(serialize: SerializeJsonData);
+            = new JsonSimpleConverter<JsonData>(serialize: SerializeJsonData);
 
         public override MessageNew Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
