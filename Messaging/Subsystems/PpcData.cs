@@ -1,5 +1,6 @@
 ﻿using Backend.Serialization.Json;
 using Beey.DataExchangeModel.Messaging.Messages;
+using Beey.DataExchangeModel.Serialization.JsonConverters;
 using Beey.DataExchangeModel.Transcriptions;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -20,7 +21,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public NgEvent Event { get; set; }
 
         public override JsonData Serialize(JsonSerializerOptions options = null)
-            => new JsonData(JsonSerializer.Serialize<PpcData>(this, options?.WithConverters(eventConverter) ?? options));
+            => new JsonData(JsonSerializer.Serialize<PpcData>(this, options?.WithConverters(eventConverter) ?? PpcData.options));
         public override void Initialize(JsonData data)
         {
             Kind = Enum.Parse<DataKind>(data.JsonElement.GetProperty(nameof(Kind)).GetRawText());
