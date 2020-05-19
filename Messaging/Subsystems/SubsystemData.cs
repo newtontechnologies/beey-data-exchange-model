@@ -7,7 +7,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
     public abstract class SubsystemData
     {
         public virtual JsonData Serialize(JsonSerializerOptions options = null)
-            => new JsonData(JsonSerializer.Serialize(this, typeof(object), options));
+            => new JsonData(JsonSerializer.Serialize<object>(this, options));
         public abstract void Initialize(JsonData data);
     }
 
