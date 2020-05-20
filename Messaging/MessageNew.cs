@@ -108,6 +108,8 @@ namespace Beey.DataExchangeModel.Messaging
 
         public TResult Switch<TResult>(params (ITuple, Func<TResult>)[] cases)
             => Switch(null, cases);
+        public TResult Switch<TResult>(TResult defaultValue, params (ITuple, Func<TResult>)[] cases)
+            => Switch(() => defaultValue, cases);
         public TResult Switch<TResult>(Func<TResult> defaultCase, params (ITuple, Func<TResult>)[] cases)
         {
             foreach (var c in cases)
@@ -126,6 +128,8 @@ namespace Beey.DataExchangeModel.Messaging
 
         public Task<TResult> SwitchAsync<TResult>(params (ITuple, Func<Task<TResult>>)[] cases)
             => SwitchAsync(null, cases);
+        public Task<TResult> SwitchAsync<TResult>(TResult defaultValue, params (ITuple, Func<Task<TResult>>)[] cases)
+            => SwitchAsync(() => Task.FromResult(defaultValue), cases);
         public Task<TResult> SwitchAsync<TResult>(Func<Task<TResult>> defaultCase, params (ITuple, Func<Task<TResult>>)[] cases)
         {
             foreach (var c in cases)
