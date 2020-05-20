@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections.Generic;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
@@ -11,7 +12,12 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
 
         protected override void AddToConfiguration(IConfigurationBuilder builder)
         {
-            throw new NotImplementedException();
+            builder.AddInMemoryCollection(new Dictionary<string, string>()
+            {
+                { nameof(Language), Language },
+                { nameof(VoiceprintVersion), VoiceprintVersion },
+                { nameof(SufficientSpeakerDuration), SufficientSpeakerDuration.ToString() }
+            });
         }
     }
 }

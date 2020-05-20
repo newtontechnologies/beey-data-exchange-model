@@ -6,12 +6,12 @@ using System.Collections.Generic;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    public partial class TranscriptionConfig : SubsystemConfig<TranscriptionConfig>
+    public class TranscriptionConfig : SubsystemConfig<TranscriptionConfig>
     {
-        public bool SaveTrsx { get; }
-        public string Language { get; }
-        public bool WithPPC { get; }
-        public int UserId { get; }
+        public bool SaveTrsx { get; set; }
+        public string Language { get; set; }
+        public bool WithPPC { get; set; }
+        public int UserId { get; set; }
 
         public TranscriptionConfig() { }
         public TranscriptionConfig(bool saveTrsx, string language, bool withPPC, int userId)
