@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
@@ -15,15 +16,15 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public DataKind Kind { get; set; }
         public long? FileOffset { get; internal set; }
         public int? UploadPercentage { get; internal set; }
-        public override void Initialize(JsonData data)
+        public override void Initialize(JsonData data, JsonSerializerOptions options = null)
         {
             Kind = Enum.Parse<DataKind>(data.JsonElement.GetProperty(nameof(Kind)).GetRawText());
             if (data.JsonElement.TryGetProperty(nameof(FileOffset), out var fileOffsetProp))
-                FileOffset = fileOffsetProp.ValueKind == System.Text.Json.JsonValueKind.Number
+                FileOffset = fileOffsetProp.ValueKind == JsonValueKind.Number
                     ? (long?)fileOffsetProp.GetInt64()
                     : null;
             if (data.JsonElement.TryGetProperty(nameof(UploadPercentage), out var uploadPercentageProp))
-                UploadPercentage = uploadPercentageProp.ValueKind == System.Text.Json.JsonValueKind.Number
+                UploadPercentage = uploadPercentageProp.ValueKind == JsonValueKind.Number
                     ? (int?)uploadPercentageProp.GetInt32()
                     : null;
         }

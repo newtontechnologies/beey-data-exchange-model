@@ -158,7 +158,7 @@ namespace Beey.DataExchangeModel.Messaging
         private static bool Equals(MessageNew first, MessageNew second)
         {
             if (first is null || second is null)
-                return false;
+                return first is null && second is null;
 
             if (first.Subsystem == second.Subsystem)
                 return first.GetType() == second.GetType();

@@ -8,7 +8,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
     {
         public virtual JsonData Serialize(JsonSerializerOptions options = null)
             => new JsonData(JsonSerializer.Serialize<object>(this, options));
-        public abstract void Initialize(JsonData data);
+        public abstract void Initialize(JsonData data, JsonSerializerOptions options = null);
     }
 
     public abstract class SubsystemData<T> : SubsystemData
@@ -16,11 +16,13 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
     {
         public static T From(MessageNew progressMessage)
         {
-            var config = ExtractData(progressMessage);
+            var data = ExtractData(progressMessage);
             var result = new T();
-            result.Initialize(config);
+            result.Initialize(data);
             return result;
         }
+
+
         private static JsonData ExtractData(MessageNew progressMessage)
         {
             return progressMessage is ProgressMessage m

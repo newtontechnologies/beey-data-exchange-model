@@ -38,7 +38,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
                 JsonSerializer.Serialize(this, options?.AddConverters(converters) ?? new JsonSerializerOptions().AddConverters(converters))
                 );
         }
-        public override void Initialize(JsonData data)
+        public override void Initialize(JsonData data, JsonSerializerOptions options = null)
         {
             Kind = Enum.Parse<DataKind>(data.JsonElement.GetProperty(nameof(Kind)).GetString());
             Data = Kind switch

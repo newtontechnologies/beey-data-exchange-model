@@ -39,6 +39,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SubsystemConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SubsystemData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\RecognitionData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNgEventConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNullableConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonTimeSpanConverter.cs" />
     <Compile Include="..\DataExchangeModel\Messaging\Subsystems\UploadSubsystemData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectMetadata.cs" />

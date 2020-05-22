@@ -25,6 +25,8 @@ namespace Beey.DataExchangeModel.Transcriptions
                     return new NgSpeakerEvent(e);
                 case "p":
                     return new NgPhraseEvent(e);
+                case "r":
+                    return new NgRecoveryEvent(e);
 
                 default: throw new NotImplementedException();
             }
