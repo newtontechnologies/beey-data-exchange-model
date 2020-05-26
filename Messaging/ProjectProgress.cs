@@ -12,9 +12,10 @@ namespace Beey.DataExchangeModel.Messaging
         public ProcessState UploadState { get; set; }
         public ProcessState MediaIdentificationState { get; set; }
         public ProcessState TranscodingState { get; set; }
-        public ProcessState TranscriptionState { get; set; }
+        public ProcessState RecognitionState { get; set; }
         public ProcessState DiarizationState { get; set; }
         public ProcessState SpeakerIdentificationState { get; set; }
+        public ProcessState PPCState { get; set; }
     }
 
     [JsonConverter(typeof(StringEnumConverter))]
