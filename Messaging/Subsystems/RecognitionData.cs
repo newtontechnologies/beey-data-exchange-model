@@ -35,7 +35,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
             if (data.JsonElement.TryGetProperty(nameof(Transcribed), out var transcribedProp)
                 && transcribedProp.ValueKind != JsonValueKind.Null)
             {
-                RecognitionLength = TimeSpan.Parse(transcribedProp.GetString());
+                Transcribed = TimeSpan.Parse(transcribedProp.GetString());
             }
         }
     }
