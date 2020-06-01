@@ -10,7 +10,7 @@ namespace Beey.DataExchangeModel.Messaging
     public abstract partial class MessageNew : IEquatable<MessageNew>, ITuple
     {
         private static readonly System.Text.Json.JsonSerializerOptions options
-            = new System.Text.Json.JsonSerializerOptions().AddConverters(new MessageJsonConverter());
+            = new System.Text.Json.JsonSerializerOptions().AddConverters(new JsonMessageConverter());
 
         public int Id { get; protected set; }
         public int? ProjectId { get; protected set; }

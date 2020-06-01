@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Serialization.JsonConverters
 {
-    class MessageJsonConverter : JsonConverter<MessageNew>
+    class JsonMessageConverter : JsonConverter<MessageNew>
     {
         #region constructors
         // ensurance that messages are deserialized correctly

@@ -25,17 +25,11 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public override JsonData Serialize()
         { 
             // TODO: refactor!
-            var converters = new JsonConverter[] {
-                new JsonSimpleConverter<JObject>(serialize: (w, jo, o) =>
+            return new JsonData(
+                JsonSerializer.Serialize(this, DefaultOptions.AddConverters(new JsonSimpleConverter<JObject>(serialize: (w, jo, o) =>
                 {
                     JsonSerializer.Deserialize<JsonElement>(jo.ToString()).WriteTo(w);
-                }),
-                    new JsonTimeSpanConverter()
-            };
-
-            return new JsonData(
-                JsonSerializer.Serialize(this, DefaultOptions?.AddConverters(converters) ?? new JsonSerializerOptions().AddConverters(converters))
-                );
+                }))));
         }
         public override void Initialize(JsonData data)
         {
