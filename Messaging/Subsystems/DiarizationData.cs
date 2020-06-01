@@ -11,7 +11,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public ASRMsg AsrMsg { get; set; }
         public override void Initialize(JsonData data)
         {
-            AsrMsg = JsonSerializer.Deserialize<ASRMsg>(data.JsonElement.GetProperty(nameof(AsrMsg)).GetRawText(), defaultOptions);
+            AsrMsg = JsonSerializer.Deserialize<ASRMsg>(data.JsonElement.GetProperty(nameof(AsrMsg)).GetRawText(), DefaultOptions);
         }
     }
 }

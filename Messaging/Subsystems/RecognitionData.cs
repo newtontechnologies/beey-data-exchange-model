@@ -23,7 +23,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
             if (data.JsonElement.TryGetProperty(nameof(AsrMsg), out var asrMsgProp)
                 && asrMsgProp.ValueKind != JsonValueKind.Null)
             {
-                AsrMsg = JsonSerializer.Deserialize<ASRMsg>(asrMsgProp.GetRawText(), defaultOptions);
+                AsrMsg = JsonSerializer.Deserialize<ASRMsg>(asrMsgProp.GetRawText(), DefaultOptions);
             }
 
             if (data.JsonElement.TryGetProperty(nameof(RecognitionLength), out var recognitionLengthProp)

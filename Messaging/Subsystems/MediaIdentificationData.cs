@@ -19,7 +19,6 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
             DurationlessStream,
         }
 
-        [JsonConverter(typeof(JsonStringEnumConverter))]
         public DataKind Kind { get; set; }
         public object Data { get; set; }
 
@@ -35,7 +34,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
             };
 
             return new JsonData(
-                JsonSerializer.Serialize(this, defaultOptions?.AddConverters(converters) ?? new JsonSerializerOptions().AddConverters(converters))
+                JsonSerializer.Serialize(this, DefaultOptions?.AddConverters(converters) ?? new JsonSerializerOptions().AddConverters(converters))
                 );
         }
         public override void Initialize(JsonData data)
