@@ -223,7 +223,7 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         }
         private static void SerializeJsonData(Utf8JsonWriter writer, JsonData jsonData, JsonSerializerOptions options)
         {
-            JsonSerializer.Serialize(writer, jsonData.JsonElement, options);
+            jsonData.JsonElement.WriteTo(writer);
         }
     }
 }
