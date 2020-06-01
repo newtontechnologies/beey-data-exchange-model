@@ -9,7 +9,7 @@ using System.Text.Json;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class LanguageIdentificationData : SubsystemData<PpcData>
+    class LanguageIdentificationData : SubsystemData<LanguageIdentificationData>
     {
         public ASRMsg AsrMsg { get; set; }
         public override void Initialize(JsonData data, JsonSerializerOptions options = null)
