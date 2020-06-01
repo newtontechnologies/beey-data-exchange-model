@@ -1,14 +1,18 @@
-﻿using System;
+﻿using Beey.DataExchangeModel.Serialization.JsonConverters;
+using System;
 using System.Reflection;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
     public abstract class SubsystemData
     {
-        public virtual JsonData Serialize(JsonSerializerOptions options = null)
-            => new JsonData(JsonSerializer.Serialize<object>(this, options));
-        public abstract void Initialize(JsonData data, JsonSerializerOptions options = null);
+        public static JsonSerializerOptions defaultOptions = new JsonSerializerOptions()
+            .AddConverters(new JsonStringEnumConverter(), new JsonTimeSpanConverter());
+        public virtual JsonData Serialize()
+            => new JsonData(JsonSerializer.Serialize<object>(this, defaultOptions));
+        public abstract void Initialize(JsonData data);
     }
 
     public abstract class SubsystemData<T> : SubsystemData

@@ -23,7 +23,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public DataKind Kind { get; set; }
         public object Data { get; set; }
 
-        public override JsonData Serialize(JsonSerializerOptions options = null)
+        public override JsonData Serialize()
         { 
             // TODO: refactor!
             var converters = new JsonConverter[] {
@@ -35,10 +35,10 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
             };
 
             return new JsonData(
-                JsonSerializer.Serialize(this, options?.AddConverters(converters) ?? new JsonSerializerOptions().AddConverters(converters))
+                JsonSerializer.Serialize(this, defaultOptions?.AddConverters(converters) ?? new JsonSerializerOptions().AddConverters(converters))
                 );
         }
-        public override void Initialize(JsonData data, JsonSerializerOptions options = null)
+        public override void Initialize(JsonData data)
         {
             Kind = Enum.Parse<DataKind>(data.JsonElement.GetProperty(nameof(Kind)).GetString());
             Data = Kind switch

@@ -7,7 +7,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
     class EmptyData : SubsystemData
     {
-        public override void Initialize(JsonData data, JsonSerializerOptions options = null)
+        public override void Initialize(JsonData data)
         {
         }
     }

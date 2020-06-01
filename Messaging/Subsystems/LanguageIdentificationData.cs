@@ -12,9 +12,9 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
     class LanguageIdentificationData : SubsystemData<LanguageIdentificationData>
     {
         public ASRMsg AsrMsg { get; set; }
-        public override void Initialize(JsonData data, JsonSerializerOptions options = null)
+        public override void Initialize(JsonData data)
         {
-            AsrMsg = JsonSerializer.Deserialize<ASRMsg>(data.JsonElement.GetProperty(nameof(AsrMsg)).GetRawText(), options);
+            AsrMsg = JsonSerializer.Deserialize<ASRMsg>(data.JsonElement.GetProperty(nameof(AsrMsg)).GetRawText(), defaultOptions);
         }
     }
 }

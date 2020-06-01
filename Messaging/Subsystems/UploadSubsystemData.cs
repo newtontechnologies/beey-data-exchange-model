@@ -16,7 +16,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public DataKind Kind { get; set; }
         public long? FileOffset { get; internal set; }
         public int? UploadPercentage { get; internal set; }
-        public override void Initialize(JsonData data, JsonSerializerOptions options = null)
+        public override void Initialize(JsonData data)
         {
             Kind = Enum.Parse<DataKind>(data.JsonElement.GetProperty(nameof(Kind)).GetRawText());
             if (data.JsonElement.TryGetProperty(nameof(FileOffset), out var fileOffsetProp))

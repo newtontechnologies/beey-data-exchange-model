@@ -11,7 +11,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public enum DataEnum { AudioAvailable, VideoAvailable }
 
         public DataEnum Data { get; set; }
-        public override void Initialize(JsonData data, JsonSerializerOptions options = null)
+        public override void Initialize(JsonData data)
         {
             Data = Enum.Parse<DataEnum>(data.JsonElement.GetProperty(nameof(Data)).GetString());
         }

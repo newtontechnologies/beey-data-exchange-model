@@ -18,12 +18,12 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         [JsonConverter(typeof(JsonNullableConverter<JsonTimeSpanConverter, TimeSpan>))]
         public TimeSpan? Transcribed { get; internal set; }
 
-        public override void Initialize(JsonData data, JsonSerializerOptions options = null)
+        public override void Initialize(JsonData data)
         {
             if (data.JsonElement.TryGetProperty(nameof(AsrMsg), out var asrMsgProp)
                 && asrMsgProp.ValueKind != JsonValueKind.Null)
             {
-                AsrMsg = JsonSerializer.Deserialize<ASRMsg>(asrMsgProp.GetRawText(), options);
+                AsrMsg = JsonSerializer.Deserialize<ASRMsg>(asrMsgProp.GetRawText(), defaultOptions);
             }
 
             if (data.JsonElement.TryGetProperty(nameof(RecognitionLength), out var recognitionLengthProp)
