@@ -1,7 +1,8 @@
 ﻿using Backend.Serialization.Json;
-using Beey.DataExchangeModel.Messaging.Messages;
+using Beey.DataExchangeModel.Serialization.JsonConverters;
 using Beey.DataExchangeModel.Transcriptions;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,10 +12,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
     class LanguageIdentificationData : SubsystemData<LanguageIdentificationData>
     {
-        public ASRMsg AsrMsg { get; set; }
-        public override void Initialize(JsonData data)
-        {
-            AsrMsg = JsonSerializer.Deserialize<ASRMsg>(data.JsonElement.GetProperty(nameof(AsrMsg)).GetRawText(), DefaultOptions);
-        }
+        [JsonConverter(typeof(JsonNgEventConverter))]
+        public NgEvent NgEvent { get; set; }
     }
 }

@@ -6,9 +6,6 @@ using System.Text.Json;
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
     class EmptyData : SubsystemData
-    {
-        public override void Initialize(JsonData data)
-        {
-        }
+    { 
     }
 }

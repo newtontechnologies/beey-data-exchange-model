@@ -95,7 +95,7 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
             var data = props[options.PropertyNameCaseInsensitive ? dataPropertyNameLower : dataPropertyName];
             return FastActivator<ProgressMessage>.CreateInstance(progressMessageConstructor,
                 message.SubsystemName, message.Sent, message.Id, message.ProjectId,
-                new JsonData(data.GetRawText(), data));
+                new JsonData(data.GetRawText()));
         }
         private static FailedMessage DeserializeFailedMessage(Dictionary<string, JsonElement> props, JsonSerializerOptions options)
         {
@@ -223,7 +223,8 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         }
         private static void SerializeJsonData(Utf8JsonWriter writer, JsonData jsonData, JsonSerializerOptions options)
         {
-            jsonData.JsonElement.WriteTo(writer);
+            // TODO System.Text.Json does not support writing raw string, so we need to re-parse it
+            JsonSerializer.Serialize(writer, JsonDocument.Parse(jsonData.Raw).RootElement, options);
         }
     }
 }

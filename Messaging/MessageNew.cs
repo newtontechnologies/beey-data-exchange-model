@@ -9,9 +9,6 @@ namespace Beey.DataExchangeModel.Messaging
 {
     public abstract partial class MessageNew : IEquatable<MessageNew>, ITuple
     {
-        private static readonly System.Text.Json.JsonSerializerOptions options
-            = new System.Text.Json.JsonSerializerOptions().AddConverters(new JsonMessageConverter());
-
         public int Id { get; protected set; }
         public int? ProjectId { get; protected set; }
         public string Subsystem { get; protected set; }
@@ -29,10 +26,13 @@ namespace Beey.DataExchangeModel.Messaging
             ProjectId = projectId;
         }
 
+        public static System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
+            => new System.Text.Json.JsonSerializerOptions().AddConverters(new JsonMessageConverter());
+
         // TODO: channel is ignored when using System.Text.Json
         internal static ArraySegment<byte> Serialize(MessageNew message, string channel)
         {
-            var json = System.Text.Json.JsonSerializer.Serialize<MessageNew>(message, options);
+            var json = System.Text.Json.JsonSerializer.Serialize<MessageNew>(message, CreateDefaultOptions());
             var bytes = Encoding.UTF8.GetBytes(json);
             return new ArraySegment<byte>(bytes);
         }
