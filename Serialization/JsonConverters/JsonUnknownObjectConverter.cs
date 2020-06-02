@@ -11,6 +11,8 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         private static readonly Type typeOfObject = typeof(object);
         private static readonly Type typeOfExpandoObject = typeof(ExpandoObject);
 
+        private JsonSerializerOptions recursiveOptions;
+
         public override bool CanConvert(Type typeToConvert)
         {
             return typeToConvert == typeOfObject || typeToConvert == typeOfExpandoObject;
@@ -69,6 +71,14 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         }
 
         public override void Write(Utf8JsonWriter writer, object value, JsonSerializerOptions options)
-            => JsonSerializer.Serialize(writer, value, options);
+        {
+            if (options != null && recursiveOptions == null)
+            {
+                // handle stack overflow when serializing ExpandoObject
+                recursiveOptions = options.Clone();
+                recursiveOptions.Converters.Remove(this);
+            }
+            JsonSerializer.Serialize(writer, value, recursiveOptions);
+        }
     }
 }
