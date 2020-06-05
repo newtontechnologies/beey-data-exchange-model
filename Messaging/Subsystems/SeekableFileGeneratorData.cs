@@ -8,7 +8,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
 { 
     class SeekableFileGeneratorData : SubsystemData<SeekableFileGeneratorData>
     {
-        public enum DataEnum { AudioAvailable, VideoAvailable }
+        public enum DataEnum { AudioAvailable, VideoAvailable, HeaderAvailable }
         public DataEnum Data { get; set; }
     }
 }

@@ -25,6 +25,6 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         [JsonConverter(typeof(JsonNullableConverter<JsonTimeSpanConverter, TimeSpan>))]
         public TimeSpan? Duration { get; set; }
 
-        public ExpandoObject RawData { get; set; }
+        public string RawData { get; set; }
     }
 }
