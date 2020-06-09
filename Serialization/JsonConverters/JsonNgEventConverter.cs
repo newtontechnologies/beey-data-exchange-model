@@ -14,15 +14,7 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         public override NgEvent Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             var document = JsonDocument.ParseValue(ref reader);
-            try
-            {
-                return NgEvent.Deserialize(JObject.Parse(document.RootElement.GetRawText()), null);
-            }
-            catch(Exception ex)
-            {
-                Serilog.Log.Logger.Fatal(document.RootElement.GetRawText());
-                throw;
-            }
+            return NgEvent.Deserialize(JObject.Parse(document.RootElement.GetRawText()), null);
         }
 
         public override void Write(Utf8JsonWriter writer, NgEvent value, JsonSerializerOptions options)
