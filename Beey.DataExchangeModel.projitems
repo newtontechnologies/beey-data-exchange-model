@@ -31,7 +31,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\EmptyData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\MediaIdentificationData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\LanguageIdentificationData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SeekableFileGeneratorData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\MediaFileIndexingData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SpeakerIdentificationConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SpeakerIdentificationData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SubsystemConfig.cs" />

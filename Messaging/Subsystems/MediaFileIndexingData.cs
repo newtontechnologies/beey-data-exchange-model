@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 { 
-    class SeekableFileGeneratorData : SubsystemData<SeekableFileGeneratorData>
+    class MediaFileIndexingData : SubsystemData<MediaFileIndexingData>
     {
         public enum DataEnum { AudioAvailable, VideoAvailable, HeaderAvailable }
         public DataEnum Data { get; set; }
