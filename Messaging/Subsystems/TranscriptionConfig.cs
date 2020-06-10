@@ -11,14 +11,16 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public bool SaveTrsx { get; set; }
         public string Language { get; set; }
         public bool WithPPC { get; set; }
+        public bool WithVAD { get; set; }
         public int UserId { get; set; }
 
         public TranscriptionConfig() { }
-        public TranscriptionConfig(bool saveTrsx, string language, bool withPPC, int userId)
+        public TranscriptionConfig(bool saveTrsx, string language, bool withPPC, bool withVAD, int userId)
         {
             SaveTrsx = saveTrsx;
             Language = language;
             WithPPC = withPPC;
+            WithVAD = withVAD;
             UserId = userId;
         }
 
@@ -29,6 +31,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
                 { nameof(SaveTrsx), SaveTrsx.ToString() },
                 { nameof(Language), Language },
                 { nameof(WithPPC), WithPPC.ToString() },
+                { nameof(WithVAD), WithVAD.ToString() },
                 { nameof(UserId), UserId.ToString() }
             });
         }
