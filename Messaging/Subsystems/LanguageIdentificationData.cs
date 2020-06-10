@@ -1,5 +1,4 @@
-﻿using Backend.Serialization.Json;
-using Beey.DataExchangeModel.Serialization.JsonConverters;
+﻿using Beey.DataExchangeModel.Serialization.JsonConverters;
 using Beey.DataExchangeModel.Transcriptions;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
