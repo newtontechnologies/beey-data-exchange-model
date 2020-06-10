@@ -30,6 +30,12 @@ namespace Beey.DataExchangeModel.Projects
         public int? VideoRecordingId { get; set; }
         [JsonIgnoreWebDeserialize]
         public int? RecordingManifestId { get; set; }
+
+        [JsonIgnoreWebDeserialize]
+        public int? MediaFileId { get; set; }
+        [JsonIgnoreWebDeserialize]
+        public int? IndexFileId { get; set; }
+
         [JsonIgnoreWebDeserialize]
         public int? OriginalTrsxId { get; set; }
         [JsonIgnoreWebDeserialize]
