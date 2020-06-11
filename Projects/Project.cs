@@ -5,9 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json;
 
 #pragma warning disable nullable
-#pragma warning disable 8618,8601,8603
+#pragma warning disable 8618, 8601, 8603
 namespace Beey.DataExchangeModel.Projects
 {
     public partial class Project : ConcurrentEntity
@@ -22,14 +23,20 @@ namespace Beey.DataExchangeModel.Projects
         [NotMapped]
         public JArray Tags { get => _tags == null ? null : JArray.Parse(_tags); set => _tags = value?.ToString(); }
 
+        [JsonIgnoreWeb]
+        public string _mediaInfo { get; set; }
+        [JsonIgnoreWebDeserialize]
+        [NotMapped]
+        public MediaInfo MediaInfo { get => _mediaInfo == null ? null : JsonSerializer.Deserialize<MediaInfo>(_mediaInfo); set => _mediaInfo = value is { } ? JsonSerializer.Serialize(value) : null; }
+
         [JsonIgnoreWebDeserialize]
         public int? RecordingId { get; set; }
+
         [JsonIgnoreWebDeserialize]
-        public int? AudioRecordingId { get; set; }
+        public int? MediaFileId { get; set; }
         [JsonIgnoreWebDeserialize]
-        public int? VideoRecordingId { get; set; }
-        [JsonIgnoreWebDeserialize]
-        public int? RecordingManifestId { get; set; }
+        public int? IndexFileId { get; set; }
+
         [JsonIgnoreWebDeserialize]
         public int? OriginalTrsxId { get; set; }
         [JsonIgnoreWebDeserialize]
