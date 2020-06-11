@@ -22,14 +22,14 @@ namespace Beey.DataExchangeModel.Projects
         [NotMapped]
         public JArray Tags { get => _tags == null ? null : JArray.Parse(_tags); set => _tags = value?.ToString(); }
 
+        [JsonIgnoreWeb]
+        public string _mediaInfo { get; set; }
+        [JsonIgnoreWebDeserialize]
+        [NotMapped]
+        public JArray MediaInfo { get => _mediaInfo == null ? null : JArray.Parse(_mediaInfo); set => _mediaInfo = value?.ToString(); }
+
         [JsonIgnoreWebDeserialize]
         public int? RecordingId { get; set; }
-        [JsonIgnoreWebDeserialize]
-        public int? AudioRecordingId { get; set; }
-        [JsonIgnoreWebDeserialize]
-        public int? VideoRecordingId { get; set; }
-        [JsonIgnoreWebDeserialize]
-        public int? RecordingManifestId { get; set; }
 
         [JsonIgnoreWebDeserialize]
         public int? MediaFileId { get; set; }
