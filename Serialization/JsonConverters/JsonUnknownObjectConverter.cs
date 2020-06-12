@@ -46,7 +46,7 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
                             array.Add(Read(ref reader, _, options));
                             reader.Read();
                         }
-                        return array;
+                        return array.ToArray();
                     case JsonTokenType.StartObject:
                         reader.Read();
                         var res = new ExpandoObject();
