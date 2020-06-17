@@ -18,11 +18,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\FailedMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\JsonData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\MessageNew.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\AudioExtractionMsg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\SpeakerIdentificationMsg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\RecognitionMsg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\TagChangeMsg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\VideoExtractionMsg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\ProgressMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\ProjectProgress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\StartedMessage.cs" />
@@ -75,12 +70,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Auth\Login.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\LoginToken.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Message.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\ASRMsg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\DiarizationMsg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\FileUploadMsg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\RecordingConversionMsg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\RecordingInfoMsg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Messages\TranscriptionMsg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\PassChange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Files\FileWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ParamsProjectInit.cs" />
@@ -94,5 +83,6 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Auth\" />
     <Folder Include="$(MSBuildThisFileDirectory)Files\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Messaging\Messages\" />
   </ItemGroup>
 </Project>
