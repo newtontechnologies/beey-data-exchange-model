@@ -10,7 +10,6 @@ namespace Beey.DataExchangeModel.Messaging
     public abstract partial class MessageNew : IEquatable<MessageNew>, ITuple
     {
         public int Id { get; protected set; }
-        public int? ProjectId { get; protected set; }
         public string Subsystem { get; protected set; }
         public DateTimeOffset Sent { get; protected set; }
         public string Type { get => this.GetType().Name.Replace("Message", ""); }
@@ -23,7 +22,6 @@ namespace Beey.DataExchangeModel.Messaging
             Subsystem = subsystemName;
             Sent = sent;
             Id = id;
-            ProjectId = projectId;
         }
 
         public static System.Text.Json.JsonSerializerOptions CreateDefaultOptions()

@@ -33,8 +33,6 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         private static readonly string subsystemPropertyNameLower = subsystemPropertyName.ToLowerInvariant();
         private static readonly string sentPropertyName = nameof(MessageNew.Sent);
         private static readonly string sentPropertyNameLower = sentPropertyName.ToLowerInvariant();
-        private static readonly string projectIdPropertyName = nameof(MessageNew.ProjectId);
-        private static readonly string projectIdPropertyNameLower = projectIdPropertyName.ToLowerInvariant();
 
         private static readonly string configPropertyName = nameof(StartedMessage.Config);
         private static readonly string configPropertyNameLower = configPropertyName.ToLowerInvariant();
@@ -119,17 +117,6 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
             DateTimeOffset sent = props[options.PropertyNameCaseInsensitive ? sentPropertyNameLower : sentPropertyName].GetDateTimeOffset();
             string subsystemName = props[options.PropertyNameCaseInsensitive ? subsystemPropertyNameLower : subsystemPropertyName].GetString();
             int? projectId = null;
-            if (props.TryGetValue(options.PropertyNameCaseInsensitive ? projectIdPropertyNameLower : projectIdPropertyName, out var projectIdProp))
-            {
-                if (projectIdProp.ValueKind == JsonValueKind.Number && projectIdProp.TryGetInt32(out var tmp))
-                {
-                    projectId = tmp;
-                }
-                else if (projectIdProp.ValueKind != JsonValueKind.Null)
-                {
-                    throw new JsonException($"Error when parsing '{projectIdPropertyName}'. Expected number instead of '{projectIdProp.ValueKind}'.");
-                }
-            }
             return (subsystemName, sent, id, projectId);
         }
         private static IConfiguration DeserializeConfiguration(JsonElement json)
