@@ -24,7 +24,7 @@ namespace Beey.DataExchangeModel.Serialization
             typeName = null;
 
             //except when it si message
-            if (typeof(Message).IsAssignableFrom(serializedType))
+            if (typeof(MessageNew).IsAssignableFrom(serializedType))
                 _binder.BindToName(serializedType, out assemblyName, out typeName);
 
 
@@ -35,7 +35,7 @@ namespace Beey.DataExchangeModel.Serialization
             var type = _binder.BindToType(assemblyName, typeName);
 
             //only return types when we are deserilizing message
-            if(typeof(Message).IsAssignableFrom(type))
+            if(typeof(MessageNew).IsAssignableFrom(type))
                 return type;
 
             return null;

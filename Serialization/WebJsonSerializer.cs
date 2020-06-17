@@ -54,7 +54,7 @@ namespace Beey.DataExchangeModel.Serialization
                 }
 
                 //type of message should be serialized if needed
-                if (!typeof(Message).IsAssignableFrom(property.PropertyType))
+                if (!typeof(MessageNew).IsAssignableFrom(property.PropertyType))
                 {
                     property.TypeNameHandling = TypeNameHandling.None;
                 }
@@ -65,9 +65,9 @@ namespace Beey.DataExchangeModel.Serialization
             protected override JsonContract CreateContract(Type objectType)
             {
                 var contract = base.CreateContract(objectType);
-                if (contract is JsonObjectContract ocontract && typeof(Message).IsAssignableFrom(ocontract.CreatedType))
+                if (contract is JsonObjectContract ocontract && typeof(MessageNew).IsAssignableFrom(ocontract.CreatedType))
                     ocontract.ItemTypeNameHandling = TypeNameHandling.None;
-                else if (contract is JsonArrayContract jcontract && !typeof(Message).IsAssignableFrom(jcontract.CollectionItemType))
+                else if (contract is JsonArrayContract jcontract && !typeof(MessageNew).IsAssignableFrom(jcontract.CollectionItemType))
                     jcontract.ItemTypeNameHandling = TypeNameHandling.None;
 
                 return contract;

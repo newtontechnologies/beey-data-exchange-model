@@ -69,7 +69,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Listing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\Login.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\LoginToken.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Message.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\PassChange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Files\FileWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ParamsProjectInit.cs" />
@@ -83,6 +82,5 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Auth\" />
     <Folder Include="$(MSBuildThisFileDirectory)Files\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Messaging\Messages\" />
   </ItemGroup>
 </Project>
