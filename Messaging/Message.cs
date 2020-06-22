@@ -14,7 +14,9 @@ namespace Beey.DataExchangeModel.Messaging
         public int? ProjectId { get; protected set; }
         public string Subsystem { get; protected set; }
         public DateTimeOffset Sent { get; protected set; }
-        public string Type { get => this.GetType().Name.Replace("Message", ""); }
+        public MessageType Type => Enum.TryParse<MessageType>(this.GetType().Name.Replace("Message", ""), out var messageType)
+                ? messageType
+                : throw new InvalidProgramException("Invalid message type.");
         /// <summary>
         /// Used by deserialization. Messages are created only in subsystems.
         /// </summary>

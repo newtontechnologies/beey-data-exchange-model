@@ -60,15 +60,15 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
             {
                 throw new JsonException($"Invalid JSON. Missing message property '{typePropertyName}'.");
             }
-            var messageType = typeProp.GetString();
+            var messageType = (MessageType)typeProp.GetInt32();
             try
             {
                 return messageType switch
                 {
-                    "Started" => DeserializeStartedMessage(properties, options),
-                    "Progress" => DeserializeProgressMessage(properties, options),
-                    "Failed" => DeserializeFailedMessage(properties, options),
-                    "Completed" => DeserializeCompletedMessage(properties, options),
+                    MessageType.Started => DeserializeStartedMessage(properties, options),
+                    MessageType.Progress => DeserializeProgressMessage(properties, options),
+                    MessageType.Failed => DeserializeFailedMessage(properties, options),
+                    MessageType.Completed => DeserializeCompletedMessage(properties, options),
                     _ => throw new JsonException($"Invalid message type '{messageType}'.")
                 };
             }
