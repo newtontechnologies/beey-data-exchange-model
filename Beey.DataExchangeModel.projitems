@@ -17,7 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\CompletedMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\FailedMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\JsonData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\MessageNew.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Message.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\ProgressMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\ProjectProgress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\StartedMessage.cs" />

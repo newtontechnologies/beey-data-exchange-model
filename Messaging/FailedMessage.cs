@@ -2,7 +2,7 @@
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public sealed partial class FailedMessage : MessageNew
+    public sealed partial class FailedMessage : Message
     {
         public string Reason { get; private set; }
 

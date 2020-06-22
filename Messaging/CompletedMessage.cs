@@ -2,7 +2,7 @@
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public sealed partial class CompletedMessage : MessageNew
+    public sealed partial class CompletedMessage : Message
     {
         /// <summary>
         /// Used by deserialization. Messages are created only in subsystems.

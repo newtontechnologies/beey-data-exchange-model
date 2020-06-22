@@ -23,13 +23,13 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
     public abstract class SubsystemConfig<T> : SubsystemConfig
         where T : SubsystemConfig
     {
-        public static T From(MessageNew startedMessage)
+        public static T From(Message startedMessage)
         {
             var config = ExtractConfig(startedMessage);
             var result = config.Get<T>();
             return result;
         }
-        private static IConfiguration ExtractConfig(MessageNew startedMessage)
+        private static IConfiguration ExtractConfig(Message startedMessage)
         {
             return startedMessage is StartedMessage m
                 ? m.Config
