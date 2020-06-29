@@ -3,6 +3,7 @@ using Beey.DataExchangeModel.Tools;
 using System;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Messaging
@@ -14,6 +15,7 @@ namespace Beey.DataExchangeModel.Messaging
         public int? ProjectId { get; protected set; }
         public string Subsystem { get; protected set; }
         public DateTimeOffset Sent { get; protected set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public MessageType Type => Enum.TryParse<MessageType>(this.GetType().Name.Replace("Message", ""), out var messageType)
                 ? messageType
                 : throw new InvalidProgramException("Invalid message type.");
