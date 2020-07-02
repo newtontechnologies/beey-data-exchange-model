@@ -7,5 +7,6 @@ namespace Beey.DataExchangeModel.Projects
     public partial class MediaInfo
     {
         public bool HasVideo { get; set; }
+        public bool IsPackaged { get; set; }
     }
 }
