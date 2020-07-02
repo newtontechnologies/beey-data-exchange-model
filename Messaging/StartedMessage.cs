@@ -3,7 +3,7 @@ using System;
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public sealed partial class StartedMessage : MessageNew
+    public sealed partial class StartedMessage : Message
     {
         public IConfiguration Config { get; set; }
 

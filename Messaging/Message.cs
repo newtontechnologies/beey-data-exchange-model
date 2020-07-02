@@ -3,22 +3,26 @@ using Beey.DataExchangeModel.Tools;
 using System;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public abstract partial class MessageNew : IEquatable<MessageNew>, ITuple
+    public enum MessageType { Started, Progress, Failed, Completed }
+    public abstract partial class Message : IEquatable<Message>, ITuple
     {
         public int Id { get; protected set; }
         public int? ProjectId { get; protected set; }
         public string Subsystem { get; protected set; }
         public DateTimeOffset Sent { get; protected set; }
-        public string Type { get => this.GetType().Name.Replace("Message", ""); }
-
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public MessageType Type => Enum.TryParse<MessageType>(this.GetType().Name.Replace("Message", ""), out var messageType)
+                ? messageType
+                : throw new InvalidProgramException("Invalid message type.");
         /// <summary>
         /// Used by deserialization. Messages are created only in subsystems.
         /// </summary>
-        protected MessageNew(string subsystemName, DateTimeOffset sent, int id, int? projectId)
+        protected Message(string subsystemName, DateTimeOffset sent, int id, int? projectId)
         {
             Subsystem = subsystemName;
             Sent = sent;
@@ -30,32 +34,32 @@ namespace Beey.DataExchangeModel.Messaging
             => new System.Text.Json.JsonSerializerOptions().AddConverters(new JsonMessageConverter());
 
         // TODO: channel is ignored when using System.Text.Json
-        internal static ArraySegment<byte> Serialize(MessageNew message, string channel)
+        internal static ArraySegment<byte> Serialize(Message message, string channel)
         {
-            var json = System.Text.Json.JsonSerializer.Serialize<MessageNew>(message, CreateDefaultOptions());
+            var json = System.Text.Json.JsonSerializer.Serialize<Message>(message, CreateDefaultOptions());
             var bytes = Encoding.UTF8.GetBytes(json);
             return new ArraySegment<byte>(bytes);
         }
 
         #region Operators
 
-        public static bool operator ==(MessageNew first, MessageNew second)
+        public static bool operator ==(Message first, Message second)
             => Equals(first, second);
-        public static bool operator !=(MessageNew first, MessageNew second)
+        public static bool operator !=(Message first, Message second)
             => !Equals(first, second);
 
-        public static Flag<MessageNew> operator &(MessageNew first, MessageNew second)
-            => new Flag<MessageNew>(first) & new Flag<MessageNew>(second);
-        public static Flag<MessageNew> operator |(MessageNew first, MessageNew second)
-            => new Flag<MessageNew>(first) | new Flag<MessageNew>(second);
-        public static Flag<MessageNew> operator ~(MessageNew message)
-            => ~(new Flag<MessageNew>(message));
+        public static Flag<Message> operator &(Message first, Message second)
+            => new Flag<Message>(first) & new Flag<Message>(second);
+        public static Flag<Message> operator |(Message first, Message second)
+            => new Flag<Message>(first) | new Flag<Message>(second);
+        public static Flag<Message> operator ~(Message message)
+            => ~(new Flag<Message>(message));
 
-        public bool Equals(MessageNew other)
+        public bool Equals(Message other)
             => Equals(this, other);
         public override bool Equals(object obj)
         {
-            return obj is MessageNew msg
+            return obj is Message msg
                 ? Equals(this, msg)
                 : false;
         }
@@ -155,7 +159,7 @@ namespace Beey.DataExchangeModel.Messaging
         /// <param name="first"></param>
         /// <param name="second"></param>
         /// <returns></returns>
-        private static bool Equals(MessageNew first, MessageNew second)
+        private static bool Equals(Message first, Message second)
         {
             if (first is null || second is null)
                 return first is null && second is null;

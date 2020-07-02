@@ -2,7 +2,7 @@
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public sealed partial class ProgressMessage : MessageNew
+    public sealed partial class ProgressMessage : Message
     {
         public JsonData Data { get; private set; }
 

@@ -17,7 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\CompletedMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\FailedMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\JsonData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\MessageNew.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Message.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\ProgressMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\ProjectProgress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\StartedMessage.cs" />
@@ -41,10 +41,8 @@
     <Compile Include="..\DataExchangeModel\Messaging\Subsystems\UploadSubsystemData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectMetadata.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\TranscriptionConfig.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Serialization\DerivedTypesBinder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonIgnoreDeserializeWebAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonIgnoreWeb.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Serialization\WebJsonSerializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\FastActivator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Flag.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonExtensions.cs" />

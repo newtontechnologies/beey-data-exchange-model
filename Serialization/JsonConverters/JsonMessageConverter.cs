@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Serialization.JsonConverters
 {
-    class JsonMessageConverter : JsonConverter<MessageNew>
+    class JsonMessageConverter : JsonConverter<Message>
     {
         #region constructors
         // ensurance that messages are deserialized correctly
@@ -25,15 +25,15 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         #endregion constructors
 
         #region property names
-        private static readonly string idPropertyName = nameof(MessageNew.Id);
+        private static readonly string idPropertyName = nameof(Message.Id);
         private static readonly string idPropertyNameLower = idPropertyName.ToLowerInvariant();
-        private static readonly string typePropertyName = nameof(MessageNew.Type);
+        private static readonly string typePropertyName = nameof(Message.Type);
         private static readonly string typePropertyNameLower = typePropertyName.ToLowerInvariant();
-        private static readonly string subsystemPropertyName = nameof(MessageNew.Subsystem);
+        private static readonly string subsystemPropertyName = nameof(Message.Subsystem);
         private static readonly string subsystemPropertyNameLower = subsystemPropertyName.ToLowerInvariant();
-        private static readonly string sentPropertyName = nameof(MessageNew.Sent);
+        private static readonly string sentPropertyName = nameof(Message.Sent);
         private static readonly string sentPropertyNameLower = sentPropertyName.ToLowerInvariant();
-        private static readonly string projectIdPropertyName = nameof(MessageNew.ProjectId);
+        private static readonly string projectIdPropertyName = nameof(Message.ProjectId);
         private static readonly string projectIdPropertyNameLower = projectIdPropertyName.ToLowerInvariant();
 
         private static readonly string configPropertyName = nameof(StartedMessage.Config);
@@ -49,7 +49,7 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         private static readonly JsonConverter dataSerializer
             = new JsonSimpleConverter<JsonData>(serialize: SerializeJsonData);
 
-        public override MessageNew Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override Message Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             var properties = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(ref reader, options);
             if (options.PropertyNameCaseInsensitive)
@@ -60,15 +60,15 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
             {
                 throw new JsonException($"Invalid JSON. Missing message property '{typePropertyName}'.");
             }
-            var messageType = typeProp.GetString();
+            var messageType = (MessageType)typeProp.GetInt32();
             try
             {
                 return messageType switch
                 {
-                    "Started" => DeserializeStartedMessage(properties, options),
-                    "Progress" => DeserializeProgressMessage(properties, options),
-                    "Failed" => DeserializeFailedMessage(properties, options),
-                    "Completed" => DeserializeCompletedMessage(properties, options),
+                    MessageType.Started => DeserializeStartedMessage(properties, options),
+                    MessageType.Progress => DeserializeProgressMessage(properties, options),
+                    MessageType.Failed => DeserializeFailedMessage(properties, options),
+                    MessageType.Completed => DeserializeCompletedMessage(properties, options),
                     _ => throw new JsonException($"Invalid message type '{messageType}'.")
                 };
             }
@@ -174,7 +174,7 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
                 throw new InvalidProgramException("Missing message constructor.");
         }
 
-        public override void Write(Utf8JsonWriter writer, MessageNew value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, Message value, JsonSerializerOptions options)
         {
             JsonSerializer.Serialize(writer, value, value.GetType(),
                 options.WithConverters(configSerializer, dataSerializer));
