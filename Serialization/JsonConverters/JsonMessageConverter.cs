@@ -60,7 +60,14 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
             {
                 throw new JsonException($"Invalid JSON. Missing message property '{typePropertyName}'.");
             }
-            var messageType = (MessageType)typeProp.GetInt32();
+
+            var messageType = typeProp.ValueKind switch
+            {
+                JsonValueKind.Number => (MessageType)typeProp.GetInt32(),
+                JsonValueKind.String => Enum.Parse<MessageType>(typeProp.GetString()),
+                _ => throw new JsonException("Invalid message type.")
+            };
+
             try
             {
                 return messageType switch
