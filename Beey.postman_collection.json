@@ -1129,56 +1129,7 @@
 							"response": []
 						},
 						{
-							"name": "Download Audio",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "bf586c99-2cdd-441a-b6ec-b506b8c8f25b",
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{authToken}}"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "{{url}}/API/Project/{{lastProjectID}}/Files/Audio",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"API",
-										"Project",
-										"{{lastProjectID}}",
-										"Files",
-										"Audio"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Download Video",
+							"name": "Download Media File",
 							"event": [
 								{
 									"listen": "test",
