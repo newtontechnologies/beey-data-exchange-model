@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "0f3ea4eb-fb6f-4a89-bdd3-481dcd56116b",
-		"name": "Beey",
+		"_postman_id": "606d6a0a-1168-457d-9193-56276f2a4771",
+		"name": "Beey copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -100,7 +100,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0bf6682f-4325-46b9-80a0-fc5f7599c1da",
+										"id": "e5191901-e26d-4a98-8a93-2d10a1557716",
 										"exec": [
 											""
 										],
@@ -137,7 +137,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "506e1a2d-7921-4af2-a997-cd796016018f",
+										"id": "03957537-0d27-451e-abce-e0499fc6b7fd",
 										"exec": [
 											""
 										],
@@ -183,7 +183,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4a574987-31ff-452b-b478-fa9cf1d1fe1c",
+										"id": "e7f8048b-325c-4b17-826b-4e5e163e54e3",
 										"exec": [
 											""
 										],
@@ -220,7 +220,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1b1b8d46-5f78-4655-9348-ea50f491f169",
+										"id": "368e33e7-1573-4f57-abcb-bf152e675920",
 										"exec": [
 											""
 										],
@@ -300,7 +300,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f6584bc7-e5fc-4f9c-85ad-ec0dde74e593",
+								"id": "2e5d413b-6a8d-425a-837d-a61d332cedbe",
 								"exec": [
 									""
 								],
@@ -336,7 +336,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ba83b0d0-f686-45d7-a664-988d244e3db2",
+								"id": "bdf82235-3a9e-4124-aae2-e49fc23ae5bc",
 								"exec": [
 									""
 								],
@@ -372,7 +372,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "89c6f5f4-db69-4db4-8eb7-a1f7a501ab9f",
+								"id": "3d132b98-ceb8-4844-a1b2-aa80379aaea3",
 								"exec": [
 									""
 								],
@@ -412,7 +412,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f987efff-1c12-4969-8034-fa68320f2bdb",
+								"id": "514f591a-695c-4552-a46b-272500bd9813",
 								"exec": [
 									""
 								],
@@ -448,7 +448,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "22618617-5959-49af-99cf-34012be1fbdd",
+								"id": "4c7a8663-0283-4db1-bc21-34caf87eaf7f",
 								"exec": [
 									""
 								],
@@ -696,7 +696,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1c809a06-059a-4136-9ab3-4df3c32731a5",
+										"id": "80a4772d-894b-4360-a8d5-019b7f2e2c2a",
 										"exec": [
 											""
 										],
@@ -740,7 +740,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "519ed7f7-247d-4a26-aaf8-1f21a87e72de",
+										"id": "28972245-1072-4fd4-bcb1-eb9cb0565479",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -797,7 +797,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "61a2d62d-00bf-4716-881e-0022a0ba8cb8",
+										"id": "59fa7d86-0535-4c7b-a776-498fee8aed00",
 										"exec": [
 											""
 										],
@@ -839,7 +839,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "528ff156-56da-44bf-bdee-21fe4f6266ef",
+										"id": "d5e8155b-b22d-42ae-b70b-c8615494231e",
 										"exec": [
 											""
 										],
@@ -897,7 +897,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3148a86b-69cd-4266-9679-7e0d5bfd3c48",
+										"id": "d8cb17b3-c790-427e-a195-d534e19bf3bd",
 										"exec": [
 											""
 										],
@@ -944,7 +944,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "37cf8b28-552e-4e15-9e8a-5e8285e562ec",
+										"id": "ed8a48de-7ff5-4ef5-a434-60e58fd354bd",
 										"exec": [
 											""
 										],
@@ -1037,7 +1037,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9173062e-0286-4656-b330-5b1d1d12cc60",
+										"id": "5c0e364c-5228-4862-8c57-2803df8f0946",
 										"exec": [
 											""
 										],
@@ -1065,7 +1065,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{url}}/API/Project/{{lastProjectID}}/Files/Video",
+									"raw": "{{url}}/API/Project/{{lastProjectID}}/Files/MediaFile",
 									"host": [
 										"{{url}}"
 									],
@@ -1074,7 +1074,7 @@
 										"Project",
 										"{{lastProjectID}}",
 										"Files",
-										"Video"
+										"MediaFile"
 									]
 								}
 							},
@@ -1086,7 +1086,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6c7f739d-ab09-4c33-9397-1ed4b475f4a3",
+										"id": "58a69a89-ce85-4402-8da6-8ddda7ea86fc",
 										"exec": [
 											""
 										],
@@ -1135,7 +1135,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d631c1ea-4fa6-41e6-8c48-9cd86d53dd93",
+										"id": "83a73cb5-b717-461f-a84f-4836471a9b51",
 										"exec": [
 											""
 										],
@@ -1184,7 +1184,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f1e822c8-17cd-46a7-bc1d-fcbd05ad52e2",
+										"id": "93391f32-27a3-4fae-aa8c-f65937214ee7",
 										"exec": [
 											""
 										],
@@ -1233,7 +1233,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ff21e1c9-bb04-4298-af6b-439ebc2e9e99",
+										"id": "b1607343-967e-4a47-9d18-168f4f10f5a6",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1288,7 +1288,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "bc8b9e0b-28c9-4925-b6a7-65fef2be59d1",
+										"id": "16c8c0cd-9f03-460e-95cc-e84f16a8abcf",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1394,7 +1394,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b4ea95a2-ce7c-4317-a83f-757c3d2a5930",
+										"id": "2da7d236-0aa9-4639-842a-2c01182dce40",
 										"exec": [
 											""
 										],
@@ -1443,7 +1443,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "192f558d-2a81-45af-aa28-94626e487783",
+										"id": "cc5ab4de-1f03-4a26-beb6-afcca9230b50",
 										"exec": [
 											""
 										],
@@ -1533,7 +1533,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9410ac8d-9b78-480e-97d4-91cfd6526c69",
+										"id": "dcb06505-db51-4a90-8ad9-df57ac250044",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1582,7 +1582,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c9c9c889-b6b6-4544-9042-a1c6d96b8e28",
+										"id": "abba7162-a27f-4bdc-ae9b-ea05b052dd35",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1667,7 +1667,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6a072787-58ee-405e-89f9-ef1ec3c330b3",
+										"id": "d159b70c-077b-4c22-b1be-916a56507d59",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1723,7 +1723,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b6e82e69-2746-4407-a159-7dd684049afc",
+										"id": "0b80785e-968e-43e3-8f9c-8dae440f7605",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1934,7 +1934,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "35098a26-420c-4cd8-9a76-558765bf27ae",
+								"id": "1a398162-dcd9-4b25-950d-7015f7a95e0f",
 								"exec": [
 									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
 									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
@@ -1978,7 +1978,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e4a7899c-a6f5-4926-9f73-76e22a7befa5",
+								"id": "8dc715f6-c114-45a1-8f8d-2a77cb121e24",
 								"exec": [
 									"pm.globals.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);",
 									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
@@ -2020,7 +2020,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1cdd99e8-660c-4e71-993f-ff5ea3ab5c00",
+								"id": "d66a1a42-7f03-43fc-98f7-038d270fc9ad",
 								"exec": [
 									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 								],
@@ -2064,7 +2064,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7cf41466-d0e9-4b9f-b561-dc1810c676b3",
+								"id": "4b13615d-e617-435f-b398-db7ec623573f",
 								"exec": [
 									""
 								],
@@ -2108,7 +2108,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b8787389-102f-442c-a7f2-2e46ab211188",
+								"id": "28bc9945-b54d-4b09-8466-a87b8094802e",
 								"exec": [
 									"if (pm.response.json().ListedCount > 0) {",
 									"    pm.globals.set(\"lastProjectID\", pm.response.json().List[0].ProjectId);",
@@ -2180,7 +2180,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5ccd3651-1df0-439d-958e-410ca62e9b58",
+								"id": "24dc8e18-a959-4b03-85e8-0fc84c5e2429",
 								"exec": [
 									"if (pm.response.json().ListedCount > 0) {",
 									"    pm.globals.set(\"lastProjectID\", pm.response.json().List[0].ProjectId);",
@@ -2285,7 +2285,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "cdaf440b-285e-49b8-bac1-9aabb6291393",
+								"id": "d29f3884-7c0c-432c-af9f-36c303c8ee4e",
 								"exec": [
 									""
 								],
@@ -2407,7 +2407,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0e3fb9e9-e669-4012-97d9-be7d202ebd82",
+								"id": "70e1253a-52b8-47f0-b4e6-3c28528be96e",
 								"exec": [
 									""
 								],
@@ -2456,7 +2456,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "097b55dc-9997-4064-bbbe-a2200d300f2b",
+								"id": "9a260cd5-b7ae-4fc8-bfa9-81b065b5c105",
 								"exec": [
 									"pm.globals.set(\"lastSpeakerID\", xml2Json(pm.response.text()).s.$.dbid);"
 								],
@@ -2495,7 +2495,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d628f73b-d31d-4c06-b5cc-9cd1038a2c89",
+								"id": "fd40c37a-2dc5-4ad8-9c36-f87658b067ca",
 								"exec": [
 									""
 								],
@@ -2537,7 +2537,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "29e01136-b0e1-435b-a79b-2790de7bd41f",
+						"id": "588dffe0-fa49-4961-925d-5fb6647f2e14",
 						"exec": [
 							"pm.globals.set(\"authToken\", pm.response.json().Token);",
 							"pm.globals.set(\"currentUser\", pm.response.json().User);",
@@ -2583,7 +2583,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1205f0fc-40ca-46c2-8213-fb33cfbbd1dd",
+						"id": "9606e09b-f838-4edf-aa1c-477cbbed9367",
 						"exec": [
 							""
 						],
@@ -2613,7 +2613,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "124461bc-b76e-4264-b1e1-2e8976a64ae3",
+						"id": "81ca6a26-f29b-4106-ae6e-0bb6fd6c238d",
 						"exec": [
 							""
 						],
@@ -2643,7 +2643,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ec4ccf4e-9233-4531-8968-af7e5299ee49",
+						"id": "b9a40e97-2b9a-468a-8829-00cf40ee6a39",
 						"type": "text/javascript",
 						"exec": [
 							"pm.globals.unset(\"authToken\");"
@@ -2682,7 +2682,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fe3b181f-9b46-4d47-8356-16e963942143",
+						"id": "a66d0312-38ac-43da-bc2e-44eb3353d9d3",
 						"exec": [
 							""
 						],
@@ -2721,7 +2721,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "10198ca3-b9b0-442b-af25-d6fb99df66af",
+				"id": "d27532f6-6e43-40a4-92c5-688717e480e8",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2731,7 +2731,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a5e1966d-576d-4ed2-914d-447f05d4ba99",
+				"id": "4f2f5e69-ac1d-4fba-b4ca-3020de245c9c",
 				"type": "text/javascript",
 				"exec": [
 					""
