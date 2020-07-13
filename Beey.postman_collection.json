@@ -132,53 +132,7 @@
 							"response": []
 						},
 						{
-							"name": "modify user (change password..)",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "ae471a30-a8f8-4c72-8d14-663818eeb13b",
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{authToken}}"
-									},
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"Id\":\"{{currentUserId}}\",\n\t\"Password\":\"TNPGod\"\n}"
-								},
-								"url": {
-									"raw": "{{url}}/API/Admin/User",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"API",
-										"Admin",
-										"User"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "modify user (change password back to OVP)",
+							"name": "modify user (change password example)",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -207,7 +161,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"Id\":\"{{currentUserId}}\",\n\t\"Password\":\"OVPgod\"\n}"
+									"raw": "{\n\t\"Id\":\"{{currentUserId}}\",\n\t\"Password\":\"DifferentPassword\"\n}"
 								},
 								"url": {
 									"raw": "{{url}}/API/Admin/User",
