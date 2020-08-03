@@ -13,6 +13,7 @@ namespace Beey.DataExchangeModel.Messaging
         public ProcessState MediaIdentificationState { get; set; }
         public ProcessState TranscodingState { get; set; }
         public ProcessState FileIndexingState { get; set; }
+        public ProcessState FilePackagingState { get; set; }
         public ProcessState RecognitionState { get; set; }
         public ProcessState DiarizationState { get; set; }
         public ProcessState SpeakerIdentificationState { get; set; }
