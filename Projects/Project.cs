@@ -34,6 +34,14 @@ namespace Beey.DataExchangeModel.Projects
 
         [JsonIgnoreWebDeserialize]
         public int? MediaFileId { get; set; }
+
+        [JsonIgnoreWebDeserialize]
+        public int? AudioFileId { get; set; }
+
+        [JsonIgnoreWebDeserialize]
+        public int? VideoFileId { get; set; }
+
+
         [JsonIgnoreWebDeserialize]
         public int? IndexFileId { get; set; }
 
