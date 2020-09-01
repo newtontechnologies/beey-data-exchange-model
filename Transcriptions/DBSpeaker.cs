@@ -12,6 +12,8 @@ namespace Beey.DataExchangeModel.Transcriptions
 {
     public partial class DBSpeaker
     {
+        // With other values, search is broken probably because of ES analyzers.
+        public const string GlobalId = "";
         public string Id { get; set; }
         private Speaker _speaker;
 
@@ -24,7 +26,7 @@ namespace Beey.DataExchangeModel.Transcriptions
             set => _speaker = new Speaker(XElement.Parse(value));
         }
 
-        //null for global speaker
-        public int? UserId { get; set; } = null;
+        // This must be string for ES context suggester to work.
+        public string UserId { get; set; } = GlobalId;
     }
 }
