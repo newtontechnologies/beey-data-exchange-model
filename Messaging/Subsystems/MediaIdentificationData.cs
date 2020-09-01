@@ -17,6 +17,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
             Duration,
             ApproximateDuration,
             DurationlessStream,
+            Error,
         }
 
         [JsonConverter(typeof(JsonStringNullableEnumConverter))]
@@ -26,5 +27,6 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public TimeSpan? Duration { get; set; }
 
         public string RawData { get; set; }
+        public string Error { get; set; }
     }
 }
