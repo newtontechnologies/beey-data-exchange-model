@@ -32,7 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SubsystemConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SubsystemData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\RecognitionData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)OrderInfo\OrderInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Orders\OrderInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\MediaInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNgEventConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNullableConverter.cs" />
@@ -81,5 +81,6 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Auth\" />
     <Folder Include="$(MSBuildThisFileDirectory)Files\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Orders\" />
   </ItemGroup>
 </Project>
