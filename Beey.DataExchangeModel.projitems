@@ -61,7 +61,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Transcriptions\NgSpeakerEvent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Emails\Email.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Emails\PlainEmail.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Emails\RegistrationEmail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EntityBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Error.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Files\FileStateInfo.cs" />
