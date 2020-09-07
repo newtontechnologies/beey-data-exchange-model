@@ -35,5 +35,6 @@ namespace Beey.DataExchangeModel.Orders
         public bool InfoMailSent { get; set; }
         public bool ResultMailSent { get; set; }
         public bool CreditAdded { get; set; }
+        public bool InvoiceMailSent { get; set; }
     }
 }
