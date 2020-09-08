@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3bb015e5-74c0-4c86-bd71-3d839f781ea6",
+		"_postman_id": "0570902f-0b64-4b78-a2f4-85381bfd70c6",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -100,7 +100,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ba73610f-5d84-482e-bcb0-d8e7045c04c5",
+										"id": "6cb481a6-0188-4271-92a6-6edf864293fb",
 										"exec": [
 											""
 										],
@@ -137,7 +137,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "996c519b-03ce-4cbb-82d0-bafe5ff5dbe7",
+										"id": "f404775b-8f2b-47c3-874d-51329c935e44",
 										"exec": [
 											""
 										],
@@ -183,7 +183,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b5831da4-764d-4c82-95d3-f48cc1e8ea06",
+										"id": "74329ea4-12fc-419d-b90b-d484228c5ece",
 										"exec": [
 											""
 										],
@@ -220,7 +220,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2e08a7d8-8b95-4e74-a128-9186bcd7bcaf",
+										"id": "47a8927e-ead1-4297-9d12-0bed42b9508e",
 										"exec": [
 											""
 										],
@@ -300,7 +300,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e527f9d7-0354-4229-a93c-d06f7f6c71c1",
+								"id": "389daac2-6164-402f-924b-4ff5c162b662",
 								"exec": [
 									""
 								],
@@ -336,7 +336,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e5a6f716-9f80-4e60-8434-8ceab913df0f",
+								"id": "e1679bff-6d04-4640-b721-b3e74126ed0f",
 								"exec": [
 									""
 								],
@@ -372,7 +372,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3cbcb576-a3b1-4ce7-bdde-dccebdf842a7",
+								"id": "73ca4e01-136b-4b7b-9904-5e338b5fe64e",
 								"exec": [
 									""
 								],
@@ -412,7 +412,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "27ef4b3f-049a-410a-b6e6-58a13e2cb008",
+								"id": "1981bbb2-8356-4cb5-84f2-d2a3c54b83b4",
 								"exec": [
 									""
 								],
@@ -448,7 +448,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "01aea45c-c4d4-445e-8f8d-f926a043499e",
+								"id": "1f983dbf-b79f-4189-98b2-a66b2abe905e",
 								"exec": [
 									""
 								],
@@ -696,7 +696,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "594b8ce4-d576-498d-a52e-7d75c631b144",
+										"id": "d07d1faa-2e39-412e-abd8-55f34ce4322c",
 										"exec": [
 											""
 										],
@@ -740,7 +740,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "adf044ae-ae0b-4b10-a278-5203a99f3cf1",
+										"id": "8bbb9e7e-69d6-4e6f-9404-1e5660e87623",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -797,7 +797,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6927c46a-8bbc-4f40-938e-2b9275aecdef",
+										"id": "06b316d0-4ad8-43f1-a5cc-84382a28cebc",
 										"exec": [
 											""
 										],
@@ -839,7 +839,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4746b299-781b-461e-bdce-21c88ac61c78",
+										"id": "721e0caa-95c0-4e67-9e33-cd91a0a883ab",
 										"exec": [
 											""
 										],
@@ -897,7 +897,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "471a2f21-99a3-4889-91ea-9f26968c09a3",
+										"id": "4d64fc2a-a326-43a7-8ba9-d85545fb5200",
 										"exec": [
 											""
 										],
@@ -944,7 +944,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8aa5a6c7-aa0a-4279-917f-913d3843037f",
+										"id": "1aeb632f-4b2b-4a56-9590-bc33ce0380f0",
 										"exec": [
 											""
 										],
@@ -1037,7 +1037,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d87caad2-4f2a-47b7-beed-40bb9be11b7a",
+										"id": "35c9add2-d260-4ec9-9917-60a3671fbd7f",
 										"exec": [
 											""
 										],
@@ -1086,7 +1086,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b10019c8-d363-4f22-ba3b-48117022f98e",
+										"id": "8d4a84cb-e651-49d4-9f18-a1ed7eae69d0",
 										"exec": [
 											""
 										],
@@ -1135,7 +1135,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a7f9b88f-8f04-4f5a-a010-d3a4f56f9540",
+										"id": "65bfeaf3-839f-4451-9366-106418deff49",
 										"exec": [
 											""
 										],
@@ -1184,7 +1184,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "de806312-a14e-4813-bb56-a7860187bf38",
+										"id": "f0290381-7ac8-4d6d-996b-01dab7495fc5",
 										"exec": [
 											""
 										],
@@ -1233,7 +1233,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "791bd2ab-f72a-4cfa-b52f-a9118a523047",
+										"id": "421b22a4-1f15-46ae-b187-98a1e480fbf6",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1288,7 +1288,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4c1a4298-6d2b-40a2-9796-1d9cd36f2ff3",
+										"id": "8c781896-b6b7-4732-9ef6-88ea9ca9896c",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1394,7 +1394,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3858a3a9-5151-42b4-993a-55606bc912bb",
+										"id": "06963f1d-313e-4303-9d7e-8e1f0e30272b",
 										"exec": [
 											""
 										],
@@ -1443,7 +1443,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "08bc0174-e9f5-4eeb-abb3-5e1bdc781b02",
+										"id": "b363983d-6f16-4510-ac54-3daa81d94ac8",
 										"exec": [
 											""
 										],
@@ -1533,7 +1533,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "68c19568-3840-4634-a42a-1ca0aef108ef",
+										"id": "712550cb-8d6f-4b82-802b-448fe732a0b8",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1582,7 +1582,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "86e8e474-eed8-4625-9acc-a326b60779c1",
+										"id": "83709837-b9a6-4d5e-806a-c6115fa010a7",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1667,7 +1667,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "924a282a-d64f-4973-8cc3-c9dd1db7fdcf",
+										"id": "0484a9de-5a44-4ead-8e5d-8e39234d4808",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1723,7 +1723,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "09a42072-4280-4a6c-82ff-fd270c52154e",
+										"id": "25d81f3c-90ed-44e2-b486-abad39a8c6f0",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1934,7 +1934,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8cc60884-74c3-42c2-800f-2faf6a0ef02c",
+								"id": "de903881-5818-4c2a-af8a-e362d41fd11a",
 								"exec": [
 									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
 									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
@@ -1978,7 +1978,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "533a198a-0441-4d5b-87fc-bc521a04cde2",
+								"id": "03f35b09-dca0-40d3-9031-5d839c964e30",
 								"exec": [
 									"pm.globals.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);",
 									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
@@ -2020,7 +2020,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1c9dbe85-5bfc-45e2-8991-e55704e7bd7d",
+								"id": "aad48e6f-3876-403c-9776-01a1b2563982",
 								"exec": [
 									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 								],
@@ -2064,7 +2064,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d4c21c96-2b99-4fae-bc6b-737f4c8882ca",
+								"id": "50ecc179-217f-4922-9778-9b13133db96c",
 								"exec": [
 									""
 								],
@@ -2108,7 +2108,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "42cdea3b-7784-40e2-a539-4a7a37860184",
+								"id": "8d147be0-efd7-4957-a72d-86256272a79e",
 								"exec": [
 									"if (pm.response.json().ListedCount > 0) {",
 									"    pm.globals.set(\"lastProjectID\", pm.response.json().List[0].ProjectId);",
@@ -2180,7 +2180,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b0194beb-affa-4eed-a9ae-da8db9945feb",
+								"id": "17921e99-4394-4a84-80e9-3f60d2d922fe",
 								"exec": [
 									"if (pm.response.json().ListedCount > 0) {",
 									"    pm.globals.set(\"lastProjectID\", pm.response.json().List[0].ProjectId);",
@@ -2285,7 +2285,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a8140647-fab4-4ffb-a89a-40e6872a88fc",
+								"id": "85879a98-04dc-47a8-bf50-c6e68a264acd",
 								"exec": [
 									""
 								],
@@ -2407,7 +2407,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "523656cc-3f22-4103-a078-01e14d1bdc48",
+								"id": "46b65544-26eb-483b-ab99-ba9571335cd5",
 								"exec": [
 									""
 								],
@@ -2456,7 +2456,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "212a1d67-5e4f-43e3-891b-d4c9b72b442c",
+								"id": "4023b025-ecea-46e0-89f0-eaaa025045f9",
 								"exec": [
 									"pm.globals.set(\"lastSpeakerID\", xml2Json(pm.response.text()).s.$.dbid);"
 								],
@@ -2495,7 +2495,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "851e8c6d-1a60-4ae3-9892-a1ebd3c14a48",
+								"id": "be17a367-53fb-43ae-908b-76c1e61cdc4d",
 								"exec": [
 									""
 								],
@@ -2540,7 +2540,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0db948a9-e9cf-445c-9865-283b908bdbda",
+								"id": "c0c2a74e-b614-4073-a88b-d2c889fc6769",
 								"exec": [
 									""
 								],
@@ -2581,7 +2581,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e8f78570-8f77-4943-ab32-92fc9b00f80c",
+								"id": "0791f261-85cd-4af9-ba70-5754fe6b658b",
 								"exec": [
 									"if (pm.response.json().ListedCount > 0) {",
 									"    pm.globals.set(\"firstIntegrationEndpoint\", pm.response.json().List[0].ProxyEndpoint);",
@@ -2644,7 +2644,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "fbd18a92-231e-446f-9050-b899ada647d0",
+						"id": "ea7652e9-1d5a-4f7f-afa5-e8fd82cf689e",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2654,7 +2654,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "22f2e0b5-951b-4668-b05a-e5e7e61bf969",
+						"id": "45dfe820-8421-4cf0-867c-9d972e99ff72",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2673,7 +2673,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c32712a0-60e1-43a7-9f06-9f93767ead53",
+								"id": "f1867647-9795-463e-8d7e-eaf78721bd20",
 								"exec": [
 									"pm.globals.set(\"authToken\", pm.response.json().Token);",
 									"pm.globals.set(\"currentUser\", pm.response.json().User);",
@@ -2713,7 +2713,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "060fb2eb-9aa4-424d-9363-fbe05a012313",
+								"id": "938eec01-5e75-4a7a-a75a-4d996c5ca037",
 								"exec": [
 									"pm.globals.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);",
 									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
@@ -2761,7 +2761,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5e207a62-4b19-4b32-9646-cfd590d207d1",
+								"id": "08d4633e-66cd-4a56-be4f-66e0f94560b1",
 								"exec": [
 									"pm.globals.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);",
 									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
@@ -2801,12 +2801,198 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Monitoring",
+			"item": [
+				{
+					"name": "get content version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4ccee69e-4e8a-4d97-89c8-21ef475a6867",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/ContentVersion",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"ContentVersion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get sppServer info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/SPP-server",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"SPP-server"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get DBConnection info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/DBConnection",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"DBConnection"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get ElasticSearch info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/ElasticSearch",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"ElasticSearch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get NanoGrid info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/NanoGrid",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"NanoGrid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get External services",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/ExternalServices",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"ExternalServices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Count of running transcriptions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/RunningTranscriptions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"RunningTranscriptions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "login",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "7f39a513-23c7-4eb4-93d0-7637a8d95382",
+						"id": "03f03583-7f4c-4b04-b7c8-00a9424dfd70",
 						"exec": [
 							"pm.globals.set(\"authToken\", pm.response.json().Token);",
 							"pm.globals.set(\"currentUser\", pm.response.json().User);",
@@ -2852,7 +3038,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "793e7820-256f-482e-b9dc-b6315524da6d",
+						"id": "9aa77315-48b5-4037-9e97-7b4e7bab5bfd",
 						"exec": [
 							""
 						],
@@ -2877,42 +3063,12 @@
 			"response": []
 		},
 		{
-			"name": "get content version",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "81388cc8-e515-4f3d-85e5-0920729e9728",
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/API/ContentVersion",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"API",
-						"ContentVersion"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "logout",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "23d5e382-b211-4f53-be6b-24807b0f50a0",
+						"id": "bf9b467a-4489-4086-9a14-e151cdfb1ece",
 						"type": "text/javascript",
 						"exec": [
 							"pm.globals.unset(\"authToken\");"
@@ -2951,7 +3107,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "885447cc-e91a-4624-b48e-648c197d964f",
+						"id": "acbe2f82-d156-4f6f-a0c8-3debfb5df65a",
 						"exec": [
 							""
 						],
@@ -2990,7 +3146,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "d4ca7bfd-c068-4821-8997-a00e25dd039e",
+				"id": "a5890835-f632-4246-a925-6b5310ebb6cb",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -3000,7 +3156,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "19c629c8-bbba-4d2d-a3cd-00111c843ea5",
+				"id": "a6e04ea3-d928-4b8b-8569-5eea997eba67",
 				"type": "text/javascript",
 				"exec": [
 					""
