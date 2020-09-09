@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
@@ -23,12 +24,10 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
 
             if (VoiceprintModels != null)
             {
-                //dict.Add($"{nameof(VoiceprintModels)}", "");
                 for (int i = 0; i < VoiceprintModels.Length; i++)
                 {
-                    //dict.Add($"{nameof(VoiceprintModels)}:{i}", "");
                     dict.Add($"{nameof(VoiceprintModels)}:{i}:{nameof(VoiceprintModelInfo.Hash)}", VoiceprintModels[i].Hash);
-                    dict.Add($"{nameof(VoiceprintModels)}:{i}:{nameof(VoiceprintModelInfo.AcceptanceThreshold)}", VoiceprintModels[i].AcceptanceThreshold.ToString());
+                    dict.Add($"{nameof(VoiceprintModels)}:{i}:{nameof(VoiceprintModelInfo.AcceptanceThreshold)}", VoiceprintModels[i].AcceptanceThreshold.ToString(CultureInfo.InvariantCulture));
                 }
             }
 
