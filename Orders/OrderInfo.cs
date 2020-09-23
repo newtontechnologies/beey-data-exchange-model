@@ -14,14 +14,14 @@ namespace Beey.DataExchangeModel.Orders
     public class OrderInfo : EntityBase
     {
         public OrderInfo() { }
-        public OrderInfo(int userId, ulong orderNumber, uint credit, decimal amount, string currency, CultureInfo language)
+        public OrderInfo(int userId, ulong orderNumber, uint credit, decimal amount, string currency, CultureInfo culture)
         {
             UserId = userId;
             OrderNumber = orderNumber;
             Credit = credit;
             Amount = amount;
             Currency = currency;
-            Language = language;
+            Culture = culture;
         }
 
         public int UserId { get; set; }
@@ -29,10 +29,9 @@ namespace Beey.DataExchangeModel.Orders
         public uint Credit { get; set; }
         public decimal Amount { get; set; }
         public string Currency { get; set; }
-        [Column("Language")]
-        public string _language { get; set; }
+        public string Language { get; set; }
         [NotMapped]
-        public CultureInfo Language { get => new CultureInfo(_language); set => _language = value.Name; }
+        public CultureInfo Culture { get => new CultureInfo(Language); set => Language = value.Name; }
 
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PaymentStatus PaymentStatus { get; set; } = PaymentStatus.None;
