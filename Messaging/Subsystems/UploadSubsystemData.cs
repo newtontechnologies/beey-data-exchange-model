@@ -14,7 +14,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
             RestoreOnStreamNotSupported,
         }
         public DataKind Kind { get; set; }
-        public long? FileOffset { get; internal set; }
-        public int? UploadPercentage { get; internal set; }
+        public long? FileOffset { get; set; }
+        public int? UploadPercentage { get; set; }
     }
 }

@@ -17,6 +17,6 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public TimeSpan? RecognitionLength { get; set; }
 
         [JsonConverter(typeof(JsonNullableConverter<JsonTimeSpanConverter, TimeSpan>))]
-        public TimeSpan? Transcribed { get; internal set; }
+        public TimeSpan? Transcribed { get; set; }
     }
 }
