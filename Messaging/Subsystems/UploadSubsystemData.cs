@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class UploadSubsystemData : SubsystemData<UploadSubsystemData>
+    public class UploadSubsystemData : SubsystemData<UploadSubsystemData>
     {
         public enum DataKind
         {

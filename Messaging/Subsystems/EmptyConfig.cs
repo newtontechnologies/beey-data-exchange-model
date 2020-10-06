@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class EmptyConfig : SubsystemConfig
+    public class EmptyConfig : SubsystemConfig
     {
         protected override void AddToConfiguration(IConfigurationBuilder builder)
         {

@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class DiarizationData : SubsystemData<DiarizationData>
+    public class DiarizationData : SubsystemData<DiarizationData>
     {
         public bool IsLookahead { get; set; }
         [JsonConverter(typeof(JsonNgEventConverter))]

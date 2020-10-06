@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class SpeakerIdentificationConfig : SubsystemConfig<SpeakerIdentificationConfig>
+    public class SpeakerIdentificationConfig : SubsystemConfig<SpeakerIdentificationConfig>
     {
         public string Language { get; internal set; }
         public string VoiceprintVersion { get; internal set; }

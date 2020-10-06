@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class MediaIdentificationData : SubsystemData<MediaIdentificationData>
+    public class MediaIdentificationData : SubsystemData<MediaIdentificationData>
     {
         public enum DurationKind
         {

@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class RecognitionData : SubsystemData<RecognitionData>
+    public class RecognitionData : SubsystemData<RecognitionData>
     {
         [JsonConverter(typeof(JsonNgEventConverter))]
         public NgEvent NgEvent { get; set; }

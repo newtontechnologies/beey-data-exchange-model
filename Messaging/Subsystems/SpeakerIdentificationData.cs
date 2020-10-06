@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class SpeakerIdentificationData : SubsystemData<SpeakerIdentificationData>
+    public class SpeakerIdentificationData : SubsystemData<SpeakerIdentificationData>
     {
         public string XmlSpeaker { get; set; }
         public int DiarizationMsgId { get; set; }

@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    class EmptyData : SubsystemData
+    public class EmptyData : SubsystemData
     { 
     }
 }
