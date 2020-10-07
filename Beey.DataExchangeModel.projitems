@@ -39,6 +39,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonStringNullableEnumConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonTimeSpanConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonUnknownObjectConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Voiceprints\VoiceprintModelInfo.cs" />
     <Compile Include="..\DataExchangeModel\Messaging\Subsystems\UploadSubsystemData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectMetadata.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\TranscriptionConfig.cs" />

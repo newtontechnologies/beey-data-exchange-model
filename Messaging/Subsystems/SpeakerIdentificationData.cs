@@ -9,5 +9,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
     {
         public string XmlSpeaker { get; set; }
         public int DiarizationMsgId { get; set; }
+        public float? Score { get; set; }
+        public string Voiceprint { get; set; }
     }
 }
