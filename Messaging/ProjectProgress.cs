@@ -19,7 +19,7 @@ namespace Beey.DataExchangeModel.Messaging
         public ProcessState RecognitionState { get; set; }
         public ProcessState DiarizationState { get; set; }
         public ProcessState SpeakerIdentificationState { get; set; }
-        public ProcessState PPCState { get; set; }
+        public ProcessState SPPState { get; set; }
     }
 
     [JsonConverter(typeof(StringEnumConverter))]
