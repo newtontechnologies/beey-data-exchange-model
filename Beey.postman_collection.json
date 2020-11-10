@@ -2718,7 +2718,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/API/SPP-server",
+							"raw": "{{url}}/API/System/SPP-server",
 							"host": [
 								"{{url}}"
 							],
@@ -2742,7 +2742,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/API/DBConnection",
+							"raw": "{{url}}/API/System/DBConnection",
 							"host": [
 								"{{url}}"
 							],
@@ -2766,7 +2766,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/API/ElasticSearch",
+							"raw": "{{url}}/API/System/ElasticSearch",
 							"host": [
 								"{{url}}"
 							],
@@ -2790,7 +2790,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/API/NanoGrid",
+							"raw": "{{url}}/API/System/NanoGrid",
 							"host": [
 								"{{url}}"
 							],
@@ -2814,7 +2814,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/API/ExternalServices",
+							"raw": "{{url}}/API/System/ExternalServices",
 							"host": [
 								"{{url}}"
 							],
@@ -2838,7 +2838,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/API/RunningTranscriptions",
+							"raw": "{{url}}/API/System/RunningTranscriptions",
 							"host": [
 								"{{url}}"
 							],
