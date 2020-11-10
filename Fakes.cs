@@ -11,6 +11,13 @@ namespace System.ComponentModel.DataAnnotations.Schema
     {
         public NotMappedAttribute() { }
     }
+
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
+    public class ColumnAttribute : Attribute
+    {
+        public ColumnAttribute();
+        public ColumnAttribute(string name);
+    }
 }
 
 namespace System.ComponentModel.DataAnnotations

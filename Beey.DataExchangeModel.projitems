@@ -9,6 +9,7 @@
     <Import_RootNamespace>Beey.DataExchangeModel</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BeeySystem\AnnouncementTemplate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Export\ExportFormat.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Fakes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConcurrentEntity.cs" />
@@ -39,6 +40,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonStringNullableEnumConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonTimeSpanConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonUnknownObjectConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BeeySystem\Announcement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Voiceprints\VoiceprintModelInfo.cs" />
     <Compile Include="..\DataExchangeModel\Messaging\Subsystems\UploadSubsystemData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectMetadata.cs" />
