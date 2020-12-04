@@ -56,6 +56,12 @@
 											"value": "ascending",
 											"description": "ascending, descending",
 											"disabled": true
+										},
+										{
+											"key": "substr",
+											"value": "jan",
+											"description": "filter users by given substring",
+											"disabled": true
 										}
 									]
 								}
