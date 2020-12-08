@@ -11,18 +11,9 @@ namespace Beey.DataExchangeModel.Orders
 {
     public enum PaymentStatus { None, Failed, Successful }
 
-    public class OrderInfo : EntityBase
+    public partial class OrderInfo : EntityBase
     {
         public OrderInfo() { }
-        public OrderInfo(int userId, ulong orderNumber, uint credit, decimal amount, string currency, CultureInfo culture)
-        {
-            UserId = userId;
-            OrderNumber = orderNumber;
-            Credit = credit;
-            Amount = amount;
-            Currency = currency;
-            Culture = culture;
-        }
 
         public int UserId { get; set; }
         public ulong OrderNumber { get; set; }
@@ -42,5 +33,23 @@ namespace Beey.DataExchangeModel.Orders
         public bool ResultMailSent { get; set; }
         public bool CreditAdded { get; set; }
         public bool InvoiceMailSent { get; set; }
+
+        // Copy of properties from PaymentInfo to save actual data for order.
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public string Company { get; set; }
+        public string TaxIdentificationNumber { get; set; }//DIČ
+        public string CompanyIdentificationNumber { get; set; }//IČ
+
+        public string Address { get; set; }
+        public string AddressComplement { get; set; }
+        public string PostalCode { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public string StateOrRegion { get; set; }
     }
 }
