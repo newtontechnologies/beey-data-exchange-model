@@ -2688,192 +2688,6 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Monitoring",
-			"item": [
-				{
-					"name": "get content version",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "fccee792-4aec-48b5-b0af-0228cc083788",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/API/ContentVersion",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"ContentVersion"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get sppServer info",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/API/SPP-server",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"SPP-server"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get DBConnection info",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/API/DBConnection",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"DBConnection"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get ElasticSearch info",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/API/ElasticSearch",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"ElasticSearch"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get NanoGrid info",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/API/NanoGrid",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"NanoGrid"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get External services",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/API/ExternalServices",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"ExternalServices"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get Count of running transcriptions",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{authToken}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/API/RunningTranscriptions",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"RunningTranscriptions"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
 			"name": "login",
 			"event": [
 				{
@@ -2914,6 +2728,42 @@
 							"key": "password",
 							"value": "SecretPassword"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get content version",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b5adb502-5e37-41f7-aad0-49173a25bbd4",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/API/ContentVersion",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"API",
+						"ContentVersion"
 					]
 				}
 			},
