@@ -29,7 +29,9 @@ namespace Beey.DataExchangeModel.BeeySystem
         [NotMapped]
         public DateTimeOffset To { get => new DateTimeOffset(ToUtc, TimeSpan.Zero); set => ToUtc = value.UtcDateTime; }
 
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AnnouncementImportance Importance { get; set; }
+
         public AnnouncementTemplate Template { get; set; }
 
         [JsonIgnoreWeb]
