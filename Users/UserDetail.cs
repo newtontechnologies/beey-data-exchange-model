@@ -29,7 +29,7 @@ namespace Beey.DataExchangeModel.Users
             Credit = (int)Math.Floor(user.CreditMinutes - user.TranscribedMinutes);
             CreditChangeHistory = creditChangeHistory.Select(c => new CreditChangeHistoryEntryView(c)).ToList();
             OrderHistory = orderHistory.Select(o => new OrderInfoView(o)).ToList();
-            PaymentInfo = new PaymentInfoView(paymentInfo);
+            PaymentInfo = paymentInfo is { } ? new PaymentInfoView(paymentInfo) : new PaymentInfoView();
             Projects = projects.Select(p => new ProjectView(p)).ToList();
         }
 
@@ -49,6 +49,7 @@ namespace Beey.DataExchangeModel.Users
             public string Country { get; set; }
             public string StateOrRegion { get; set; }
 
+            public PaymentInfoView() { }
             public PaymentInfoView(PaymentInfo paymentInfo)
             {
                 Email = paymentInfo.Email;
@@ -72,6 +73,7 @@ namespace Beey.DataExchangeModel.Users
             public int? InitiatorId { get; set; }
             public int? OrderInfoId { get; set; }
 
+            public CreditChangeHistoryEntryView() { }
             public CreditChangeHistoryEntryView(CreditChangeHistoryEntry creditChangeHistoryEntry)
             {
                 Credit = creditChangeHistoryEntry.Credit;
@@ -89,6 +91,7 @@ namespace Beey.DataExchangeModel.Users
             public int ShareCount { get; set; }
             public JArray Tags { get; set; }
 
+            public ProjectView() { }
             public ProjectView(Project project)
             {
                 Id = project.Id;
@@ -112,6 +115,7 @@ namespace Beey.DataExchangeModel.Users
             [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
             public PaymentStatus PaymentStatus { get; set; } = PaymentStatus.None;
 
+            public OrderInfoView() { }
             public OrderInfoView(OrderInfo orderInfo)
             {
                 Id = orderInfo.Id;
