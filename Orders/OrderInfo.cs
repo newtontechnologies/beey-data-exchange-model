@@ -1,4 +1,5 @@
 ﻿using Beey.DataExchangeModel;
+using Beey.DataExchangeModel.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,9 +12,35 @@ namespace Beey.DataExchangeModel.Orders
 {
     public enum PaymentStatus { None, Failed, Successful }
 
-    public partial class OrderInfo : EntityBase
+    public class OrderInfo : EntityBase
     {
         public OrderInfo() { }
+        public OrderInfo(int userId, ulong orderNumber, uint credit, decimal amount, string currency, CultureInfo culture, PaymentInfo paymentInfo)
+        {
+            UserId = userId;
+            OrderNumber = orderNumber;
+            Credit = credit;
+            Amount = amount;
+            Currency = currency;
+            Culture = culture;
+
+            Email = paymentInfo.Email;
+            PhoneNumber = paymentInfo.PhoneNumber;
+
+            FirstName = paymentInfo.FirstName;
+            LastName = paymentInfo.LastName;
+
+            Company = paymentInfo.Company;
+            TaxIdentificationNumber = paymentInfo.TaxIdentificationNumber;
+            CompanyIdentificationNumber = paymentInfo.CompanyIdentificationNumber;
+
+            Address = paymentInfo.Address;
+            AddressComplement = paymentInfo.AddressComplement;
+            PostalCode = paymentInfo.PostalCode;
+            City = paymentInfo.City;
+            Country = paymentInfo.Country;
+            StateOrRegion = paymentInfo.StateOrRegion;
+        }
 
         public int UserId { get; set; }
         public ulong OrderNumber { get; set; }
