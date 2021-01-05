@@ -12,6 +12,10 @@ namespace Beey.DataExchangeModel.Auth
     {
         None,
         Promo,
+        /// <summary>
+        /// Cannot buy credit.
+        /// </summary>
+        EnterpriseUser,
         User,
         Admin,
         Developer,
