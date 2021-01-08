@@ -15,8 +15,8 @@ namespace System.ComponentModel.DataAnnotations.Schema
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
     public class ColumnAttribute : Attribute
     {
-        public ColumnAttribute();
-        public ColumnAttribute(string name);
+        public ColumnAttribute() { }
+        public ColumnAttribute(string name) { }
     }
 }
 
