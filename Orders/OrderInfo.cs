@@ -40,6 +40,8 @@ namespace Beey.DataExchangeModel.Orders
             City = paymentInfo.City;
             Country = paymentInfo.Country;
             StateOrRegion = paymentInfo.StateOrRegion;
+
+            ReverseCharge = paymentInfo.ReverseCharge;
         }
 
         public int UserId { get; set; }
@@ -78,5 +80,6 @@ namespace Beey.DataExchangeModel.Orders
         public string City { get; set; }
         public string Country { get; set; }
         public string StateOrRegion { get; set; }
+        public bool ReverseCharge { get; set; }
     }
 }
