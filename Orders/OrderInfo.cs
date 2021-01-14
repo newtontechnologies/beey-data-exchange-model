@@ -2,7 +2,9 @@
 using Beey.DataExchangeModel.Users;
 using System;
 using System.Collections.Generic;
+#if BeeyServer
 using System.ComponentModel.DataAnnotations.Schema;
+#endif
 using System.Globalization;
 using System.Linq;
 using System.Text;

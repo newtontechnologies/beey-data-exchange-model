@@ -2,7 +2,9 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+#if BeeyServer
 using System.ComponentModel.DataAnnotations.Schema;
+#endif
 using System.Linq;
 using System.Text;
 using System.Text.Json;
