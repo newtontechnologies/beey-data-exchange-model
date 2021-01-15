@@ -38,6 +38,7 @@ namespace Beey.DataExchangeModel.Users
         public string PostalCode { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
+        public string CountryCode { get; set; }
         public string StateOrRegion { get; set; }
 
         public bool ReverseCharge { get; set; }
