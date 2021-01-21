@@ -41,7 +41,10 @@ namespace Beey.DataExchangeModel.Orders
             PostalCode = paymentInfo.PostalCode;
             City = paymentInfo.City;
             Country = paymentInfo.Country;
+            CountryCode = paymentInfo.CountryCode;
             StateOrRegion = paymentInfo.StateOrRegion;
+
+            ReverseCharge = paymentInfo.ReverseCharge;
         }
 
         public int UserId { get; set; }
@@ -79,6 +82,8 @@ namespace Beey.DataExchangeModel.Orders
         public string PostalCode { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
+        public string CountryCode { get; set; }
         public string StateOrRegion { get; set; }
+        public bool ReverseCharge { get; set; }
     }
 }
