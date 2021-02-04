@@ -1,6 +1,8 @@
-﻿using Beey.DataExchangeModel.Serialization.JsonConverters;
+﻿using Backend.Messaging.Chain;
+using Beey.DataExchangeModel.Serialization.JsonConverters;
 using Beey.DataExchangeModel.Tools;
 using System;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public enum MessageType { Started, Progress, Failed, Completed }
+    public enum MessageType { Started, Progress, Failed, Completed, Chain }
     public abstract partial class Message : IEquatable<Message>, ITuple
     {
         public int Id { get; protected set; }
