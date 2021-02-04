@@ -1,7 +1,9 @@
 ﻿// just fake classes that are used instead of dependencies when POCO classes are not used on server
 
 #if !BeeyServer
-namespace System.ComponentModel.DataAnnotations.Schema
+using System;
+
+namespace Beey.DataExchangeModel
 {
     /// <summary>
     /// fake for distribution outside of server
@@ -11,11 +13,13 @@ namespace System.ComponentModel.DataAnnotations.Schema
     {
         public NotMappedAttribute() { }
     }
-}
 
-namespace System.ComponentModel.DataAnnotations
-{
-  
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
+    public class ColumnAttribute : Attribute
+    {
+        public ColumnAttribute() { }
+        public ColumnAttribute(string name) { }
+    }
     /// <summary>
     /// fake for distribution outside of server
     /// </summary>

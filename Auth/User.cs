@@ -5,7 +5,9 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+#if BeeyServer
 using System.ComponentModel.DataAnnotations.Schema;
+#endif
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
@@ -38,6 +40,9 @@ namespace Beey.DataExchangeModel.Auth
         [NotMapped]
         public JObject Settings { get => _settings == null ? null : JObject.Parse(_settings); set => _settings = value?.ToString(); }
 
+        /// <summary>
+        /// UserRole is saved as string to DB.
+        /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public UserRole UserRole { get; set; }
 
