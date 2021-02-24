@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6e4448b4-6d57-44e7-aaf8-3679541af213",
+		"_postman_id": "b9e92d9f-5c79-46f9-9bd6-4912f3c86996",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -106,7 +106,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f33d8e81-3cb3-47ee-8970-243626edd3ea",
 										"exec": [
 											""
 										],
@@ -143,7 +142,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "89bbba4f-68cd-4268-b1a1-0975a2744f1b",
 										"exec": [
 											""
 										],
@@ -189,7 +187,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "bc4f24bd-0a3f-424d-8f88-22c955321a0b",
 										"exec": [
 											""
 										],
@@ -226,7 +223,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "10818a69-84f3-4084-a81c-0932c0d632d5",
 										"exec": [
 											""
 										],
@@ -258,9 +254,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Send Email",
@@ -294,8 +288,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "CurrentUser",
@@ -306,7 +299,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d5d4997b-4d96-4f0f-8ace-2013222c570b",
 								"exec": [
 									""
 								],
@@ -342,7 +334,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "eb089b06-d34c-4f33-992a-8059c5f8745d",
 								"exec": [
 									""
 								],
@@ -378,7 +369,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b54346ec-09a3-4e00-9671-601917816f73",
 								"exec": [
 									""
 								],
@@ -418,7 +408,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "33af9330-0d96-4da7-b639-8e0cf909dcb2",
 								"exec": [
 									""
 								],
@@ -454,7 +443,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "16ee7682-22d5-43fc-9536-86463e65508f",
 								"exec": [
 									""
 								],
@@ -531,6 +519,32 @@
 					"response": []
 				},
 				{
+					"name": "list user lexicon languages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/API/CurrentUser/Lexicon/ListLanguages",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"API",
+								"CurrentUser",
+								"Lexicon",
+								"ListLanguages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "post user lexicon",
 					"request": {
 						"method": "POST",
@@ -601,8 +615,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Lexicon",
@@ -687,8 +700,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Project",
@@ -702,7 +714,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d38cfe64-7a57-43d7-ba1b-cefccb178c28",
 										"exec": [
 											""
 										],
@@ -746,7 +757,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f76bd1a6-5f36-401e-9827-d6a5f10d431d",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -803,7 +813,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d93255b8-a655-4aac-9db8-f4f144f1b7dc",
 										"exec": [
 											""
 										],
@@ -845,7 +854,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d5773cec-79ac-4ffd-986c-a98880b38502",
 										"exec": [
 											""
 										],
@@ -890,9 +898,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Export",
@@ -903,7 +909,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "da737fc0-9827-4dcc-b71c-3fd246bc0d28",
 										"exec": [
 											""
 										],
@@ -950,7 +955,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b333b1d1-9a4f-43df-bbf5-aa779255cb42",
 										"exec": [
 											""
 										],
@@ -986,9 +990,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Files",
@@ -1043,7 +1045,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b6b401af-ec8f-4076-afe5-0f1a6041ae9d",
 										"exec": [
 											""
 										],
@@ -1092,7 +1093,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a8c6bae6-43f7-474a-bc59-f42eab761e3a",
 										"exec": [
 											""
 										],
@@ -1141,7 +1141,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "043c25eb-ba64-4385-9992-e04361605d33",
 										"exec": [
 											""
 										],
@@ -1190,7 +1189,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "dadbe110-7b2b-478a-a537-920f5985494f",
 										"exec": [
 											""
 										],
@@ -1239,7 +1237,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f919330b-b360-40f5-b7f0-98b39a1be04d",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1301,7 +1298,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "244a32bf-1803-41c0-adad-67e99f708402",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1357,9 +1353,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Messaging",
@@ -1401,9 +1395,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "DashUpgrade",
@@ -1414,7 +1406,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3c104951-fa8a-4701-9133-419f667227df",
 										"exec": [
 											""
 										],
@@ -1463,7 +1454,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3e588e65-b9da-48c1-8e5e-6304395ccdab",
 										"exec": [
 											""
 										],
@@ -1506,9 +1496,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Project metadata",
@@ -1553,7 +1541,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0acb787f-7dbc-42d6-a630-f16db5fa8b93",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1602,7 +1589,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6c0bd266-87b4-4cd7-af27-d0379f51d930",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1687,7 +1673,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "dfaa4fd2-bb0b-4a00-b48e-c8578830d5ff",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1743,7 +1728,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8316ec41-7612-48be-a1b2-eacd95fb0762",
 										"exec": [
 											"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 										],
@@ -1789,9 +1773,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Project progress control",
@@ -1893,9 +1875,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "transcribe uploaded file",
@@ -1954,7 +1934,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "693f7d2c-9642-4c6c-a25f-34863f8dd5c7",
 								"exec": [
 									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
 									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
@@ -1998,7 +1977,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "adf8059a-e0e5-41a0-a06c-b46896787d04",
 								"exec": [
 									"pm.globals.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);",
 									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
@@ -2040,7 +2018,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8dcb4ffa-014d-48ba-8264-dc8d23714c17",
 								"exec": [
 									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 								],
@@ -2084,7 +2061,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ac7b2f78-26c9-4c92-aa4a-f37697340994",
 								"exec": [
 									""
 								],
@@ -2128,7 +2104,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "df2c3c0e-3e2f-4b4e-af7a-b3a1eafd0c18",
 								"exec": [
 									"if (pm.response.json().ListedCount > 0) {",
 									"    pm.globals.set(\"lastProjectID\", pm.response.json().List[0].ProjectId);",
@@ -2200,7 +2175,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c97970e6-ca4f-4f51-8dbc-b52f45735f4c",
 								"exec": [
 									"if (pm.response.json().ListedCount > 0) {",
 									"    pm.globals.set(\"lastProjectID\", pm.response.json().List[0].ProjectId);",
@@ -2293,8 +2267,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Speaker",
@@ -2305,7 +2278,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "33c83fc5-5201-459a-ab00-1b12a0329923",
 								"exec": [
 									""
 								],
@@ -2427,7 +2399,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0a288372-fe80-4413-a8c1-bd0042e8975e",
 								"exec": [
 									""
 								],
@@ -2476,7 +2447,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9fa96b14-4cc9-41e0-823d-28000d76d918",
 								"exec": [
 									"pm.globals.set(\"lastSpeakerID\", xml2Json(pm.response.text()).s.$.dbid);"
 								],
@@ -2515,7 +2485,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4d760c9e-a94e-4380-9912-7bdc050ff8b4",
 								"exec": [
 									""
 								],
@@ -2548,8 +2517,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Orders",
@@ -2560,7 +2528,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b59dfb76-e4b2-4c76-8e5f-42bac1485fcb",
 								"exec": [
 									"pm.globals.set(\"authToken\", pm.response.json().Token);",
 									"pm.globals.set(\"currentUser\", pm.response.json().User);",
@@ -2600,7 +2567,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "19b910c8-6cd1-4fb1-9388-e39264c55ce0",
 								"exec": [
 									"pm.globals.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);",
 									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
@@ -2648,7 +2614,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f75600bc-778f-4d50-9ac7-fe0874651bb2",
 								"exec": [
 									"pm.globals.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);",
 									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
@@ -2684,8 +2649,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "login",
@@ -2693,7 +2657,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "73a610e4-aeaa-4789-b4e0-ef5e6d415188",
 						"exec": [
 							"pm.globals.set(\"authToken\", pm.response.json().Token);",
 							"pm.globals.set(\"currentUser\", pm.response.json().User);",
@@ -2739,7 +2702,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b5adb502-5e37-41f7-aad0-49173a25bbd4",
 						"exec": [
 							""
 						],
@@ -2775,7 +2737,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "52522c0a-ad63-49fc-97b2-7e341c1509b6",
 						"exec": [
 							""
 						],
@@ -2805,7 +2766,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "90d05e11-c24b-40bf-abaf-f484880ca0aa",
 						"type": "text/javascript",
 						"exec": [
 							"pm.globals.unset(\"authToken\");"
@@ -2844,7 +2804,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e3237b7d-83cf-459e-bd98-be2c1ba1970a",
 						"exec": [
 							""
 						],
@@ -2883,7 +2842,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "42299c75-3dec-4367-be67-9972395ae246",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2893,7 +2851,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3ccde26a-6c0d-445b-a626-c7515f3edae3",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2903,11 +2860,9 @@
 	],
 	"variable": [
 		{
-			"id": "f2d8f2cc-7ade-48ff-8810-922e77fb54bd",
 			"key": "url",
 			"value": "localhost:61497",
 			"type": "string"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
