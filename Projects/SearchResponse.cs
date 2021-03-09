@@ -16,5 +16,7 @@ namespace Beey.DataExchangeModel.Projects
         public string[] Name { set; get; }
 
         public string[] Text { set; get; }
+
+        public string[] Speaker { set; get; }
     }
 }
