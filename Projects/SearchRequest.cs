@@ -34,6 +34,8 @@ namespace Beey.DataExchangeModel.Projects
 
         public bool? MediaHasVideo { set; get; }
 
+        public string[] Tags { set; get; }
+
 
         public SearchRequest()
         {
