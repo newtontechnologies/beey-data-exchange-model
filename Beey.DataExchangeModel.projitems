@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)BeeySystem\AnnouncementTemplate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Export\ExportFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Export\ExportVariant.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Fakes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConcurrentEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Lexicons\LexiconEntry.cs" />
