@@ -20,6 +20,8 @@ namespace Beey.DataExchangeModel.Projects
 
         public string SpeakerFullText { set; get; }
 
+        public string NotesFullText { set; get; }
+
         public DateTime? CreatedFrom { set; get; }
 
         public DateTime? CreatedTo { set; get; }
