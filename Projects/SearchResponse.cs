@@ -6,6 +6,8 @@ namespace Beey.DataExchangeModel.Projects
 {
     public class SearchResponse
     {
+        public int Total { set; get; }
+
         public SearchResult[] Results { set; get; }
     }
 
