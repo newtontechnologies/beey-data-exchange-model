@@ -14,13 +14,14 @@ namespace Beey.DataExchangeModel.Projects
     public class SearchResult
     {
         public int ProjectId { set; get; }
+       
+        public string[] ProjectNameHighlight { set; get; }
 
-        public string[] Name { set; get; }
+        public string[] TranscriptionHighlight { set; get; }
 
-        public string[] Text { set; get; }
+        public string[] SpeakerHighlight { set; get; }
 
-        public string[] Speaker { set; get; }
+        public string[] NotesHighlight { set; get; }
 
-        public string[] Notes { set; get; }
     }
 }
