@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b9e92d9f-5c79-46f9-9bd6-4912f3c86996",
+		"_postman_id": "3e811c2e-e0e6-4b6f-99fb-bc72b871046d",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -2671,26 +2671,21 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\r\n    \"Email\": \"user@example.org\",\r\n    \"Password\": \"SecretPassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "{{url}}/API/Login?email=user@example.org&password=SecretPassword",
+					"raw": "{{url}}/API/Login",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"API",
 						"Login"
-					],
-					"query": [
-						{
-							"key": "email",
-							"value": "user@example.org"
-						},
-						{
-							"key": "password",
-							"value": "SecretPassword"
-						}
 					]
 				}
 			},
