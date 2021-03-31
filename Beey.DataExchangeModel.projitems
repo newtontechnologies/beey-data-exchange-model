@@ -37,7 +37,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Orders\OrderInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\MediaInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\SearchRequest.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Projects\SearchResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\SearchResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNgEventConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNullableConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonStringNullableEnumConverter.cs" />
