@@ -6,17 +6,9 @@ namespace Beey.DataExchangeModel.Projects
 {   
     public class SearchResult
     {
-        public int ProjectId { set; get; }
+        public int Id { set; get; }
 
-        public string ProjectName { set; get; }
-
-        public string[] Tags { set; get; }
-
-        public TimeSpan Length { get; set; }
-
-        public DateTime? Created { set; get; }
-
-        public DateTime? Updated { set; get; }
+        public Project Project { set; get; }
 
         public string[] ProjectNameHighlight { set; get; }
 
@@ -26,5 +18,5 @@ namespace Beey.DataExchangeModel.Projects
 
         public string[] NotesHighlight { set; get; }
 
-    }
+    }   
 }
