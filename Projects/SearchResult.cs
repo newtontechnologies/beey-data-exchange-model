@@ -5,9 +5,7 @@ using System.Text;
 namespace Beey.DataExchangeModel.Projects
 {   
     public class SearchResult
-    {
-        public int Id { set; get; }
-
+    {        
         public Project Project { set; get; }
 
         public string[] ProjectNameHighlight { set; get; }
