@@ -10,11 +10,18 @@ namespace Beey.DataExchangeModel.Projects
 
         public string[] ProjectNameHighlight { set; get; }
 
-        public string[] TranscriptionHighlight { set; get; }
+        public SearchResultTranscriptionHighlight[] TranscriptionHighlight { set; get; }
 
         public string[] SpeakerHighlight { set; get; }
 
         public string[] NotesHighlight { set; get; }
 
-    }   
+    }
+    
+    public class SearchResultTranscriptionHighlight
+    {
+        public string Text { set; get; }
+
+        public int Timestamp { set; get; }
+    }
 }
