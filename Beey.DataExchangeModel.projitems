@@ -43,6 +43,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonTimeSpanConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonUnknownObjectConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BeeySystem\Announcement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Users\AggregatedTranscriptionLogView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\Country.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\PaymentInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\UserDetail.cs" />
