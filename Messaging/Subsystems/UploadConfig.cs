@@ -9,13 +9,11 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
     public partial class UploadConfig : SubsystemConfig<UploadConfig>
     {
         public bool Stream { get; set; }
-        public bool SaveMedia { get; set; }
         public int UserId { get; set; }
 
         public UploadConfig() { }
-        public UploadConfig(bool saveMedia, int userId)
+        public UploadConfig(int userId)
         {          
-            SaveMedia = saveMedia;
             UserId = userId;
         }
 
@@ -23,7 +21,6 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         {
             builder.AddInMemoryCollection(new Dictionary<string, string>()
             {
-                { nameof(SaveMedia), SaveMedia.ToString() },
                 { nameof(UserId), UserId.ToString() },
                 { nameof(Stream), Stream.ToString() }
             });
