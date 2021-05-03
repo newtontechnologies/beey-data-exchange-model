@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 #endif
 using System.Linq;
 using System.Text.Json;
+using Beey.DataExchangeModel.Messaging.Subsystems;
 
 #pragma warning disable nullable
 #pragma warning disable 8618, 8601, 8603
@@ -56,5 +57,16 @@ namespace Beey.DataExchangeModel.Projects
 
         [JsonIgnoreWebDeserialize]
         public int ShareCount { get; set; } = 1;
+
+        [JsonIgnoreWeb]
+        [Column("TranscriptionConfig")]
+        public string _transcriptionConfig { get; set; }
+        [JsonIgnoreWebDeserialize]
+        [NotMapped]
+        public TranscriptionConfig TranscriptionConfig
+        {
+            get => _transcriptionConfig == null ? null : JsonSerializer.Deserialize<TranscriptionConfig>(_transcriptionConfig);
+            set => _transcriptionConfig = value is { } ? JsonSerializer.Serialize(value) : null;
+        }
     }
 }
