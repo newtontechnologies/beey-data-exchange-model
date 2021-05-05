@@ -92,4 +92,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Files\" />
     <Folder Include="$(MSBuildThisFileDirectory)Orders\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Beey.postman_collection.json" />
+  </ItemGroup>
 </Project>
