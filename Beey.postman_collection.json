@@ -2834,45 +2834,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "register new user and Login",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{url}}/API/RegisterAndLogin?email=user@example.org",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"API",
-						"RegisterAndLogin"
-					],
-					"query": [
-						{
-							"key": "email",
-							"value": "user@example.org"
-						}
-					]
-				}
-			},
-			"response": []
 		}
 	],
 	"event": [
