@@ -38,6 +38,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
                 { nameof(WithVAD), WithVAD.ToString() },
                 { nameof(UserId), UserId.ToString() },
                 { nameof(WithPunctuation), WithPunctuation.ToString() },
+                { nameof(TrialTranscription), TrialTranscription.ToString() },
             });
         }
     }
