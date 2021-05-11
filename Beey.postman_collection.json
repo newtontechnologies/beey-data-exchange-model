@@ -62,6 +62,18 @@
 											"value": "jan",
 											"description": "filter users by given substring",
 											"disabled": true
+										},
+										{
+											"key": "role",
+											"value": "Developer",
+											"description": "optional",
+											"disabled": true
+										},
+										{
+											"key": "language",
+											"value": "cs-CZ",
+											"description": "optional",
+											"disabled": true
 										}
 									]
 								}
