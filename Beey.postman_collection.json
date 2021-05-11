@@ -96,10 +96,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"Email\": \"pokusnik.kokosnik@newtontech.cz\",\n    \"UserRole\": \"Promo\",\n    \"Password\": \"mělník\"\n}"
+									"raw": "{\n    \"Email\": \"pokusnik.kokosnik@newtontech.cz\",\n    \"UserRole\": \"Promo\",\n    \"Password\": \"mělník\",\n    \"Language\": \"cs-CZ\"\n}"
 								},
 								"url": {
-									"raw": "{{url}}/API/Admin/User?createDemoProject=true&sendEmail=true&language=cs-CZ",
+									"raw": "{{url}}/API/Admin/User?createDemoProject=true&sendEmail=true",
 									"host": [
 										"{{url}}"
 									],
@@ -116,10 +116,6 @@
 										{
 											"key": "sendEmail",
 											"value": "true"
-										},
-										{
-											"key": "language",
-											"value": "cs-CZ"
 										}
 									]
 								}
