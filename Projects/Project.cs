@@ -61,7 +61,7 @@ namespace Beey.DataExchangeModel.Projects
         [JsonIgnoreWeb]
         [Column("TranscriptionConfig")]
         public string _transcriptionConfig { get; set; }
-        [JsonIgnoreWebDeserialize]
+
         [NotMapped]
         public TranscriptionConfig TranscriptionConfig
         {
