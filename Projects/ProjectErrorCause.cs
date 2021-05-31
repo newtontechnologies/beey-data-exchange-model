@@ -8,12 +8,12 @@ namespace Beey.DataExchangeModel.Projects
 {
     public enum ProjectErrorCause
     {
-        None = 0,
-        Precondition = 1,
-        Upload = 2,
-        Transcoding = 3,
-        Transcription = 4,
-        Unknown = 5
+        None,
+        Precondition,
+        Upload,
+        Transcoding,
+        Transcription,
+        Unknown
     }
 
     public enum ProjectErrorCauseDetail_Precondition
