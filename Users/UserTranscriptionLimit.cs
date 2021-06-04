@@ -10,7 +10,7 @@ namespace Beey.DataExchangeModel.Users
     public class UserTranscriptionLimit : EntityBase
     {
         public int UserId { get; set; }
-        public QueueType QueueType { get; set; }
+        public QueueType? QueueType { get; set; }
         public int Limit { get; set; }
     }
 }
