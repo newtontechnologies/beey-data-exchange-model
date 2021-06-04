@@ -8,7 +8,7 @@ namespace Beey.DataExchangeModel.Projects
 {
     public enum QueueType
     {
-        Normal,
+        Default,
         LowPriority
     }
 }
