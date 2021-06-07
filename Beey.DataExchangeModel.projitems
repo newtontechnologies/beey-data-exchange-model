@@ -41,6 +41,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Users\UserTranscriptionLimit.cs" />
     <Compile Include="..\DataExchangeModel\Projects\ProjectErrorCause.cs" />
     <Compile Include="..\DataExchangeModel\Projects\ProjectProcessingState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectToDeleteInElastic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\SearchResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNgEventConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNullableConverter.cs" />
