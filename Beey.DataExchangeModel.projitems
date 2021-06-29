@@ -37,7 +37,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\RecognitionData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Orders\OrderInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\MediaInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectErrorCause.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectProcessingState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectToDeleteInElastic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\QueueType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\SearchResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNgEventConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNullableConverter.cs" />
