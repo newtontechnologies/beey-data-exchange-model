@@ -73,10 +73,5 @@ namespace Beey.DataExchangeModel.Projects
         [JsonIgnoreWebDeserialize]
         [Newtonsoft.Json.JsonConverter(typeof(StringEnumConverter))]
         public ProjectProcessingState ProcessingState { get; set; }
-        [JsonIgnoreWebDeserialize]
-        [Newtonsoft.Json.JsonConverter(typeof(StringEnumConverter))]
-        public ProjectErrorCause LastErrorCause { get; set; }
-        [JsonIgnoreWebDeserialize]
-        public string LastErrorDetail { get; set; }
     }
 }
