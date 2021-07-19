@@ -24,9 +24,9 @@ namespace Beey.DataExchangeModel.Projects
         Queued,
 
         /// <summary>
-        /// Project is waiting for media to be ready to start transcription.
+        /// Transcription on project will start as soon as it is ready.
         /// </summary>
-        WaitingForTranscription,
+        ScheduledForTranscription,
 
         /// <summary>
         /// Project is being transcribed.
