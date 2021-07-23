@@ -70,8 +70,29 @@ namespace Beey.DataExchangeModel.Projects
             set => _transcriptionConfig = value is { } ? JsonSerializer.Serialize(value) : null;
         }
 
+        [NotMapped]
         [JsonIgnoreWebDeserialize]
-        [Newtonsoft.Json.JsonConverter(typeof(StringEnumConverter))]
-        public ProjectProcessingState ProcessingState { get; set; }
+        public ProjectProcessingState ProcessingState
+        {
+#if BeeyServer
+            get
+            {
+                return DetailedProcessingState switch
+                {
+                    ProjectDetailedProcessingState.None => ProjectProcessingState.None,
+                    ProjectDetailedProcessingState.TranscodingOnly => ProjectProcessingState.Processing,
+                    ProjectDetailedProcessingState.Queued => ProjectProcessingState.Processing,
+                    ProjectDetailedProcessingState.ScheduledForTranscription => ProjectProcessingState.Processing,
+                    ProjectDetailedProcessingState.Transcribing => ProjectProcessingState.Processing,
+                    ProjectDetailedProcessingState.Canceled => ProjectProcessingState.Canceled,
+                    ProjectDetailedProcessingState.Completed => ProjectProcessingState.Completed,
+                    ProjectDetailedProcessingState.Failed => ProjectProcessingState.Failed,
+                    _ => throw new InvalidProgramException($"Unknown {nameof(ProjectDetailedProcessingState)} value")
+                };
+            }
+#else
+            get; set;
+#endif
+        }
     }
 }

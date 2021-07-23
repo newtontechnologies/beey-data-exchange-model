@@ -14,24 +14,9 @@ namespace Beey.DataExchangeModel.Projects
         None,
 
         /// <summary>
-        /// Project is being transcoded.
+        /// Project is being processed.
         /// </summary>
-        TranscodingOnly,
-
-        /// <summary>
-        /// Project is in a queue and will be transcribed. Transcoding is running or already finished.
-        /// </summary>
-        Queued,
-
-        /// <summary>
-        /// Transcription on project will start as soon as it is ready.
-        /// </summary>
-        ScheduledForTranscription,
-
-        /// <summary>
-        /// Project is being transcribed.
-        /// </summary>
-        Transcribing,
+        Processing,
 
         /// <summary>
         /// Project processing was canceled by user.
