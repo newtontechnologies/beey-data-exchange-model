@@ -13,17 +13,33 @@ namespace Beey.DataExchangeModel.Projects
         Upload,
         Transcoding,
         Transcription,
-        Unknown
+        Other
     }
 
     public enum ProjectErrorCauseDetail_Precondition
     {
-        None = 0,
+        Unknown = 0,
         NotEnoughCredit = 1,
     }
+
+    public enum ProjectErrorCauseDetail_Upload
+    {
+        Unknown = 0,
+    }
+
     public enum ProjectErrorCauseDetail_Transcoding
     {
-        None = 0,
-        
+        Unknown = 0,        
+    }
+
+    public enum ProjectErrorCauseDetail_Transcription
+    {
+        Unknown = 0,
+    }
+
+    public enum ProjectErrorCauseDetail_Other
+    {
+        Unknown = 0,
+        ServerShutdown = 1,
     }
 }

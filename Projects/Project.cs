@@ -72,6 +72,7 @@ namespace Beey.DataExchangeModel.Projects
 
         [NotMapped]
         [JsonIgnoreWebDeserialize]
+        [Newtonsoft.Json.JsonConverter(typeof(StringEnumConverter))]
         public ProjectProcessingState ProcessingState
         {
 #if BeeyServer
