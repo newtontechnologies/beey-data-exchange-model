@@ -29,7 +29,7 @@ namespace Beey.DataExchangeModel.Projects
 
     public enum ProjectErrorCauseDetail_Transcoding
     {
-        Unknown = 0,        
+        Unknown = 0,
     }
 
     public enum ProjectErrorCauseDetail_Transcription
