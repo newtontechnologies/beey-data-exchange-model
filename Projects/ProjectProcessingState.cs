@@ -16,7 +16,7 @@ namespace Beey.DataExchangeModel.Projects
         /// <summary>
         /// Project is being processed.
         /// </summary>
-        Processing,
+        InProgress,
 
         /// <summary>
         /// Project processing was canceled by user.

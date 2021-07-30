@@ -81,10 +81,10 @@ namespace Beey.DataExchangeModel.Projects
                 return DetailedProcessingState switch
                 {
                     ProjectDetailedProcessingState.None => ProjectProcessingState.None,
-                    ProjectDetailedProcessingState.TranscodingOnly => ProjectProcessingState.Processing,
-                    ProjectDetailedProcessingState.Queued => ProjectProcessingState.Processing,
-                    ProjectDetailedProcessingState.ScheduledForTranscription => ProjectProcessingState.Processing,
-                    ProjectDetailedProcessingState.Transcribing => ProjectProcessingState.Processing,
+                    ProjectDetailedProcessingState.TranscodingOnly => ProjectProcessingState.InProgress,
+                    ProjectDetailedProcessingState.Queued => ProjectProcessingState.InProgress,
+                    ProjectDetailedProcessingState.ScheduledForTranscription => ProjectProcessingState.InProgress,
+                    ProjectDetailedProcessingState.Transcribing => ProjectProcessingState.InProgress,
                     ProjectDetailedProcessingState.Canceled => ProjectProcessingState.Canceled,
                     ProjectDetailedProcessingState.Completed => ProjectProcessingState.Completed,
                     ProjectDetailedProcessingState.Failed => ProjectProcessingState.Failed,
