@@ -18,6 +18,7 @@ namespace Beey.DataExchangeModel.Projects
         { }
         public ProjectListing(int total, int returned, T[] data, int[] uploading, int[] transcoding, int[] queued, int[] transcribing) : base(total, returned, data)
         {
+            Uploading = uploading;
             Transcoding = transcoding;
             Queued = queued;
             Transcribing = transcribing;
