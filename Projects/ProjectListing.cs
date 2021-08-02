@@ -8,14 +8,15 @@ namespace Beey.DataExchangeModel.Projects
 {
     public class ProjectListing<T> : Listing<T>
     {
-        public int[] Transcoding { get; set; }
-        public int[] Queued { get; set; }
-        public int[] Transcribing { get; set; }
+        public int[] Uploading { get; }
+        public int[] Transcoding { get; }
+        public int[] Queued { get; }
+        public int[] Transcribing { get; }
 
-        public ProjectListing(Listing<T> listing, int[] transcoding, int[] queued, int[] transcribing)
-            : this(listing.TotalCount, listing.ListedCount, listing.List, transcoding, queued, transcribing)
+        public ProjectListing(Listing<T> listing, int[] uploading, int[] transcoding, int[] queued, int[] transcribing)
+            : this(listing.TotalCount, listing.ListedCount, listing.List, uploading, transcoding, queued, transcribing)
         { }
-        public ProjectListing(int total, int returned, T[] data, int[] transcoding, int[] queued, int[] transcribing) : base(total, returned, data)
+        public ProjectListing(int total, int returned, T[] data, int[] uploading, int[] transcoding, int[] queued, int[] transcribing) : base(total, returned, data)
         {
             Transcoding = transcoding;
             Queued = queued;
