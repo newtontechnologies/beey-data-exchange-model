@@ -55,6 +55,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Users\PaymentInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\UserDetail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\UserTranscriptionLimit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Workspaces\Workspace.cs" />
     <Compile Include="..\DataExchangeModel\Users\CreditChangeHistoryEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Voiceprints\VoiceprintModelInfo.cs" />
     <Compile Include="..\DataExchangeModel\Messaging\Subsystems\UploadSubsystemData.cs" />
