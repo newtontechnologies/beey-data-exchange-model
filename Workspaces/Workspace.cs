@@ -9,7 +9,7 @@ namespace Beey.DataExchangeModel.Workspaces
 {
     public class Workspace : EntityBase
     {
-        public int OwnerId { get; set; }
+        public int? OwnerId { get; set; }
         public ICollection<User> Users { get; set; }
     }
 }
