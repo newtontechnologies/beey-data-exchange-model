@@ -26,7 +26,7 @@ namespace Beey.DataExchangeModel.Users
         {
             Email = user.Email;
             UserRole = user.UserRole;
-            Credit = (int)Math.Floor(user.CreditMinutes - user.TranscribedMinutes);
+            Credit = (int)Math.Floor(user.Workspace.CreditMinutes - user.Workspace.TranscribedMinutes);
             CreditChangeHistory = creditChangeHistory.Select(c => new CreditChangeHistoryEntryView(c)).ToList();
             OrderHistory = orderHistory.Select(o => new OrderInfoView(o)).ToList();
             PaymentInfo = paymentInfo is { } ? new PaymentInfoView(paymentInfo) : new PaymentInfoView();
