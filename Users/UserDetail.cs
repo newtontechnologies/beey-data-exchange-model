@@ -21,12 +21,12 @@ namespace Beey.DataExchangeModel.Users
         public List<OrderInfoView> OrderHistory { get; set; }
         public List<ProjectView> Projects { get; set; }
 
-        public UserDetail(User user, PaymentInfo paymentInfo,
+        public UserDetail(User userWithWorkspace, PaymentInfo paymentInfo,
             List<CreditChangeHistoryEntry> creditChangeHistory, List<Project> projects, List<OrderInfo> orderHistory)
         {
-            Email = user.Email;
-            UserRole = user.UserRole;
-            Credit = (int)Math.Floor(user.Workspace.CreditMinutes - user.Workspace.TranscribedMinutes);
+            Email = userWithWorkspace.Email;
+            UserRole = userWithWorkspace.UserRole;
+            Credit = (int)Math.Floor(userWithWorkspace.Workspace.CreditMinutes - userWithWorkspace.Workspace.TranscribedMinutes);
             CreditChangeHistory = creditChangeHistory.Select(c => new CreditChangeHistoryEntryView(c)).ToList();
             OrderHistory = orderHistory.Select(o => new OrderInfoView(o)).ToList();
             PaymentInfo = paymentInfo is { } ? new PaymentInfoView(paymentInfo) : new PaymentInfoView();
