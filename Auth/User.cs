@@ -47,8 +47,6 @@ namespace Beey.DataExchangeModel.Auth
         public UserRole UserRole { get; set; }
         public string Language { get; set; }
         [JsonIgnoreWebDeserialize]
-        public bool DidPay { get; set; }
-        [JsonIgnoreWebDeserialize]
         public int WorkspaceId { get; set; }
     }
 }
