@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Auth\RegistrationData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Auth\UserEditModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BeeySystem\AnnouncementTemplate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Export\ExportFormat.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Export\ExportVariant.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Users\PaymentInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\UserDetail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\UserTranscriptionLimit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Auth\UserViewModel.cs" />
     <Compile Include="..\DataExchangeModel\Users\CreditChangeHistoryEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Voiceprints\VoiceprintModelInfo.cs" />
     <Compile Include="..\DataExchangeModel\Messaging\Subsystems\UploadSubsystemData.cs" />
@@ -93,7 +95,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Projects\Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectAccess.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\TranscriptionLogItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Auth\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\UserRole.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\UploadConfig.cs" />
   </ItemGroup>
