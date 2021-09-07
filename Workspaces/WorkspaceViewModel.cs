@@ -12,7 +12,7 @@ namespace Beey.DataExchangeModel.Workspaces
     {
         public int Id { get; set; }
         public int OwnerId { get; set; }
-        public UserViewModel[] Members { get; set; }
+        public (int Id, string Email)[] Members { get; set; }
         public int CreditMinutes { get; set; }
         public decimal TranscribedMinutes { get; set; }
         public bool DidPay { get; set; }
