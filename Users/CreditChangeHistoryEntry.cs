@@ -10,7 +10,7 @@ namespace Beey.DataExchangeModel.Users
     {
         public int WorkspaceId { get; set; }
         public int Credit { get; set; }
-        public int? InitiatorId { get; set; }
+        public int InitiatorId { get; set; }
         public int? OrderInfoId { get; set; }
 
     }
