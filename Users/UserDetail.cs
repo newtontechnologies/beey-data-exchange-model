@@ -21,18 +21,6 @@ namespace Beey.DataExchangeModel.Users
         public List<OrderInfoView> OrderHistory { get; set; }
         public List<ProjectView> Projects { get; set; }
 
-        public UserDetail(User userWithWorkspace, PaymentInfo paymentInfo,
-            List<CreditChangeHistoryEntry> creditChangeHistory, List<Project> projects, List<OrderInfo> orderHistory)
-        {
-            Email = userWithWorkspace.Email;
-            UserRole = userWithWorkspace.UserRole;
-            Credit = (int)Math.Floor(userWithWorkspace.Workspace.CreditMinutes - userWithWorkspace.Workspace.TranscribedMinutes);
-            CreditChangeHistory = creditChangeHistory.Select(c => new CreditChangeHistoryEntryView(c)).ToList();
-            OrderHistory = orderHistory.Select(o => new OrderInfoView(o)).ToList();
-            PaymentInfo = paymentInfo is { } ? new PaymentInfoView(paymentInfo) : new PaymentInfoView();
-            Projects = projects.Select(p => new ProjectView(p)).ToList();
-        }
-
         public class PaymentInfoView
         {
             public string Email { get; set; }
@@ -48,38 +36,12 @@ namespace Beey.DataExchangeModel.Users
             public string City { get; set; }
             public string Country { get; set; }
             public string StateOrRegion { get; set; }
-
-            public PaymentInfoView() { }
-            public PaymentInfoView(PaymentInfo paymentInfo)
-            {
-                Email = paymentInfo.Email;
-                PhoneNumber = paymentInfo.PhoneNumber;
-                FirstName = paymentInfo.FirstName;
-                LastName = paymentInfo.LastName;
-                Company = paymentInfo.Company;
-                TaxIdentificationNumber = paymentInfo.TaxIdentificationNumber;
-                CompanyIdentificationNumber = paymentInfo.CompanyIdentificationNumber;
-                Address = paymentInfo.Address;
-                AddressComplement = paymentInfo.AddressComplement;
-                PostalCode = paymentInfo.PostalCode;
-                City = paymentInfo.City;
-                Country = paymentInfo.Country;
-                StateOrRegion = paymentInfo.StateOrRegion;
-            }
         }
         public class CreditChangeHistoryEntryView
         {
             public int Credit { get; set; }
             public int? InitiatorId { get; set; }
             public int? OrderInfoId { get; set; }
-
-            public CreditChangeHistoryEntryView() { }
-            public CreditChangeHistoryEntryView(CreditChangeHistoryEntry creditChangeHistoryEntry)
-            {
-                Credit = creditChangeHistoryEntry.Credit;
-                InitiatorId = creditChangeHistoryEntry.InitiatorId;
-                OrderInfoId = creditChangeHistoryEntry.OrderInfoId;
-            }
         }
         public class ProjectView
         {
@@ -90,18 +52,6 @@ namespace Beey.DataExchangeModel.Users
             public TimeSpan Length { get; set; }
             public int ShareCount { get; set; }
             public JArray Tags { get; set; }
-
-            public ProjectView() { }
-            public ProjectView(Project project)
-            {
-                Id = project.Id;
-                Name = project.Name;
-                Created = project.Created.Value;
-                Updated = project.Updated.Value;
-                Length = project.Length;
-                ShareCount = project.ShareCount;
-                Tags = project.Tags;
-            }
         }
         public class OrderInfoView
         {
@@ -114,17 +64,6 @@ namespace Beey.DataExchangeModel.Users
 
             [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
             public PaymentStatus PaymentStatus { get; set; } = PaymentStatus.None;
-
-            public OrderInfoView() { }
-            public OrderInfoView(OrderInfo orderInfo)
-            {
-                Id = orderInfo.Id;
-                OrderNumber = orderInfo.OrderNumber;
-                Credit = orderInfo.Credit;
-                Amount = orderInfo.Amount;
-                Currency = orderInfo.Currency;
-                Language = orderInfo.Language;
-            }
         }
     }
 }
