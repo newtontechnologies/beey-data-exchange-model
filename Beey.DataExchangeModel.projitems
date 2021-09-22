@@ -46,6 +46,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectToDeleteInElastic.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\QueueType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\SearchResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\TranscriptionLogItemViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNgEventConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNullableConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonStringNullableEnumConverter.cs" />
