@@ -10,7 +10,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Auth\RegistrationData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Auth\UserEditModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Auth\UserAddModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Auth\UserUpdateModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BeeySystem\AnnouncementTemplate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Export\ExportFormat.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Export\ExportVariant.cs" />
