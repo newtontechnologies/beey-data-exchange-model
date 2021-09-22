@@ -1,10 +1,6 @@
 ﻿using Beey.DataExchangeModel.Tools;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Serialization.JsonConverters
 {
@@ -22,7 +18,15 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
             if (reader.TokenType != JsonToken.Undefined)
             {
                 var undefinable = (IUndefinable)existingValue;
-                undefinable.Value = serializer.Deserialize(reader, undefinable.ValueType);
+                var value = serializer.Deserialize(reader, undefinable.ValueType);
+                try
+                {
+                    undefinable.Value = value;
+                }
+                catch (Exception ex)
+                {
+                    throw new JsonException($"Cannot assign {value ?? "[null]"} to property of type {objectType}", ex);
+                }
             }
 
             return existingValue;
