@@ -36,8 +36,8 @@ namespace Beey.DataExchangeModel.Workspaces
             public int Id { get; set; }
             public string Email { get; set; }
             public decimal? Transcribed { get; set; }
-            public DateTime? From { get; set; }
-            public DateTime? To { get; set; }
+            public DateTimeOffset? From { get; set; }
+            public DateTimeOffset? To { get; set; }
         }
 
         public IEnumerable<Member> Members { get; set; }
