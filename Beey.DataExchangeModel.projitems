@@ -38,7 +38,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Orders\OrderInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\LastProjectError.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\MediaInfo.cs" />
-    <Compile Include="..\DataExchangeModel\Projects\ProjectErrorCategory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectErrorCategory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectListing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectProcessingState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectToDeleteInElastic.cs" />
@@ -55,9 +55,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Users\PaymentInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\UserDetail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\UserTranscriptionLimit.cs" />
-    <Compile Include="..\DataExchangeModel\Users\CreditChangeHistoryEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Users\CreditChangeHistoryEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Voiceprints\VoiceprintModelInfo.cs" />
-    <Compile Include="..\DataExchangeModel\Messaging\Subsystems\UploadSubsystemData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\UploadSubsystemData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectMetadata.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\TranscriptionConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonIgnoreDeserializeWebAttribute.cs" />
