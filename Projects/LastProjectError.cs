@@ -13,8 +13,8 @@ namespace Beey.DataExchangeModel.Projects
         public int ProjectId { get; set; }
         [JsonIgnoreWebDeserialize]
         [Newtonsoft.Json.JsonConverter(typeof(StringEnumConverter))]
-        public ProjectErrorCause Cause { get; set; }
+        public ProjectErrorCategory Category { get; set; }
         [JsonIgnoreWebDeserialize]
-        public string Detail { get; set; }
+        public string Reason { get; set; }
     }
 }

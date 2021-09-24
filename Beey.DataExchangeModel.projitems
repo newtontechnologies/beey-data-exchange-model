@@ -38,7 +38,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Orders\OrderInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\LastProjectError.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\MediaInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectErrorCause.cs" />
+    <Compile Include="..\DataExchangeModel\Projects\ProjectErrorCategory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectListing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectProcessingState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectToDeleteInElastic.cs" />

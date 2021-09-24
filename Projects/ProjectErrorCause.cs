@@ -6,40 +6,34 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Projects
 {
-    public enum ProjectErrorCause
+    public enum ProjectErrorCategory
     {
         None,
-        Precondition,
         Upload,
         Transcoding,
         Transcription,
-        Other
+        Various
     }
 
-    public enum ProjectErrorCauseDetail_Precondition
+    public enum ProjectErrorReason_Upload
     {
-        Unknown = 0,
-        NotEnoughCredit = 1,
+        NotSpecified,
     }
 
-    public enum ProjectErrorCauseDetail_Upload
+    public enum ProjectErrorReason_Transcoding
     {
-        Unknown = 0,
+        NotSpecified,
     }
 
-    public enum ProjectErrorCauseDetail_Transcoding
+    public enum ProjectErrorReason_Transcription
     {
-        Unknown = 0,
+        NotSpecified,
     }
 
-    public enum ProjectErrorCauseDetail_Transcription
+    public enum ProjectErrorReason_Various
     {
-        Unknown = 0,
-    }
-
-    public enum ProjectErrorCauseDetail_Other
-    {
-        Unknown = 0,
-        ServerShutdown = 1,
+        Unknown,
+        NotEnoughCredit,
+        ServerShutdown,
     }
 }
