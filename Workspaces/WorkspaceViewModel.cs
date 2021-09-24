@@ -11,12 +11,11 @@ namespace Beey.DataExchangeModel.Workspaces
     public class WorkspaceViewModel
     {
         public int Id { get; set; }
+        public string Email { get; set; }
         public int CreditMinutes { get; set; }
         public decimal TranscribedMinutes { get; set; }
         public bool DidPay { get; set; }
         public JArray CustomProjectTags { get; set; }
-
-        public enum OrderMembersBy { Email, TranscribedMinutes }
     }
 
     public class WorkspaceStandardViewModel : WorkspaceViewModel
@@ -27,7 +26,6 @@ namespace Beey.DataExchangeModel.Workspaces
             public string Email { get; set; }
         }
 
-        public Member Owner { get; set; }
         public IEnumerable<Member> Members { get; set; }
     }
 
@@ -42,7 +40,6 @@ namespace Beey.DataExchangeModel.Workspaces
             public DateTime? To { get; set; }
         }
 
-        public Member Owner { get; set; }
         public IEnumerable<Member> Members { get; set; }
     }
 }
