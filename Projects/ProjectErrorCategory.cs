@@ -8,29 +8,28 @@ namespace Beey.DataExchangeModel.Projects
 {
     public enum ProjectErrorCategory
     {
-        None,
+        General,
         Upload,
         Transcoding,
         Transcription,
-        Various
     }
 
     public enum ProjectErrorReason_Upload
     {
-        NotSpecified,
+        Unknown,
     }
 
     public enum ProjectErrorReason_Transcoding
     {
-        NotSpecified,
+        Unknown,
     }
 
     public enum ProjectErrorReason_Transcription
     {
-        NotSpecified,
+        Unknown,
     }
 
-    public enum ProjectErrorReason_Various
+    public enum ProjectErrorReason
     {
         Unknown,
         NotEnoughCredit,
