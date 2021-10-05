@@ -124,6 +124,7 @@ namespace Beey.DataExchangeModel.Users
                 Amount = orderInfo.Amount;
                 Currency = orderInfo.Currency;
                 Language = orderInfo.Language;
+                PaymentStatus = orderInfo.PaymentStatus;
             }
         }
     }
