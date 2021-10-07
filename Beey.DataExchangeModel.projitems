@@ -40,6 +40,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Orders\OrderInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\LastProjectError.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\MediaInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AggregatedListing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Workspaces\OrderMembersBy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectErrorCategory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectListing.cs" />

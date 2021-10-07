@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Beey.DataExchangeModel", "Beey.DataExchangeModel.shproj", "{306CEFB5-A8C2-4577-8332-13827A9EC870}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Beey.DataExchangeModel.projitems*{306cefb5-a8c2-4577-8332-13827a9ec870}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
