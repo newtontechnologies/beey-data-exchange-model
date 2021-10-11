@@ -49,6 +49,9 @@ namespace Beey.DataExchangeModel.Auth
         [JsonIgnoreWebDeserialize]
         public decimal TranscribedMinutes { get; set; }
         public int CreditMinutes { get; set; }
+        public string Language { get; set; }
+        [JsonIgnoreWebDeserialize]
+        public bool DidPay { get; set; }
     }
 }
 

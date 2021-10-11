@@ -15,6 +15,8 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public bool WithPunctuation { get; set; }
         public int UserId { get; set; }
 
+        public bool TrialTranscription { get; set; } = false;
+
         public TranscriptionConfig() { }
         public TranscriptionConfig(bool saveTrsx, string language, bool withPPC, bool withVAD, bool withPunctuation, int userId)
         {
@@ -36,6 +38,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
                 { nameof(WithVAD), WithVAD.ToString() },
                 { nameof(UserId), UserId.ToString() },
                 { nameof(WithPunctuation), WithPunctuation.ToString() },
+                { nameof(TrialTranscription), TrialTranscription.ToString() },
             });
         }
     }

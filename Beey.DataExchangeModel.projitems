@@ -9,6 +9,7 @@
     <Import_RootNamespace>Beey.DataExchangeModel</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Auth\RegistrationData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BeeySystem\AnnouncementTemplate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Export\ExportFormat.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Export\ExportVariant.cs" />
@@ -75,7 +76,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Error.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Files\FileStateInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Listing.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Auth\Login.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Auth\LoginData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\LoginToken.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\PassChange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Files\FileWrapper.cs" />
@@ -88,8 +89,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\UploadConfig.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Auth\" />
     <Folder Include="$(MSBuildThisFileDirectory)Files\" />
     <Folder Include="$(MSBuildThisFileDirectory)Orders\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Beey.postman_collection.json" />
   </ItemGroup>
 </Project>
