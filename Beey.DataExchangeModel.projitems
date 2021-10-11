@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)BeeySystem\AnnouncementTemplate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Export\ExportFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Export\ExportVariant.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Fakes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConcurrentEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Lexicons\LexiconEntry.cs" />
@@ -35,6 +36,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\RecognitionData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Orders\OrderInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\MediaInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\SearchRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\SearchResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNgEventConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNullableConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonStringNullableEnumConverter.cs" />
