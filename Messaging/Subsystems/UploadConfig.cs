@@ -2,6 +2,7 @@
 #pragma warning disable 8618
 using Beey.DataExchangeModel.Messaging.Subsystems;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
@@ -9,13 +10,21 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
     public partial class UploadConfig : SubsystemConfig<UploadConfig>
     {
         public bool Stream { get; set; }
-        public bool SaveMedia { get; set; }
+
+        [Obsolete("transcriptions without SavingMedia are not supported")]
+        public bool SaveMedia => true;
         public int UserId { get; set; }
 
         public UploadConfig() { }
+
+        [Obsolete("transcriptions without SavingMedia are not supported")]
         public UploadConfig(bool saveMedia, int userId)
-        {          
-            SaveMedia = saveMedia;
+        {
+            UserId = userId;
+        }
+
+        public UploadConfig(int userId)
+        {
             UserId = userId;
         }
 
@@ -23,7 +32,6 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         {
             builder.AddInMemoryCollection(new Dictionary<string, string>()
             {
-                { nameof(SaveMedia), SaveMedia.ToString() },
                 { nameof(UserId), UserId.ToString() },
                 { nameof(Stream), Stream.ToString() }
             });

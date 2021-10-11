@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7ffbe83e-dfe9-4046-a22f-a310c203d635",
+		"_postman_id": "1d4e0f0c-32ff-42ce-9e74-d82b92cb4dab",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -253,7 +253,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/API/Admin/User/1/TranscriptionLog",
+									"raw": "{{url}}/API/Admin/User/5/TranscriptionLog",
 									"host": [
 										"{{url}}"
 									],
@@ -261,8 +261,22 @@
 										"API",
 										"Admin",
 										"User",
-										"1",
+										"5",
 										"TranscriptionLog"
+									],
+									"query": [
+										{
+											"key": "skip",
+											"value": "10",
+											"description": "optional",
+											"disabled": true
+										},
+										{
+											"key": "count",
+											"value": "10",
+											"description": "optional",
+											"disabled": true
+										}
 									]
 								}
 							},
@@ -446,6 +460,20 @@
 								"API",
 								"CurrentUser",
 								"TranscriptionLog"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "10",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "count",
+									"value": "10",
+									"description": "optional",
+									"disabled": true
+								}
 							]
 						}
 					},
