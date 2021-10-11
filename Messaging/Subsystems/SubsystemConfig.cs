@@ -8,7 +8,7 @@ using System.Text.Json;
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
     public abstract class SubsystemConfig
-    { 
+    {
         public IConfiguration ToConfiguration()
         {
             var builder = new ConfigurationBuilder();
@@ -17,7 +17,12 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         }
 
         // TODO: can be implemented recursively using reflection, but would be slower
-        protected abstract void AddToConfiguration(IConfigurationBuilder builder);        
+        protected abstract void AddToConfiguration(IConfigurationBuilder builder);
+    }
+
+    public interface IConfigMessage
+    {
+        public IConfiguration Config { get; }
     }
 
     public abstract class SubsystemConfig<T> : SubsystemConfig
@@ -31,7 +36,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         }
         private static IConfiguration ExtractConfig(Message startedMessage)
         {
-            return startedMessage is StartedMessage m
+            return startedMessage is IConfigMessage m
                 ? m.Config
                 : throw new ArgumentException("Bad message type.", nameof(startedMessage));
         }

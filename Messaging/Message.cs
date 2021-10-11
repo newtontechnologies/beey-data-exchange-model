@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public enum MessageType { Started, Progress, Failed, Completed, Chain }
+    public enum MessageType { Started, Progress, Failed, Completed, ChainStatus, ChainCommand }
     public abstract partial class Message : IEquatable<Message>, ITuple
     {
         public int Id { get; protected set; }
@@ -20,7 +20,7 @@ namespace Beey.DataExchangeModel.Messaging
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public MessageType Type => Enum.TryParse<MessageType>(this.GetType().Name.Replace("Message", ""), out var messageType)
                 ? messageType
-                : throw new InvalidProgramException("Invalid message type.");
+                : throw new WrapperException("Invalid message type.");
         /// <summary>
         /// Used by deserialization. Messages are created only in subsystems.
         /// </summary>

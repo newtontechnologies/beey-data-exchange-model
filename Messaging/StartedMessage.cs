@@ -1,9 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Beey.DataExchangeModel.Messaging.Subsystems;
+using Microsoft.Extensions.Configuration;
 using System;
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public sealed partial class StartedMessage : Message
+    public sealed partial class StartedMessage : Message, IConfigMessage
     {
         public IConfiguration Config { get; set; }
 
