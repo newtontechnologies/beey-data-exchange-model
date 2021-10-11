@@ -28,5 +28,7 @@ namespace Beey.DataExchangeModel.Transcriptions
 
         // This must be string for ES context suggester to work.
         public string UserId { get; set; } = GlobalId;
+
+        public bool? Deleted { set; get; }
     }
 }
