@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3e811c2e-e0e6-4b6f-99fb-bc72b871046d",
+		"_postman_id": "7ffbe83e-dfe9-4046-a22f-a310c203d635",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -87,7 +87,7 @@
 									"raw": "{\n    \"Email\": \"pokusnik.kokosnik@newtontech.cz\",\n    \"UserRole\": \"Promo\",\n    \"Password\": \"mělník\"\n}"
 								},
 								"url": {
-									"raw": "{{url}}/API/Admin/User",
+									"raw": "{{url}}/API/Admin/User?createDemoProject=true&sendEmail=true&language=cs-CZ",
 									"host": [
 										"{{url}}"
 									],
@@ -95,6 +95,20 @@
 										"API",
 										"Admin",
 										"User"
+									],
+									"query": [
+										{
+											"key": "createDemoProject",
+											"value": "true"
+										},
+										{
+											"key": "sendEmail",
+											"value": "true"
+										},
+										{
+											"key": "language",
+											"value": "cs-CZ"
+										}
 									]
 								}
 							},
