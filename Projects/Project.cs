@@ -9,6 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text.Json;
 using Beey.DataExchangeModel.Messaging.Subsystems;
+using Newtonsoft.Json.Converters;
 
 #pragma warning disable nullable
 #pragma warning disable 8618, 8601, 8603
@@ -67,6 +68,13 @@ namespace Beey.DataExchangeModel.Projects
         {
             get => _transcriptionConfig == null ? null : JsonSerializer.Deserialize<TranscriptionConfig>(_transcriptionConfig);
             set => _transcriptionConfig = value is { } ? JsonSerializer.Serialize(value) : null;
+        }
+
+        [JsonIgnoreWebDeserialize]
+        [Newtonsoft.Json.JsonConverter(typeof(StringEnumConverter))]
+        public ProjectProcessingState ProcessingState
+        {
+            get; set;
         }
     }
 }

@@ -36,8 +36,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SubsystemData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\RecognitionData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Orders\OrderInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\LastProjectError.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\MediaInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectErrorCause.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectListing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectProcessingState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectToDeleteInElastic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\QueueType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\SearchResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNgEventConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNullableConverter.cs" />
@@ -49,6 +54,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Users\Country.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\PaymentInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\UserDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Users\UserTranscriptionLimit.cs" />
     <Compile Include="..\DataExchangeModel\Users\CreditChangeHistoryEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Voiceprints\VoiceprintModelInfo.cs" />
     <Compile Include="..\DataExchangeModel\Messaging\Subsystems\UploadSubsystemData.cs" />
