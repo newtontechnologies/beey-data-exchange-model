@@ -32,7 +32,7 @@ namespace Beey.DataExchangeModel.Transcriptions
         // NOTE: This must be string for ES context suggester to work.
         // TODO: This should be removed, but speakers in all elasticsearch instances must be re-indexed for this to work.
         [PropertyName("userId")]
-        public string WorkspaceId { get; set; } = GlobalId;
+        public string TeamId { get; set; } = GlobalId;
 
         public bool? Deleted { set; get; }
     }

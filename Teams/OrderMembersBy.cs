@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beey.DataExchangeModel.Workspaces
+namespace Beey.DataExchangeModel.Teams
 {
     public enum OrderMembersBy { Email, TranscribedMinutes }
 }

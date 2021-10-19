@@ -11,9 +11,9 @@ namespace Beey.DataExchangeModel.Auth
         [Required]
         public string Password { get; set; }
         public UserRole UserRole { get; set; }
-        [Obsolete("For backwards compatibility only. Is part of workspaces now.")]
+        [Obsolete("For backwards compatibility only. Is part of teams now.")]
         public Undefinable<int> CreditMinutes { get; set; }        
         public Undefinable<string> Language { get; set; }        
-        public Undefinable<int> WorkspaceId { get; set; }
+        public Undefinable<int> TeamId { get; set; }
     }
 }

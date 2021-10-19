@@ -20,7 +20,7 @@ namespace Beey.DataExchangeModel.Auth
         public DateTimeOffset Updated { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public UserRole UserRole { get; set; }
-        public int WorkspaceId { get; set; }
-        public bool IsWorkspaceOwner { get; set; }
+        public int TeamId { get; set; }
+        public bool IsTeamOwner { get; set; }
     }
 }

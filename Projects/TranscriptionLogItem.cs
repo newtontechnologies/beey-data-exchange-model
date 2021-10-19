@@ -17,7 +17,7 @@ namespace Beey.DataExchangeModel.Projects
     public partial class TranscriptionLogItem : EntityBase
     {
         [JsonIgnoreWebDeserialize]
-        public int WorkspaceId { get; set; }
+        public int TeamId { get; set; }
         [JsonIgnoreWebDeserialize]
         public int UserId { get; set; }
         [JsonIgnoreWebDeserialize]

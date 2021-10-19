@@ -40,7 +40,7 @@ namespace Beey.DataExchangeModel.Users
         public class CreditChangeHistoryEntryView
         {
             public int Credit { get; set; }
-            public int WorkspaceId { get; set; }
+            public int TeamId { get; set; }
             public int InitiatorId { get; set; }
             public int? OrderInfoId { get; set; }
         }
