@@ -13,6 +13,5 @@ namespace Beey.DataExchangeModel.Projects
         public string Filename { get; set; }
         public decimal TranscribedMinutes { get; set; }
         public DateTimeOffset Created { get; set; }
-        public string TranscriptionSettings { get; set; }
     }
 }
