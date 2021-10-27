@@ -37,6 +37,12 @@ namespace Beey.DataExchangeModel
     {
         public ConcurrencyCheckAttribute() { }
     }
+
+    [AttributeUsage(AttributeTargets.Property)]
+    public class PropertyNameAttribute : Attribute
+    {
+        public PropertyNameAttribute(string name) { }
+    }
 }
 
 #endif

@@ -12,19 +12,19 @@ namespace Beey.DataExchangeModel
 
         public T[] List { get; set; }
 
-        public Listing(int total, int returned, T[] data)
+        public Listing(int totalCount, int listedCount, T[] data)
         {
-            TotalCount = total;
-            ListedCount = returned;
+            TotalCount = totalCount;
+            ListedCount = listedCount;
             List = data;
         }
     }
 
     public static class Listing
     {
-        public static Listing<T> Create<T>(int total, int returned, T[] data)
+        public static Listing<T> Create<T>(int totalCount, int listedCount, T[] data)
         {
-            return new Listing<T>(total, returned, data);
+            return new Listing<T>(totalCount, listedCount, data);
         }
     }
 }
