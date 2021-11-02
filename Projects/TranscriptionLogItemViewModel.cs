@@ -10,7 +10,6 @@ namespace Beey.DataExchangeModel.Projects
     {
         public int ProjectId { get; set; }
         public string ProjectName { get; set; }
-        public string Filename { get; set; }
         public decimal TranscribedMinutes { get; set; }
         public DateTimeOffset Created { get; set; }
     }
