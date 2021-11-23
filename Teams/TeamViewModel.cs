@@ -16,6 +16,7 @@ namespace Beey.DataExchangeModel.Teams
         public decimal TranscribedMinutes { get; set; }
         public bool DidPay { get; set; }
         public JArray CustomProjectTags { get; set; }
+        public int MemberCount { get; set; }
     }
 
     public class TeamStandardViewModel : TeamViewModel
