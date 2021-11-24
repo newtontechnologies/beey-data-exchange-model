@@ -17,22 +17,18 @@ namespace Beey.DataExchangeModel.Projects
     public partial class TranscriptionLogItem : EntityBase
     {
         [JsonIgnoreWebDeserialize]
+        public int TeamId { get; set; }
+        [JsonIgnoreWebDeserialize]
         public int UserId { get; set; }
         [JsonIgnoreWebDeserialize]
-        public User User { get; set; }
-        [JsonIgnoreWebDeserialize]
         public string Filename { get; set; }
-
         [JsonIgnoreWebDeserialize]
         public int ProjectId { get; set; }
-        [JsonIgnoreWebDeserialize]
-        public Project Project { get; set; }
         [JsonIgnoreWebDeserialize]
         public string ProjectName { get; set; }
         [JsonIgnoreWebDeserialize]
         public decimal TranscribedMinutes { get; set; }
         [JsonIgnoreWebDeserialize]
         public string TranscriptionSettings { get; set; }
-
     }
 }
