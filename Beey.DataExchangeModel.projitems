@@ -95,7 +95,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Auth\LoginData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\LoginToken.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\PassChange.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Files\FileWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ParamsProjectInit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectAccess.cs" />
