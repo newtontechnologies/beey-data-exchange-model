@@ -17,6 +17,7 @@ namespace Beey.DataExchangeModel.Auth
         public string Language { get; set; }
         public JObject Settings { get; set; }
         public decimal TranscribedMinutes { get; set; }
+        public decimal UserTranscribedMinutes { get; set; }
         public DateTimeOffset? Updated { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public UserRole UserRole { get; set; }
