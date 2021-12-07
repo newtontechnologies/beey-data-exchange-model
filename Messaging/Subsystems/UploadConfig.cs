@@ -14,6 +14,8 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         [Obsolete("transcriptions without SavingMedia are not supported")]
         public bool SaveMedia => true;
         public int UserId { get; set; }
+        public string FileName { get; internal set; }
+        public long? TotalFileSize { get; internal set; }
 
         public UploadConfig() { }
 
@@ -33,7 +35,9 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
             builder.AddInMemoryCollection(new Dictionary<string, string>()
             {
                 { nameof(UserId), UserId.ToString() },
-                { nameof(Stream), Stream.ToString() }
+                { nameof(Stream), Stream.ToString() },
+                { nameof(FileName), FileName.ToString() },
+                { nameof(TotalFileSize), TotalFileSize.ToString() }
             });
         }
     }
