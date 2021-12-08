@@ -7,20 +7,12 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Users
 {
-    public class PaymentInfo : EntityBase
+    public class PaymentInfoAddModel
     {
-        [JsonIgnoreWebDeserialize]
-        public int UserId { get; set; }
-
-        [JsonIgnoreWeb]
-        public User User { get; set; }
-
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
         public string Company { get; set; }
         /// <summary>
         /// DIČ
@@ -32,7 +24,6 @@ namespace Beey.DataExchangeModel.Users
         public string CompanyIdentificationNumber { get; set; }
         //public string VATIdentificationNumber { get; set; } //in USA TAX and VAT ids are different
 
-
         public string Address { get; set; }
         public string AddressComplement { get; set; }
         public string PostalCode { get; set; }
@@ -42,5 +33,12 @@ namespace Beey.DataExchangeModel.Users
         public string StateOrRegion { get; set; }
 
         public bool ReverseCharge { get; set; }
+    }
+    public class PaymentInfoViewModel : PaymentInfoAddModel
+    {
+        public int Id { get; set; }
+        public DateTimeOffset? Created { get; set; }
+        public DateTimeOffset? Updated { get; set; }
+        public int UserId { get; set; }
     }
 }

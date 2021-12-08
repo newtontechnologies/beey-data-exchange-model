@@ -59,7 +59,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Undefinable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\AggregatedTranscriptionLogView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\Country.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Users\PaymentInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Users\PaymentInfoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\UserDetail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\UserTranscriptionLimit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\UserViewModel.cs" />
