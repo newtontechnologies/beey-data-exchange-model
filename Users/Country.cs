@@ -8,13 +8,22 @@ namespace Beey.DataExchangeModel.Users
 {
     public class Country
     {
+        public string Name { get; set; }
         public string NativeName { get; set; }
-        public string Code { get; set; }
 
-        public Country(string nativeName, string code)
+        // For backward compatibility.
+        public string Code => TwoLetterIsoCode;
+        public string TwoLetterIsoCode { get; set; }
+        public string ThreeLetterIsoCode { get; set; }
+        public string NumericCode { get; set; }
+
+        public Country(string name, string nativeName, string twoLetterIsoCode, string threeLetterIsoCode, string numericCode)
         {
+            Name = name;
             NativeName = nativeName;
-            Code = code;
+            TwoLetterIsoCode = twoLetterIsoCode;
+            ThreeLetterIsoCode = threeLetterIsoCode;
+            NumericCode = numericCode;
         }
     }
 }
