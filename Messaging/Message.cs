@@ -1,5 +1,4 @@
-﻿using Backend.Messaging.Chain;
-using Beey.DataExchangeModel.Serialization.JsonConverters;
+﻿using Beey.DataExchangeModel.Serialization.JsonConverters;
 using Beey.DataExchangeModel.Tools;
 using System;
 using System.Linq;
@@ -20,7 +19,7 @@ namespace Beey.DataExchangeModel.Messaging
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public MessageType Type => Enum.TryParse<MessageType>(this.GetType().Name.Replace("Message", ""), out var messageType)
                 ? messageType
-                : throw new WrapperException("Invalid message type.");
+                : throw new InvalidCastException("Invalid message type.");
         /// <summary>
         /// Used by deserialization. Messages are created only in subsystems.
         /// </summary>
