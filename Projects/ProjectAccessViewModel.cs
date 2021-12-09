@@ -6,10 +6,9 @@ using System.Linq;
 using System.Threading.Tasks;
 
 #pragma warning disable nullable
-#pragma warning disable 8618
 namespace Beey.DataExchangeModel.Projects
 {
-    public partial class ProjectAccessViewModel
+    public class ProjectAccessViewModel
     {
         public int Id { get; set; }
         public DateTimeOffset? Created { get; set; }
@@ -21,6 +20,10 @@ namespace Beey.DataExchangeModel.Projects
         public Project Project { get; set; }
 
         public string CustomPath { get; set; }
+    }
 
+    public class ProjectAccessUpdateModel
+    {
+        public string CustomPath { get; set; }
     }
 }
