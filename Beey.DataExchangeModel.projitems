@@ -98,7 +98,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Auth\PassChange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\ParamsProjectInit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\Project.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectAccess.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Projects\ProjectAccessViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\TranscriptionLogItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Auth\UserRole.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\UploadConfig.cs" />
