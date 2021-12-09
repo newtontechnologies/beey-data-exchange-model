@@ -1,6 +1,8 @@
 ﻿using Beey.DataExchangeModel.Tools;
 using System;
+#if BeeyServer
 using System.ComponentModel.DataAnnotations;
+#endif
 
 namespace Beey.DataExchangeModel.Auth
 {

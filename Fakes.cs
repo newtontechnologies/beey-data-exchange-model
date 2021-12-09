@@ -14,6 +14,12 @@ namespace Beey.DataExchangeModel
         public NotMappedAttribute() { }
     }
 
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
+    public partial class RequiredAttribute : Attribute
+    {
+        public RequiredAttribute() { }
+    }
+
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
     public class ColumnAttribute : Attribute
     {
