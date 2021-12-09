@@ -56,6 +56,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonUndefinableConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonUnknownObjectConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BeeySystem\Announcement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Teams\OrderTeamsBy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Undefinable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\AggregatedTranscriptionLogView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Users\Country.cs" />
