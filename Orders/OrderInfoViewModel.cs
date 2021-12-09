@@ -2,9 +2,6 @@
 using Beey.DataExchangeModel.Users;
 using System;
 using System.Collections.Generic;
-#if BeeyServer
-using System.ComponentModel.DataAnnotations.Schema;
-#endif
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -14,47 +11,17 @@ namespace Beey.DataExchangeModel.Orders
 {
     public enum PaymentStatus { None, Failed, Successful }
 
-    public class OrderInfo : EntityBase
+    public class OrderInfoViewModel
     {
-        public OrderInfo() { }
-        public OrderInfo(int userId, ulong orderNumber, uint credit, decimal amount, string currency, CultureInfo culture, PaymentInfo paymentInfo)
-        {
-            UserId = userId;
-            OrderNumber = orderNumber;
-            Credit = credit;
-            Amount = amount;
-            Currency = currency;
-            Culture = culture;
+        public OrderInfoViewModel() { }
 
-            Email = paymentInfo.Email;
-            PhoneNumber = paymentInfo.PhoneNumber;
-
-            FirstName = paymentInfo.FirstName;
-            LastName = paymentInfo.LastName;
-
-            Company = paymentInfo.Company;
-            TaxIdentificationNumber = paymentInfo.TaxIdentificationNumber;
-            CompanyIdentificationNumber = paymentInfo.CompanyIdentificationNumber;
-
-            Address = paymentInfo.Address;
-            AddressComplement = paymentInfo.AddressComplement;
-            PostalCode = paymentInfo.PostalCode;
-            City = paymentInfo.City;
-            Country = paymentInfo.Country;
-            CountryCode = paymentInfo.CountryCode;
-            StateOrRegion = paymentInfo.StateOrRegion;
-
-            ReverseCharge = paymentInfo.ReverseCharge;
-        }
-
+        public DateTimeOffset? Created { get; set; }
         public int UserId { get; set; }
         public ulong OrderNumber { get; set; }
         public uint Credit { get; set; }
         public decimal Amount { get; set; }
         public string Currency { get; set; }
         public string Language { get; set; }
-        [NotMapped]
-        public CultureInfo Culture { get => new CultureInfo(Language); set => Language = value.Name; }
 
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PaymentStatus PaymentStatus { get; set; } = PaymentStatus.None;
