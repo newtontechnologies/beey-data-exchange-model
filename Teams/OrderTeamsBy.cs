@@ -8,6 +8,9 @@ namespace Beey.DataExchangeModel.Teams
 {
     public enum OrderTeamsBy
     {
-        Email, MemberCount, TranscribedMinutes
+        Email,
+        MemberCount,
+        TranscribedMinutes,
+        CalculatedCredit
     }
 }
