@@ -41,6 +41,7 @@ namespace Beey.DataExchangeModel.Teams
             public DateTimeOffset? To { get; set; }
         }
 
+        public decimal TranscribedMinutesPerPeriod { get; set; }
         public IEnumerable<Member> Members { get; set; }
     }
 }
