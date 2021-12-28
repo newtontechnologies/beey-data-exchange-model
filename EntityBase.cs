@@ -12,14 +12,14 @@ namespace Beey.DataExchangeModel
     public abstract class EntityBase
     {
         [Key]
-        public int Id { get; set; }
+        public int Id { get; [Obsolete("set automatically, changes will be ignored and overwritten")] set; }
 
         [JsonIgnoreWebDeserialize]
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public DateTimeOffset? Created { get; set; }
+        public DateTimeOffset? Created { get; [Obsolete("set automatically, changes will be ignored and overwritten")] set; }
 
         [JsonIgnoreWebDeserialize]
         //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTimeOffset? Updated { get; set; }
+        public DateTimeOffset? Updated { get; [Obsolete("set automatically, changes will be ignored and overwritten")] set; }
     }
 }
