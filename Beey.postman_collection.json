@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1d4e0f0c-32ff-42ce-9e74-d82b92cb4dab",
+		"_postman_id": "db0b6c52-502c-4329-8cbc-9ddd38a907f9",
 		"name": "Beey",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1928,9 +1928,12 @@
 					]
 				},
 				{
-					"name": "transcribe uploaded file",
+					"name": "enqueue transcribe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
@@ -1942,36 +1945,40 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "{{url}}/API/Project/{{lastProjectID}}/Transcribe",
+							"raw": "{{url}}/API/Project/Queue/Enqueue?projectId={{lastProjectID}}&lang=cs-CZ&withPPC=true&withVAD=true&saveTrsx=true&transcriptionProfile=default",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"API",
 								"Project",
-								"{{lastProjectID}}",
-								"Transcribe"
+								"Queue",
+								"Enqueue"
 							],
 							"query": [
 								{
+									"key": "projectId",
+									"value": "{{lastProjectID}}"
+								},
+								{
 									"key": "lang",
-									"value": "cs-CZ",
-									"disabled": true
+									"value": "cs-CZ"
 								},
 								{
 									"key": "withPPC",
-									"value": "true",
-									"disabled": true
+									"value": "true"
 								},
 								{
 									"key": "withVAD",
-									"value": "true",
-									"disabled": true
+									"value": "true"
 								},
 								{
 									"key": "saveTrsx",
-									"value": "true",
-									"disabled": true
+									"value": "true"
+								},
+								{
+									"key": "transcriptionProfile",
+									"value": "default"
 								}
 							]
 						}
@@ -1985,8 +1992,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
-									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
+									"pm.environment.set(\"lastProjectID\", pm.response.json().Id);",
+									"pm.environment.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 								],
 								"type": "text/javascript"
 							}
@@ -2028,9 +2035,9 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.globals.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);",
-									"pm.globals.set(\"lastProjectID\", pm.response.json().Id);",
-									"pm.globals.set(\"lastAccessToken\", pm.response.json().AccessToken);"
+									"pm.environment.set(\"currentTrsxID\", pm.response.json().CurrentTrsxId);",
+									"pm.environment.set(\"lastProjectID\", pm.response.json().Id);\r",
+									"pm.environment.set(\"lastAccessToken\", pm.response.json().AccessToken);"
 								],
 								"type": "text/javascript"
 							}
@@ -2288,33 +2295,6 @@
 							]
 						},
 						"description": "Iterate accesslist for curent user"
-					},
-					"response": []
-				},
-				{
-					"name": "reset project processing",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "{{authToken}}"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/API/Project/{{lastProjectID}}/Reset",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"API",
-								"Project",
-								"{{lastProjectID}}",
-								"Reset"
-							]
-						},
-						"description": "After unsuccessful recognition project might get into unrecoverable state, where all/some API calls won't work. This will fix it."
 					},
 					"response": []
 				}
@@ -2709,9 +2689,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.globals.set(\"authToken\", pm.response.json().Token);",
-							"pm.globals.set(\"currentUser\", pm.response.json().User);",
-							"pm.globals.set(\"currentUserId\", pm.response.json().User.Id);"
+							"pm.environment.set(\"authToken\", pm.response.json().Token);",
+							"pm.environment.set(\"currentUser\", pm.response.json().User);",
+							"pm.environment.set(\"currentUserId\", pm.response.json().User.Id);"
 						],
 						"type": "text/javascript"
 					}
@@ -2722,7 +2702,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Email\": \"user@example.org\",\r\n    \"Password\": \"SecretPassword\"\r\n}",
+					"raw": "{\r\n    \"Email\": \"{{Login}}\",\r\n    \"Password\": \"{{Password}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -2839,6 +2819,46 @@
 					"path": [
 						"API",
 						"Logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get processing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/API/Projects/Processing/List",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"API",
+						"Projects",
+						"Processing",
+						"List"
 					]
 				}
 			},
