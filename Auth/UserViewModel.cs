@@ -12,10 +12,10 @@ namespace Beey.DataExchangeModel.Auth
         public int CreditMinutes { get; set; }
         public bool DataProtectionConsent { get; set; }
         public bool DidPay { get; set; }
-        public string Email { get; set; }
+        public string? Email { get; set; }
         public int Id { get; set; }
-        public string Language { get; set; }
-        public JObject Settings { get; set; }
+        public string? Language { get; set; }
+        public JObject? Settings { get; set; }
         public decimal TranscribedMinutes { get; set; }
         public decimal UserTranscribedMinutes { get; set; }
         public DateTimeOffset? Updated { get; set; }

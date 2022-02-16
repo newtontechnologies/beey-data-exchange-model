@@ -34,13 +34,13 @@ namespace Beey.DataExchangeModel.BeeySystem
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AnnouncementImportance Importance { get; set; }
 
-        public AnnouncementTemplate Template { get; set; }
+        public AnnouncementTemplate? Template { get; set; }
 
         [JsonIgnoreWeb]
         [Column("TemplateParameters")]
-        public string _TemplateParameters { get; set; }
+        public string? _TemplateParameters { get; set; }
         [NotMapped]
-        public JArray TemplateParameters
+        public JArray? TemplateParameters
         {
             get => _TemplateParameters == null ? null : JArray.Parse(_TemplateParameters);
             set => _TemplateParameters = value?.ToString();
@@ -48,9 +48,9 @@ namespace Beey.DataExchangeModel.BeeySystem
 
         [JsonIgnoreWeb]
         [Column("Localizations")]
-        public string _Localizations { get; set; }
+        public string? _Localizations { get; set; }
         [NotMapped]
-        public JObject Localizations
+        public JObject? Localizations
         {
             get => _Localizations == null ? null : JObject.Parse(_Localizations);
             set => _Localizations = value?.ToString();

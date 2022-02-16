@@ -20,10 +20,10 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
     public abstract class SubsystemData<T> : SubsystemData
         where T : SubsystemData<T>, new()
     {
-        public virtual T Deserialize(JsonData data)
+        public virtual T? Deserialize(JsonData data)
             => JsonSerializer.Deserialize<T>(data.Raw, CreateDefaultOptions());
 
-        public static T From(Message progressMessage)
+        public static T? From(Message progressMessage)
         {
             var data = ExtractData(progressMessage);
             var result = new T();

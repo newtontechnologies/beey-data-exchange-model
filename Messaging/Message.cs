@@ -76,7 +76,7 @@ namespace Beey.DataExchangeModel.Messaging
 
         public void Switch(params (ITuple, Action)[] cases)
             => Switch(null, cases);
-        public void Switch(Action defaultCase, params (ITuple, Action)[] cases)
+        public void Switch(Action? defaultCase, params (ITuple, Action)[] cases)
         {
             foreach (var c in cases)
             {
@@ -91,64 +91,6 @@ namespace Beey.DataExchangeModel.Messaging
             }
 
             defaultCase?.Invoke();
-        }
-
-        public Task SwitchAsync(params (ITuple, Func<Task>)[] cases)
-            => SwitchAsync(null, cases);
-        public Task SwitchAsync(Func<Task> defaultCase, params (ITuple, Func<Task>)[] cases)
-        {
-            foreach (var c in cases)
-            {
-                for (int i = 0; i < c.Item1.Length; i++)
-                {
-                    if (this.Equals(c.Item1[i]))
-                    {
-                        return c.Item2();
-                    }
-                }
-            }
-
-            return defaultCase != null ? defaultCase() : Task.CompletedTask;
-        }
-
-        public TResult Switch<TResult>(params (ITuple, Func<TResult>)[] cases)
-            => Switch(null, cases);
-        public TResult Switch<TResult>(TResult defaultValue, params (ITuple, Func<TResult>)[] cases)
-            => Switch(() => defaultValue, cases);
-        public TResult Switch<TResult>(Func<TResult> defaultCase, params (ITuple, Func<TResult>)[] cases)
-        {
-            foreach (var c in cases)
-            {
-                for (int i = 0; i < c.Item1.Length; i++)
-                {
-                    if (this.Equals(c.Item1[i]))
-                    {
-                        return c.Item2();
-                    }
-                }
-            }
-
-            return defaultCase != null ? defaultCase() : default;
-        }
-
-        public Task<TResult> SwitchAsync<TResult>(params (ITuple, Func<Task<TResult>>)[] cases)
-            => SwitchAsync(null, cases);
-        public Task<TResult> SwitchAsync<TResult>(TResult defaultValue, params (ITuple, Func<Task<TResult>>)[] cases)
-            => SwitchAsync(() => Task.FromResult(defaultValue), cases);
-        public Task<TResult> SwitchAsync<TResult>(Func<Task<TResult>> defaultCase, params (ITuple, Func<Task<TResult>>)[] cases)
-        {
-            foreach (var c in cases)
-            {
-                for (int i = 0; i < c.Item1.Length; i++)
-                {
-                    if (this.Equals(c.Item1[i]))
-                    {
-                        return c.Item2();
-                    }
-                }
-            }
-
-            return defaultCase != null ? defaultCase() : Task.FromResult<TResult>(default);
         }
 
         #endregion Switch and ITuple implementation

@@ -15,6 +15,6 @@ namespace Beey.DataExchangeModel.Projects
         [Newtonsoft.Json.JsonConverter(typeof(StringEnumConverter))]
         public ProjectErrorCategory Category { get; set; }
         [JsonIgnoreWebDeserialize]
-        public string Reason { get; set; }
+        public string? Reason { get; set; }
     }
 }

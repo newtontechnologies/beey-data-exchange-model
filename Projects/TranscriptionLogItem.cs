@@ -21,14 +21,14 @@ namespace Beey.DataExchangeModel.Projects
         [JsonIgnoreWebDeserialize]
         public int UserId { get; set; }
         [JsonIgnoreWebDeserialize]
-        public string Filename { get; set; }
+        public string? Filename { get; set; }
         [JsonIgnoreWebDeserialize]
         public int ProjectId { get; set; }
         [JsonIgnoreWebDeserialize]
-        public string ProjectName { get; set; }
+        public string? ProjectName { get; set; }
         [JsonIgnoreWebDeserialize]
         public decimal TranscribedMinutes { get; set; }
         [JsonIgnoreWebDeserialize]
-        public string TranscriptionSettings { get; set; }
+        public string? TranscriptionSettings { get; set; }
     }
 }

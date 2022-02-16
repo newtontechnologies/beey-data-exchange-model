@@ -68,7 +68,7 @@ namespace Beey.DataExchangeModel.Tools
         {
             if (!IsDefined || Value == null)
                 return "";
-            return Value.ToString();
+            return Value.ToString() ?? "";
         }
     }
 }

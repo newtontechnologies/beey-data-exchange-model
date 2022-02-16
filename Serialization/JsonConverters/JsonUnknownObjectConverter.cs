@@ -18,7 +18,7 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
             return typeToConvert == typeOfObject || typeToConvert == typeOfExpandoObject;
         }
 
-        public override object Read(ref Utf8JsonReader reader, Type _, JsonSerializerOptions options)
+        public override object? Read(ref Utf8JsonReader reader, Type _, JsonSerializerOptions options)
         {
             while (true)
             {

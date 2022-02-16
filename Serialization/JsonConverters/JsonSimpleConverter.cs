@@ -11,10 +11,10 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         public delegate T Deserialize(ref Utf8JsonReader reader, JsonSerializerOptions options);
         public delegate void Serialize(Utf8JsonWriter writer, T value, JsonSerializerOptions options);
 
-        private readonly Func<T, string> serializeSimple;
-        private readonly Serialize serialize;
-        private readonly Func<string, T> deserializeSimple;
-        private readonly Deserialize deserialize;
+        private readonly Func<T, string>? serializeSimple;
+        private readonly Serialize? serialize;
+        private readonly Func<string, T>? deserializeSimple;
+        private readonly Deserialize? deserialize;
 
         /// <summary>
         /// Base constructor. Simple variants are preferred if both variants are set.
@@ -23,8 +23,8 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         /// <param name="serializeSimple"></param>
         /// <param name="deserialize"></param>
         /// <param name="deserializeSimple"></param>
-        private JsonSimpleConverter(Serialize serialize, Func<T, string> serializeSimple,
-            Deserialize deserialize, Func<string, T> deserializeSimple)
+        private JsonSimpleConverter(Serialize? serialize, Func<T, string>? serializeSimple,
+            Deserialize? deserialize, Func<string, T>? deserializeSimple)
         {
             this.serialize = serialize;
             this.serializeSimple = serializeSimple;
@@ -75,7 +75,7 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
 
         private static void DefaultSerialize(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
             => JsonSerializer.Serialize<T>(writer, value, options);
-        private static T DefaultDeserialize(ref Utf8JsonReader reader, JsonSerializerOptions options)
+        private static T? DefaultDeserialize(ref Utf8JsonReader reader, JsonSerializerOptions options)
             => JsonSerializer.Deserialize<T>(ref reader);
     }
 }

@@ -16,7 +16,7 @@ namespace Beey.DataExchangeModel.Transcriptions
 #pragma warning restore IDE0060 // Remove unused parameter
         public abstract JObject Serialize();
 
-        internal static NgEvent Deserialize(JObject e, DiarEventList parent)
+        internal static NgEvent Deserialize(JObject e, DiarEventList? parent)
         {
             switch (e["k"].Value<string>())
             {

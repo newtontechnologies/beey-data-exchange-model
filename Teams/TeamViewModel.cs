@@ -1,4 +1,5 @@
-﻿using Beey.DataExchangeModel.Auth;
+﻿
+using Beey.DataExchangeModel.Auth;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace Beey.DataExchangeModel.Teams
         public class Member
         {
             public int Id { get; set; }
-            public string Email { get; set; }
+            public string? Email { get; set; }
             public decimal? Transcribed { get; set; }
             public DateTimeOffset? From { get; set; }
             public DateTimeOffset? To { get; set; }

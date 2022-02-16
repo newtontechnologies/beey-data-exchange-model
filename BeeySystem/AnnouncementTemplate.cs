@@ -15,11 +15,11 @@ namespace Beey.DataExchangeModel.BeeySystem
     {
         [JsonIgnoreWeb]
         [Column("Localizations")]
-        public string _Localizations { get; set; }
+        public string? _Localizations { get; set; }
         [NotMapped]
-        public JObject Localizations
+        public JObject? Localizations
         {
-            get => _Localizations == null ? null : JObject.Parse(_Localizations);
+            get => _Localizations is null ? null : JObject.Parse(_Localizations);
             set => _Localizations = value?.ToString();
         }
     }

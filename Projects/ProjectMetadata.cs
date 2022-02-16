@@ -13,6 +13,6 @@ namespace Beey.DataExchangeModel.Projects
         [JsonIgnoreWebDeserialize]
         public string Key { get; set; }
         [JsonIgnoreWebDeserialize]
-        public string Value { get; set; }
+        public string? Value { get; set; }
     }
 }

@@ -17,12 +17,12 @@ namespace Beey.DataExchangeModel.Projects
 {
     public partial class Project : ConcurrentEntity
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         [JsonIgnoreWebDeserialize]
         public TimeSpan Length { get; set; }
 
         [JsonIgnoreWeb]
-        public string _tags { get; set; }
+        public string? _tags { get; set; }
         [JsonIgnoreWebDeserialize]
         [NotMapped]
         public JArray Tags { get => _tags == null ? null : JArray.Parse(_tags); set => _tags = value?.ToString(); }
@@ -61,7 +61,7 @@ namespace Beey.DataExchangeModel.Projects
 
         [JsonIgnoreWeb]
         [Column("TranscriptionConfig")]
-        public string _transcriptionConfig { get; set; }
+        public string? _transcriptionConfig { get; set; }
 
         [NotMapped]
         public TranscriptionConfig TranscriptionConfig

@@ -28,7 +28,7 @@ namespace Beey.DataExchangeModel.Tools
             return activator.Invoke(args);
         }
 
-        private static ConstructorInfo GetConstructor(Type[] argTypes)
+        private static ConstructorInfo? GetConstructor(Type[] argTypes)
         {
             return tType.GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
                 null, argTypes, null);
