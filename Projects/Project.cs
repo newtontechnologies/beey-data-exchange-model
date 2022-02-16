@@ -28,7 +28,7 @@ namespace Beey.DataExchangeModel.Projects
         public JArray Tags { get => _tags == null ? null : JArray.Parse(_tags); set => _tags = value?.ToString(); }
 
         [JsonIgnoreWeb]
-        public string _mediaInfo { get; set; }
+        public string? _mediaInfo { get; set; }
         [JsonIgnoreWebDeserialize]
         [NotMapped]
         public MediaInfo MediaInfo { get => _mediaInfo == null ? null : JsonSerializer.Deserialize<MediaInfo>(_mediaInfo); set => _mediaInfo = value is { } ? JsonSerializer.Serialize(value) : null; }
