@@ -15,11 +15,12 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public bool WithPunctuation { get; set; }
         public int UserId { get; set; }
         public bool TrialTranscription { get; set; }
+        public bool WithSpeakerId { get; set; }
 
         public TranscriptionConfig() { }
         public TranscriptionConfig(bool saveTrsx, string language,
             bool withPPC, bool withVAD, bool withPunctuation,
-            int userId, bool trialTranscription)
+            int userId, bool trialTranscription, bool withSpeakerId)
         {
             SaveTrsx = saveTrsx;
             Language = language;
@@ -28,6 +29,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
             WithPunctuation = withPunctuation;
             UserId = userId;
             TrialTranscription = trialTranscription;
+            WithSpeakerId = withSpeakerId;
         }
 
         protected override void AddToConfiguration(IConfigurationBuilder builder)
@@ -41,6 +43,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
                 { nameof(UserId), UserId.ToString() },
                 { nameof(WithPunctuation), WithPunctuation.ToString() },
                 { nameof(TrialTranscription), TrialTranscription.ToString() },
+                { nameof(WithSpeakerId), WithSpeakerId.ToString() },
             });
         }
     }
