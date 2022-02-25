@@ -13,6 +13,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
     {
         public float[]? Voiceprint { get; set; }
         public NgSpeakerEvent Speaker { get; set; }
+        public TimeSpan? Start { get; set; }
         public TimeSpan? End { get; set; }
     }
 }
