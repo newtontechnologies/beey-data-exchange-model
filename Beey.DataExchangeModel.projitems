@@ -37,6 +37,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SubsystemConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SubsystemData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\RecognitionData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\VoiceprintAggregationData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Orders\OrderInfoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\LastProjectError.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Projects\MediaInfo.cs" />
