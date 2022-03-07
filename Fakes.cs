@@ -5,27 +5,12 @@ using System;
 
 namespace Beey.DataExchangeModel
 {
-    /// <summary>
-    /// fake for distribution outside of server
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
-    public partial class NotMappedAttribute : Attribute
-    {
-        public NotMappedAttribute() { }
-    }
-
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
     public partial class RequiredAttribute : Attribute
     {
         public RequiredAttribute() { }
     }
 
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
-    public class ColumnAttribute : Attribute
-    {
-        public ColumnAttribute() { }
-        public ColumnAttribute(string name) { }
-    }
     /// <summary>
     /// fake for distribution outside of server
     /// </summary>
