@@ -3,9 +3,6 @@ using Beey.DataExchangeModel.Auth;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-#if BeeyServer
-using System.ComponentModel.DataAnnotations.Schema;
-#endif
 using System.Linq;
 using System.Text.Json;
 using Beey.DataExchangeModel.Messaging.Subsystems;
@@ -24,13 +21,11 @@ namespace Beey.DataExchangeModel.Projects
         [JsonIgnoreWeb]
         public string? _tags { get; set; }
         [JsonIgnoreWebDeserialize]
-        [NotMapped]
         public JArray Tags { get => _tags == null ? null : JArray.Parse(_tags); set => _tags = value?.ToString(); }
 
         [JsonIgnoreWeb]
         public string? _mediaInfo { get; set; }
         [JsonIgnoreWebDeserialize]
-        [NotMapped]
         public MediaInfo MediaInfo { get => _mediaInfo == null ? null : JsonSerializer.Deserialize<MediaInfo>(_mediaInfo); set => _mediaInfo = value is { } ? JsonSerializer.Serialize(value) : null; }
 
         [JsonIgnoreWebDeserialize]
@@ -60,10 +55,8 @@ namespace Beey.DataExchangeModel.Projects
         public int ShareCount { get; set; } = 1;
 
         [JsonIgnoreWeb]
-        [Column("TranscriptionConfig")]
         public string? _transcriptionConfig { get; set; }
 
-        [NotMapped]
         public TranscriptionConfig TranscriptionConfig
         {
             get => _transcriptionConfig == null ? null : JsonSerializer.Deserialize<TranscriptionConfig>(_transcriptionConfig);
