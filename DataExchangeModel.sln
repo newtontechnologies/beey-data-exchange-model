@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Beey.DataExchangeModel", "Beey.DataExchangeModel.shproj", "{306CEFB5-A8C2-4577-8332-13827A9EC870}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beey.DataExchangeModel.Common", "Beey.DataExchangeModel.Common\Beey.DataExchangeModel.Common.csproj", "{EA0E4AB4-7F5A-45D8-80D5-3A4F09FFF839}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Beey.DataExchangeModel.Partial", "Beey.DataExchangeModel.Partial\Beey.DataExchangeModel.Partial.shproj", "{306CEFB5-A8C2-4577-8332-13827A9EC870}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Beey.DataExchangeModel.projitems*{306cefb5-a8c2-4577-8332-13827a9ec870}*SharedItemsImports = 13
+		Beey.DataExchangeModel.Partial\Beey.DataExchangeModel.projitems*{306cefb5-a8c2-4577-8332-13827a9ec870}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

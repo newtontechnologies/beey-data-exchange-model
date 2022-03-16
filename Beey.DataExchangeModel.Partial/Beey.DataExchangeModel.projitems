@@ -41,7 +41,4 @@
     <Folder Include="$(MSBuildThisFileDirectory)Files\" />
     <Folder Include="$(MSBuildThisFileDirectory)Users\" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)Beey.postman_collection.json" />
-  </ItemGroup>
 </Project>
