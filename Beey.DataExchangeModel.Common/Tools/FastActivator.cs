@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Beey.DataExchangeModel.Tools
 {
-    class FastActivator<T> where T : class
+    public class FastActivator<T> where T : class
     {
         private static readonly Type tType = typeof(T);
         private delegate T ObjectActivator(params object[] args);

@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Serialization.JsonConverters
 {
-    static class JsonExtensions
+    public static class JsonExtensions
     {
         public static JsonSerializerOptions AddConverters(this JsonSerializerOptions options, params JsonConverter[] converters)
         {

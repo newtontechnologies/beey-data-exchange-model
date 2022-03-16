@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Serialization.JsonConverters
 {
-    class JsonTimeSpanConverter : JsonConverter<TimeSpan>
+    public class JsonTimeSpanConverter : JsonConverter<TimeSpan>
     {
         public override TimeSpan Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
             => TimeSpan.Parse(reader.GetString());

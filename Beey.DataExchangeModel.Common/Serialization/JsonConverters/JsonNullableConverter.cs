@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Serialization.JsonConverters
 {
-    class JsonNullableConverter<TConverter, TType> : JsonConverter<TType?>
+    public class JsonNullableConverter<TConverter, TType> : JsonConverter<TType?>
         where TConverter : JsonConverter<TType>, new()
         where TType : struct
     {
