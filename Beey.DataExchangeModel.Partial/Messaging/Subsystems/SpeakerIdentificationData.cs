@@ -13,6 +13,6 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public TimeSpan? SampleEnd { get; set; }
         public float? Score { get; set; }
         public string? Voiceprint { get; set; }
-        public SpeakerIdentificationConfig? Config { get; internal set; }
+        public SpeakerIdentificationConfig? Config { get; set; }
     }
 }
