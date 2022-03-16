@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.BeeySystem
 {
-    public enum AnnouncementImportance { Low, Normal, High, Critical }
-
     public partial class Announcement : EntityBase
     {
         [System.Text.Json.Serialization.JsonIgnore]

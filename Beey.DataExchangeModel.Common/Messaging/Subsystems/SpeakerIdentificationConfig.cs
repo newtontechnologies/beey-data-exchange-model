@@ -30,7 +30,6 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
                     dict.Add($"{nameof(VoiceprintModels)}:{i}:{nameof(VoiceprintModelInfo.AcceptanceThreshold)}", VoiceprintModels[i].AcceptanceThreshold.ToString(CultureInfo.InvariantCulture));
                 }
             }
-
             builder.AddInMemoryCollection(dict);
         }
     }

@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public enum MessageType { Started, Progress, Failed, Completed, ChainStatus, ChainCommand }
     public abstract partial class Message : IEquatable<Message>, ITuple
     {
         public int Id { get; protected set; }
