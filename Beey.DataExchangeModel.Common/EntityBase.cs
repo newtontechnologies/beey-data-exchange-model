@@ -11,10 +11,10 @@ namespace Beey.DataExchangeModel
 {
     public abstract class EntityBase
     {
-        public int Id { get; [Obsolete("set automatically, changes will be ignored and overwritten")] set; }
+        public int Id { get; set; }
 
-        public DateTimeOffset? Created { get; [Obsolete("set automatically, changes will be ignored and overwritten")] set; }
+        public DateTimeOffset? Created { get; set; }
 
-        public DateTimeOffset? Updated { get; [Obsolete("set automatically, changes will be ignored and overwritten")] set; }
+        public DateTimeOffset? Updated { get; set; }
     }
 }
