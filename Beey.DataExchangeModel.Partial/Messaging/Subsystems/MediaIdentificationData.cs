@@ -1,4 +1,5 @@
-﻿using Beey.DataExchangeModel.Serialization.JsonConverters;
+﻿using Beey.DataExchangeModel.Projects;
+using Beey.DataExchangeModel.Serialization.JsonConverters;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using System;
@@ -25,6 +26,7 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
 
         [JsonConverter(typeof(JsonNullableConverter<JsonTimeSpanConverter, TimeSpan>))]
         public TimeSpan? Duration { get; set; }
+        public MediaInfo MediaInfo { get; set; }
 
         public string RawData { get; set; }
         public string Error { get; set; }
