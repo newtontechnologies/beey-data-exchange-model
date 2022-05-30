@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    public partial class UploadConfig : SubsystemConfig<UploadConfig>
+    public class UploadConfig
     {
         public bool Stream { get; set; }
 
@@ -28,17 +28,6 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public UploadConfig(int userId)
         {
             UserId = userId;
-        }
-
-        protected override void AddToConfiguration(IConfigurationBuilder builder)
-        {
-            builder.AddInMemoryCollection(new Dictionary<string, string>()
-            {
-                { nameof(UserId), UserId.ToString() },
-                { nameof(Stream), Stream.ToString() },
-                { nameof(FileName), FileName.ToString() },
-                { nameof(TotalFileSize), TotalFileSize.ToString() }
-            });
         }
     }
 }

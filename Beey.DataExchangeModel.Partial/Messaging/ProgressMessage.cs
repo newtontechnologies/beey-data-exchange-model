@@ -2,16 +2,8 @@
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public sealed partial class ProgressMessage : Message
+    public sealed record ProgressMessage(int Id, int[] Index, int? ProjectId, string Subsystem, DateTimeOffset Sent, JsonData Data) : Message(Id, Index, ProjectId, Subsystem, Sent)
     {
-        public JsonData Data { get; private set; }
-
-        /// <summary>
-        /// Used by deserialization. Messages are created only in subsystems.
-        /// </summary>
-        private ProgressMessage(string subsystemName, DateTimeOffset sent, int id, int? projectId, JsonData data) : base(subsystemName, sent, id, projectId)
-        {
-            Data = data;
-        }
+        public override MessageType Type => MessageType.Progress;
     }
 }

@@ -4,16 +4,8 @@ using System;
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public sealed partial class StartedMessage : Message, IConfigMessage
+    public sealed record StartedMessage(int Id, int[] Index, int? ProjectId, string Subsystem, DateTimeOffset Sent) : Message(Id, Index, ProjectId, Subsystem, Sent)
     {
-        public IConfiguration Config { get; set; }
-
-        /// <summary>
-        /// Used by deserialization. Messages are created only in subsystems.
-        /// </summary>
-        private StartedMessage(string subsystemName, DateTimeOffset sent, int id, int? projectId, IConfiguration config) : base(subsystemName, sent, id, projectId)
-        {
-            Config = config;
-        }
+        public override MessageType Type => MessageType.Started;
     }
 }

@@ -6,51 +6,8 @@ using System.Collections.Generic;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
 {
-    public class TranscriptionConfig : SubsystemConfig<TranscriptionConfig>
+    public record TranscriptionConfig(bool SaveTrsx, string Language, bool WithPPC, bool WithVAD, bool WithPunctuation, int UserId, bool TrialTranscription, string Profile, bool WithSpeakerId, bool WithDiarization)
     {
-        public bool SaveTrsx { get; set; }
-        public string Language { get; set; }
-        public bool WithPPC { get; set; }
-        public bool WithVAD { get; set; }
-        public bool WithPunctuation { get; set; }
-        public int UserId { get; set; }
-        public bool TrialTranscription { get; set; }
-        public string Profile { get; set; }
-        public bool WithSpeakerId { get; set; }
-        public bool WithDiarization { get; set; }
 
-        public TranscriptionConfig() { }
-        public TranscriptionConfig(bool saveTrsx, string language, string profile,
-            bool withPPC, bool withVAD, bool withPunctuation,
-            int userId, bool trialTranscription, bool withSpeakerId, bool withDiarization)
-        {
-            SaveTrsx = saveTrsx;
-            Language = language;
-            Profile = profile;
-            WithPPC = withPPC;
-            WithVAD = withVAD;
-            WithPunctuation = withPunctuation;
-            UserId = userId;
-            TrialTranscription = trialTranscription;
-            WithSpeakerId = withSpeakerId;
-            WithDiarization = withDiarization;
-        }
-
-        protected override void AddToConfiguration(IConfigurationBuilder builder)
-        {
-            builder.AddInMemoryCollection(new Dictionary<string, string>()
-            {
-                { nameof(SaveTrsx), SaveTrsx.ToString() },
-                { nameof(Language), Language },
-                { nameof(WithPPC), WithPPC.ToString() },
-                { nameof(WithVAD), WithVAD.ToString() },
-                { nameof(UserId), UserId.ToString() },
-                { nameof(WithPunctuation), WithPunctuation.ToString() },
-                { nameof(TrialTranscription), TrialTranscription.ToString() },
-                { nameof(Profile), Profile },
-                { nameof(WithSpeakerId), WithSpeakerId.ToString() },
-                { nameof(WithDiarization), WithDiarization.ToString() },
-            });
-        }
     }
 }

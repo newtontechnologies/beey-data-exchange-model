@@ -2,13 +2,8 @@
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public sealed partial class CompletedMessage : Message
+    public sealed record CompletedMessage(int Id, int[] Index, int? ProjectId, string Subsystem, DateTimeOffset Sent) : Message(Id, Index, ProjectId, Subsystem, Sent)
     {
-        /// <summary>
-        /// Used by deserialization. Messages are created only in subsystems.
-        /// </summary>
-        private CompletedMessage(string subsystemName, DateTimeOffset sent, int id, int? projectId) : base(subsystemName, sent, id, projectId)
-        {
-        }
+        public override MessageType Type => MessageType.Completed;
     }
 }

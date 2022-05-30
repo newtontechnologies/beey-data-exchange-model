@@ -21,14 +21,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\RecognitionData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\StartedMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\DiarizationData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\EmptyConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\EmptyData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\LanguageIdentificationData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\MediaFileIndexingData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\MediaIdentificationData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SpeakerIdentificationConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SpeakerIdentificationData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SubsystemConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\SubsystemData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\TranscriptionConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Subsystems\UploadSubsystemData.cs" />
@@ -37,8 +35,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Project\ProjectAccessViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Project\ProjectListing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Project\SearchResult.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonMessageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\JsonNgEventConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonConverters\MessageJsonConverterWithTypeDiscriminator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Transcriptions\DBSpeaker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Transcriptions\DiarEventList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Transcriptions\DiarEventType.cs" />

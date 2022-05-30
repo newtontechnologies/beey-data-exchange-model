@@ -2,16 +2,8 @@
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public sealed partial class FailedMessage : Message
+    public sealed record FailedMessage(int Id, int[] Index, int? ProjectId, string Subsystem, DateTimeOffset Sent, string Reason) : Message(Id, Index, ProjectId, Subsystem, Sent)
     {
-        public string Reason { get; private set; }
-
-        /// <summary>
-        /// Used by deserialization. Messages are created only in subsystems.
-        /// </summary>
-        private FailedMessage(string subsystemName, DateTimeOffset sent, int id, int? projectId, string reason) : base(subsystemName, sent, id, projectId)
-        {
-            Reason = reason;
-        }
+        public override MessageType Type => MessageType.Failed;
     }
 }
