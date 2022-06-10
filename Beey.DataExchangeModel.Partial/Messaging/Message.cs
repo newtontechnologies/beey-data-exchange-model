@@ -30,15 +30,5 @@ namespace Beey.DataExchangeModel.Messaging
             return new ArraySegment<byte>(bytes);
         }
 
-        #region Operators
-
-        public static Flag<Message> operator &(Message first, Message second)
-            => new Flag<Message>(first) & new Flag<Message>(second);
-        public static Flag<Message> operator |(Message first, Message second)
-            => new Flag<Message>(first) | new Flag<Message>(second);
-        public static Flag<Message> operator ~(Message message)
-            => ~(new Flag<Message>(message));
-
-        #endregion Operators
     }
 }
