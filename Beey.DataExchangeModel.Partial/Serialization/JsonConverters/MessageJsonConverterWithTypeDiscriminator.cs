@@ -8,7 +8,7 @@ using Beey.DataExchangeModel.Messaging;
 
 namespace Beey.DataExchangeModel.Serialization.JsonConverters
 {
-    internal class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
+    public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
     {
 
         public override bool CanConvert(Type typeToConvert) =>

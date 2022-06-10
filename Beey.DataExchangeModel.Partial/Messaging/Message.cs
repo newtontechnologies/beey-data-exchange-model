@@ -1,6 +1,7 @@
 ﻿using Beey.DataExchangeModel.Serialization.JsonConverters;
 using Beey.DataExchangeModel.Tools;
 using System;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -9,14 +10,17 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public abstract record Message(int Id, int[] Index, int? ProjectId, string Subsystem, DateTimeOffset Sent)
+    public abstract record Message(int Id, ImmutableArray<int> Index, int? ProjectId, string Subsystem, DateTimeOffset Sent)
     {
+
+        public virtual Message WithCurrentTime()
+            => this with { Sent = DateTimeOffset.Now };
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public abstract MessageType Type { get; }
 
         public static System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
-            => new System.Text.Json.JsonSerializerOptions().AddConverters(new JsonMessageConverter());
+            => new System.Text.Json.JsonSerializerOptions().AddConverters(new MessageJsonConverterWithTypeDiscriminator());
 
         // TODO: channel is ignored when using System.Text.Json
         public static ArraySegment<byte> Serialize(Message message, string channel)
