@@ -145,7 +145,7 @@ public static class KnownSubsystems
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record class ChainStatusMessage(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, NodeStatus? Status) : Backend.Messaging.Chain.ChainStatusMessage(Id, Index, ProjectId, Sent, Status);
-        public sealed record class ChainCommandMessage(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, ChainCommand Command) : Backend.Messaging.Chain.ChainCommandMessage(Id, Index, ProjectId, Sent, Command);
+        public sealed record Status(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, NodeStatus? Status) : Backend.Messaging.Chain.ChainStatusMessage(Id, Index, ProjectId, Sent, Status);
+        public sealed record Command(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, ChainCommand Command) : Backend.Messaging.Chain.ChainCommandMessage(Id, Index, ProjectId, Sent, Command);
     }
 }

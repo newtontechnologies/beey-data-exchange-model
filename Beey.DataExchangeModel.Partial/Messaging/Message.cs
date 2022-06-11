@@ -10,13 +10,11 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Messaging
 {
-    public abstract record Message(int Id, ImmutableArray<int> Index, int? ProjectId, string Subsystem, DateTimeOffset Sent)
+    //subsystem must be always second in serialized data..
+    public abstract record Message(int Id, ImmutableArray<int> Index, int? ProjectId, [property: JsonPropertyOrder(int.MinValue + 1)] string Subsystem, DateTimeOffset Sent)
     {
-
-        public virtual Message WithCurrentTime()
-            => this with { Sent = DateTimeOffset.Now };
-
         [JsonConverter(typeof(JsonStringEnumConverter))]
+        [JsonPropertyOrder(int.MinValue)]//always must be second for deserialization to work
         public abstract MessageType Type { get; }
 
         public static System.Text.Json.JsonSerializerOptions CreateDefaultOptions()

@@ -7,9 +7,6 @@ namespace Beey.DataExchangeModel.Messaging
 {
     public abstract record StartedMessage(int Id, ImmutableArray<int> Index, int? ProjectId, string Subsystem, DateTimeOffset Sent) : Message(Id, Index, ProjectId, Subsystem, Sent)
     {
-        public override StartedMessage WithCurrentTime()
-            => (StartedMessage)base.WithCurrentTime();
-
         public override MessageType Type => MessageType.Started;
     }
 }
