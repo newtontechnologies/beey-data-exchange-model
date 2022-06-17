@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Folder Include="Messaging\Subsystems\" />
+    <Folder Include="Tools\" />
   </ItemGroup>
 
 </Project>

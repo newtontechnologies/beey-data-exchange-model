@@ -18,7 +18,7 @@ namespace Beey.DataExchangeModel.Messaging
         public abstract MessageType Type { get; }
 
         public static System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
-            => new System.Text.Json.JsonSerializerOptions().AddConverters(new MessageJsonConverterWithTypeDiscriminator());
+            => new System.Text.Json.JsonSerializerOptions().AddConverters(new MessageJsonConverterWithTypeDiscriminator(), new JsonStringEnumConverter());
 
         // TODO: channel is ignored when using System.Text.Json
         public static ArraySegment<byte> Serialize(Message message, string channel)

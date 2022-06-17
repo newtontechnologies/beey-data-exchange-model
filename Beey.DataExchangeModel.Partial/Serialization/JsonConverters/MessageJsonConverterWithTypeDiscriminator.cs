@@ -39,7 +39,7 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
             if (reader.TokenType != JsonTokenType.PropertyName)
                 throw new JsonException();
 
-             propertyName = reader.GetString();
+            propertyName = reader.GetString();
             if (propertyName != nameof(Message.Subsystem))
                 throw new JsonException();
 
@@ -63,7 +63,12 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         }
 
         public override void Write(Utf8JsonWriter writer, Message value, JsonSerializerOptions options)
-            => JsonSerializer.Serialize(value, options);
+        {
+            var o2 = new JsonSerializerOptions(options);
+            var disc = o2.Converters.First(c=>c is MessageJsonConverterWithTypeDiscriminator);
+            o2.Converters.Remove(disc);
+            JsonSerializer.Serialize(writer, value, value.GetType(), o2);
+        }
 
         static StartedMessage DiscriminateStartedMessage(ref Utf8JsonReader reader, JsonSerializerOptions? options, string subsystem)
         {
