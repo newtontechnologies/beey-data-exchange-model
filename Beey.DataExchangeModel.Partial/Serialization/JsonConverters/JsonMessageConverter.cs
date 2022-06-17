@@ -49,6 +49,10 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
         private static readonly JsonConverter dataSerializer
             = new JsonSimpleConverter<JsonData>(serialize: SerializeJsonData);
 
+        private JsonMessageConverter() { }
+        public static JsonSerializerOptions CreateDefaultOptions()
+            => new JsonSerializerOptions().AddConverters(new JsonMessageConverter(), configSerializer, dataSerializer);
+
         public override Message Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             var properties = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(ref reader, options);
@@ -183,8 +187,7 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
 
         public override void Write(Utf8JsonWriter writer, Message value, JsonSerializerOptions options)
         {
-            JsonSerializer.Serialize(writer, value, value.GetType(),
-                options.WithConverters(configSerializer, dataSerializer));
+            JsonSerializer.Serialize(writer, value, value.GetType(), options);
         }
 
         private static void SerializeConfiguration(Utf8JsonWriter writer, IConfiguration configuration, JsonSerializerOptions options)
