@@ -30,13 +30,13 @@ namespace Beey.DataExchangeModel.Messaging
             ProjectId = projectId;
         }
 
-        public static System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
-            => new System.Text.Json.JsonSerializerOptions().AddConverters(new JsonMessageConverter());
+        public static System.Text.Json.JsonSerializerOptions CreateDefaultSerializerOptions()
+            => JsonMessageConverter.CreateDefaultOptions();
 
         // TODO: channel is ignored when using System.Text.Json
         public static ArraySegment<byte> Serialize(Message message, string channel)
         {
-            var json = System.Text.Json.JsonSerializer.Serialize<Message>(message, CreateDefaultOptions());
+            var json = System.Text.Json.JsonSerializer.Serialize<Message>(message, CreateDefaultSerializerOptions());
             var bytes = Encoding.UTF8.GetBytes(json);
             return new ArraySegment<byte>(bytes);
         }
