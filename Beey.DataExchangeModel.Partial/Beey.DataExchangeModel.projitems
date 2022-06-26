@@ -12,12 +12,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)AggregatedListing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BeeySystem\Announcement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Fakes.cs" />
+    
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\KnownSubsystemNames.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\KnownSubsystems.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Listing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\CompletedMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\FailedMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\Message.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messaging\PanicMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\ProgressMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\ProjectProgress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\RecognitionData.cs" />
