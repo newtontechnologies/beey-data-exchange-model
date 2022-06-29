@@ -23,6 +23,7 @@ public static class KnownSubsystemNames
     public const string CreditReservation = "CreditReservationSubsystem";
     public const string ProjectStatusMonitor = "ProjectStatusMonitorSubsystem";
     public const string VoiceprintAggregation = "VoiceprintAggregationSubsystem";
+    public const string TranscriptionQueueTrackingSubsystem = "TranscriptionQueueTrackingSubsystem";
 
 
     public const string TranscodingGroup = "Transcoding";

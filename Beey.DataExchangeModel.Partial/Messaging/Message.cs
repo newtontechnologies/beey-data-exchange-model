@@ -23,7 +23,7 @@ namespace Beey.DataExchangeModel.Messaging
         // TODO: channel is ignored when using System.Text.Json
         public static ArraySegment<byte> Serialize(Message message, string channel)
         {
-            var json = System.Text.Json.JsonSerializer.Serialize<Message>(message, CreateDefaultSerializerOptions());
+            var json = System.Text.Json.JsonSerializer.Serialize<Message>(message, CreateDefaultOptions());
             var bytes = Encoding.UTF8.GetBytes(json);
             return new ArraySegment<byte>(bytes);
         }
