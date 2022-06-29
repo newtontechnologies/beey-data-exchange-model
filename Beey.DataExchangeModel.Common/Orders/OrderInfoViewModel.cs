@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Orders
@@ -23,7 +24,7 @@ namespace Beey.DataExchangeModel.Orders
         public string? Currency { get; set; }
         public string? Language { get; set; }
 
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public PaymentStatus PaymentStatus { get; set; } = PaymentStatus.None;
         public string? PaymentPrCode { get; set; }
         public string? PaymentSrCode { get; set; }

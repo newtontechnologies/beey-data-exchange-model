@@ -1,10 +1,11 @@
 ﻿using Beey.DataExchangeModel.Serialization;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.BeeySystem
@@ -12,10 +13,8 @@ namespace Beey.DataExchangeModel.BeeySystem
     public partial class Announcement : EntityBase
     {
         [System.Text.Json.Serialization.JsonIgnore]
-        [Newtonsoft.Json.JsonIgnore]
         public DateTime FromUtc { get; set; }
         [System.Text.Json.Serialization.JsonIgnore]
-        [Newtonsoft.Json.JsonIgnore]
         public DateTime ToUtc { get; set; }
 
         // MySQL does not support DateTimeOffset.
@@ -27,20 +26,20 @@ namespace Beey.DataExchangeModel.BeeySystem
 
         public AnnouncementTemplate? Template { get; set; }
 
-        [JsonIgnoreWeb]
+        [JsonIgnore]
         public string? _TemplateParameters { get; set; }
-        public JArray? TemplateParameters
+        public JsonArray? TemplateParameters
         {
-            get => _TemplateParameters == null ? null : JArray.Parse(_TemplateParameters);
-            set => _TemplateParameters = value?.ToString();
+            get => _TemplateParameters == null ? null : (JsonArray)JsonNode.Parse(_TemplateParameters)!;
+            set => _TemplateParameters = value?.ToJsonString();
         }
 
-        [JsonIgnoreWeb]
+        [JsonIgnore]
         public string? _Localizations { get; set; }
-        public JObject? Localizations
+        public JsonObject? Localizations
         {
-            get => _Localizations == null ? null : JObject.Parse(_Localizations);
-            set => _Localizations = value?.ToString();
+            get => _Localizations == null ? null : (JsonObject)JsonNode.Parse(_Localizations)!;
+            set => _Localizations = value?.ToJsonString();
         }
     }
 }

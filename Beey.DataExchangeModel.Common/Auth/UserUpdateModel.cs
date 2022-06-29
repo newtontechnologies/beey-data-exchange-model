@@ -1,6 +1,6 @@
 ﻿using Beey.DataExchangeModel.Tools;
-using Newtonsoft.Json.Linq;
 using System;
+using System.Text.Json.Nodes;
 
 namespace Beey.DataExchangeModel.Auth
 {
@@ -11,7 +11,7 @@ namespace Beey.DataExchangeModel.Auth
         public Undefinable<int> CreditMinutes { get; set; }
         public Undefinable<string> Email { get; set; }
         public Undefinable<string> Language { get; set; }
-        public Undefinable<JObject> Settings { get; set; }
+        public Undefinable<JsonObject> Settings { get; set; }
         public Undefinable<UserRole> UserRole { get; set; }
         public Undefinable<string> Password { get; set; }
     }

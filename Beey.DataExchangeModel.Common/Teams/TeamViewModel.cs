@@ -1,10 +1,10 @@
 ﻿
 using Beey.DataExchangeModel.Auth;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Teams
@@ -16,7 +16,7 @@ namespace Beey.DataExchangeModel.Teams
         public int CreditMinutes { get; set; }
         public decimal TranscribedMinutes { get; set; }
         public bool DidPay { get; set; }
-        public JArray CustomProjectTags { get; set; }
+        public JsonArray CustomProjectTags { get; set; }
         public int MemberCount { get; set; }
     }
 

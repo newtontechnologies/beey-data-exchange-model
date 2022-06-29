@@ -8,11 +8,8 @@ namespace Beey.DataExchangeModel.Projects
 {
     public class ProjectMetadata : EntityBase
     {
-        [JsonIgnoreWebDeserialize]
         public int ProjectId { get; set; }
-        [JsonIgnoreWebDeserialize]
         public string Key { get; set; }
-        [JsonIgnoreWebDeserialize]
         public string? Value { get; set; }
     }
 }

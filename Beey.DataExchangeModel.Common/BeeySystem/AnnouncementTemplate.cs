@@ -1,20 +1,21 @@
 ﻿using Beey.DataExchangeModel.Serialization;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.BeeySystem
 {
     public class AnnouncementTemplate : EntityBase
     {
-        [JsonIgnoreWeb]
+        [JsonIgnore]
         public string? _Localizations { get; set; }
-        public JObject? Localizations
+        public JsonObject? Localizations
         {
-            get => _Localizations is null ? null : JObject.Parse(_Localizations);
+            get => _Localizations is null ? null : (JsonObject)JsonNode.Parse(_Localizations)!;
             set => _Localizations = value?.ToString();
         }
     }

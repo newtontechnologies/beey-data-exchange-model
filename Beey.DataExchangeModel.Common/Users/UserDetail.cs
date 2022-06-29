@@ -1,11 +1,12 @@
 ﻿using Beey.DataExchangeModel.Auth;
 using Beey.DataExchangeModel.Orders;
 using Beey.DataExchangeModel.Projects;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Users
@@ -13,7 +14,7 @@ namespace Beey.DataExchangeModel.Users
     public class UserDetail
     {
         public string Email { get; set; }
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public UserRole UserRole { get; set; }
         public int Credit { get; set; }
         public PaymentInfoView PaymentInfo { get; set; }
@@ -52,7 +53,7 @@ namespace Beey.DataExchangeModel.Users
             public DateTimeOffset Updated { get; set; }
             public TimeSpan Length { get; set; }
             public int ShareCount { get; set; }
-            public JArray Tags { get; set; }
+            public JsonArray Tags { get; set; }
         }
         public class OrderInfoView
         {
@@ -63,7 +64,7 @@ namespace Beey.DataExchangeModel.Users
             public string Currency { get; set; }
             public string Language { get; set; }
 
-            [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+            [JsonConverter(typeof(JsonStringEnumConverter))]
             public PaymentStatus PaymentStatus { get; set; } = PaymentStatus.None;
         }
     }

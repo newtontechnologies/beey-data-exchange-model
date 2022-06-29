@@ -1,5 +1,4 @@
 ﻿using Beey.DataExchangeModel.Serialization;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 #if BeeyServer

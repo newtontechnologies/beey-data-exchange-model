@@ -7,7 +7,6 @@ namespace Beey.DataExchangeModel.Projects
 {    
     public class ProjectToDeleteInElastic : EntityBase
     {
-        [JsonIgnoreWebDeserialize]
         public int ProjectId { get; set; }
     }
 }

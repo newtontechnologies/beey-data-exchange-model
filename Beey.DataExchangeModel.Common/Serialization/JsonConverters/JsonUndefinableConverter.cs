@@ -1,44 +1,55 @@
 ﻿using Beey.DataExchangeModel.Tools;
-using Newtonsoft.Json;
 using System;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Serialization.JsonConverters
 {
-    public class JsonUndefinableConverter : JsonConverter
+    public class JsonUndefinableConverter : JsonConverterFactory
     {
-        private static readonly Type TypeOfIUndefinable = typeof(IUndefinable);
-
-        public override bool CanConvert(Type objectType) => TypeOfIUndefinable.IsAssignableFrom(objectType);
-
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public JsonUndefinableConverter() : base()
         {
-            if (existingValue == null)
-                existingValue = Activator.CreateInstance(objectType);
 
-            if (reader.TokenType != JsonToken.Undefined)
+        }
+        private static readonly Type s_typeOfIUndefinable = typeof(IUndefinable);
+
+        public override bool CanConvert(Type objectType) => s_typeOfIUndefinable.IsAssignableFrom(objectType);
+
+
+
+        private class UTConverter<T> : JsonConverter<Undefinable<T>>
+        {
+            public override Undefinable<T> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
             {
-                var undefinable = (IUndefinable)existingValue;
-                var value = serializer.Deserialize(reader, undefinable.ValueType);
-                try
+                if (reader.TokenType != JsonTokenType.Null)
                 {
-                    undefinable.Value = value;
+                    var value = JsonSerializer.Deserialize<T>(ref reader, options)!;
+                    try
+                    {
+                        return new Undefinable<T>(value);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new JsonException($"Cannot assign {(object)value ?? "[null]"} to property of type {typeof(T)}", ex);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    throw new JsonException($"Cannot assign {value ?? "[null]"} to property of type {objectType}", ex);
-                }
+
+                return new Undefinable<T>();
             }
 
-            return existingValue;
+            public override void Write(Utf8JsonWriter writer, Undefinable<T> value, JsonSerializerOptions options)
+            {
+                var undefinable = (IUndefinable)value;
+                if (!undefinable.IsDefined)
+                    writer.WriteRawValue("undefined", true);
+                else
+                    JsonSerializer.Serialize(writer, undefinable.Value, options);
+            }
         }
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override JsonConverter? CreateConverter(Type typeToConvert, JsonSerializerOptions options)
         {
-            var undefinable = (IUndefinable)value;
-            if (!undefinable.IsDefined)
-                writer.WriteUndefined();
-            else
-                serializer.Serialize(writer, undefinable.Value);
+            throw new NotImplementedException();
         }
     }
 }

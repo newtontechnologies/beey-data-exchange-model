@@ -1,12 +1,12 @@
 ﻿using Beey.DataExchangeModel.Serialization;
 using Beey.DataExchangeModel.Auth;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using Beey.DataExchangeModel.Messaging.Subsystems;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+using System.Text.Json.Nodes;
 
 #pragma warning disable nullable
 #pragma warning disable 8618, 8601, 8603
@@ -15,46 +15,34 @@ namespace Beey.DataExchangeModel.Projects
     public partial class Project : ConcurrentEntity
     {
         public string? Name { get; set; }
-        [JsonIgnoreWebDeserialize]
         public TimeSpan Length { get; set; }
 
-        [JsonIgnoreWeb]
+        [JsonIgnore]
         public string? _tags { get; set; }
-        [JsonIgnoreWebDeserialize]
-        public JArray Tags { get => _tags == null ? null : JArray.Parse(_tags); set => _tags = value?.ToString(); }
+        public JsonArray Tags { get => _tags == null ? null : (JsonArray)JsonNode.Parse(_tags)!; set => _tags = value?.ToJsonString(); }
 
-        [JsonIgnoreWeb]
+        [JsonIgnore]
         public string? _mediaInfo { get; set; }
-        [JsonIgnoreWebDeserialize]
         public MediaInfo MediaInfo { get => _mediaInfo == null ? null : JsonSerializer.Deserialize<MediaInfo>(_mediaInfo); set => _mediaInfo = value is { } ? JsonSerializer.Serialize(value) : null; }
 
-        [JsonIgnoreWebDeserialize]
         public int? RecordingId { get; set; }
 
-        [JsonIgnoreWebDeserialize]
         public int? MediaFileId { get; set; }
 
-        [JsonIgnoreWebDeserialize]
         public int? AudioFileId { get; set; }
 
-        [JsonIgnoreWebDeserialize]
         public int? VideoFileId { get; set; }
 
 
-        [JsonIgnoreWebDeserialize]
         public int? IndexFileId { get; set; }
 
-        [JsonIgnoreWebDeserialize]
         public int? OriginalTrsxId { get; set; }
-        [JsonIgnoreWebDeserialize]
         public int? CurrentTrsxId { get; set; }
-        [JsonIgnoreWebDeserialize]
         public int? CreatorId { get; set; }
 
-        [JsonIgnoreWebDeserialize]
         public int ShareCount { get; set; } = 1;
 
-        [JsonIgnoreWeb]
+        [JsonIgnore]
         public string? _transcriptionConfig { get; set; }
 
         public TranscriptionConfig TranscriptionConfig
@@ -63,8 +51,7 @@ namespace Beey.DataExchangeModel.Projects
             set => _transcriptionConfig = value is { } ? JsonSerializer.Serialize(value) : null;
         }
 
-        [JsonIgnoreWebDeserialize]
-        [Newtonsoft.Json.JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public ProjectProcessingState ProcessingState
         {
             get; set;

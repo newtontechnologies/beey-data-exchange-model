@@ -1,5 +1,4 @@
 ﻿using Beey.DataExchangeModel.Serialization;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
