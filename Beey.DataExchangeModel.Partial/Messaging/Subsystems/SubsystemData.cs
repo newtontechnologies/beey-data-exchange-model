@@ -2,6 +2,7 @@
 using System;
 using System.Reflection;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems
@@ -12,22 +13,19 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
             => new JsonSerializerOptions()
                 .AddConverters(new JsonStringEnumConverter(), new JsonTimeSpanConverter(), new JsonUnknownObjectConverter());
 
+        public virtual JsonNode Serialize()
+            => JsonSerializer.SerializeToNode<object>(this, CreateDefaultOptions())!;
 
-        public virtual JsonData Serialize()
-            => new JsonData(JsonSerializer.Serialize<object>(this, CreateDefaultOptions()));
+        public static implicit operator JsonNode(SubsystemData d) => d.Serialize();
     }
 
     public abstract class SubsystemData<T> : SubsystemData
         where T : SubsystemData<T>, new()
     {
-        public virtual T? Deserialize(JsonData data)
-            => JsonSerializer.Deserialize<T>(data.Raw, CreateDefaultOptions());
-
         public static T? From(ProgressMessage progressMessage)
         {
             var data = progressMessage.Data;
-            var result = new T();
-            return result.Deserialize(data);
+            return JsonSerializer.Deserialize<T>(data, CreateDefaultOptions());
         }
     }
 }

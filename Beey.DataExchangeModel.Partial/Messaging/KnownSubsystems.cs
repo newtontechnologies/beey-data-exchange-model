@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using Backend.Messaging.Chain;
 
@@ -13,7 +14,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.DiarizationSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -21,7 +22,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.VoiceprintAggregation;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
 
@@ -30,7 +31,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.UploadSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -38,7 +39,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.TranscriptionTracking;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -46,7 +47,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.TranscriptionTimeLogging;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -54,7 +55,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.TranscriptionCreation;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -62,7 +63,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.MediaFilePackagingSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -70,7 +71,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.CreditReservation;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -78,7 +79,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.MediaFileIndexingSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -86,7 +87,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.MediaIdentificationSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -94,7 +95,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.ProjectStatusMonitor;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -102,7 +103,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.RecognitionSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -110,7 +111,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.SpeakerIdentificationSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -118,7 +119,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.SppSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -126,7 +127,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.TranscodingVideoSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -134,7 +135,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.TranscodingAudioSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
@@ -151,7 +152,7 @@ public static class KnownSubsystems
     {
         public static string Name => KnownSubsystemNames.ChainSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonData Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
         public sealed record Status(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, NodeStatus? Status) : ChainStatusMessage(Id, Index, ProjectId, Sent, Status);
