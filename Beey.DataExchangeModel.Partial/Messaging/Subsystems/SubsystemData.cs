@@ -23,18 +23,11 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems
         public virtual T? Deserialize(JsonData data)
             => JsonSerializer.Deserialize<T>(data.Raw, CreateDefaultOptions());
 
-        public static T? From(Message progressMessage)
+        public static T? From(ProgressMessage progressMessage)
         {
-            var data = ExtractData(progressMessage);
+            var data = progressMessage.Data;
             var result = new T();
             return result.Deserialize(data);
-        }
-
-        private static JsonData ExtractData(Message progressMessage)
-        {
-            return progressMessage is ProgressMessage m
-                ? m.Data
-                : throw new ArgumentException("Bad message type.", nameof(progressMessage));
         }
     }
 }
