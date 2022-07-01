@@ -1,7 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 
@@ -12,23 +13,18 @@ public abstract class NgEvent
     public TimeSpan Begin { get; set; }
     public NgEvent() { }
 #pragma warning disable IDE0060 // Remove unused parameter
-    public NgEvent(JObject source) { }
+    public NgEvent(JsonObject? source) { }
 #pragma warning restore IDE0060 // Remove unused parameter
-    public abstract JObject Serialize();
+    public abstract JsonObject Serialize();
 
-    internal static NgEvent Deserialize(JObject e, DiarEventList? parent)
+    internal static NgEvent Deserialize(JsonObject e, DiarEventList? parent)
     {
-        switch (e["k"].Value<string>())
+        return e["k"].Deserialize<string>() switch
         {
-            case "s":
-            case "e":
-                return new NgSpeakerEvent(e);
-            case "p":
-                return new NgPhraseEvent(e);
-            case "r":
-                return new NgRecoveryEvent(e);
-
-            default: throw new NotImplementedException();
-        }
+            "s" or "e" => new NgSpeakerEvent(e),
+            "p" => new NgPhraseEvent(e),
+            "r" => new NgRecoveryEvent(e),
+            _ => throw new NotImplementedException(),
+        };
     }
 }

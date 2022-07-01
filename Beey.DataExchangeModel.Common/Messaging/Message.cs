@@ -5,6 +5,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
@@ -17,14 +18,20 @@ public abstract record Message(int Id, ImmutableArray<int> Index, int? ProjectId
     [JsonPropertyOrder(int.MinValue)]//always must be second for deserialization to work
     public abstract MessageType Type { get; }
 
-    public static System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
-        => new System.Text.Json.JsonSerializerOptions().AddConverters(new MessageJsonConverterWithTypeDiscriminator(), new JsonStringEnumConverter());
+    public static JsonSerializerOptions CreateDefaultOptions()
+    {
+        var opts = new JsonSerializerOptions();
+        opts.Converters.Add(new MessageJsonConverterWithTypeDiscriminator());
+        opts.Converters.Add(new JsonStringEnumConverter());
+        opts.Converters.Add(new JsonNgEventConverter());
+        return opts;
+
+    }
 
     public static ArraySegment<byte> Serialize(Message message)
     {
-        var json = System.Text.Json.JsonSerializer.Serialize<Message>(message, CreateDefaultOptions());
+        var json = JsonSerializer.Serialize(message, CreateDefaultOptions());
         var bytes = Encoding.UTF8.GetBytes(json);
         return new ArraySegment<byte>(bytes);
     }
-
 }

@@ -75,7 +75,7 @@ public class JsonUnknownObjectConverter : JsonConverter<object>
         if (options != null && recursiveOptions == null)
         {
             // handle stack overflow when serializing ExpandoObject
-            recursiveOptions = options.Clone();
+            recursiveOptions = new JsonSerializerOptions(options);
             recursiveOptions.Converters.Remove(this);
         }
         JsonSerializer.Serialize(writer, value, recursiveOptions);

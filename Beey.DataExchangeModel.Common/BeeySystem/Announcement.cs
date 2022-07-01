@@ -12,16 +12,16 @@ namespace Beey.DataExchangeModel.BeeySystem;
 
 public class Announcement : EntityBase
 {
-    [System.Text.Json.Serialization.JsonIgnore]
+    [JsonIgnore]
     public DateTime FromUtc { get; set; }
-    [System.Text.Json.Serialization.JsonIgnore]
+    [JsonIgnore]
     public DateTime ToUtc { get; set; }
 
     // MySQL does not support DateTimeOffset.
     public DateTimeOffset From { get => new DateTimeOffset(FromUtc, TimeSpan.Zero); set => FromUtc = value.UtcDateTime; }
     public DateTimeOffset To { get => new DateTimeOffset(ToUtc, TimeSpan.Zero); set => ToUtc = value.UtcDateTime; }
 
-    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public AnnouncementImportance Importance { get; set; }
 
     public AnnouncementTemplate? Template { get; set; }

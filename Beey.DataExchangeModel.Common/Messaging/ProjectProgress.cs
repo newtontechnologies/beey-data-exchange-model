@@ -1,9 +1,8 @@
 ﻿using Beey.DataExchangeModel.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Messaging;
 
@@ -22,7 +21,7 @@ public class ProjectProgress
     public ProcessState SPPState { get; set; }
 }
 
-[JsonConverter(typeof(StringEnumConverter))]
+[JsonConverter(typeof(JsonStringEnumConverter))]
 [Flags]
 public enum ProcessState
 {

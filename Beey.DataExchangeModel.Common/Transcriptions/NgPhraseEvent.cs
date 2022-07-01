@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
 using TranscriptionCore;
 
 
@@ -13,36 +14,34 @@ public class NgPhraseEvent : NgEvent
 {
     public TimeSpan End { get; set; }
 
-    public string Text { get; set; }
+    public string? Text { get; set; }
     public double Confidence { get; set; }
     public NgPhraseEvent()
     {
         Confidence = 1.0;
     }
-    public NgPhraseEvent(JObject source) : base(source)
+    public NgPhraseEvent(JsonObject source) : base(source)
     {
-        Begin = TimeSpan.FromMilliseconds(source["b"].Value<long>());
-
-        End = TimeSpan.FromMilliseconds(source["e"].Value<long>());
-
-        Text = source["t"].Value<string>();
-
-        if (source.TryGetValue("c", out var token))
-            Confidence = token.Value<double>();
+        Begin = TimeSpan.FromMilliseconds(source["b"].Deserialize<long>());
+        End = TimeSpan.FromMilliseconds(source["e"].Deserialize<long>());
+        Text = source["t"]?.Deserialize<string>();
+        if (source.TryGetPropertyValue("c", out var token))
+            Confidence = token.Deserialize<double>();
         else
             Confidence = 1.0;
     }
 
-    public override JObject Serialize()
+    public override JsonObject Serialize()
     {
         return
-            new JObject(
-                new JProperty("b", (long)Begin.TotalMilliseconds),
-                new JProperty("e", (long)End.TotalMilliseconds),
-                new JProperty("k", "p"),
-                new JProperty("t", Text),
-                new JProperty("c", Confidence)
-                );
+            new JsonObject()
+            {
+                { "b",(long)Begin.TotalMilliseconds },
+                { "e",(long)End.TotalMilliseconds },
+                { "k","p" },
+                { "t",Text },
+                { "c",Confidence },
+            };
     }
 
     public TranscriptionPhrase ToPhrase()

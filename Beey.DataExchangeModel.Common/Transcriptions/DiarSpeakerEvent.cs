@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
 
 
 
@@ -12,33 +13,35 @@ public class DiarSpeakerEvent : NgEvent
 {
     public TimeSpan End { get; set; }
 
-    public string SpeakerId { get; set; }
+    public string? SpeakerId { get; set; }
     public (string Key, string Value) SpeakerAttr { get; set; }
 
     public string Text { get; set; }
-    public DiarSpeakerEvent(JObject source) : base(source)
+    public DiarSpeakerEvent(JsonObject source) : base(source)
     {
-        Begin = TimeSpan.FromMilliseconds(source["b"].Value<long>());
+        Begin = TimeSpan.FromMilliseconds(source["b"].Deserialize<long>());
 
-        End = TimeSpan.FromMilliseconds(source["e"].Value<long>());
+        End = TimeSpan.FromMilliseconds(source["e"].Deserialize<long>());
 
-        Text = source["text"].Value<string>();
+        Text = source["text"].Deserialize<string>()!;
     }
 
-    public override JObject Serialize()
+    public override JsonObject Serialize()
     {
-        return
-            new JObject(
-                new JProperty("b", (long)Begin.TotalMilliseconds),
-                new JProperty("e", (long)End.TotalMilliseconds),
-                new JProperty("k", "e"),
-                new JProperty("t", Text),
-                new JProperty("a", new JObject(
-                    new JProperty("ID", SpeakerId),
-                    new JProperty("attr", new JObject(
-                        new JProperty(SpeakerAttr.Key, SpeakerAttr.Value)
-                        ))
-                    ))
-                );
+        return new JsonObject()
+        {
+            { "b", (long)Begin.TotalMilliseconds},
+            { "e", (long)End.TotalMilliseconds},
+            { "k", "e"},
+            { "t", Text},
+            { "a", new JsonObject()
+                {
+                    {"ID",SpeakerId },
+                    {"attr",new JsonObject()
+                            {{SpeakerAttr.Key,SpeakerAttr.Value}}
+                    }
+                }
+            }
+        };
     }
 }

@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
 
-
-#pragma warning disable 8625
 namespace Beey.DataExchangeModel.Transcriptions;
 
 public class NgRecoveryEvent : NgEvent
 {
     public NgRecoveryEvent() : base(null) { }
-    public NgRecoveryEvent(JObject source) : base(source)
+    public NgRecoveryEvent(JsonObject source) : base(source)
     {
-        Begin = TimeSpan.FromMilliseconds(source["b"].Value<long>());
+        Begin = TimeSpan.FromMilliseconds(source["b"].Deserialize<long>());
     }
 
-    public override JObject Serialize()
+    public override JsonObject Serialize()
     {
-        return
-            new JObject(
-                new JProperty("b", (long)Begin.TotalMilliseconds),
-                new JProperty("k", "r")
-                );
+        return new JsonObject()
+        {
+            {"b", (long)Begin.TotalMilliseconds},
+            {"k", "r" }
+        };
     }
 }

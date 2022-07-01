@@ -10,8 +10,14 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems;
 public abstract class SubsystemData
 {
     protected static JsonSerializerOptions CreateDefaultOptions()
-        => new JsonSerializerOptions()
-            .AddConverters(new JsonStringEnumConverter(), new JsonTimeSpanConverter(), new JsonUnknownObjectConverter());
+    {
+        var jopts = new JsonSerializerOptions();
+        jopts.Converters.Add(new JsonStringEnumConverter());
+        jopts.Converters.Add(new JsonTimeSpanConverter());
+        jopts.Converters.Add(new JsonUnknownObjectConverter());
+
+        return jopts;
+    }
 
     public virtual JsonNode Serialize()
         => JsonSerializer.SerializeToNode<object>(this, CreateDefaultOptions())!;

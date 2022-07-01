@@ -1,7 +1,6 @@
 ﻿using Beey.DataExchangeModel.Projects;
 using Beey.DataExchangeModel.Serialization.JsonConverters;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -21,13 +20,13 @@ public class MediaIdentificationData : SubsystemData<MediaIdentificationData>
         Error,
     }
 
-    [JsonConverter(typeof(JsonStringNullableEnumConverter))]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public DurationKind? Kind { get; set; }
 
     [JsonConverter(typeof(JsonNullableConverter<JsonTimeSpanConverter, TimeSpan>))]
     public TimeSpan? Duration { get; set; }
-    public MediaInfo MediaInfo { get; set; }
+    public MediaInfo? MediaInfo { get; set; }
 
-    public string RawData { get; set; }
-    public string Error { get; set; }
+    public string? RawData { get; set; }
+    public string? Error { get; set; }
 }

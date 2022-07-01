@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
 
 namespace Beey.DataExchangeModel.Transcriptions;
 
 public class NgSpeakerEvent : NgEvent
 {
     public TimeSpan? End { get; set; }
-    public string SpeakerId { get; set; }
-    public NgSpeakerEvent(JObject source) : base(source)
+    public string? SpeakerId { get; set; }
+    public NgSpeakerEvent(JsonObject source) : base(source)
     {
-        Begin = TimeSpan.FromMilliseconds(source["b"].Value<long>());
+        Begin = TimeSpan.FromMilliseconds(source["b"].Deserialize<long>());
 
-        if (source["k"].Value<string>() == "s")
-            SpeakerId = source["s"].Value<string>();
+        if (source["k"].Deserialize<string>() == "s")
+            SpeakerId = source["s"].Deserialize<string>()!;
         else
         {
-            End = TimeSpan.FromMilliseconds(source["e"].Value<long>());
-            SpeakerId = source["a"]["ID"].Value<string>();
+            End = TimeSpan.FromMilliseconds(source["e"].Deserialize<long>());
+            SpeakerId = source["a"]!["ID"].Deserialize<string>()!;
         }
     }
 
@@ -27,13 +28,13 @@ public class NgSpeakerEvent : NgEvent
     {
     }
 
-    public override JObject Serialize()
+    public override JsonObject Serialize()
     {
-        return
-            new JObject(
-                new JProperty("b", (long)Begin.TotalMilliseconds),
-                new JProperty("k", "s"),
-                new JProperty("s", SpeakerId)
-                );
+        return new JsonObject()
+        {
+            {"b", (long)Begin.TotalMilliseconds},
+            {"k", "s"},
+            {"s", SpeakerId}
+        };
     }
 }
