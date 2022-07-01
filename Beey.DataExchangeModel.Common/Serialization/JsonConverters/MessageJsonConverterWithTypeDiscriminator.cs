@@ -98,39 +98,95 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
     {
         var subsystem = value.Subsystem;
         if (subsystem == Diarization.Name)
+        {
             JsonSerializer.Serialize(writer, (Diarization.Started)value, Diarization.DiarizationSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == VoiceprintAggregation.Name)
+        {
             JsonSerializer.Serialize(writer, (VoiceprintAggregation.Started)value, VoiceprintAggregation.VoiceprintAggregationSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == Upload.Name)
+        {
             JsonSerializer.Serialize(writer, (Upload.Started)value, Upload.UploadSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == TranscriptionTracking.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscriptionTracking.Started)value, TranscriptionTracking.TranscriptionTrackingSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == TranscriptionTimeLogging.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscriptionTimeLogging.Started)value, TranscriptionTimeLogging.TranscriptionTimeLoggingSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == TranscriptionCreation.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscriptionCreation.Started)value, TranscriptionCreation.TranscriptionCreationSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == MediaFilePackaging.Name)
+        {
             JsonSerializer.Serialize(writer, (MediaFilePackaging.Started)value, MediaFilePackaging.MediaFilePackagingSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == CreditReservation.Name)
+        {
             JsonSerializer.Serialize(writer, (CreditReservation.Started)value, CreditReservation.CreditReservationSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == MediaFileIndexing.Name)
+        {
             JsonSerializer.Serialize(writer, (MediaFileIndexing.Started)value, MediaFileIndexing.MediaFileIndexingSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == MediaIdentification.Name)
+        {
             JsonSerializer.Serialize(writer, (MediaIdentification.Started)value, MediaIdentification.MediaIdentificationSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == ProjectStatusMonitor.Name)
+        {
             JsonSerializer.Serialize(writer, (ProjectStatusMonitor.Started)value, ProjectStatusMonitor.ProjectStatusMonitorSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == Recognition.Name)
+        {
             JsonSerializer.Serialize(writer, (Recognition.Started)value, Recognition.RecognitionSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == SpeakerIdentification.Name)
+        {
             JsonSerializer.Serialize(writer, (SpeakerIdentification.Started)value, SpeakerIdentification.SpeakerIdentificationSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == Spp.Name)
+        {
             JsonSerializer.Serialize(writer, (Spp.Started)value, Spp.SppSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == TranscodingVideo.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscodingVideo.Started)value, TranscodingVideo.TranscodingVideoSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == TranscodingAudio.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscodingAudio.Started)value, TranscodingAudio.TranscodingAudioSerializerContext.Default.Started);
+            return;
+        }
         else if (subsystem == ChainControl.Name)
+        {
             JsonSerializer.Serialize(writer, (ChainControl.Started)value, ChainControl.ChainControlSerializerContext.Default.Started);
+            return;
+        }
+        else if (subsystem == TranscriptionQueueTracking.Name)
+        {
+            JsonSerializer.Serialize(writer, (TranscriptionQueueTracking.Started)value, TranscriptionQueueTracking.TranscriptionQueueTrackingSerializerContext.Default.Started);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -139,39 +195,94 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
     {
         var subsystem = value.Subsystem;
         if (subsystem == Diarization.Name)
+        {
             JsonSerializer.Serialize(writer, (Diarization.Completed)value, Diarization.DiarizationSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == VoiceprintAggregation.Name)
+        {
             JsonSerializer.Serialize(writer, (VoiceprintAggregation.Completed)value, VoiceprintAggregation.VoiceprintAggregationSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == Upload.Name)
+        {
             JsonSerializer.Serialize(writer, (Upload.Completed)value, Upload.UploadSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == TranscriptionTracking.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscriptionTracking.Completed)value, TranscriptionTracking.TranscriptionTrackingSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == TranscriptionTimeLogging.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscriptionTimeLogging.Completed)value, TranscriptionTimeLogging.TranscriptionTimeLoggingSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == TranscriptionCreation.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscriptionCreation.Completed)value, TranscriptionCreation.TranscriptionCreationSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == MediaFilePackaging.Name)
+        {
             JsonSerializer.Serialize(writer, (MediaFilePackaging.Completed)value, MediaFilePackaging.MediaFilePackagingSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == CreditReservation.Name)
+        {
             JsonSerializer.Serialize(writer, (CreditReservation.Completed)value, CreditReservation.CreditReservationSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == MediaFileIndexing.Name)
+        {
             JsonSerializer.Serialize(writer, (MediaFileIndexing.Completed)value, MediaFileIndexing.MediaFileIndexingSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == MediaIdentification.Name)
+        {
             JsonSerializer.Serialize(writer, (MediaIdentification.Completed)value, MediaIdentification.MediaIdentificationSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == ProjectStatusMonitor.Name)
+        {
             JsonSerializer.Serialize(writer, (ProjectStatusMonitor.Completed)value, ProjectStatusMonitor.ProjectStatusMonitorSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == Recognition.Name)
+        {
             JsonSerializer.Serialize(writer, (Recognition.Completed)value, Recognition.RecognitionSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == SpeakerIdentification.Name)
+        {
             JsonSerializer.Serialize(writer, (SpeakerIdentification.Completed)value, SpeakerIdentification.SpeakerIdentificationSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == Spp.Name)
+        {
             JsonSerializer.Serialize(writer, (Spp.Completed)value, Spp.SppSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == TranscodingVideo.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscodingVideo.Completed)value, TranscodingVideo.TranscodingVideoSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == TranscodingAudio.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscodingAudio.Completed)value, TranscodingAudio.TranscodingAudioSerializerContext.Default.Completed);
+            return;
+        }
         else if (subsystem == ChainControl.Name)
+        {
             JsonSerializer.Serialize(writer, (ChainControl.Completed)value, ChainControl.ChainControlSerializerContext.Default.Completed);
+            return;
+        }else if (subsystem == TranscriptionQueueTracking.Name)
+        {
+            JsonSerializer.Serialize(writer, (TranscriptionQueueTracking.Completed)value, TranscriptionQueueTracking.TranscriptionQueueTrackingSerializerContext.Default.Completed);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -181,39 +292,90 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
     {
         var subsystem = value.Subsystem;
         if (subsystem == Diarization.Name)
+        {
             JsonSerializer.Serialize(writer, (Diarization.Failed)value, Diarization.DiarizationSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == VoiceprintAggregation.Name)
+        {
             JsonSerializer.Serialize(writer, (VoiceprintAggregation.Failed)value, VoiceprintAggregation.VoiceprintAggregationSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == Upload.Name)
+        {
             JsonSerializer.Serialize(writer, (Upload.Failed)value, Upload.UploadSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == TranscriptionTracking.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscriptionTracking.Failed)value, TranscriptionTracking.TranscriptionTrackingSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == TranscriptionTimeLogging.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscriptionTimeLogging.Failed)value, TranscriptionTimeLogging.TranscriptionTimeLoggingSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == TranscriptionCreation.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscriptionCreation.Failed)value, TranscriptionCreation.TranscriptionCreationSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == MediaFilePackaging.Name)
+        {
             JsonSerializer.Serialize(writer, (MediaFilePackaging.Failed)value, MediaFilePackaging.MediaFilePackagingSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == CreditReservation.Name)
+        {
             JsonSerializer.Serialize(writer, (CreditReservation.Failed)value, CreditReservation.CreditReservationSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == MediaFileIndexing.Name)
+        {
             JsonSerializer.Serialize(writer, (MediaFileIndexing.Failed)value, MediaFileIndexing.MediaFileIndexingSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == MediaIdentification.Name)
+        {
             JsonSerializer.Serialize(writer, (MediaIdentification.Failed)value, MediaIdentification.MediaIdentificationSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == ProjectStatusMonitor.Name)
+        {
             JsonSerializer.Serialize(writer, (ProjectStatusMonitor.Failed)value, ProjectStatusMonitor.ProjectStatusMonitorSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == Recognition.Name)
+        {
             JsonSerializer.Serialize(writer, (Recognition.Failed)value, Recognition.RecognitionSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == SpeakerIdentification.Name)
+        {
             JsonSerializer.Serialize(writer, (SpeakerIdentification.Failed)value, SpeakerIdentification.SpeakerIdentificationSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == Spp.Name)
+        {
             JsonSerializer.Serialize(writer, (Spp.Failed)value, Spp.SppSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == TranscodingVideo.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscodingVideo.Failed)value, TranscodingVideo.TranscodingVideoSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == TranscodingAudio.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscodingAudio.Failed)value, TranscodingAudio.TranscodingAudioSerializerContext.Default.Failed);
+            return;
+        }
         else if (subsystem == ChainControl.Name)
+        {
             JsonSerializer.Serialize(writer, (ChainControl.Failed)value, ChainControl.ChainControlSerializerContext.Default.Failed);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -222,37 +384,85 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
     {
         var subsystem = value.Subsystem;
         if (subsystem == Diarization.Name)
+        {
             JsonSerializer.Serialize(writer, (Diarization.Progress)value, Diarization.DiarizationSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == VoiceprintAggregation.Name)
+        {
             JsonSerializer.Serialize(writer, (VoiceprintAggregation.Progress)value, VoiceprintAggregation.VoiceprintAggregationSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == Upload.Name)
+        {
             JsonSerializer.Serialize(writer, (Upload.Progress)value, Upload.UploadSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == TranscriptionTracking.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscriptionTracking.Progress)value, TranscriptionTracking.TranscriptionTrackingSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == TranscriptionTimeLogging.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscriptionTimeLogging.Progress)value, TranscriptionTimeLogging.TranscriptionTimeLoggingSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == TranscriptionCreation.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscriptionCreation.Progress)value, TranscriptionCreation.TranscriptionCreationSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == MediaFilePackaging.Name)
+        {
             JsonSerializer.Serialize(writer, (MediaFilePackaging.Progress)value, MediaFilePackaging.MediaFilePackagingSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == CreditReservation.Name)
+        {
             JsonSerializer.Serialize(writer, (CreditReservation.Progress)value, CreditReservation.CreditReservationSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == MediaFileIndexing.Name)
+        {
             JsonSerializer.Serialize(writer, (MediaFileIndexing.Progress)value, MediaFileIndexing.MediaFileIndexingSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == MediaIdentification.Name)
+        {
             JsonSerializer.Serialize(writer, (MediaIdentification.Progress)value, MediaIdentification.MediaIdentificationSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == ProjectStatusMonitor.Name)
+        {
             JsonSerializer.Serialize(writer, (ProjectStatusMonitor.Progress)value, ProjectStatusMonitor.ProjectStatusMonitorSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == Recognition.Name)
+        {
             JsonSerializer.Serialize(writer, (Recognition.Progress)value, Recognition.RecognitionSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == SpeakerIdentification.Name)
+        {
             JsonSerializer.Serialize(writer, (SpeakerIdentification.Progress)value, SpeakerIdentification.SpeakerIdentificationSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == Spp.Name)
+        {
             JsonSerializer.Serialize(writer, (Spp.Progress)value, Spp.SppSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == TranscodingVideo.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscodingVideo.Progress)value, TranscodingVideo.TranscodingVideoSerializerContext.Default.Progress);
+            return;
+        }
         else if (subsystem == TranscodingAudio.Name)
+        {
             JsonSerializer.Serialize(writer, (TranscodingAudio.Progress)value, TranscodingAudio.TranscodingAudioSerializerContext.Default.Progress);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
