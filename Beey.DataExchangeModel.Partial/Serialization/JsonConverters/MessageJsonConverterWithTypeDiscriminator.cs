@@ -227,8 +227,6 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters
                 return JsonSerializer.Deserialize<TranscodingVideo.Progress>(ref reader, options)!;
             if (subsystem == TranscodingAudio.Name)
                 return JsonSerializer.Deserialize<TranscodingAudio.Progress>(ref reader, options)!;
-            if (subsystem == ChainControl.Name)
-                return JsonSerializer.Deserialize<ChainControl.Progress>(ref reader, options)!;
 
             throw new NotImplementedException($"Unknown subsystem {subsystem}");
         }

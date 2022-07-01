@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 namespace Beey.DataExchangeModel.Messaging;
 public static class KnownSubsystemNames
 {
-    public const string UploadSubsystem = "UploadSubsystem";
-    public const string MediaIdentificationSubsystem = "MediaIdentificationSubsystem";
-    public const string TranscodingVideoSubsystem = "TranscodingVideoSubsystem";
-    public const string TranscodingAudioSubsystem = "TranscodingAudioSubsystem";
-    public const string MediaFileIndexingSubsystem = "MediaFileIndexingSubsystem";
-    public const string MediaFilePackagingSubsystem = "MediaFilePackagingSubsystem";
-    public const string RecognitionSubsystem = "RecognitionSubsystem";
-    public const string DiarizationSubsystem = "DiarizationSubsystem";
-    public const string SpeakerIdentificationSubsystem = "SpeakerIdentificationSubsystem";
-    public const string SppSubsystem = "SppSubsystem";
-    public const string TranscriptionTracking = "TranscriptionTrackingSubsystem";
-    public const string TranscriptionTimeLogging = "TranscriptionTimeLoggingSubsystem";
-    public const string TranscriptionCreation = "TranscriptionCreationSubsystem";
-    public const string CreditReservation = "CreditReservationSubsystem";
-    public const string ProjectStatusMonitor = "ProjectStatusMonitorSubsystem";
-    public const string VoiceprintAggregation = "VoiceprintAggregationSubsystem";
-    public const string TranscriptionQueueTrackingSubsystem = "TranscriptionQueueTrackingSubsystem";
+    public const string UploadSubsystem = "Upload";
+    public const string MediaIdentificationSubsystem = "MediaIdentification";
+    public const string TranscodingVideoSubsystem = "TranscodingVideo";
+    public const string TranscodingAudioSubsystem = "TranscodingAudio";
+    public const string MediaFileIndexingSubsystem = "MediaFileIndexing";
+    public const string MediaFilePackagingSubsystem = "MediaFilePackaging";
+    public const string RecognitionSubsystem = "Recognition";
+    public const string DiarizationSubsystem = "Diarization";
+    public const string SpeakerIdentificationSubsystem = "SpeakerIdentification";
+    public const string SppSubsystem = "Spp";
+    public const string TranscriptionTracking = "TranscriptionTracking";
+    public const string TranscriptionTimeLogging = "TranscriptionTimeLogging";
+    public const string TranscriptionCreation = "TranscriptionCreation";
+    public const string CreditReservation = "CreditReservation";
+    public const string ProjectStatusMonitor = "ProjectStatusMonitor";
+    public const string VoiceprintAggregation = "VoiceprintAggregation";
+    public const string TranscriptionQueueTrackingSubsystem = "TranscriptionQueueTracking";
 
 
     public const string TranscodingGroup = "Transcoding";
@@ -31,5 +31,5 @@ public static class KnownSubsystemNames
     public const string RecognitionGroup = "Recognition";
     public const string PostprocessingGroup = "Posprocessing";
     public const string TextCreationGroup = "TextCreation";
-    public const string ChainSubsystem = "ChainControl";
+    public const string ChainControl = "ChainControl";
 }

@@ -11,8 +11,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AggregatedListing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BeeySystem\Announcement.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Fakes.cs" />
-    
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\KnownSubsystemNames.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messaging\KnownSubsystems.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Listing.cs" />

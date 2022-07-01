@@ -1,10 +1,7 @@
-﻿#if BeeyServer
-using Nest;
-#endif
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using TranscriptionCore;
@@ -29,9 +26,6 @@ namespace Beey.DataExchangeModel.Transcriptions
             set => _speaker = new Speaker(XElement.Parse(value));
         }
 
-        // NOTE: This must be string for ES context suggester to work.
-        // TODO: This should be removed, but speakers in all elasticsearch instances must be re-indexed for this to work.
-        [PropertyName("userId")]
         public string TeamId { get; set; } = GlobalId;
 
         public bool? Deleted { set; get; }
