@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Beey.DataExchangeModel.Transcriptions;
 
-public partial class DiarSpeakerEvent : NgEvent
+public class DiarSpeakerEvent : NgEvent
 {
     public TimeSpan End { get; set; }
 

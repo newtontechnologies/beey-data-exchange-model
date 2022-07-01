@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Emails;
 
-public abstract partial class Email
+public abstract class Email
 {
     public Email()
     {

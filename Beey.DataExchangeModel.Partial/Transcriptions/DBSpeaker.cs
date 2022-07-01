@@ -10,7 +10,7 @@ using TranscriptionCore;
 
 namespace Beey.DataExchangeModel.Transcriptions;
 
-public partial class DBSpeaker
+public class DBSpeaker
 {
     // With other values, search is broken probably because of ES analyzers.
     public const string GlobalId = "";

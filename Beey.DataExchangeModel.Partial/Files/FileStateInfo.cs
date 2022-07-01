@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Files;
 
-public partial class FileStateInfo
+public class FileStateInfo
 {
     public bool IsInitialized { get; set; }
     public string FileName { get; set; }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel;
 
-public partial class Listing<T>
+public class Listing<T>
 {
     public int TotalCount { get; set; }
     public int ListedCount { get; set; }

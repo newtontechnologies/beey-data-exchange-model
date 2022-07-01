@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Beey.DataExchangeModel.Messaging;
 
-public partial class ProjectProgress
+public class ProjectProgress
 {
     public ProcessState UploadState { get; set; }
     public ProcessState MediaIdentificationState { get; set; }

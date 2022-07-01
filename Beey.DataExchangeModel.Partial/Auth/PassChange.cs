@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Auth;
 
-public partial class PassChange
+public class PassChange
 {
     public string Password { get; set; }
     public string NewPassword { get; set; }

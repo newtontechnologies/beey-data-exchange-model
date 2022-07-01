@@ -14,7 +14,7 @@ namespace Beey.DataExchangeModel.Projects;
 /// Will be used for computing total transcription time
 /// length and settings have to be duplicated .. projects can be deleted
 /// </summary>
-public partial class TranscriptionLogItem : EntityBase
+public class TranscriptionLogItem : EntityBase
 {
     public int TeamId { get; set; }
     public int UserId { get; set; }

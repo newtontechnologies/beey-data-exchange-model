@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Auth;
 
-public partial class LoginToken
+public class LoginToken
 {
     public string Token { get; set; }
     public UserViewModel User { get; set; }

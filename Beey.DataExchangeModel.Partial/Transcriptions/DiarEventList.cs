@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Transcriptions;
 
-public partial class DiarEventList
+public class DiarEventList
 {
     public DiarEventType Type { get; set; }
     public TimeSpan? Begin { get; set; }

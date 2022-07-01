@@ -9,7 +9,7 @@ using TranscriptionCore;
 
 namespace Beey.DataExchangeModel.Transcriptions;
 
-public partial class NgPhraseEvent : NgEvent
+public class NgPhraseEvent : NgEvent
 {
     public TimeSpan End { get; set; }
 

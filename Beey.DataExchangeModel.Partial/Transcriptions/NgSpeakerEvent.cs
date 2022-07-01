@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Beey.DataExchangeModel.Transcriptions;
 
-public partial class NgSpeakerEvent : NgEvent
+public class NgSpeakerEvent : NgEvent
 {
     public TimeSpan? End { get; set; }
     public string SpeakerId { get; set; }

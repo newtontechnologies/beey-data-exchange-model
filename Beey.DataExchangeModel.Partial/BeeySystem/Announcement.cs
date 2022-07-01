@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.BeeySystem;
 
-public partial class Announcement : EntityBase
+public class Announcement : EntityBase
 {
     [System.Text.Json.Serialization.JsonIgnore]
     public DateTime FromUtc { get; set; }

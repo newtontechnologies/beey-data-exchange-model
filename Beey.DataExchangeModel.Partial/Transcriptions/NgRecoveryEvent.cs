@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 #pragma warning disable 8625
 namespace Beey.DataExchangeModel.Transcriptions;
 
-public partial class NgRecoveryEvent : NgEvent
+public class NgRecoveryEvent : NgEvent
 {
     public NgRecoveryEvent() : base(null) { }
     public NgRecoveryEvent(JObject source) : base(source)
