@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beey.DataExchangeModel.Export
+namespace Beey.DataExchangeModel.Export;
+
+public class ExportVariant
 {
-    public class ExportVariant
-    {
-        public string Id { get; set; }
-        public string Description { get; set; }
-    }
+    public string Id { get; set; }
+    public string Description { get; set; }
 }

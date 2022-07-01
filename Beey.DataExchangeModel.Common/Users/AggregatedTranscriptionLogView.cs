@@ -4,19 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beey.DataExchangeModel.Users
-{
-    public class AggregatedTranscriptionLogView
-    {
-        public int Year { get; }
-        public int Month { get; }
-        public decimal Minutes { get; }
+namespace Beey.DataExchangeModel.Users;
 
-        public AggregatedTranscriptionLogView(int year, int month, decimal minutes)
-        {
-            Year = year;
-            Month = month;
-            Minutes = minutes;
-        }
+public class AggregatedTranscriptionLogView
+{
+    public int Year { get; }
+    public int Month { get; }
+    public decimal Minutes { get; }
+
+    public AggregatedTranscriptionLogView(int year, int month, decimal minutes)
+    {
+        Year = year;
+        Month = month;
+        Minutes = minutes;
     }
 }

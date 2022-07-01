@@ -6,13 +6,12 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Beey.DataExchangeModel.Projects
+namespace Beey.DataExchangeModel.Projects;
+
+public class LastProjectError : EntityBase
 {
-    public class LastProjectError : EntityBase
-    {
-        public int ProjectId { get; set; }
-        [JsonConverter(typeof(JsonStringEnumConverter))]
-        public ProjectErrorCategory Category { get; set; }
-        public string? Reason { get; set; }
-    }
+    public int ProjectId { get; set; }
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public ProjectErrorCategory Category { get; set; }
+    public string? Reason { get; set; }
 }

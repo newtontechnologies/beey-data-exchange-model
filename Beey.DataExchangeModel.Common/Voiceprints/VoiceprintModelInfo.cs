@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beey.DataExchangeModel.Voiceprints
-{
-    public class VoiceprintModelInfo
-    {
-        public VoiceprintModelInfo() { }
-        public VoiceprintModelInfo(string hash, float acceptanceThreshold)
-        {
-            Hash = hash;
-            AcceptanceThreshold = acceptanceThreshold;
-        }
+namespace Beey.DataExchangeModel.Voiceprints;
 
-        public string Hash { get; set; }
-        public float AcceptanceThreshold { get; set; }
+public class VoiceprintModelInfo
+{
+    public VoiceprintModelInfo() { }
+    public VoiceprintModelInfo(string hash, float acceptanceThreshold)
+    {
+        Hash = hash;
+        AcceptanceThreshold = acceptanceThreshold;
     }
+
+    public string Hash { get; set; }
+    public float AcceptanceThreshold { get; set; }
 }

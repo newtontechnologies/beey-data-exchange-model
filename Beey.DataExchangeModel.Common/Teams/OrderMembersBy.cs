@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beey.DataExchangeModel.Teams
-{
-    public enum OrderMembersBy { Email, TranscribedMinutes }
-}
+namespace Beey.DataExchangeModel.Teams;
+
+public enum OrderMembersBy { Email, TranscribedMinutes }

@@ -8,38 +8,37 @@ using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Beey.DataExchangeModel.BeeySystem
+namespace Beey.DataExchangeModel.BeeySystem;
+
+public partial class Announcement : EntityBase
 {
-    public partial class Announcement : EntityBase
+    [System.Text.Json.Serialization.JsonIgnore]
+    public DateTime FromUtc { get; set; }
+    [System.Text.Json.Serialization.JsonIgnore]
+    public DateTime ToUtc { get; set; }
+
+    // MySQL does not support DateTimeOffset.
+    public DateTimeOffset From { get => new DateTimeOffset(FromUtc, TimeSpan.Zero); set => FromUtc = value.UtcDateTime; }
+    public DateTimeOffset To { get => new DateTimeOffset(ToUtc, TimeSpan.Zero); set => ToUtc = value.UtcDateTime; }
+
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public AnnouncementImportance Importance { get; set; }
+
+    public AnnouncementTemplate? Template { get; set; }
+
+    [JsonIgnore]
+    public string? _TemplateParameters { get; set; }
+    public JsonArray? TemplateParameters
     {
-        [System.Text.Json.Serialization.JsonIgnore]
-        public DateTime FromUtc { get; set; }
-        [System.Text.Json.Serialization.JsonIgnore]
-        public DateTime ToUtc { get; set; }
+        get => _TemplateParameters == null ? null : (JsonArray)JsonNode.Parse(_TemplateParameters)!;
+        set => _TemplateParameters = value?.ToJsonString();
+    }
 
-        // MySQL does not support DateTimeOffset.
-        public DateTimeOffset From { get => new DateTimeOffset(FromUtc, TimeSpan.Zero); set => FromUtc = value.UtcDateTime; }
-        public DateTimeOffset To { get => new DateTimeOffset(ToUtc, TimeSpan.Zero); set => ToUtc = value.UtcDateTime; }
-
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public AnnouncementImportance Importance { get; set; }
-
-        public AnnouncementTemplate? Template { get; set; }
-
-        [JsonIgnore]
-        public string? _TemplateParameters { get; set; }
-        public JsonArray? TemplateParameters
-        {
-            get => _TemplateParameters == null ? null : (JsonArray)JsonNode.Parse(_TemplateParameters)!;
-            set => _TemplateParameters = value?.ToJsonString();
-        }
-
-        [JsonIgnore]
-        public string? _Localizations { get; set; }
-        public JsonObject? Localizations
-        {
-            get => _Localizations == null ? null : (JsonObject)JsonNode.Parse(_Localizations)!;
-            set => _Localizations = value?.ToJsonString();
-        }
+    [JsonIgnore]
+    public string? _Localizations { get; set; }
+    public JsonObject? Localizations
+    {
+        get => _Localizations == null ? null : (JsonObject)JsonNode.Parse(_Localizations)!;
+        set => _Localizations = value?.ToJsonString();
     }
 }

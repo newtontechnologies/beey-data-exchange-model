@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using System.Text;
 
 #pragma warning disable 8618
-namespace Beey.DataExchangeModel.Projects
+namespace Beey.DataExchangeModel.Projects;
+
+public class ProjectMetadata : EntityBase
 {
-    public class ProjectMetadata : EntityBase
-    {
-        public int ProjectId { get; set; }
-        public string Key { get; set; }
-        public string? Value { get; set; }
-    }
+    public int ProjectId { get; set; }
+    public string Key { get; set; }
+    public string? Value { get; set; }
 }

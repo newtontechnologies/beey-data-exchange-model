@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beey.DataExchangeModel.Projects
+namespace Beey.DataExchangeModel.Projects;
+
+public enum QueueType
 {
-    public enum QueueType
-    {
-        Default,
-        LowPriority
-    }
+    Default,
+    LowPriority
 }

@@ -6,12 +6,11 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Beey.DataExchangeModel.Messaging.Subsystems
+namespace Beey.DataExchangeModel.Messaging.Subsystems;
+
+public class DiarizationData : SubsystemData<DiarizationData>
 {
-    public class DiarizationData : SubsystemData<DiarizationData>
-    {
-        public bool IsLookahead { get; set; }
-        [JsonConverter(typeof(JsonNgEventConverter))]
-        public NgEvent NgEvent { get; set; }
-    }
+    public bool IsLookahead { get; set; }
+    [JsonConverter(typeof(JsonNgEventConverter))]
+    public NgEvent NgEvent { get; set; }
 }

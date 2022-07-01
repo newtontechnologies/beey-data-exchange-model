@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beey.DataExchangeModel.Auth
+namespace Beey.DataExchangeModel.Auth;
+
+public class RegistrationData
 {
-    public class RegistrationData
-    {
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Language { get; set; }
-    }
+    public string Email { get; set; }
+    public string Password { get; set; }
+    public string Language { get; set; }
 }

@@ -5,12 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beey.DataExchangeModel.Users
+namespace Beey.DataExchangeModel.Users;
+
+public class UserTranscriptionLimit : EntityBase
 {
-    public class UserTranscriptionLimit : EntityBase
-    {
-        public int UserId { get; set; }
-        public QueueType? QueueType { get; set; }
-        public int Limit { get; set; }
-    }
+    public int UserId { get; set; }
+    public QueueType? QueueType { get; set; }
+    public int Limit { get; set; }
 }

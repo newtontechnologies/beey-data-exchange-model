@@ -3,10 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Beey.DataExchangeModel.Projects
-{    
-    public class ProjectToDeleteInElastic : EntityBase
-    {
-        public int ProjectId { get; set; }
-    }
+namespace Beey.DataExchangeModel.Projects;
+
+public class ProjectToDeleteInElastic : EntityBase
+{
+    public int ProjectId { get; set; }
 }

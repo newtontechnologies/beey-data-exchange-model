@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Beey.DataExchangeModel
+namespace Beey.DataExchangeModel;
+
+public class ConcurrentEntity : EntityBase
 {
-    public class ConcurrentEntity : EntityBase
-    {
-        public long AccessToken { get; set; }
-    }
+    public long AccessToken { get; set; }
 }

@@ -7,11 +7,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
 
-namespace Beey.DataExchangeModel.Messaging.Subsystems
+namespace Beey.DataExchangeModel.Messaging.Subsystems;
+
+public class LanguageIdentificationData : SubsystemData<LanguageIdentificationData>
 {
-    public class LanguageIdentificationData : SubsystemData<LanguageIdentificationData>
-    {
-        [JsonConverter(typeof(JsonNgEventConverter))]
-        public NgEvent NgEvent { get; set; }
-    }
+    [JsonConverter(typeof(JsonNgEventConverter))]
+    public NgEvent NgEvent { get; set; }
 }

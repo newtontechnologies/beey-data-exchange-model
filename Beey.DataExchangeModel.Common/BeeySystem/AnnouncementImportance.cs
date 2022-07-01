@@ -6,7 +6,6 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Beey.DataExchangeModel.BeeySystem
-{
-    public enum AnnouncementImportance { Low, Normal, High, Critical }
-}
+namespace Beey.DataExchangeModel.BeeySystem;
+
+public enum AnnouncementImportance { Low, Normal, High, Critical }

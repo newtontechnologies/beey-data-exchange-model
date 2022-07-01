@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 #pragma warning disable nullable
 #pragma warning disable 8618
-namespace Beey.DataExchangeModel.Projects
+namespace Beey.DataExchangeModel.Projects;
+
+public partial class ParamsProjectInit
 {
-    public partial class ParamsProjectInit
-    {
-        public string Name { get; set; }
-        public string CustomPath { get; set; }
-    }
+    public string Name { get; set; }
+    public string CustomPath { get; set; }
 }

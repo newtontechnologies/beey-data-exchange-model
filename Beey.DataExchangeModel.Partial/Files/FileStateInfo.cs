@@ -5,17 +5,16 @@ using System.Threading.Tasks;
 
 #pragma warning disable nullable
 #pragma warning disable 8618
-namespace Beey.DataExchangeModel.Files
+namespace Beey.DataExchangeModel.Files;
+
+public partial class FileStateInfo
 {
-    public partial class FileStateInfo
-    {
-        public bool IsInitialized { get; set; }
-        public string FileName { get; set; }
-        public int BufferSize { get; set; }
+    public bool IsInitialized { get; set; }
+    public string FileName { get; set; }
+    public int BufferSize { get; set; }
 
-        public long? TotalFileSize { get; set; } = 0;
-        public long CurrentFileOffset { get; set; } = 0;
+    public long? TotalFileSize { get; set; } = 0;
+    public long CurrentFileOffset { get; set; } = 0;
 
-        public string Tag { get; set; }
-    }
+    public string Tag { get; set; }
 }

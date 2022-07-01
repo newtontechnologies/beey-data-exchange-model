@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Beey.DataExchangeModel.Projects
+namespace Beey.DataExchangeModel.Projects;
+
+public partial class MediaInfo
 {
-    public partial class MediaInfo
-    {
-        public bool HasVideo { get; set; }
-        public bool IsPackaged { get; set; }
-    }
+    public bool HasVideo { get; set; }
+    public bool IsPackaged { get; set; }
 }

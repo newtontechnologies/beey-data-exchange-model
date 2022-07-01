@@ -8,24 +8,23 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Beey.DataExchangeModel.Messaging
+namespace Beey.DataExchangeModel.Messaging;
+
+//subsystem must be always second in serialized data..
+public abstract record Message(int Id, ImmutableArray<int> Index, int? ProjectId, [property: JsonPropertyOrder(int.MinValue + 1)] string Subsystem, DateTimeOffset Sent)
 {
-    //subsystem must be always second in serialized data..
-    public abstract record Message(int Id, ImmutableArray<int> Index, int? ProjectId, [property: JsonPropertyOrder(int.MinValue + 1)] string Subsystem, DateTimeOffset Sent)
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    [JsonPropertyOrder(int.MinValue)]//always must be second for deserialization to work
+    public abstract MessageType Type { get; }
+
+    public static System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
+        => new System.Text.Json.JsonSerializerOptions().AddConverters(new MessageJsonConverterWithTypeDiscriminator(), new JsonStringEnumConverter());
+
+    public static ArraySegment<byte> Serialize(Message message)
     {
-        [JsonConverter(typeof(JsonStringEnumConverter))]
-        [JsonPropertyOrder(int.MinValue)]//always must be second for deserialization to work
-        public abstract MessageType Type { get; }
-
-        public static System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
-            => new System.Text.Json.JsonSerializerOptions().AddConverters(new MessageJsonConverterWithTypeDiscriminator(), new JsonStringEnumConverter());
-
-        public static ArraySegment<byte> Serialize(Message message)
-        {
-            var json = System.Text.Json.JsonSerializer.Serialize<Message>(message, CreateDefaultOptions());
-            var bytes = Encoding.UTF8.GetBytes(json);
-            return new ArraySegment<byte>(bytes);
-        }
-
+        var json = System.Text.Json.JsonSerializer.Serialize<Message>(message, CreateDefaultOptions());
+        var bytes = Encoding.UTF8.GetBytes(json);
+        return new ArraySegment<byte>(bytes);
     }
+
 }

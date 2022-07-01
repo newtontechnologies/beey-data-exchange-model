@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 #nullable enable
 
-namespace Beey.DataExchangeModel.Messaging.Subsystems
+namespace Beey.DataExchangeModel.Messaging.Subsystems;
+
+public class VoiceprintAggregationData : SubsystemData<VoiceprintAggregationData>
 {
-    public class VoiceprintAggregationData : SubsystemData<VoiceprintAggregationData>
-    {
-        public float[]? Voiceprint { get; set; }
-        public NgSpeakerEvent Speaker { get; set; }
-        public TimeSpan Start { get; set; }
-        public TimeSpan End { get; set; }
-    }
+    public float[]? Voiceprint { get; set; }
+    public NgSpeakerEvent Speaker { get; set; }
+    public TimeSpan Start { get; set; }
+    public TimeSpan End { get; set; }
 }
