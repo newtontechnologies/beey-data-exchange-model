@@ -18,15 +18,10 @@ public abstract record Message(int Id, ImmutableArray<int> Index, int? ProjectId
     [JsonPropertyOrder(int.MinValue)]//always must be second for deserialization to work
     public abstract MessageType Type { get; }
 
-    public static JsonSerializerOptions CreateDefaultOptions()
+    public static JsonSerializerOptions CreateDefaultOptions() => new JsonSerializerOptions()
     {
-        var opts = new JsonSerializerOptions();
-        opts.Converters.Add(new MessageJsonConverterWithTypeDiscriminator());
-        opts.Converters.Add(new JsonStringEnumConverter());
-        opts.Converters.Add(new JsonNgEventConverter());
-        return opts;
-
-    }
+        Converters = { new MessageJsonConverterWithTypeDiscriminator(), new JsonStringEnumConverter(), new JsonNgEventConverter() }
+    };
 
     public static ArraySegment<byte> Serialize(Message message)
     {
