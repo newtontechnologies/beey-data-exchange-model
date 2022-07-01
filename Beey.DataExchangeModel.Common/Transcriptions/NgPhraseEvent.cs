@@ -36,11 +36,11 @@ public class NgPhraseEvent : NgEvent
         return
             new JsonObject()
             {
-                { "b",(long)Begin.TotalMilliseconds },
-                { "e",(long)End.TotalMilliseconds },
-                { "k","p" },
-                { "t",Text },
-                { "c",Confidence },
+                { "b", (long)Begin.TotalMilliseconds },
+                { "e", (long)End.TotalMilliseconds },
+                { "k", "p" },
+                { "t", Text },
+                { "c", Confidence },
             };
     }
 

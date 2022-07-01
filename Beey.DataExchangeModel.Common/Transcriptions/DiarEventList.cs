@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 
@@ -57,7 +58,7 @@ public class DiarEventList
         { {"type", Type.ToString()} };
 
         if (Events != null)
-            o.Add("events", JsonSerializer.SerializeToNode(Events));
+            o.Add("events", JsonSerializer.SerializeToNode(Events.Select(e=>e.Serialize())));
 
         if (Begin != null)
             o.Add("begin", (long)Begin.Value.TotalMilliseconds);

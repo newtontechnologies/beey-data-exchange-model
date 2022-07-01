@@ -1,5 +1,8 @@
-﻿namespace Beey.DataExchangeModel.Transcriptions;
+﻿using System.Text.Json.Serialization;
 
+namespace Beey.DataExchangeModel.Transcriptions;
+
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum DiarEventType
 {
     /// <summary>

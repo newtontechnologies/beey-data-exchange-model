@@ -36,7 +36,7 @@ public class DiarSpeakerEvent : NgEvent
             { "t", Text},
             { "a", new JsonObject()
                 {
-                    {"ID",SpeakerId },
+                    {"ID", SpeakerId},
                     {"attr",new JsonObject()
                             {{SpeakerAttr.Key,SpeakerAttr.Value}}
                     }
