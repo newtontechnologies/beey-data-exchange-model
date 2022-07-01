@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
-
-,8625
 namespace Beey.DataExchangeModel.Transcriptions;
 
 public partial class NgSpeakerEvent : NgEvent

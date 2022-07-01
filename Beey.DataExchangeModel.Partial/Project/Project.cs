@@ -8,8 +8,6 @@ using Beey.DataExchangeModel.Messaging.Subsystems;
 using System.Text.Json.Serialization;
 using System.Text.Json.Nodes;
 
-
-, 8601, 8603
 namespace Beey.DataExchangeModel.Projects;
 
 public partial class Project : ConcurrentEntity
