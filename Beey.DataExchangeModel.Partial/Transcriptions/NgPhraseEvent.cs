@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using TranscriptionCore;
 
-#pragma warning disable nullable
-#pragma warning disable 8618
+
+
 namespace Beey.DataExchangeModel.Transcriptions;
 
 public partial class NgPhraseEvent : NgEvent

@@ -8,8 +8,8 @@ using Beey.DataExchangeModel.Messaging.Subsystems;
 using System.Text.Json.Serialization;
 using System.Text.Json.Nodes;
 
-#pragma warning disable nullable
-#pragma warning disable 8618, 8601, 8603
+
+, 8601, 8603
 namespace Beey.DataExchangeModel.Projects;
 
 public partial class Project : ConcurrentEntity

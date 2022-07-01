@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using TranscriptionCore;
 
-#pragma warning disable nullable
-#pragma warning disable 8618
+
+
 namespace Beey.DataExchangeModel.Transcriptions;
 
 public partial class DBSpeaker
