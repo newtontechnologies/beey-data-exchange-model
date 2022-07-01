@@ -20,8 +20,7 @@ namespace Beey.DataExchangeModel.Messaging
         public static System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
             => new System.Text.Json.JsonSerializerOptions().AddConverters(new MessageJsonConverterWithTypeDiscriminator(), new JsonStringEnumConverter());
 
-        // TODO: channel is ignored when using System.Text.Json
-        public static ArraySegment<byte> Serialize(Message message, string channel)
+        public static ArraySegment<byte> Serialize(Message message)
         {
             var json = System.Text.Json.JsonSerializer.Serialize<Message>(message, CreateDefaultOptions());
             var bytes = Encoding.UTF8.GetBytes(json);
