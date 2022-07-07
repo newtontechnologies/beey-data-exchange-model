@@ -24,12 +24,14 @@ public static class KnownSubsystemNames
     public const string ProjectStatusMonitor = "ProjectStatusMonitor";
     public const string VoiceprintAggregation = "VoiceprintAggregation";
     public const string TranscriptionQueueTrackingSubsystem = "TranscriptionQueueTracking";
-
+    public const string LowQualityAudioSubsystem = "LowQualityAudio";
+    public const string SceneDetectionSubsystem = "SceneDetection";
 
     public const string TranscodingGroup = "Transcoding";
     public const string TranscribingGroup = "Transcribing";
     public const string RecognitionGroup = "Recognition";
     public const string PostprocessingGroup = "Posprocessing";
+    public const string PackagingGroup = "Packaging";
     public const string TextCreationGroup = "TextCreation";
     public const string ChainControl = "ChainControl";
 }

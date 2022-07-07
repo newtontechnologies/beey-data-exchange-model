@@ -187,6 +187,16 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (TranscriptionQueueTracking.Started)value, TranscriptionQueueTracking.TranscriptionQueueTrackingSerializerContext.Default.Started);
             return;
         }
+        else if (subsystem == LowQualityAudio.Name)
+        {
+            JsonSerializer.Serialize(writer, (LowQualityAudio.Started)value, LowQualityAudio.LowQualityAudioSerializerContext.Default.Started);
+            return;
+        }
+        else if (subsystem == SceneDetection.Name)
+        {
+            JsonSerializer.Serialize(writer, (SceneDetection.Started)value, SceneDetection.SceneDetectionSerializerContext.Default.Started);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -283,6 +293,16 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (TranscriptionQueueTracking.Completed)value, TranscriptionQueueTracking.TranscriptionQueueTrackingSerializerContext.Default.Completed);
             return;
         }
+        else if (subsystem == LowQualityAudio.Name)
+        {
+            JsonSerializer.Serialize(writer, (LowQualityAudio.Completed)value, LowQualityAudio.LowQualityAudioSerializerContext.Default.Completed);
+            return;
+        }
+        else if (subsystem == SceneDetection.Name)
+        {
+            JsonSerializer.Serialize(writer, (SceneDetection.Completed)value, SceneDetection.SceneDetectionSerializerContext.Default.Completed);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -374,6 +394,16 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
         else if (subsystem == ChainControl.Name)
         {
             JsonSerializer.Serialize(writer, (ChainControl.Failed)value, ChainControl.ChainControlSerializerContext.Default.Failed);
+            return;
+        }
+        else if (subsystem == LowQualityAudio.Name)
+        {
+            JsonSerializer.Serialize(writer, (LowQualityAudio.Failed)value, LowQualityAudio.LowQualityAudioSerializerContext.Default.Failed);
+            return;
+        }
+        else if (subsystem == SceneDetection.Name)
+        {
+            JsonSerializer.Serialize(writer, (SceneDetection.Failed)value, SceneDetection.SceneDetectionSerializerContext.Default.Failed);
             return;
         }
 

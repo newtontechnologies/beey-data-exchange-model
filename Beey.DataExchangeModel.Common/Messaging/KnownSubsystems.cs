@@ -236,6 +236,33 @@ public static partial class KnownSubsystems
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
 
+    public static partial class LowQualityAudio
+    {
+
+        [JsonSerializable(typeof(Started))]
+        [JsonSerializable(typeof(Completed))]
+        [JsonSerializable(typeof(Failed))]
+        public partial class LowQualityAudioSerializerContext : JsonSerializerContext { };
+
+        public static string Name => KnownSubsystemNames.LowQualityAudioSubsystem;
+        public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
+        public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
+        public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
+    }
+    public static partial class SceneDetection
+    {
+
+        [JsonSerializable(typeof(Started))]
+        [JsonSerializable(typeof(Completed))]
+        [JsonSerializable(typeof(Failed))]
+        public partial class SceneDetectionSerializerContext : JsonSerializerContext { };
+
+        public static string Name => KnownSubsystemNames.SceneDetectionSubsystem;
+        public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
+        public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
+        public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
+    }
+
     public static partial class ChainControl
     {
 
