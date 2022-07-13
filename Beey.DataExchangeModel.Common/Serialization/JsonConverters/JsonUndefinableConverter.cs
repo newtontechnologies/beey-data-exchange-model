@@ -19,6 +19,11 @@ public class JsonUndefinableConverter : JsonConverterFactory
 
     private class UTConverter<T> : JsonConverter<Undefinable<T>>
     {
+        public override bool CanConvert(Type typeToConvert)
+        {
+            return typeToConvert == typeof(Undefinable<T>);
+        }
+
         public override Undefinable<T> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             if (reader.TokenType != JsonTokenType.Null)
@@ -49,6 +54,13 @@ public class JsonUndefinableConverter : JsonConverterFactory
 
     public override JsonConverter? CreateConverter(Type typeToConvert, JsonSerializerOptions options)
     {
-        throw new NotImplementedException();
+        if (typeToConvert.GetGenericTypeDefinition() == typeof(Undefinable<>))
+        {
+            var args = typeToConvert.GetGenericArguments();
+            var type = typeof(UTConverter<>).MakeGenericType(args[0]);
+            var conv =  (JsonConverter)Activator.CreateInstance(type)!;
+            return conv;
+        }
+        return null;
     }
 }
