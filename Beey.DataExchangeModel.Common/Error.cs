@@ -9,8 +9,8 @@ namespace Beey.DataExchangeModel;
 
 public class Error
 {
-    public string Message;
-    public object Data;
+    public string Message { get; }
+    public object Data { get; }
 
     public Error(string message, object data = null)
     {
