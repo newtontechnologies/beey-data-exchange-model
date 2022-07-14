@@ -1,6 +1,7 @@
 ﻿using Beey.DataExchangeModel.Serialization.JsonConverters;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -11,7 +12,7 @@ namespace Beey.DataExchangeModel.Tools;
 /// <summary>
 /// For easier handling in custom json converters.
 /// </summary>
-public interface IUndefinable
+public interface IUndefinable 
 {
     object Value { get; set; }
     Type ValueType { get; }
@@ -40,8 +41,6 @@ public struct Undefinable<T> : IUndefinable
     {
         get
         {
-            if (!isDefined)
-                throw new InvalidOperationException("Undefinable value is undefined.");
             return value;
         }
         set
