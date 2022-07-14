@@ -1,5 +1,5 @@
 ﻿namespace Backend.Messaging.Chain;
 
-public record ChainStatus(NodeStatus Status, ChainInformation Information)
+public record ChainStatus(StatusNode Status, ChainInformation Information)
 {
 }

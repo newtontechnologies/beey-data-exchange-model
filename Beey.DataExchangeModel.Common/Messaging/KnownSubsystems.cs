@@ -278,7 +278,7 @@ public static partial class KnownSubsystems
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
-        public sealed record Status(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, NodeStatus? Status) : ChainStatusMessage(Id, Index, ProjectId, Sent, Status);
+        public sealed record Status(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, StatusNode? Statuses) : ChainStatusMessage(Id, Index, ProjectId, Sent, Statuses);
         public sealed record Command(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, ChainCommand Command) : ChainCommandMessage(Id, Index, ProjectId, Sent, Command);
     }
 }

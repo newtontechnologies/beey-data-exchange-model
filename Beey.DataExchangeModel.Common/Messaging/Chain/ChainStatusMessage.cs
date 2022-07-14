@@ -4,15 +4,15 @@ using Beey.DataExchangeModel.Messaging;
 
 namespace Backend.Messaging.Chain;
 
-public abstract record ChainStatusMessage(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, NodeStatus? Status) : Message(Id, Index, ProjectId, KnownSubsystemNames.ChainControl, Sent)
+public abstract record ChainStatusMessage(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, StatusNode? Statuses) : Message(Id, Index, ProjectId, KnownSubsystemNames.ChainControl, Sent)
 {
-    public SubsystemStatus? this[string name] => Status?[name]?.Status;
+    public SubsystemStatus? this[string name] => Statuses?[name]?.Status;
     public override MessageType Type => MessageType.ChainStatus;
 }
 
-public class NodeStatus
+public class StatusNode
 {
-    public NodeStatus? this[string name]
+    public StatusNode? this[string name]
     {
         get
         {
@@ -33,7 +33,7 @@ public class NodeStatus
         }
     }
 
-    public IEnumerable<NodeStatus> Flatten()
+    public IEnumerable<StatusNode> Flatten()
     {
         yield return this;
         if (Nodes is null)
@@ -51,5 +51,5 @@ public class NodeStatus
     public SubsystemStatus Status { get; set; }
     public ImmutableArray<int> Index { get; set; } = ImmutableArray<int>.Empty;
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public NodeStatus[]? Nodes { get; set; }
+    public StatusNode[]? Nodes { get; set; }
 }
