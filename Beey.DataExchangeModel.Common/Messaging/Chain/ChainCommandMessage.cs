@@ -1,8 +1,10 @@
 ﻿using System.Collections.Immutable;
+using System.Text.Json.Serialization;
 using Beey.DataExchangeModel.Messaging;
 
 
 namespace Backend.Messaging.Chain;
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum ChainCommand
 {
     /// <summary>

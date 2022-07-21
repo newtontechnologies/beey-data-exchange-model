@@ -311,7 +311,12 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
     static void DiscriminateFailedMessage(Utf8JsonWriter writer, Message value, JsonSerializerOptions options)
     {
         var subsystem = value.Subsystem;
-        if (subsystem == Diarization.Name)
+        if (value.GetType() == typeof(FailedMessage))
+        {
+            JsonSerializer.Serialize(writer, (FailedMessage)value, ChainControl.ChainControlSerializerContext.Default.FailedMessage);
+            return;
+        }
+        else if (subsystem == Diarization.Name)
         {
             JsonSerializer.Serialize(writer, (Diarization.Failed)value, Diarization.DiarizationSerializerContext.Default.Failed);
             return;

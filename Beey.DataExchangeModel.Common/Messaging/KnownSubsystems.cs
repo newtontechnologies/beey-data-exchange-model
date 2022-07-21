@@ -265,7 +265,7 @@ public static partial class KnownSubsystems
 
     public static partial class ChainControl
     {
-
+        [JsonSerializable(typeof(FailedMessage))]
         [JsonSerializable(typeof(PanicMessage))]
         [JsonSerializable(typeof(Started))]
         [JsonSerializable(typeof(Failed))]
