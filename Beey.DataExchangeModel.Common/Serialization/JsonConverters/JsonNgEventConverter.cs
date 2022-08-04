@@ -10,6 +10,10 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters;
 
 class JsonNgEventConverter : JsonConverter<NgEvent>
 {
+    public override bool CanConvert(Type typeToConvert)
+    {
+        return typeof(NgEvent).IsAssignableFrom(typeToConvert);
+    }
     public override NgEvent Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         var document = (JsonObject)JsonNode.Parse(ref reader, new JsonNodeOptions { PropertyNameCaseInsensitive = options.PropertyNameCaseInsensitive })!;
