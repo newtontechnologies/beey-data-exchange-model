@@ -27,6 +27,20 @@ public static partial class KnownSubsystems
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
+
+    public static partial class RawDiarization
+    {
+        [JsonSerializable(typeof(Started))]
+        [JsonSerializable(typeof(Progress))]
+        [JsonSerializable(typeof(Failed))]
+        [JsonSerializable(typeof(Completed))]
+        public partial class RawDiarizationSerializerContext : JsonSerializerContext { };
+        public static string Name => KnownSubsystemNames.RawDiarizationSubsystem;
+        public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
+        public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
+    }
     public static partial class VoiceprintAggregation
     {
         [JsonSerializable(typeof(Started))]
@@ -166,6 +180,20 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class RecognitionSerializerContext : JsonSerializerContext { };
         public static string Name => KnownSubsystemNames.RecognitionSubsystem;
+        public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
+        public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
+    }
+
+    public static partial class RawRecognition
+    {
+        [JsonSerializable(typeof(Started))]
+        [JsonSerializable(typeof(Progress))]
+        [JsonSerializable(typeof(Failed))]
+        [JsonSerializable(typeof(Completed))]
+        public partial class RawRecognitionSerializerContext : JsonSerializerContext { };
+        public static string Name => KnownSubsystemNames.RawRecognitionSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);

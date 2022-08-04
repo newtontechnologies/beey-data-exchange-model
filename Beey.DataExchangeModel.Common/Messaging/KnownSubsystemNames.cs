@@ -15,6 +15,11 @@ public static class KnownSubsystemNames
     public const string MediaFilePackagingSubsystem = "MediaFilePackaging";
     public const string RecognitionSubsystem = "Recognition";
     public const string DiarizationSubsystem = "Diarization";
+
+    public const string RawRecognitionSubsystem = "RawRecognition";
+    public const string RawDiarizationSubsystem = "RawDiarization";
+
+
     public const string SpeakerIdentificationSubsystem = "SpeakerIdentification";
     public const string SppSubsystem = "Spp";
     public const string TranscriptionTracking = "TranscriptionTracking";
