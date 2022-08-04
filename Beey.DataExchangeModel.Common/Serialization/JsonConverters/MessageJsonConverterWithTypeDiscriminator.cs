@@ -197,6 +197,16 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (SceneDetection.Started)value, SceneDetection.SceneDetectionSerializerContext.Default.Started);
             return;
         }
+        else if (subsystem == RawDiarization.Name)
+        {
+            JsonSerializer.Serialize(writer, (RawDiarization.Started)value, RawDiarization.RawDiarizationSerializerContext.Default.Started);
+            return;
+        }
+        else if (subsystem == RawRecognition.Name)
+        {
+            JsonSerializer.Serialize(writer, (RawRecognition.Started)value, RawRecognition.RawRecognitionSerializerContext.Default.Started);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -301,6 +311,16 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
         else if (subsystem == SceneDetection.Name)
         {
             JsonSerializer.Serialize(writer, (SceneDetection.Completed)value, SceneDetection.SceneDetectionSerializerContext.Default.Completed);
+            return;
+        }
+        else if (subsystem == RawDiarization.Name)
+        {
+            JsonSerializer.Serialize(writer, (RawDiarization.Completed)value, RawDiarization.RawDiarizationSerializerContext.Default.Completed);
+            return;
+        }
+        else if (subsystem == RawRecognition.Name)
+        {
+            JsonSerializer.Serialize(writer, (RawRecognition.Completed)value, RawRecognition.RawRecognitionSerializerContext.Default.Completed);
             return;
         }
 
@@ -411,6 +431,17 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (SceneDetection.Failed)value, SceneDetection.SceneDetectionSerializerContext.Default.Failed);
             return;
         }
+        else if (subsystem == RawDiarization.Name)
+        {
+            JsonSerializer.Serialize(writer, (RawDiarization.Failed)value, RawDiarization.RawDiarizationSerializerContext.Default.Failed);
+            return;
+        }
+        else if (subsystem == RawRecognition.Name)
+        {
+            JsonSerializer.Serialize(writer, (RawRecognition.Failed)value, RawRecognition.RawRecognitionSerializerContext.Default.Failed);
+            return;
+        }
+
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -498,6 +529,16 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (TranscodingAudio.Progress)value, TranscodingAudio.TranscodingAudioSerializerContext.Default.Progress);
             return;
         }
+        else if (subsystem == RawDiarization.Name)
+        {
+            JsonSerializer.Serialize(writer, (RawDiarization.Progress)value, RawDiarization.RawDiarizationSerializerContext.Default.Progress);
+            return;
+        }
+        else if (subsystem == RawRecognition.Name)
+        {
+            JsonSerializer.Serialize(writer, (RawRecognition.Progress)value, RawRecognition.RawRecognitionSerializerContext.Default.Progress);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -540,6 +581,10 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, TranscodingAudio.TranscodingAudioSerializerContext.Default.Started);
         if (subsystem == ChainControl.Name)
             return JsonSerializer.Deserialize(ref reader, ChainControl.ChainControlSerializerContext.Default.Started);
+        if(subsystem == RawRecognition.Name)
+            return JsonSerializer.Deserialize(ref reader, RawRecognition.RawRecognitionSerializerContext.Default.Started);
+        if (subsystem == RawDiarization.Name)
+            return JsonSerializer.Deserialize(ref reader, RawDiarization.RawDiarizationSerializerContext.Default.Started);
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -580,6 +625,10 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, TranscodingAudio.TranscodingAudioSerializerContext.Default.Completed);
         if (subsystem == ChainControl.Name)
             return JsonSerializer.Deserialize(ref reader, ChainControl.ChainControlSerializerContext.Default.Completed);
+        if (subsystem == RawRecognition.Name)
+            return JsonSerializer.Deserialize(ref reader, RawRecognition.RawRecognitionSerializerContext.Default.Completed);
+        if (subsystem == RawDiarization.Name)
+            return JsonSerializer.Deserialize(ref reader, RawDiarization.RawDiarizationSerializerContext.Default.Completed);
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -621,6 +670,10 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, TranscodingAudio.TranscodingAudioSerializerContext.Default.Failed);
         if (subsystem == ChainControl.Name)
             return JsonSerializer.Deserialize(ref reader, ChainControl.ChainControlSerializerContext.Default.Failed);
+        if (subsystem == RawRecognition.Name)
+            return JsonSerializer.Deserialize(ref reader, RawRecognition.RawRecognitionSerializerContext.Default.Failed);
+        if (subsystem == RawDiarization.Name)
+            return JsonSerializer.Deserialize(ref reader, RawDiarization.RawDiarizationSerializerContext.Default.Failed);
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -659,6 +712,10 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, TranscodingVideo.TranscodingVideoSerializerContext.Default.Progress);
         if (subsystem == TranscodingAudio.Name)
             return JsonSerializer.Deserialize(ref reader, TranscodingAudio.TranscodingAudioSerializerContext.Default.Progress);
+        if (subsystem == RawRecognition.Name)
+            return JsonSerializer.Deserialize(ref reader, RawRecognition.RawRecognitionSerializerContext.Default.Progress);
+        if (subsystem == RawDiarization.Name)
+            return JsonSerializer.Deserialize(ref reader, RawDiarization.RawDiarizationSerializerContext.Default.Progress);
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
