@@ -157,9 +157,9 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (Recognition.Started)value, Recognition.RecognitionSerializerContext.Default.Started);
             return;
         }
-        else if (subsystem == SpeakerIdentification.Name)
+        else if (subsystem == SpeakerId.Name)
         {
-            JsonSerializer.Serialize(writer, (SpeakerIdentification.Started)value, SpeakerIdentification.SpeakerIdentificationSerializerContext.Default.Started);
+            JsonSerializer.Serialize(writer, (SpeakerId.Started)value, SpeakerId.SpeakerIdentificationSerializerContext.Default.Started);
             return;
         }
         else if (subsystem == Spp.Name)
@@ -264,9 +264,9 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (Recognition.Completed)value, Recognition.RecognitionSerializerContext.Default.Completed);
             return;
         }
-        else if (subsystem == SpeakerIdentification.Name)
+        else if (subsystem == SpeakerId.Name)
         {
-            JsonSerializer.Serialize(writer, (SpeakerIdentification.Completed)value, SpeakerIdentification.SpeakerIdentificationSerializerContext.Default.Completed);
+            JsonSerializer.Serialize(writer, (SpeakerId.Completed)value, SpeakerId.SpeakerIdentificationSerializerContext.Default.Completed);
             return;
         }
         else if (subsystem == Spp.Name)
@@ -376,9 +376,9 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (Recognition.Failed)value, Recognition.RecognitionSerializerContext.Default.Failed);
             return;
         }
-        else if (subsystem == SpeakerIdentification.Name)
+        else if (subsystem == SpeakerId.Name)
         {
-            JsonSerializer.Serialize(writer, (SpeakerIdentification.Failed)value, SpeakerIdentification.SpeakerIdentificationSerializerContext.Default.Failed);
+            JsonSerializer.Serialize(writer, (SpeakerId.Failed)value, SpeakerId.SpeakerIdentificationSerializerContext.Default.Failed);
             return;
         }
         else if (subsystem == Spp.Name)
@@ -478,9 +478,9 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (Recognition.Progress)value, Recognition.RecognitionSerializerContext.Default.Progress);
             return;
         }
-        else if (subsystem == SpeakerIdentification.Name)
+        else if (subsystem == SpeakerId.Name)
         {
-            JsonSerializer.Serialize(writer, (SpeakerIdentification.Progress)value, SpeakerIdentification.SpeakerIdentificationSerializerContext.Default.Progress);
+            JsonSerializer.Serialize(writer, (SpeakerId.Progress)value, SpeakerId.SpeakerIdentificationSerializerContext.Default.Progress);
             return;
         }
         else if (subsystem == Spp.Name)
@@ -530,8 +530,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, ProjectStatusMonitor.ProjectStatusMonitorSerializerContext.Default.Started);
         if (subsystem == Recognition.Name)
             return JsonSerializer.Deserialize(ref reader, Recognition.RecognitionSerializerContext.Default.Started);
-        if (subsystem == SpeakerIdentification.Name)
-            return JsonSerializer.Deserialize(ref reader, SpeakerIdentification.SpeakerIdentificationSerializerContext.Default.Started);
+        if (subsystem == SpeakerId.Name)
+            return JsonSerializer.Deserialize(ref reader, SpeakerId.SpeakerIdentificationSerializerContext.Default.Started);
         if (subsystem == Spp.Name)
             return JsonSerializer.Deserialize(ref reader, Spp.SppSerializerContext.Default.Started);
         if (subsystem == TranscodingVideo.Name)
@@ -570,8 +570,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, ProjectStatusMonitor.ProjectStatusMonitorSerializerContext.Default.Completed);
         if (subsystem == Recognition.Name)
             return JsonSerializer.Deserialize(ref reader, Recognition.RecognitionSerializerContext.Default.Completed);
-        if (subsystem == SpeakerIdentification.Name)
-            return JsonSerializer.Deserialize(ref reader, SpeakerIdentification.SpeakerIdentificationSerializerContext.Default.Completed);
+        if (subsystem == SpeakerId.Name)
+            return JsonSerializer.Deserialize(ref reader, SpeakerId.SpeakerIdentificationSerializerContext.Default.Completed);
         if (subsystem == Spp.Name)
             return JsonSerializer.Deserialize(ref reader, Spp.SppSerializerContext.Default.Completed);
         if (subsystem == TranscodingVideo.Name)
@@ -611,8 +611,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, ProjectStatusMonitor.ProjectStatusMonitorSerializerContext.Default.Failed);
         if (subsystem == Recognition.Name)
             return JsonSerializer.Deserialize(ref reader, Recognition.RecognitionSerializerContext.Default.Failed);
-        if (subsystem == SpeakerIdentification.Name)
-            return JsonSerializer.Deserialize(ref reader, SpeakerIdentification.SpeakerIdentificationSerializerContext.Default.Failed);
+        if (subsystem == SpeakerId.Name)
+            return JsonSerializer.Deserialize(ref reader, SpeakerId.SpeakerIdentificationSerializerContext.Default.Failed);
         if (subsystem == Spp.Name)
             return JsonSerializer.Deserialize(ref reader, Spp.SppSerializerContext.Default.Failed);
         if (subsystem == TranscodingVideo.Name)
@@ -651,8 +651,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, ProjectStatusMonitor.ProjectStatusMonitorSerializerContext.Default.Progress);
         if (subsystem == Recognition.Name)
             return JsonSerializer.Deserialize(ref reader, Recognition.RecognitionSerializerContext.Default.Progress);
-        if (subsystem == SpeakerIdentification.Name)
-            return JsonSerializer.Deserialize(ref reader, SpeakerIdentification.SpeakerIdentificationSerializerContext.Default.Progress);
+        if (subsystem == SpeakerId.Name)
+            return JsonSerializer.Deserialize(ref reader, SpeakerId.SpeakerIdentificationSerializerContext.Default.Progress);
         if (subsystem == Spp.Name)
             return JsonSerializer.Deserialize(ref reader, Spp.SppSerializerContext.Default.Progress);
         if (subsystem == TranscodingVideo.Name)

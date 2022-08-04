@@ -199,7 +199,7 @@ public static partial class KnownSubsystems
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
-    public static partial class SpeakerIdentification
+    public static partial class SpeakerId
     {
         [JsonSerializable(typeof(Started))]
         [JsonSerializable(typeof(Progress))]
