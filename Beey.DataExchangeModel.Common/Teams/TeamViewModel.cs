@@ -16,8 +16,9 @@ public class TeamViewModel
     public int CreditMinutes { get; set; }
     public decimal TranscribedMinutes { get; set; }
     public bool DidPay { get; set; }
-    public JsonArray CustomProjectTags { get; set; }
+    public JsonArray CustomProjectTags { get; set; } = new();
     public int MemberCount { get; set; }
+    public JsonObject? Settings { get; set; }
 }
 
 public class TeamStandardViewModel : TeamViewModel
