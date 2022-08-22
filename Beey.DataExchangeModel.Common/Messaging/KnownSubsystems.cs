@@ -309,4 +309,18 @@ public static partial class KnownSubsystems
         public sealed record Status(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, StatusNode? Statuses) : ChainStatusMessage(Id, Index, ProjectId, Sent, Statuses);
         public sealed record Command(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, ChainCommand Command) : ChainCommandMessage(Id, Index, ProjectId, Sent, Command);
     }
+
+    public static partial class TranscriptionStreaming
+    {
+        [JsonSerializable(typeof(Started))]
+        [JsonSerializable(typeof(Progress))]
+        [JsonSerializable(typeof(Failed))]
+        [JsonSerializable(typeof(Completed))]
+        public partial class TranscriptionStreamingSerializerContext : JsonSerializerContext { };
+        public static string Name => KnownSubsystemNames.TranscriptionStreamingSubsystem;
+        public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, Name, Sent);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, Name, Sent, Data);
+        public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
+        public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
+    }
 }

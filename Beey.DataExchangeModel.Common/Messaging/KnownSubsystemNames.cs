@@ -22,6 +22,9 @@ public static class KnownSubsystemNames
 
     public const string SpeakerIdentificationSubsystem = "SpeakerIdentification";
     public const string SppSubsystem = "Spp";
+
+    public const string TranscriptionStreamingSubsystem = "TranscriptionStreaming";
+
     public const string TranscriptionTracking = "TranscriptionTracking";
     public const string TranscriptionTimeLogging = "TranscriptionTimeLogging";
     public const string TranscriptionCreation = "TranscriptionCreation";
