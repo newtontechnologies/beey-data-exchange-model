@@ -1,6 +1,7 @@
 ﻿using Beey.DataExchangeModel.Tools;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Auth;
@@ -19,4 +20,5 @@ public class UserAddModel
     public Undefinable<string> Language { get; set; }
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public Undefinable<int> TeamId { get; set; }
+    public JsonObject? Settings { get; set; }
 }
