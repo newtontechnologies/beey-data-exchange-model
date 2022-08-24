@@ -612,6 +612,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, RawDiarization.RawDiarizationSerializerContext.Default.Started);
         if (subsystem == TranscriptionStreaming.Name)
             return JsonSerializer.Deserialize(ref reader, TranscriptionStreaming.TranscriptionStreamingSerializerContext.Default.Started);
+        if (subsystem == TranscriptionQueueTracking.Name)
+            return JsonSerializer.Deserialize(ref reader, TranscriptionQueueTracking.TranscriptionQueueTrackingSerializerContext.Default.Started);
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -662,6 +664,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, RawDiarization.RawDiarizationSerializerContext.Default.Completed);
         if (subsystem == TranscriptionStreaming.Name)
             return JsonSerializer.Deserialize(ref reader, TranscriptionStreaming.TranscriptionStreamingSerializerContext.Default.Completed);
+        if (subsystem == TranscriptionQueueTracking.Name)
+            return JsonSerializer.Deserialize(ref reader, TranscriptionQueueTracking.TranscriptionQueueTrackingSerializerContext.Default.Completed);
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
