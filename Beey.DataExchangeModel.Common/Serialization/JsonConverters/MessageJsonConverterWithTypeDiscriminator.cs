@@ -43,10 +43,10 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             MessageType.Progress => DiscriminateProgressMessage(jMessage, options, subsystem),
             MessageType.Failed => DiscriminateFailedMessage(jMessage, options, subsystem),
             MessageType.Completed => DiscriminateCompletedMessage(jMessage, options, subsystem),
-            MessageType.Panic => JsonSerializer.Deserialize<PanicMessage>(jMessage, options),
+            MessageType.Panic => JsonSerializer.Deserialize<PanicMessage>(jMessage),
 
-            MessageType.ChainStatus => JsonSerializer.Deserialize<ChainControl.Status>(jMessage, options),
-            MessageType.ChainCommand => JsonSerializer.Deserialize<ChainControl.Command>(jMessage, options),
+            MessageType.ChainStatus => JsonSerializer.Deserialize<ChainControl.Status>(jMessage),
+            MessageType.ChainCommand => JsonSerializer.Deserialize<ChainControl.Command>(jMessage),
             _ => throw new JsonException($"Unknown messageType: {messageType}"),
         };
     }
