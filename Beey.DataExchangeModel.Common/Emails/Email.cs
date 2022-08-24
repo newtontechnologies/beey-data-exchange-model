@@ -16,8 +16,8 @@ public abstract class Email
 
 
     public string[] To { get; set; }
-    public string[] CC { get; set; }
-    public string[] BCC { get; set; }
+    public string[] CC { get; set; } = new string[0];
+    public string[] BCC { get; set; } = new string[0];
     public string From { get; set; }
     public string Subject { get; set; }
 }
