@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using Backend.Messaging.Chain;
 using Beey.DataExchangeModel.Messaging;
@@ -18,49 +19,34 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
 
     public override Message? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        if (reader.TokenType != JsonTokenType.StartObject)
+        MessageType messageType;
+        string subsystem;
+        JsonObject jMessage = (JsonObject)(JsonNode.Parse(ref reader) ?? throw new JsonException());
+
+        if (!(jMessage.TryGetPropertyValue(nameof(Message.Type), out var jType)
+            && jType is JsonValue vType
+            && vType.TryGetValue<string>(out var sType)
+            && Enum.TryParse<MessageType>(sType, out messageType)
+            ))
             throw new JsonException();
 
-        reader.Read();
-        if (reader.TokenType != JsonTokenType.PropertyName)
+        if (!(jMessage.TryGetPropertyValue(nameof(Message.Subsystem), out var jSubsystem)
+            && jSubsystem is JsonValue vSubsystem
+            && vSubsystem.TryGetValue<string>(out subsystem)
+            && subsystem != null)
+            )
             throw new JsonException();
-
-        string? propertyName = reader.GetString();
-        if (propertyName != nameof(Message.Type))
-            throw new JsonException();
-
-        reader.Read();
-        if (reader.TokenType != JsonTokenType.String)
-            throw new JsonException();
-
-
-        if (!Enum.TryParse<MessageType>(reader.GetString(), out var messageType))
-            throw new JsonException();
-
-        reader.Read();
-        if (reader.TokenType != JsonTokenType.PropertyName)
-            throw new JsonException();
-
-        propertyName = reader.GetString();
-        if (propertyName != nameof(Message.Subsystem))
-            throw new JsonException();
-
-        reader.Read();
-        if (reader.TokenType != JsonTokenType.String)
-            throw new JsonException();
-
-        var subsystem = reader.GetString()!;
 
         return messageType switch
         {
-            MessageType.Started => DiscriminateStartedMessage(ref reader, options, subsystem),
-            MessageType.Progress => DiscriminateProgressMessage(ref reader, options, subsystem),
-            MessageType.Failed => DiscriminateFailedMessage(ref reader, options, subsystem),
-            MessageType.Completed => DiscriminateCompletedMessage(ref reader, options, subsystem),
-            MessageType.Panic => JsonSerializer.Deserialize(ref reader, ChainControl.ChainControlSerializerContext.Default.PanicMessage),
+            MessageType.Started => DiscriminateStartedMessage(jMessage, options, subsystem),
+            MessageType.Progress => DiscriminateProgressMessage(jMessage, options, subsystem),
+            MessageType.Failed => DiscriminateFailedMessage(jMessage, options, subsystem),
+            MessageType.Completed => DiscriminateCompletedMessage(jMessage, options, subsystem),
+            MessageType.Panic => JsonSerializer.Deserialize<PanicMessage>(jMessage, options),
 
-            MessageType.ChainStatus => JsonSerializer.Deserialize(ref reader, ChainControl.ChainControlSerializerContext.Default.Status),
-            MessageType.ChainCommand => JsonSerializer.Deserialize(ref reader, ChainControl.ChainControlSerializerContext.Default.Command),
+            MessageType.ChainStatus => JsonSerializer.Deserialize<ChainControl.Status>(jMessage, options),
+            MessageType.ChainCommand => JsonSerializer.Deserialize<ChainControl.Command>(jMessage, options),
             _ => throw new JsonException($"Unknown messageType: {messageType}"),
         };
     }
@@ -566,201 +552,200 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
 
 
 
-    static StartedMessage? DiscriminateStartedMessage(ref Utf8JsonReader reader, JsonSerializerOptions? options, string subsystem)
+    static StartedMessage? DiscriminateStartedMessage(JsonObject jMessage, JsonSerializerOptions? options, string subsystem)
     {
         if (subsystem == Diarization.Name)
-            return JsonSerializer.Deserialize(ref reader, Diarization.DiarizationSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<Diarization.Started>(jMessage);
         if (subsystem == VoiceprintAggregation.Name)
-            return JsonSerializer.Deserialize(ref reader, VoiceprintAggregation.VoiceprintAggregationSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<VoiceprintAggregation.Started>(jMessage);
         if (subsystem == Upload.Name)
-            return JsonSerializer.Deserialize(ref reader, Upload.UploadSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<Upload.Started>(jMessage);
         if (subsystem == TranscriptionTracking.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionTracking.TranscriptionTrackingSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<TranscriptionTracking.Started>(jMessage);
         if (subsystem == TranscriptionTimeLogging.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionTimeLogging.TranscriptionTimeLoggingSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<TranscriptionTimeLogging.Started>(jMessage);
         if (subsystem == TranscriptionCreation.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionCreation.TranscriptionCreationSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<TranscriptionCreation.Started>(jMessage);
         if (subsystem == MediaFilePackaging.Name)
-            return JsonSerializer.Deserialize(ref reader, MediaFilePackaging.MediaFilePackagingSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<MediaFilePackaging.Started>(jMessage);
         if (subsystem == CreditReservation.Name)
-            return JsonSerializer.Deserialize(ref reader, CreditReservation.CreditReservationSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<CreditReservation.Started>(jMessage);
         if (subsystem == MediaFileIndexing.Name)
-            return JsonSerializer.Deserialize(ref reader, MediaFileIndexing.MediaFileIndexingSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<MediaFileIndexing.Started>(jMessage);
         if (subsystem == MediaIdentification.Name)
-            return JsonSerializer.Deserialize(ref reader, MediaIdentification.MediaIdentificationSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<MediaIdentification.Started>(jMessage);
         if (subsystem == ProjectStatusMonitor.Name)
-            return JsonSerializer.Deserialize(ref reader, ProjectStatusMonitor.ProjectStatusMonitorSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<ProjectStatusMonitor.Started>(jMessage);
         if (subsystem == Recognition.Name)
-            return JsonSerializer.Deserialize(ref reader, Recognition.RecognitionSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<Recognition.Started>(jMessage);
         if (subsystem == SpeakerId.Name)
-            return JsonSerializer.Deserialize(ref reader, SpeakerId.SpeakerIdentificationSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<SpeakerId.Started>(jMessage);
         if (subsystem == Spp.Name)
-            return JsonSerializer.Deserialize(ref reader, Spp.SppSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<Spp.Started>(jMessage);
         if (subsystem == TranscodingVideo.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscodingVideo.TranscodingVideoSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<TranscodingVideo.Started>(jMessage);
         if (subsystem == TranscodingAudio.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscodingAudio.TranscodingAudioSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<TranscodingAudio.Started>(jMessage);
         if (subsystem == ChainControl.Name)
-            return JsonSerializer.Deserialize(ref reader, ChainControl.ChainControlSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<ChainControl.Started>(jMessage);
         if (subsystem == LowQualityAudio.Name)
-            return JsonSerializer.Deserialize(ref reader, LowQualityAudio.LowQualityAudioSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<LowQualityAudio.Started>(jMessage);
         if (subsystem == SceneDetection.Name)
-            return JsonSerializer.Deserialize(ref reader, SceneDetection.SceneDetectionSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<SceneDetection.Started>(jMessage);
         if (subsystem == RawRecognition.Name)
-            return JsonSerializer.Deserialize(ref reader, RawRecognition.RawRecognitionSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<RawRecognition.Started>(jMessage);
         if (subsystem == RawDiarization.Name)
-            return JsonSerializer.Deserialize(ref reader, RawDiarization.RawDiarizationSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<RawDiarization.Started>(jMessage);
         if (subsystem == TranscriptionStreaming.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionStreaming.TranscriptionStreamingSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<TranscriptionStreaming.Started>(jMessage);
         if (subsystem == TranscriptionQueueTracking.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionQueueTracking.TranscriptionQueueTrackingSerializerContext.Default.Started);
+            return JsonSerializer.Deserialize<TranscriptionQueueTracking.Started>(jMessage);
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
 
-    static CompletedMessage? DiscriminateCompletedMessage(ref Utf8JsonReader reader, JsonSerializerOptions? options, string subsystem)
+    static CompletedMessage? DiscriminateCompletedMessage(JsonObject jMessage, JsonSerializerOptions? options, string subsystem)
     {
         if (subsystem == Diarization.Name)
-            return JsonSerializer.Deserialize(ref reader, Diarization.DiarizationSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<Diarization.Completed>(jMessage);
         if (subsystem == VoiceprintAggregation.Name)
-            return JsonSerializer.Deserialize(ref reader, VoiceprintAggregation.VoiceprintAggregationSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<VoiceprintAggregation.Completed>(jMessage);
         if (subsystem == Upload.Name)
-            return JsonSerializer.Deserialize(ref reader, Upload.UploadSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<Upload.Completed>(jMessage);
         if (subsystem == TranscriptionTracking.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionTracking.TranscriptionTrackingSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<TranscriptionTracking.Completed>(jMessage);
         if (subsystem == TranscriptionTimeLogging.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionTimeLogging.TranscriptionTimeLoggingSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<TranscriptionTimeLogging.Completed>(jMessage);
         if (subsystem == TranscriptionCreation.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionCreation.TranscriptionCreationSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<TranscriptionCreation.Completed>(jMessage);
         if (subsystem == MediaFilePackaging.Name)
-            return JsonSerializer.Deserialize(ref reader, MediaFilePackaging.MediaFilePackagingSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<MediaFilePackaging.Completed>(jMessage);
         if (subsystem == CreditReservation.Name)
-            return JsonSerializer.Deserialize(ref reader, CreditReservation.CreditReservationSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<CreditReservation.Completed>(jMessage);
         if (subsystem == MediaFileIndexing.Name)
-            return JsonSerializer.Deserialize(ref reader, MediaFileIndexing.MediaFileIndexingSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<MediaFileIndexing.Completed>(jMessage);
         if (subsystem == MediaIdentification.Name)
-            return JsonSerializer.Deserialize(ref reader, MediaIdentification.MediaIdentificationSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<MediaIdentification.Completed>(jMessage);
         if (subsystem == ProjectStatusMonitor.Name)
-            return JsonSerializer.Deserialize(ref reader, ProjectStatusMonitor.ProjectStatusMonitorSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<ProjectStatusMonitor.Completed>(jMessage);
         if (subsystem == Recognition.Name)
-            return JsonSerializer.Deserialize(ref reader, Recognition.RecognitionSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<Recognition.Completed>(jMessage);
         if (subsystem == SpeakerId.Name)
-            return JsonSerializer.Deserialize(ref reader, SpeakerId.SpeakerIdentificationSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<SpeakerId.Completed>(jMessage);
         if (subsystem == Spp.Name)
-            return JsonSerializer.Deserialize(ref reader, Spp.SppSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<Spp.Completed>(jMessage);
         if (subsystem == TranscodingVideo.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscodingVideo.TranscodingVideoSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<TranscodingVideo.Completed>(jMessage);
         if (subsystem == TranscodingAudio.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscodingAudio.TranscodingAudioSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<TranscodingAudio.Completed>(jMessage);
         if (subsystem == ChainControl.Name)
-            return JsonSerializer.Deserialize(ref reader, ChainControl.ChainControlSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<ChainControl.Completed>(jMessage);
         if (subsystem == LowQualityAudio.Name)
-            return JsonSerializer.Deserialize(ref reader, LowQualityAudio.LowQualityAudioSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<LowQualityAudio.Completed>(jMessage);
         if (subsystem == SceneDetection.Name)
-            return JsonSerializer.Deserialize(ref reader, SceneDetection.SceneDetectionSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<SceneDetection.Completed>(jMessage);
         if (subsystem == RawRecognition.Name)
-            return JsonSerializer.Deserialize(ref reader, RawRecognition.RawRecognitionSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<RawRecognition.Completed>(jMessage);
         if (subsystem == RawDiarization.Name)
-            return JsonSerializer.Deserialize(ref reader, RawDiarization.RawDiarizationSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<RawDiarization.Completed>(jMessage);
         if (subsystem == TranscriptionStreaming.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionStreaming.TranscriptionStreamingSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<TranscriptionStreaming.Completed>(jMessage);
         if (subsystem == TranscriptionQueueTracking.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionQueueTracking.TranscriptionQueueTrackingSerializerContext.Default.Completed);
+            return JsonSerializer.Deserialize<TranscriptionQueueTracking.Completed>(jMessage);
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
 
 
-    static FailedMessage? DiscriminateFailedMessage(ref Utf8JsonReader reader, JsonSerializerOptions? options, string subsystem)
+    static FailedMessage? DiscriminateFailedMessage(JsonObject jMessage, JsonSerializerOptions? options, string subsystem)
     {
         if (subsystem == Diarization.Name)
-            return JsonSerializer.Deserialize(ref reader, Diarization.DiarizationSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<Diarization.Failed>(jMessage);
         if (subsystem == VoiceprintAggregation.Name)
-            return JsonSerializer.Deserialize(ref reader, VoiceprintAggregation.VoiceprintAggregationSerializerContext.Default.Failed)!;
+            return JsonSerializer.Deserialize<VoiceprintAggregation.Failed>(jMessage)!;
         if (subsystem == Upload.Name)
-            return JsonSerializer.Deserialize(ref reader, Upload.UploadSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<Upload.Failed>(jMessage);
         if (subsystem == TranscriptionTracking.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionTracking.TranscriptionTrackingSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<TranscriptionTracking.Failed>(jMessage);
         if (subsystem == TranscriptionTimeLogging.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionTimeLogging.TranscriptionTimeLoggingSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<TranscriptionTimeLogging.Failed>(jMessage);
         if (subsystem == TranscriptionCreation.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionCreation.TranscriptionCreationSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<TranscriptionCreation.Failed>(jMessage);
         if (subsystem == MediaFilePackaging.Name)
-            return JsonSerializer.Deserialize(ref reader, MediaFilePackaging.MediaFilePackagingSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<MediaFilePackaging.Failed>(jMessage);
         if (subsystem == CreditReservation.Name)
-            return JsonSerializer.Deserialize(ref reader, CreditReservation.CreditReservationSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<CreditReservation.Failed>(jMessage);
         if (subsystem == MediaFileIndexing.Name)
-            return JsonSerializer.Deserialize(ref reader, MediaFileIndexing.MediaFileIndexingSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<MediaFileIndexing.Failed>(jMessage);
         if (subsystem == MediaIdentification.Name)
-            return JsonSerializer.Deserialize(ref reader, MediaIdentification.MediaIdentificationSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<MediaIdentification.Failed>(jMessage);
         if (subsystem == ProjectStatusMonitor.Name)
-            return JsonSerializer.Deserialize(ref reader, ProjectStatusMonitor.ProjectStatusMonitorSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<ProjectStatusMonitor.Failed>(jMessage);
         if (subsystem == Recognition.Name)
-            return JsonSerializer.Deserialize(ref reader, Recognition.RecognitionSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<Recognition.Failed>(jMessage);
         if (subsystem == SpeakerId.Name)
-            return JsonSerializer.Deserialize(ref reader, SpeakerId.SpeakerIdentificationSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<SpeakerId.Failed>(jMessage);
         if (subsystem == Spp.Name)
-            return JsonSerializer.Deserialize(ref reader, Spp.SppSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<Spp.Failed>(jMessage);
         if (subsystem == TranscodingVideo.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscodingVideo.TranscodingVideoSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<TranscodingVideo.Failed>(jMessage);
         if (subsystem == TranscodingAudio.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscodingAudio.TranscodingAudioSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<TranscodingAudio.Failed>(jMessage);
         if (subsystem == ChainControl.Name)
-            return JsonSerializer.Deserialize(ref reader, ChainControl.ChainControlSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<ChainControl.Failed>(jMessage);
         if (subsystem == LowQualityAudio.Name)
-            return JsonSerializer.Deserialize(ref reader, LowQualityAudio.LowQualityAudioSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<LowQualityAudio.Failed>(jMessage);
         if (subsystem == SceneDetection.Name)
-            return JsonSerializer.Deserialize(ref reader, SceneDetection.SceneDetectionSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<SceneDetection.Failed>(jMessage);
         if (subsystem == RawRecognition.Name)
-            return JsonSerializer.Deserialize(ref reader, RawRecognition.RawRecognitionSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<RawRecognition.Failed>(jMessage);
         if (subsystem == RawDiarization.Name)
-            return JsonSerializer.Deserialize(ref reader, RawDiarization.RawDiarizationSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<RawDiarization.Failed>(jMessage);
         if (subsystem == TranscriptionStreaming.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionStreaming.TranscriptionStreamingSerializerContext.Default.Failed);
+            return JsonSerializer.Deserialize<TranscriptionStreaming.Failed>(jMessage);
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
 
-    static ProgressMessage? DiscriminateProgressMessage(ref Utf8JsonReader reader, JsonSerializerOptions? options, string subsystem)
+    static ProgressMessage? DiscriminateProgressMessage(JsonObject jMessage, JsonSerializerOptions? options, string subsystem)
     {
         if (subsystem == Diarization.Name)
-            return JsonSerializer.Deserialize(ref reader, Diarization.DiarizationSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<Diarization.Progress>(jMessage);
         if (subsystem == VoiceprintAggregation.Name)
-            return JsonSerializer.Deserialize(ref reader, VoiceprintAggregation.VoiceprintAggregationSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<VoiceprintAggregation.Progress>(jMessage);
         if (subsystem == Upload.Name)
-            return JsonSerializer.Deserialize(ref reader, Upload.UploadSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<Upload.Progress>(jMessage);
         if (subsystem == TranscriptionTracking.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionTracking.TranscriptionTrackingSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<TranscriptionTracking.Progress>(jMessage);
         if (subsystem == TranscriptionTimeLogging.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionTimeLogging.TranscriptionTimeLoggingSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<TranscriptionTimeLogging.Progress>(jMessage);
         if (subsystem == TranscriptionCreation.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionCreation.TranscriptionCreationSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<TranscriptionCreation.Progress>(jMessage);
         if (subsystem == MediaFilePackaging.Name)
-            return JsonSerializer.Deserialize(ref reader, MediaFilePackaging.MediaFilePackagingSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<MediaFilePackaging.Progress>(jMessage);
         if (subsystem == CreditReservation.Name)
-            return JsonSerializer.Deserialize(ref reader, CreditReservation.CreditReservationSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<CreditReservation.Progress>(jMessage);
         if (subsystem == MediaFileIndexing.Name)
-            return JsonSerializer.Deserialize(ref reader, MediaFileIndexing.MediaFileIndexingSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<MediaFileIndexing.Progress>(jMessage);
         if (subsystem == MediaIdentification.Name)
-            return JsonSerializer.Deserialize(ref reader, MediaIdentification.MediaIdentificationSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<MediaIdentification.Progress>(jMessage);
         if (subsystem == ProjectStatusMonitor.Name)
-            return JsonSerializer.Deserialize(ref reader, ProjectStatusMonitor.ProjectStatusMonitorSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<ProjectStatusMonitor.Progress>(jMessage);
         if (subsystem == Recognition.Name)
-            return JsonSerializer.Deserialize(ref reader, Recognition.RecognitionSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<Recognition.Progress>(jMessage);
         if (subsystem == SpeakerId.Name)
-            return JsonSerializer.Deserialize(ref reader, SpeakerId.SpeakerIdentificationSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<SpeakerId.Progress>(jMessage);
         if (subsystem == Spp.Name)
-            return JsonSerializer.Deserialize(ref reader, Spp.SppSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<Spp.Progress>(jMessage);
         if (subsystem == TranscodingVideo.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscodingVideo.TranscodingVideoSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<TranscodingVideo.Progress>(jMessage);
         if (subsystem == TranscodingAudio.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscodingAudio.TranscodingAudioSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<TranscodingAudio.Progress>(jMessage);
         if (subsystem == RawRecognition.Name)
-            return JsonSerializer.Deserialize(ref reader, RawRecognition.RawRecognitionSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<RawRecognition.Progress>(jMessage);
         if (subsystem == RawDiarization.Name)
-            return JsonSerializer.Deserialize(ref reader, RawDiarization.RawDiarizationSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<RawDiarization.Progress>(jMessage);
         if (subsystem == TranscriptionStreaming.Name)
-            return JsonSerializer.Deserialize(ref reader, TranscriptionStreaming.TranscriptionStreamingSerializerContext.Default.Progress);
+            return JsonSerializer.Deserialize<TranscriptionStreaming.Progress>(jMessage);
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
-
 }
