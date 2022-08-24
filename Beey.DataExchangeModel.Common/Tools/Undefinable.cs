@@ -9,18 +9,8 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Tools;
 
-/// <summary>
-/// For easier handling in custom json converters.
-/// </summary>
-public interface IUndefinable 
-{
-    object Value { get; set; }
-    Type ValueType { get; }
-    bool IsDefined { get; }
-}
-
 [JsonConverter(typeof(JsonUndefinableConverter))]
-public struct Undefinable<T> : IUndefinable
+public struct Undefinable<T>
 {
     private static readonly Type ValueType = typeof(T);
     private bool isDefined;
@@ -55,9 +45,6 @@ public struct Undefinable<T> : IUndefinable
         this.value = value;
         this.isDefined = true;
     }
-
-    object IUndefinable.Value { get => Value; set => Value = (T)value; }
-    Type IUndefinable.ValueType => ValueType;
 
     public static implicit operator Undefinable<T>(T value) => new Undefinable<T>(value);
 

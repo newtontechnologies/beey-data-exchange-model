@@ -1,6 +1,7 @@
 ﻿using Beey.DataExchangeModel.Tools;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Auth;
 
@@ -12,7 +13,10 @@ public class UserAddModel
     public string Password { get; set; }
     public UserRole UserRole { get; set; }
     [Obsolete("For backwards compatibility only. Is part of teams now.")]
-    public Undefinable<int> CreditMinutes { get; set; }        
-    public Undefinable<string> Language { get; set; }        
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public Undefinable<int> CreditMinutes { get; set; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public Undefinable<string> Language { get; set; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public Undefinable<int> TeamId { get; set; }
 }

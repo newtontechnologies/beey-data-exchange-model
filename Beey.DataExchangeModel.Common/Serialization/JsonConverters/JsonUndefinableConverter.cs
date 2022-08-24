@@ -11,11 +11,11 @@ public class JsonUndefinableConverter : JsonConverterFactory
     {
 
     }
-    private static readonly Type s_typeOfIUndefinable = typeof(IUndefinable);
+    private static readonly Type s_typeOfUndefinable = typeof(Undefinable<>);
 
-    public override bool CanConvert(Type objectType) => s_typeOfIUndefinable.IsAssignableFrom(objectType);
-
-
+    public override bool CanConvert(Type typeToConvert) 
+        => typeToConvert.IsGenericType 
+        && typeToConvert.GetGenericTypeDefinition() == s_typeOfUndefinable;
 
     private class UTConverter<T> : JsonConverter<Undefinable<T>>
     {
@@ -44,11 +44,10 @@ public class JsonUndefinableConverter : JsonConverterFactory
 
         public override void Write(Utf8JsonWriter writer, Undefinable<T> value, JsonSerializerOptions options)
         {
-            var undefinable = (IUndefinable)value;
-            if (!undefinable.IsDefined)
-                writer.WriteRawValue("undefined", true);
+            if (!value.IsDefined)
+                throw new JsonException("Cannot serialize undefined value. Please use JsonIgnoreAttribute to ignore default (undefined) value.");
             else
-                JsonSerializer.Serialize(writer, undefinable.Value, options);
+                JsonSerializer.Serialize(writer, value.Value, options);
         }
     }
 
