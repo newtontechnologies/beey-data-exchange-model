@@ -602,6 +602,10 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, TranscodingAudio.TranscodingAudioSerializerContext.Default.Started);
         if (subsystem == ChainControl.Name)
             return JsonSerializer.Deserialize(ref reader, ChainControl.ChainControlSerializerContext.Default.Started);
+        if (subsystem == LowQualityAudio.Name)
+            return JsonSerializer.Deserialize(ref reader, LowQualityAudio.LowQualityAudioSerializerContext.Default.Started);
+        if (subsystem == SceneDetection.Name)
+            return JsonSerializer.Deserialize(ref reader, SceneDetection.SceneDetectionSerializerContext.Default.Started);
         if (subsystem == RawRecognition.Name)
             return JsonSerializer.Deserialize(ref reader, RawRecognition.RawRecognitionSerializerContext.Default.Started);
         if (subsystem == RawDiarization.Name)
@@ -648,6 +652,10 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, TranscodingAudio.TranscodingAudioSerializerContext.Default.Completed);
         if (subsystem == ChainControl.Name)
             return JsonSerializer.Deserialize(ref reader, ChainControl.ChainControlSerializerContext.Default.Completed);
+        if (subsystem == LowQualityAudio.Name)
+            return JsonSerializer.Deserialize(ref reader, LowQualityAudio.LowQualityAudioSerializerContext.Default.Completed);
+        if (subsystem == SceneDetection.Name)
+            return JsonSerializer.Deserialize(ref reader, SceneDetection.SceneDetectionSerializerContext.Default.Completed);
         if (subsystem == RawRecognition.Name)
             return JsonSerializer.Deserialize(ref reader, RawRecognition.RawRecognitionSerializerContext.Default.Completed);
         if (subsystem == RawDiarization.Name)
@@ -695,6 +703,10 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize(ref reader, TranscodingAudio.TranscodingAudioSerializerContext.Default.Failed);
         if (subsystem == ChainControl.Name)
             return JsonSerializer.Deserialize(ref reader, ChainControl.ChainControlSerializerContext.Default.Failed);
+        if (subsystem == LowQualityAudio.Name)
+            return JsonSerializer.Deserialize(ref reader, LowQualityAudio.LowQualityAudioSerializerContext.Default.Failed);
+        if (subsystem == SceneDetection.Name)
+            return JsonSerializer.Deserialize(ref reader, SceneDetection.SceneDetectionSerializerContext.Default.Failed);
         if (subsystem == RawRecognition.Name)
             return JsonSerializer.Deserialize(ref reader, RawRecognition.RawRecognitionSerializerContext.Default.Failed);
         if (subsystem == RawDiarization.Name)
