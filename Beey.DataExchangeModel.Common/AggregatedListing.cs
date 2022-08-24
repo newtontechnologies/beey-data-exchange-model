@@ -13,7 +13,7 @@ public class AggregatedListing<TItem, TAggregated> : Listing<TItem>
 
     public AggregatedListing(int totalCount, int listedCount,
         TAggregated totalAggregated, TAggregated listedAggregated,
-        TItem[] data) : base(totalCount, listedCount, data)
+        TItem[] list) : base(totalCount, listedCount, list)
     {
         TotalAggregated = totalAggregated;
         ListedAggregated = listedAggregated;

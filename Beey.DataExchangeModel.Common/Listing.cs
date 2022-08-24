@@ -12,18 +12,18 @@ public class Listing<T>
 
     public T[] List { get; set; }
 
-    public Listing(int totalCount, int listedCount, T[] data)
+    public Listing(int totalCount, int listedCount, T[] list)
     {
         TotalCount = totalCount;
         ListedCount = listedCount;
-        List = data;
+        List = list;
     }
 }
 
 public static class Listing
 {
-    public static Listing<T> Create<T>(int totalCount, int listedCount, T[] data)
+    public static Listing<T> Create<T>(int totalCount, int listedCount, T[] list)
     {
-        return new Listing<T>(totalCount, listedCount, data);
+        return new Listing<T>(totalCount, listedCount, list);
     }
 }
