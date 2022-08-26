@@ -13,4 +13,5 @@ public class RegistrationData
     public string Password { get; set; }
     public string Language { get; set; }
     public JsonObject? Settings { get; set; }
+    public bool CreateDemoProject { get; set; } = true;
 }
