@@ -9,13 +9,13 @@ namespace Beey.DataExchangeModel.Messaging.Subsystems;
 
 public abstract class SubsystemData
 {
-    protected static JsonSerializerOptions CreateDefaultOptions() => new JsonSerializerOptions()
+    protected static readonly JsonSerializerOptions DefaultJsonSerializerOptions = new JsonSerializerOptions()
     {
         Converters = { new JsonStringEnumConverter(), new JsonTimeSpanConverter(), new JsonUnknownObjectConverter() }
     };
 
     public virtual JsonNode Serialize()
-        => JsonSerializer.SerializeToNode<object>(this, CreateDefaultOptions())!;
+        => JsonSerializer.SerializeToNode<object>(this, DefaultJsonSerializerOptions)!;
 
     public static implicit operator JsonNode(SubsystemData d) => d.Serialize();
 }
@@ -26,6 +26,6 @@ public abstract class SubsystemData<T> : SubsystemData
     public static T? From(ProgressMessage progressMessage)
     {
         var data = progressMessage.Data;
-        return JsonSerializer.Deserialize<T>(data, CreateDefaultOptions());
+        return JsonSerializer.Deserialize<T>(data, DefaultJsonSerializerOptions);
     }
 }
