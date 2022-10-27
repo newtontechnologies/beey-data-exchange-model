@@ -198,6 +198,11 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (TranscriptionStreaming.Started)value, TranscriptionStreaming.TranscriptionStreamingSerializerContext.Default.Started);
             return;
         }
+        else if (subsystem == LiveSubtitlesStreaming.Name)
+        {
+            JsonSerializer.Serialize(writer, (LiveSubtitlesStreaming.Started)value, LiveSubtitlesStreaming.LiveSubtitlesStreamingSerializerContext.Default.Started);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -318,6 +323,11 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
         else if (subsystem == TranscriptionStreaming.Name)
         {
             JsonSerializer.Serialize(writer, (TranscriptionStreaming.Completed)value, TranscriptionStreaming.TranscriptionStreamingSerializerContext.Default.Completed);
+            return;
+        }
+        else if (subsystem == LiveSubtitlesStreaming.Name)
+        {
+            JsonSerializer.Serialize(writer, (LiveSubtitlesStreaming.Completed)value, LiveSubtitlesStreaming.LiveSubtitlesStreamingSerializerContext.Default.Completed);
             return;
         }
 
@@ -443,6 +453,11 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (TranscriptionStreaming.Failed)value, TranscriptionStreaming.TranscriptionStreamingSerializerContext.Default.Failed);
             return;
         }
+        else if (subsystem == LiveSubtitlesStreaming.Name)
+        {
+            JsonSerializer.Serialize(writer, (LiveSubtitlesStreaming.Failed)value, LiveSubtitlesStreaming.LiveSubtitlesStreamingSerializerContext.Default.Failed);
+            return;
+        }
 
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
@@ -546,6 +561,11 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (TranscriptionStreaming.Progress)value, TranscriptionStreaming.TranscriptionStreamingSerializerContext.Default.Progress);
             return;
         }
+        else if (subsystem == LiveSubtitlesStreaming.Name)
+        {
+            JsonSerializer.Serialize(writer, (LiveSubtitlesStreaming.Progress)value, LiveSubtitlesStreaming.LiveSubtitlesStreamingSerializerContext.Default.Progress);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -600,6 +620,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize<TranscriptionStreaming.Started>(jMessage);
         if (subsystem == TranscriptionQueueTracking.Name)
             return JsonSerializer.Deserialize<TranscriptionQueueTracking.Started>(jMessage);
+        if (subsystem == LiveSubtitlesStreaming.Name)
+            return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Started>(jMessage);
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -652,6 +674,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize<TranscriptionStreaming.Completed>(jMessage);
         if (subsystem == TranscriptionQueueTracking.Name)
             return JsonSerializer.Deserialize<TranscriptionQueueTracking.Completed>(jMessage);
+        if (subsystem == LiveSubtitlesStreaming.Name)
+            return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Completed>(jMessage);
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -703,6 +727,9 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize<RawDiarization.Failed>(jMessage);
         if (subsystem == TranscriptionStreaming.Name)
             return JsonSerializer.Deserialize<TranscriptionStreaming.Failed>(jMessage);
+        if (subsystem == LiveSubtitlesStreaming.Name)
+            return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Failed>(jMessage);
+
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
 
@@ -746,6 +773,9 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize<RawDiarization.Progress>(jMessage);
         if (subsystem == TranscriptionStreaming.Name)
             return JsonSerializer.Deserialize<TranscriptionStreaming.Progress>(jMessage);
+        if (subsystem == LiveSubtitlesStreaming.Name)
+            return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Progress>(jMessage);
+
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
 }
