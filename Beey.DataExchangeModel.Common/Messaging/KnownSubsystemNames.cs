@@ -24,6 +24,7 @@ public static class KnownSubsystemNames
     public const string SppSubsystem = "Spp";
 
     public const string TranscriptionStreamingSubsystem = "TranscriptionStreaming";
+    public const string LiveSubtitlesStreamingSubsystem = "LiveSubtitlesStreaming";
 
     public const string TranscriptionTracking = "TranscriptionTracking";
     public const string TranscriptionTimeLogging = "TranscriptionTimeLogging";
