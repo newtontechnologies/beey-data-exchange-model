@@ -623,7 +623,7 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
         if (subsystem == LiveSubtitlesStreaming.Name)
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Started>(jMessage);
 
-        throw new NotImplementedException($"Unknown subsystem {subsystem}");
+        return JsonSerializer.Deserialize<StartedMessage>(jMessage);
     }
 
     static CompletedMessage? DiscriminateCompletedMessage(JsonObject jMessage, JsonSerializerOptions? options, string subsystem)
@@ -677,7 +677,7 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
         if (subsystem == LiveSubtitlesStreaming.Name)
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Completed>(jMessage);
 
-        throw new NotImplementedException($"Unknown subsystem {subsystem}");
+        return JsonSerializer.Deserialize<CompletedMessage>(jMessage);
     }
 
 
@@ -730,7 +730,7 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
         if (subsystem == LiveSubtitlesStreaming.Name)
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Failed>(jMessage);
 
-        throw new NotImplementedException($"Unknown subsystem {subsystem}");
+        return JsonSerializer.Deserialize<FailedMessage>(jMessage);
     }
 
     static ProgressMessage? DiscriminateProgressMessage(JsonObject jMessage, JsonSerializerOptions? options, string subsystem)
@@ -776,6 +776,6 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
         if (subsystem == LiveSubtitlesStreaming.Name)
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Progress>(jMessage);
 
-        throw new NotImplementedException($"Unknown subsystem {subsystem}");
+        return JsonSerializer.Deserialize<ProgressMessage>(jMessage);
     }
 }
