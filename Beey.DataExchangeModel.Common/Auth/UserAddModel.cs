@@ -1,4 +1,5 @@
-﻿using Beey.DataExchangeModel.Tools;
+﻿using Beey.DataExchangeModel.Common.Users;
+using Beey.DataExchangeModel.Tools;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Nodes;
@@ -21,4 +22,6 @@ public class UserAddModel
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public Undefinable<int> TeamId { get; set; }
     public JsonObject? Settings { get; set; }
+    public List<UserMetadataAddModel>? Metadata { get; set; }
+
 }
