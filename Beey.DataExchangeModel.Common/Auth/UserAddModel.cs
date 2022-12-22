@@ -22,6 +22,4 @@ public class UserAddModel
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public Undefinable<int> TeamId { get; set; }
     public JsonObject? Settings { get; set; }
-    public List<UserMetadataAddModel>? Metadata { get; set; }
-
 }
