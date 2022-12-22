@@ -72,6 +72,6 @@ public class UserDetail
     public class MetadataView
     {
         public string Key { get; set; }
-        public string? Value { get; set; }
+        public JsonNode? Value { get; set; }
     }
 }
