@@ -1,4 +1,5 @@
-﻿using Beey.DataExchangeModel.Tools;
+﻿using Beey.DataExchangeModel.Common.Users;
+using Beey.DataExchangeModel.Tools;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Nodes;

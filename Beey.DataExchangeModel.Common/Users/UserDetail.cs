@@ -21,6 +21,7 @@ public class UserDetail
     public List<CreditChangeHistoryEntryView> CreditChangeHistory { get; set; }
     public List<OrderInfoView> OrderHistory { get; set; }
     public List<ProjectView> Projects { get; set; }
+    public List<MetadataView> Metadata { get; set; }
 
     public class PaymentInfoView
     {
@@ -66,5 +67,11 @@ public class UserDetail
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public PaymentStatus PaymentStatus { get; set; } = PaymentStatus.None;
+    }
+
+    public class MetadataView
+    {
+        public string Key { get; set; }
+        public JsonNode? Value { get; set; }
     }
 }
