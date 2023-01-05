@@ -45,4 +45,7 @@ public class TeamAdminViewModel : TeamViewModel
 
     public decimal TranscribedMinutesPerPeriod { get; set; }
     public IEnumerable<Member> Members { get; set; }
+
+    public string? ManagementGroup { get; set; }
+    public int? ManagementGroupId { get; set; }
 }
