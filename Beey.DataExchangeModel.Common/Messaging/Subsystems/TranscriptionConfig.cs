@@ -10,6 +10,5 @@ public record TranscriptionConfig(
     int UserId,
     bool TrialTranscription,
     bool WithSpeakerId,
-    bool WithDiarization,
-    string[]? VoiceprintModelsFilter
+    bool WithDiarization
     );
