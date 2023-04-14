@@ -19,7 +19,6 @@ public class TeamViewModel
     public JsonArray CustomProjectTags { get; set; } = new();
     public int MemberCount { get; set; }
     public JsonObject? Settings { get; set; }
-    public List<string>? VoiceprintModelsFilter { get; set; }
 }
 
 public class TeamStandardViewModel : TeamViewModel
