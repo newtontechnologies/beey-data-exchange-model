@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Auth;
 
-public class UserViewModel
+public class UserDto
 {
     public bool CommercialCommunicationConsent { get; set; }
     public DateTimeOffset? Created { get; set; }

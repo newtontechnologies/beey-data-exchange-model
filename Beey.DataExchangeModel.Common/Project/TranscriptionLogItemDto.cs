@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Projects;
 
-public class TranscriptionLogItemViewModel
+public class TranscriptionLogItemDto
 {
     public int ProjectId { get; set; }
-    public string ProjectName { get; set; }
+    public string? ProjectName { get; set; }
     public decimal TranscribedMinutes { get; set; }
-    public DateTimeOffset Created { get; set; }
+    public DateTimeOffset? Created { get; set; }
 }

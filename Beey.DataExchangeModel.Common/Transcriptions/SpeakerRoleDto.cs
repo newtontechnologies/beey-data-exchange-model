@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Common.Transcriptions;
 
-public class SpeakerRoleViewModel
+public class SpeakerRoleDto
 {
     public int Id { get; set; }
     public string? Value { get; set; }

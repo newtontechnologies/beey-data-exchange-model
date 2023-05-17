@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Auth;
 
-public class UserUpdateModel
+public class UserUpdateDto
 {
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
     public int Id { get; set; }

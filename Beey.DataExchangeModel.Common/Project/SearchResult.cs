@@ -6,7 +6,7 @@ namespace Beey.DataExchangeModel.Projects;
 
 public class SearchResult
 {
-    public Project Project { set; get; }
+    public ProjectDto Project { set; get; }
 
     public string[] ProjectNameHighlight { set; get; }
 

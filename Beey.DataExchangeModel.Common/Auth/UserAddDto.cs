@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Auth;
 
-public class UserAddModel
+public class UserAddDto
 {
     [Required]
     public string Email { get; set; }
