@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Users;
 
-public class PaymentInfoAddModel
+public class PaymentInfoAddDto
 {
     public string Email { get; set; } = default!;
     public string? PhoneNumber { get; set; }
@@ -34,7 +34,7 @@ public class PaymentInfoAddModel
 
     public bool ReverseCharge { get; set; }
 }
-public class PaymentInfoViewModel : PaymentInfoAddModel
+public class PaymentInfoDto : PaymentInfoAddDto
 {
     public int Id { get; set; }
     public DateTimeOffset? Created { get; set; }

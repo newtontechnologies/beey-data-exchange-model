@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Projects;
 
-public class LastProjectError : EntityBase
+public class LastProjectErrorDto : EntityDtoBase
 {
     public int ProjectId { get; set; }
     [JsonConverter(typeof(JsonStringEnumConverter))]

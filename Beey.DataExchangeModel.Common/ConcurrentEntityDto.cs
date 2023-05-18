@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Beey.DataExchangeModel;
 
-public class ConcurrentEntity : EntityBase
+public class ConcurrentEntityDto : EntityDtoBase
 {
     public long AccessToken { get; set; }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Teams;
 
-public class TeamViewModel
+public class TeamDto
 {
     public int Id { get; set; }
     public string Email { get; set; }
@@ -21,7 +21,7 @@ public class TeamViewModel
     public JsonObject? Settings { get; set; }
 }
 
-public class TeamStandardViewModel : TeamViewModel
+public class TeamDtoStandard : TeamDto
 {
     public class Member
     {
@@ -32,7 +32,7 @@ public class TeamStandardViewModel : TeamViewModel
     public IEnumerable<Member> Members { get; set; }
 }
 
-public class TeamAdminViewModel : TeamViewModel
+public class TeamDtoAdmin : TeamDto
 {
     public class Member
     {

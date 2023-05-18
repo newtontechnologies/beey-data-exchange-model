@@ -10,7 +10,7 @@ using System.Text.Json.Nodes;
 
 namespace Beey.DataExchangeModel.Projects;
 
-public class Project : ConcurrentEntity
+public class ProjectDto : ConcurrentEntityDto
 {
     public string? Name { get; set; }
     public TimeSpan Length { get; set; }

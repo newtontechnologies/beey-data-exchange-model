@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Beey.DataExchangeModel.Projects;
 
-public class ProjectMetadata : EntityBase
+public class ProjectMetadataDto : EntityDtoBase
 {
     public int ProjectId { get; set; }
     public string Key { get; set; }

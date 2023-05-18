@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Users;
 
-public class AggregatedTranscriptionLogView
+public class AggregatedTranscriptionLogDto
 {
     public int Year { get; }
     public int Month { get; }
     public decimal Minutes { get; }
 
-    public AggregatedTranscriptionLogView(int year, int month, decimal minutes)
+    public AggregatedTranscriptionLogDto(int year, int month, decimal minutes)
     {
         Year = year;
         Month = month;

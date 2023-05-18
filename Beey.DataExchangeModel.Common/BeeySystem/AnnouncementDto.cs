@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.BeeySystem;
 
-public class Announcement : EntityBase
+public class AnnouncementDto : EntityDtoBase
 {
     [JsonIgnore]
     public DateTime FromUtc { get; set; }
@@ -23,16 +23,6 @@ public class Announcement : EntityBase
 
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public AnnouncementImportance Importance { get; set; }
-
-    public AnnouncementTemplate? Template { get; set; }
-
-    [JsonIgnore]
-    public string? _TemplateParameters { get; set; }
-    public JsonArray? TemplateParameters
-    {
-        get => _TemplateParameters == null ? null : (JsonArray)JsonNode.Parse(_TemplateParameters)!;
-        set => _TemplateParameters = value?.ToJsonString();
-    }
 
     [JsonIgnore]
     public string? _Localizations { get; set; }

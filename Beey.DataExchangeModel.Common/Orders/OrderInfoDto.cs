@@ -12,9 +12,9 @@ namespace Beey.DataExchangeModel.Orders;
 
 public enum PaymentStatus { None, Failed, Successful }
 
-public class OrderInfoViewModel
+public class OrderInfoDto
 {
-    public OrderInfoViewModel() { }
+    public OrderInfoDto() { }
 
     public DateTimeOffset? Created { get; set; }
     public int UserId { get; set; }

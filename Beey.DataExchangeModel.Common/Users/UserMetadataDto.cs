@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Users;
-public class UserMetadataViewModel : EntityBase
+public class UserMetadataDto : EntityDtoBase
 {
     public int UserId { get; set; }
     public string Key { get; set; }

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Beey.DataExchangeModel;
 
-public abstract class EntityBase
+public abstract class EntityDtoBase
 {
     public int Id { get; set; }
 

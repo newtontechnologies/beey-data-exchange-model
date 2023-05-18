@@ -6,4 +6,4 @@ using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Common.Users;
 
-public record UserMetadataAddModel(string Key, string? Value = null);
+public record UserMetadataAddDto(string Key, string? Value = null);
