@@ -19,6 +19,7 @@ public class TeamDto
     public JsonArray CustomProjectTags { get; set; } = new();
     public int MemberCount { get; set; }
     public JsonObject? Settings { get; set; }
+    public TimeSpan? AbandonProjectsIn { get; set; }
 }
 
 public class TeamDtoStandard : TeamDto
