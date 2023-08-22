@@ -337,4 +337,13 @@ public static partial class KnownSubsystems
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, Name, Sent);
     }
+
+    public static partial class ProjectUpdates
+    {
+        [JsonSerializable(typeof(Progress))]
+        public partial class ProjectUpdatesSerializerContext : JsonSerializerContext { };
+        public static string Name => KnownSubsystemNames.ProjectUpdates;
+        public sealed record Progress(int? ProjectId, JsonNode Data)
+            : ProgressMessage(-1, new SubsystemNodeIndex(), ProjectId, Name, DateTimeOffset.Now, Data);
+    }
 }
