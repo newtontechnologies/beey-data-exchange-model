@@ -8,7 +8,7 @@ using Beey.DataExchangeModel.Messaging.Subsystems;
 
 namespace Beey.DataExchangeModel.Common.Messaging.Subsystems;
 
-public enum Changed { KeywordHighlights }
+public enum Changed { KeywordsHighlight }
 
 public class ProjectUpdatesData : SubsystemData<ProjectUpdatesData>
 {
