@@ -13,7 +13,6 @@ namespace Beey.DataExchangeModel.Serialization.JsonConverters;
 
 public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
 {
-
     public override bool CanConvert(Type typeToConvert) =>
         typeof(Message).IsAssignableFrom(typeToConvert);
 
@@ -566,6 +565,11 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (LiveSubtitlesStreaming.Progress)value, LiveSubtitlesStreaming.LiveSubtitlesStreamingSerializerContext.Default.Progress);
             return;
         }
+        else if (subsystem == ProjectUpdates.Name)
+        {
+            JsonSerializer.Serialize(writer, (ProjectUpdates.Progress)value, ProjectUpdates.ProjectUpdatesSerializerContext.Default.Progress);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -775,6 +779,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize<TranscriptionStreaming.Progress>(jMessage);
         if (subsystem == LiveSubtitlesStreaming.Name)
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Progress>(jMessage);
+        if (subsystem == ProjectUpdates.Name)
+            return JsonSerializer.Deserialize<ProjectUpdates.Progress>(jMessage);
 
         return JsonSerializer.Deserialize<ProgressMessage>(jMessage);
     }
