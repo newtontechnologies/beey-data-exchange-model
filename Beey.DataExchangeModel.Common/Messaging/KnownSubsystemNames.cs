@@ -29,7 +29,6 @@ public static class KnownSubsystemNames
     public const string TranscriptionTracking = "TranscriptionTracking";
     public const string TranscriptionTimeLogging = "TranscriptionTimeLogging";
     public const string TranscriptionCreation = "TranscriptionCreation";
-    public const string CreditReservation = "CreditReservation";
     public const string ProjectStatusMonitor = "ProjectStatusMonitor";
     public const string VoiceprintAggregation = "VoiceprintAggregation";
     public const string TranscriptionQueueTrackingSubsystem = "TranscriptionQueueTracking";
@@ -43,4 +42,8 @@ public static class KnownSubsystemNames
     public const string PackagingGroup = "Packaging";
     public const string TextCreationGroup = "TextCreation";
     public const string ChainControl = "ChainControl";
+
+    // Virtual subsystems
+    public const string CreditReservation = "CreditReservation";
+    public const string ProjectUpdates = "ProjectUpdates";
 }
