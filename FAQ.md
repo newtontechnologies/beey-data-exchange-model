@@ -32,3 +32,7 @@ AccessToken.
 
 Do not confuse AccessToken and AuthToken. AuthToken is a string that proves that you are
 authorized to make the change. AccessToken is an integer that proves that you have project up to date.
+
+## Media file was uploaded but the transcription is loading and there is no error
+
+Check that you called the Enqueue endpoint, which triggers the transcription, see the example scripts.
