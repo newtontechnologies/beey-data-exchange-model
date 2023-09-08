@@ -100,7 +100,7 @@ def download_original_trsx(auth_token, project_id):
     payload  = {}
     headers = {
         'Authorization': auth_token,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json' 
     }
 
     response = requests.request('GET', url, headers=headers, data = payload)
