@@ -194,7 +194,7 @@ C# library
 
 A library implementing connection to the most important endpoints including examples is available here: [beey-dotnet-client](https://github.com/newtontechnologies/beey-dotnet-client)
 
-Complete list of endpoints
+Complete list of endpoints 
 --------------------------
 
 The complete list of endpoints is available as a postman collection. To open it, install Postman and import the collection: [Beey.postman_collection.json](https://github.com/newtontechnologies/beey-data-exchange-model/blob/master/Beey.postman_collection.json)
