@@ -6,7 +6,8 @@ using System.Text.Json.Nodes;
 
 namespace Beey.DataExchangeModel.Messaging;
 
-public record StartedMessage(int Id, ImmutableArray<int> Index, int? ProjectId, string Subsystem, DateTimeOffset Sent) : Message(Id, Index, ProjectId, Subsystem, Sent)
+public record StartedMessage(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, string Subsystem, DateTimeOffset Sent)
+    : Message(Id, Index, ProjectId, ChainId, Subsystem, Sent)
 {
     public override MessageType Type => MessageType.Started;
 
