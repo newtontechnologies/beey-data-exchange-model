@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Beey.DataExchangeModel.Messaging;
 
 //subsystem must be always second in serialized data..
-public abstract record Message(int Id, ImmutableArray<int> Index, int? ProjectId, [property: JsonPropertyOrder(int.MinValue + 1)] string Subsystem, DateTimeOffset Sent)
+public abstract record Message(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, [property: JsonPropertyOrder(int.MinValue + 1)] string Subsystem, DateTimeOffset Sent)
 {
     [JsonConverter(typeof(JsonStringEnumConverter))]
     [JsonPropertyOrder(int.MinValue)]//always must be second for deserialization to work

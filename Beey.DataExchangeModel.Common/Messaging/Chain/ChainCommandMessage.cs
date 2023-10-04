@@ -25,7 +25,8 @@ public enum ChainCommand
     Kill,
 }
 
-public abstract record ChainCommandMessage(int Id, ImmutableArray<int> Index, int? ProjectId, DateTimeOffset Sent, ChainCommand Command) : Message(Id, Index, ProjectId, KnownSubsystemNames.ChainControl, Sent)
+public abstract record ChainCommandMessage(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, ChainCommand Command)
+    : Message(Id, Index, ProjectId, ChainId, KnownSubsystemNames.ChainControl, Sent)
 {
     public override MessageType Type => MessageType.ChainCommand;
 }
