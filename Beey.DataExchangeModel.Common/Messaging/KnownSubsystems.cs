@@ -343,7 +343,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Progress))]
         public partial class ProjectUpdatesSerializerContext : JsonSerializerContext { };
         public static string Name => KnownSubsystemNames.ProjectUpdates;
-        public sealed record Progress(int? ProjectId, JsonNode Data)
-            : ProgressMessage(-1, new SubsystemNodeIndex(), ProjectId, null, Name, DateTimeOffset.Now, Data);
+        public sealed record Progress(int? ProjectId, int? ChainId, JsonNode Data)
+            : ProgressMessage(-1, new SubsystemNodeIndex(), ProjectId, ChainId, Name, DateTimeOffset.Now, Data);
     }
 }
