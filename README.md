@@ -16,7 +16,7 @@ import os
 import time
 import sys
 
-def load_credentials():
+def load_credentials(): 
     try:
         with open('credentials.txt') as credentials:
             server = next(credentials)[:-1]
