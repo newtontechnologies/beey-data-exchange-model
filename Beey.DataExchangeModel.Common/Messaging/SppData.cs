@@ -17,5 +17,8 @@ public class SppData : SubsystemData<SppData>
     [JsonConverter(typeof(JsonNgEventConverter))]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public NgSpeakerEvent? DiarizationData { get; set; } = null;
+    [JsonConverter(typeof(JsonNgEventConverter))]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public NgVoiceprintEvent? VoiceprintData { get; set; } = null;
 }
 
