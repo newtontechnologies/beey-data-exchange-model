@@ -2,7 +2,7 @@
 API Usage
 =========
 
-To access Beey API, you need credentials first. Create an account at editor.beey.io. Your credentials are your e-mail and password that you use to log in Beey editor. The server URL is https://editor.beey.io/
+To access Beey API, you need credentials first. Create an account at editor.beey.io. Your credentials are your e-mail and password that you use to log in Beey editor. The server URL is https://editor.beey.io
 
 <details>
 <summary>Click here to see example usage script in python</summary>
@@ -19,14 +19,12 @@ import sys
 def load_credentials():
     try:
         with open('credentials.txt') as credentials:
-            server = next(credentials)[:-1]
-            email = next(credentials)[:-1]
-            password = next(credentials)[:-1]
+            server, email, password = credentials.read().splitlines()
     except Exception:
         print('failed to read credentials')
         print('create file credentials.txt containing three lines: server address, email, password')
         sys.exit(1)
-    return [server, email, password]
+    return [server.rstrip('/'), email, password]
 
 def login(server, email, password):
     url = server + '/API/Login'
