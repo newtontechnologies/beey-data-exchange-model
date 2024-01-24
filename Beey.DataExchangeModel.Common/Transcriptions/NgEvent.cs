@@ -24,6 +24,7 @@ public abstract class NgEvent
             "s" or "e" => new NgSpeakerEvent(e),
             "p" => new NgPhraseEvent(e),
             "r" => new NgRecoveryEvent(e),
+            "v" => new NgVoiceprintEvent(e),
             _ => throw new NotImplementedException(),
         };
     }
