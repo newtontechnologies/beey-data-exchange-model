@@ -17,23 +17,22 @@ public enum ProjectErrorCategory
 public enum ProjectErrorReason_Upload
 {
     Unknown,
-    NoFiles,
+    MissingFile,
 }
 
 public enum ProjectErrorReason_Transcoding
 {
-    UnknownLength,
-    NoAudio,
-    NoBitRate,
-    NoStream,
+    UnknownDuration,
+    MissingAudio,
+    MissingBitRateInformation,
     NoAudioProduced,
     NoVideoProduced,
-    TranscodeStuck,
+    TranscodingStuck,
 }
 
 public enum ProjectErrorReason_Transcription
 {
-    EmptyTrsxNotSaved,
+    NoDataToCreateTrsx,
     InvalidTimestampInterval,
     MissingMedia,
     InvalidLanguage,
