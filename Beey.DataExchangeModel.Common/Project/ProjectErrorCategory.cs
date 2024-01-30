@@ -38,6 +38,9 @@ public enum ProjectErrorReason_Transcription
     InvalidTimestampInterval,
     MissingMedia,
     InvalidLanguage,
+    InvalidState,
+    InsufficientCapacity,
+    Unauthorised,
 }
 
 public enum ProjectErrorReason_General
