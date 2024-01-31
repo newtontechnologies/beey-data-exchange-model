@@ -29,6 +29,9 @@ public class OrderInfoDto
     public string? PaymentPrCode { get; set; }
     public string? PaymentSrCode { get; set; }
     public string? PaymentResultText { get; set; }
+
+    public string? StripeCheckoutId { get; set; }
+    public string? StripeInvoiceId { get; set; }
     public bool InfoMailSent { get; set; }
     public bool ResultMailSent { get; set; }
     public bool CreditAdded { get; set; }
