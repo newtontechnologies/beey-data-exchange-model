@@ -40,7 +40,7 @@ public enum ProjectErrorReason_Transcription
     InvalidLanguage,
     InvalidState,
     InsufficientCapacity,
-    Unauthorised,
+    NanogridUnauthorised,
 }
 
 public enum ProjectErrorReason_General
