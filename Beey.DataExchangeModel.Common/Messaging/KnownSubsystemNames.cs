@@ -19,6 +19,7 @@ public static class KnownSubsystemNames
     public const string RawRecognitionSubsystem = "RawRecognition";
     public const string RawDiarizationSubsystem = "RawDiarization";
 
+    public const string NanoGridCombinedSubsystem = "NanoGrid";
 
     public const string SpeakerIdentificationSubsystem = "SpeakerIdentification";
     public const string SppSubsystem = "Spp";
