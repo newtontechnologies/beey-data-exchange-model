@@ -346,4 +346,19 @@ public static partial class KnownSubsystems
         public sealed record Progress(int? ProjectId, int? ChainId, JsonNode Data)
             : ProgressMessage(-1, new SubsystemNodeIndex(), ProjectId, ChainId, Name, DateTimeOffset.Now, Data);
     }
+
+    public static partial class NanoGrid
+    {
+        [JsonSerializable(typeof(Started))]
+        [JsonSerializable(typeof(Progress))]
+        [JsonSerializable(typeof(Failed))]
+        [JsonSerializable(typeof(Completed))]
+        public partial class NanoGridSerializerContext : JsonSerializerContext { };
+        public static string Name => KnownSubsystemNames.NanoGridCombinedSubsystem;
+
+        public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
+        public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
+        public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
+        public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
+    }
 }
