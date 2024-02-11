@@ -16,7 +16,6 @@ public enum ProjectErrorCategory
 
 public enum ProjectErrorReason_Upload
 {
-    Unknown,
     MissingFile,
 }
 
@@ -40,7 +39,8 @@ public enum ProjectErrorReason_Transcription
     InvalidLanguage,
     InvalidState,
     InsufficientCapacity,
-    NanogridUnauthorised,
+    NanogridUnauthorized,
+    NanogridUnknown,
 }
 
 public enum ProjectErrorReason_General
