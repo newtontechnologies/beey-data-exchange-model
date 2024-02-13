@@ -10,6 +10,6 @@ public class NanoGridData : SubsystemData<NanoGridData>
 {
     public NgTrack Track { get; set; } = default!;
 
-    [JsonConverter(typeof(JsonNgItemConverter))]
+    [JsonConverter(typeof(JsonEnumerableConverter<NgItem, JsonNgItemConverter>))]
     public IEnumerable<NgItem> Items { get; set; } = default!;
 }
