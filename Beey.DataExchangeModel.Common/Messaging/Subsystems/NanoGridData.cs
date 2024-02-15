@@ -8,6 +8,7 @@ public enum NgTrack { Recognition, Diarization, Voiceprints };
 
 public class NanoGridData : SubsystemData<NanoGridData>
 {
+    public string NgRequestId { get; set; } = default!;
     public NgTrack Track { get; set; } = default!;
 
     [JsonConverter(typeof(JsonEnumerableConverter<NgItem, JsonNgItemConverter>))]
