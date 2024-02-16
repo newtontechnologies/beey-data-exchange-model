@@ -9,8 +9,6 @@ namespace Beey.DataExchangeModel.Messaging;
 //subsystem must be always second in serialized data..
 public abstract record Message(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, [property: JsonPropertyOrder(int.MinValue + 1)] string Subsystem, DateTimeOffset Sent)
 {
-    [JsonConverter(typeof(JsonStringEnumConverter<MessageType>))]
-    [JsonPropertyOrder(int.MinValue)]//always must be second for deserialization to work
     public abstract MessageType Type { get; }
 
     public static readonly JsonSerializerOptions DefaultJsonSerializerOptions = new JsonSerializerOptions()

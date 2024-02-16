@@ -8,6 +8,7 @@ public abstract record ChainStatusMessage(int Id, ImmutableArray<int> Index, int
     : Message(Id, Index, ProjectId, ChainId, KnownSubsystemNames.ChainControl, Sent)
 {
     public SubsystemStatus? this[string name] => Statuses?[name]?.Status;
+    [JsonPropertyOrder(int.MinValue)]//always must be second for deserialization to work
     public override MessageType Type => MessageType.ChainStatus;
 }
 
@@ -51,6 +52,7 @@ public class StatusNode
     public string? Subsystem { get; set; }
     public SubsystemStatus Status { get; set; }
     public ImmutableArray<int> Index { get; set; } = ImmutableArray<int>.Empty;
+
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public StatusNode[]? Nodes { get; set; }
 }
