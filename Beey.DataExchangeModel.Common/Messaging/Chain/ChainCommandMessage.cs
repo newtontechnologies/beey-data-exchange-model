@@ -2,23 +2,26 @@
 using System.Text.Json.Serialization;
 using Beey.DataExchangeModel.Messaging;
 
-
 namespace Backend.Messaging.Chain;
-[JsonConverter(typeof(JsonStringEnumConverter))]
+
+[JsonConverter(typeof(JsonStringEnumConverter<ChainCommand>))]
 public enum ChainCommand
 {
     /// <summary>
     /// Update of chain configurations
     /// </summary>
     Configuration,
+
     /// <summary>
     /// Start transcribtion
     /// </summary>
     Transcribe,
+
     /// <summary>
     /// Invoke external cancellation
     /// </summary>
     Cancel,
+
     /// <summary>
     /// something is terribly wrong and chain needs to be broken immediately..
     /// </summary>
