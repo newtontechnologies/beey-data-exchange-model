@@ -2,7 +2,7 @@
 
 namespace Backend.Messaging.Chain;
 
-[JsonConverter(typeof(JsonStringEnumConverter))]
+[JsonConverter(typeof(JsonStringEnumConverter<SubsystemStatus>))]
 public enum SubsystemStatus
 {
     NotRunning = 0,
