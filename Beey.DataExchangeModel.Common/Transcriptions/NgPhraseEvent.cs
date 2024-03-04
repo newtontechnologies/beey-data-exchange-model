@@ -16,9 +16,11 @@ public class NgPhraseEvent : NgEvent
 
     public string? Text { get; set; }
     public double Confidence { get; set; }
+    public string? Phonetics { get; set; }
     public NgPhraseEvent()
     {
         Confidence = 1.0;
+        Phonetics = null;
     }
     public NgPhraseEvent(JsonObject source) : base(source)
     {
