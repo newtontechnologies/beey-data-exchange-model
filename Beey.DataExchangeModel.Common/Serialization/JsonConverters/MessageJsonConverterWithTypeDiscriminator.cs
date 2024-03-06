@@ -19,7 +19,7 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
     public override Message? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         MessageType messageType;
-        string subsystem;
+        string? subsystem;
         JsonObject jMessage = (JsonObject)(JsonNode.Parse(ref reader) ?? throw new JsonException());
 
         if (!(jMessage.TryGetPropertyValue(nameof(Message.Type), out var jType)
@@ -202,6 +202,11 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (LiveSubtitlesStreaming.Started)value, LiveSubtitlesStreaming.LiveSubtitlesStreamingSerializerContext.Default.Started);
             return;
         }
+        else if (subsystem == NanoGrid.Name)
+        {
+            JsonSerializer.Serialize(writer, (NanoGrid.Started)value, NanoGrid.NanoGridSerializerContext.Default.Started);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -327,6 +332,11 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
         else if (subsystem == LiveSubtitlesStreaming.Name)
         {
             JsonSerializer.Serialize(writer, (LiveSubtitlesStreaming.Completed)value, LiveSubtitlesStreaming.LiveSubtitlesStreamingSerializerContext.Default.Completed);
+            return;
+        }
+        else if (subsystem == NanoGrid.Name)
+        {
+            JsonSerializer.Serialize(writer, (NanoGrid.Completed)value, NanoGrid.NanoGridSerializerContext.Default.Completed);
             return;
         }
 
@@ -457,7 +467,11 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (LiveSubtitlesStreaming.Failed)value, LiveSubtitlesStreaming.LiveSubtitlesStreamingSerializerContext.Default.Failed);
             return;
         }
-
+        else if (subsystem == NanoGrid.Name)
+        {
+            JsonSerializer.Serialize(writer, (NanoGrid.Failed)value, NanoGrid.NanoGridSerializerContext.Default.Failed);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -570,6 +584,11 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             JsonSerializer.Serialize(writer, (ProjectUpdates.Progress)value, ProjectUpdates.ProjectUpdatesSerializerContext.Default.Progress);
             return;
         }
+        else if (subsystem == NanoGrid.Name)
+        {
+            JsonSerializer.Serialize(writer, (NanoGrid.Progress)value, NanoGrid.NanoGridSerializerContext.Default.Progress);
+            return;
+        }
 
         throw new NotImplementedException($"Unknown subsystem {subsystem}");
     }
@@ -626,6 +645,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize<TranscriptionQueueTracking.Started>(jMessage);
         if (subsystem == LiveSubtitlesStreaming.Name)
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Started>(jMessage);
+        if (subsystem == NanoGrid.Name)
+            return JsonSerializer.Deserialize<NanoGrid.Started>(jMessage);
 
         return JsonSerializer.Deserialize<StartedMessage>(jMessage);
     }
@@ -680,6 +701,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize<TranscriptionQueueTracking.Completed>(jMessage);
         if (subsystem == LiveSubtitlesStreaming.Name)
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Completed>(jMessage);
+        if (subsystem == NanoGrid.Name)
+            return JsonSerializer.Deserialize<NanoGrid.Completed>(jMessage);
 
         return JsonSerializer.Deserialize<CompletedMessage>(jMessage);
     }
@@ -733,6 +756,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize<TranscriptionStreaming.Failed>(jMessage);
         if (subsystem == LiveSubtitlesStreaming.Name)
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Failed>(jMessage);
+        if (subsystem == NanoGrid.Name)
+            return JsonSerializer.Deserialize<NanoGrid.Failed>(jMessage);
 
         return JsonSerializer.Deserialize<FailedMessage>(jMessage);
     }
@@ -781,6 +806,8 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Progress>(jMessage);
         if (subsystem == ProjectUpdates.Name)
             return JsonSerializer.Deserialize<ProjectUpdates.Progress>(jMessage);
+        if (subsystem == NanoGrid.Name)
+            return JsonSerializer.Deserialize<NanoGrid.Progress>(jMessage);
 
         return JsonSerializer.Deserialize<ProgressMessage>(jMessage);
     }
