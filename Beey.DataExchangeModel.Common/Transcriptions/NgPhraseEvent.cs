@@ -27,10 +27,13 @@ public class NgPhraseEvent : NgEvent
         Begin = TimeSpan.FromMilliseconds(source["b"].Deserialize<long>());
         End = TimeSpan.FromMilliseconds(source["e"].Deserialize<long>());
         Text = source["t"]?.Deserialize<string>();
-        if (source.TryGetPropertyValue("c", out var token))
-            Confidence = token.Deserialize<double>();
+        if (source.TryGetPropertyValue("c", out var cToken))
+            Confidence = cToken.Deserialize<double>();
         else
             Confidence = 1.0;
+
+        if (source.TryGetPropertyValue("p", out var pToken))
+            Phonetics = pToken.Deserialize<string>();
     }
 
     public override JsonObject Serialize()
@@ -43,12 +46,20 @@ public class NgPhraseEvent : NgEvent
                 { "k", "p" },
                 { "t", Text },
                 { "c", Confidence },
+                { "p", Phonetics },
             };
     }
 
     public TranscriptionPhrase ToPhrase()
     {
-        var result = new TranscriptionPhrase() { Begin = Begin, End = End, Text = Text };
+        var result = new TranscriptionPhrase()
+        {
+            Begin = Begin,
+            End = End,
+            Text = Text,
+            Phonetics = Phonetics
+        };
+
         result.Elements.Add("c", Confidence.ToString(System.Globalization.CultureInfo.InvariantCulture));
         return result;
     }
