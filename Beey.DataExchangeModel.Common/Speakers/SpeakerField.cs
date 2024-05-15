@@ -19,4 +19,6 @@ public readonly struct SpeakerField(string fieldName)
     public static SpeakerField ImageBase64 { get; } = new("imageBase64");
 
     public static SpeakerField DefaultIsoLang { get; } = new("defaultIsoLang");
+
+    public static SpeakerField Role { get; } = new("role");
 }
