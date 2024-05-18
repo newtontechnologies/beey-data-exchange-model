@@ -18,6 +18,9 @@ public class Listing<T>
         ListedCount = listedCount;
         List = list;
     }
+
+    public Listing<T2> Convert<T2>(Func<T, T2> convertItem)
+        => new(this.TotalCount, this.ListedCount, this.List.Select(convertItem).ToArray());
 }
 
 public static class Listing
