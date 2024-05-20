@@ -56,6 +56,15 @@ public class SpeakerCatalogRequestDelete
     public required SpeakerCatalogScope? Scope { get; set; }
 }
 
+public class SpeakerResultByIdDto
+{
+    /// <summary> Id of speaker which was requested originally </summary>
+    public required string RequestedId { get; set; }
+
+    /// <summary> Speaker found in the database; it can be another speaker if the original was redirected </summary>
+    public required SpeakerDto Speaker { get; set; }
+}
+
 public class RequestPage
 {
     [DefaultValue(0)]
