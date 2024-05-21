@@ -17,6 +17,16 @@ public class SpeakerCatalogRequestList
     public SpeakerCatalogScope? Scope { get; set; }
 }
 
+public class SpeakerCatalogRequestSuggest
+{
+    public required string Search { get; set; }
+
+    [DefaultValue(1000)] // for Swagger
+    public int? Count { get; set; }
+
+    public SpeakerCatalogScope? Scope { get; set; }
+}
+
 public class SpeakerCatalogRequestGet
 {
     public required string SpeakerId { get; set; }
@@ -70,7 +80,7 @@ public class RequestPage
     [DefaultValue(0)]
     public int Skip { get; set; }
 
-    [DefaultValue(1000)]
-    public int Count { get; set; }
+    [DefaultValue(1000)] // for Swagger
+    public int Count { get; set; } = 1000;
 }
 
