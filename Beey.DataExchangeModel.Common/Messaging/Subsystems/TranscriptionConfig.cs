@@ -10,5 +10,6 @@ public record TranscriptionConfig(
     int UserId,
     bool TrialTranscription,
     bool WithSpeakerId,
-    bool WithDiarization
+    bool WithDiarization,
+    bool WithUserLex
     );
