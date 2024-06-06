@@ -21,7 +21,9 @@ public class OrderInfoDto
     public ulong OrderNumber { get; set; }
     public uint Credit { get; set; }
     public decimal Amount { get; set; }
+    public uint Quantity { get; set; }
     public string? Currency { get; set; }
+    public string ProductName { get; set; }
     public string? Language { get; set; }
 
     [JsonConverter(typeof(JsonStringEnumConverter))]
@@ -29,6 +31,9 @@ public class OrderInfoDto
     public string? PaymentPrCode { get; set; }
     public string? PaymentSrCode { get; set; }
     public string? PaymentResultText { get; set; }
+
+    public string? StripeCheckoutId { get; set; }
+    public string? StripeInvoiceId { get; set; }
     public bool InfoMailSent { get; set; }
     public bool ResultMailSent { get; set; }
     public bool CreditAdded { get; set; }

@@ -63,6 +63,9 @@ public class UserDetail
         public uint Credit { get; set; }
         public decimal Amount { get; set; }
         public string Currency { get; set; }
+        public uint Quantity { get; set; }
+        public string ProductName { get; set; }
+
         public string Language { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
