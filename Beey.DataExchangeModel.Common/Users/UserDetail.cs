@@ -1,13 +1,7 @@
 ﻿using Beey.DataExchangeModel.Auth;
 using Beey.DataExchangeModel.Orders;
-using Beey.DataExchangeModel.Projects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Users;
 
@@ -52,6 +46,7 @@ public class UserDetail
         public string Name { get; set; }
         public DateTimeOffset Created { get; set; }
         public DateTimeOffset Updated { get; set; }
+        public DateTimeOffset? Start { get; set; }
         public TimeSpan Length { get; set; }
         public int ShareCount { get; set; }
         public JsonArray Tags { get; set; }

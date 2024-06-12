@@ -1,9 +1,4 @@
-﻿using Beey.DataExchangeModel.Serialization;
-using Beey.DataExchangeModel.Auth;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
+﻿using System.Text.Json;
 using Beey.DataExchangeModel.Messaging.Subsystems;
 using System.Text.Json.Serialization;
 using System.Text.Json.Nodes;
@@ -13,6 +8,7 @@ namespace Beey.DataExchangeModel.Projects;
 public class ProjectDto : ConcurrentEntityDto
 {
     public string? Name { get; set; }
+    public DateTimeOffset? Start { get; set; }
     public TimeSpan Length { get; set; }
 
     [JsonIgnore]
