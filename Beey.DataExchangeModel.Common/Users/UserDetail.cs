@@ -7,6 +7,7 @@ namespace Beey.DataExchangeModel.Users;
 
 public class UserDetail
 {
+    
     public string Email { get; set; }
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public UserRole UserRole { get; set; }

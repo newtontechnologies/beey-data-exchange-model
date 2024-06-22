@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\objectgraphvalidation\ObjectGraphValidation.csproj" />
     <ProjectReference Include="..\TranscriptionCore\TranscriptionCore.csproj" />
   </ItemGroup>
   <ItemGroup>

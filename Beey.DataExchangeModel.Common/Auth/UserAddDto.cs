@@ -1,15 +1,15 @@
-﻿using Beey.DataExchangeModel.Common.Users;
-using Beey.DataExchangeModel.Tools;
-using System;
+﻿using Beey.DataExchangeModel.Tools;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
+using ObjectGraphValidation; 
 
 namespace Beey.DataExchangeModel.Auth;
 
-public class UserAddDto
+public class UserAddDto: BaseDto
 {
     [Required]
+    [EmailAddressCustom]
     public string Email { get; set; }
     [Required]
     public string Password { get; set; }
