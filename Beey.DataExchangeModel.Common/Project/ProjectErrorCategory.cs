@@ -11,6 +11,7 @@ public enum ProjectErrorCategory
 public enum ProjectErrorReason_Upload
 {
     MissingFile,
+    TeamStorageQuotaExceeded,
 }
 
 public enum ProjectErrorReason_Transcoding
@@ -35,7 +36,6 @@ public enum ProjectErrorReason_Transcription
     InsufficientCapacity,
     NanogridUnauthorized,
     NanogridUnknown,
-    TeamStorageQuotaExceeded
 }
 
 public enum ProjectErrorReason_General
