@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Beey.DataExchangeModel.Projects;
+﻿namespace Beey.DataExchangeModel.Projects;
 
 public enum ProjectErrorCategory
 {
@@ -17,6 +11,7 @@ public enum ProjectErrorCategory
 public enum ProjectErrorReason_Upload
 {
     MissingFile,
+    TeamStorageQuotaExceeded,
 }
 
 public enum ProjectErrorReason_Transcoding
