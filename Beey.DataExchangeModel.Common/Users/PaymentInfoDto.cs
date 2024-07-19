@@ -1,5 +1,6 @@
 ﻿using ObjectGraphValidation;
 using System.ComponentModel.DataAnnotations;
+using Beey.DataExchangeModel.Common.Attributes;
 
 namespace Beey.DataExchangeModel.Users;
 

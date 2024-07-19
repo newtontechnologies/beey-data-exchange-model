@@ -1,5 +1,5 @@
-﻿using System.Text.Json.Nodes;
-using ObjectGraphValidation;
+﻿using System.Text.Json.Nodes; 
+using Beey.DataExchangeModel.Common.Attributes;
 
 namespace Beey.DataExchangeModel.Auth;
 

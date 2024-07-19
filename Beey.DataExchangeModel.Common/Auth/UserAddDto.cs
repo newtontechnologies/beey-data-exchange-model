@@ -1,8 +1,8 @@
 ﻿using Beey.DataExchangeModel.Tools;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Nodes;
-using System.Text.Json.Serialization;
-using ObjectGraphValidation; 
+using System.Text.Json.Serialization; 
+using Beey.DataExchangeModel.Common.Attributes;
 
 namespace Beey.DataExchangeModel.Auth;
 
