@@ -6,7 +6,11 @@ namespace Beey.DataExchangeModel.Common.Attributes;
 public class PhoneCustomAttribute : ValidationAttribute
 {
     protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
-    {   var phone = value.ToString();
+    {   var phone = value?.ToString();
+        if (phone == null)
+        {
+            return ValidationResult.Success;
+        }
         try
         {
             if (!PhoneNumberUtil.GetInstance().IsValidNumber(PhoneNumberUtil.GetInstance().Parse(phone, null)))
