@@ -12,7 +12,7 @@ public enum ErrorTypeEnum
     CannotValidate,
     [Description("NotSupported")]
     NotSupported,
-    [Description("Data protection consent required")]
+    [Description("DataProtectionConsent:Required")]
     DataProtectionConsent
 }
 

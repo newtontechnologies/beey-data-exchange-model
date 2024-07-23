@@ -28,6 +28,7 @@ public class PaymentInfoAddDto
     /// </summary>
     [MaxLength(20)]
     public string? CompanyIdentificationNumber { get; set; }
+
     //public string VATIdentificationNumber { get; set; } //in USA TAX and VAT ids are different
     [MaxLength(1000)]
     public string? Address { get; set; } = default!;
@@ -41,7 +42,7 @@ public class PaymentInfoAddDto
     [MaxLength(1000)]
     public string? Country { get; set; } = default!;
     [Required]
-    [MaxLength(1000)]
+    [MaxLength(5)]
     public string? CountryCode { get; set; } = default!;
     [MaxLength(1000)]
     public string? StateOrRegion { get; set; }
