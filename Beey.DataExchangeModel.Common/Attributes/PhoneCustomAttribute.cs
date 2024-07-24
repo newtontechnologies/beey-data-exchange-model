@@ -7,7 +7,7 @@ public class PhoneCustomAttribute : ValidationAttribute
 {
     protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {   var phone = value?.ToString();
-        if (phone == null)
+        if (String.IsNullOrEmpty(phone))
         {
             return ValidationResult.Success;
         }
