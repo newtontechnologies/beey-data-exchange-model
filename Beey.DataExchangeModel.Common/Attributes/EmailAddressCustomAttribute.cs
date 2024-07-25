@@ -27,16 +27,11 @@ public class EmailAddressCustomAttribute : ValidationAttribute
         RegexOptions.Compiled); 
     protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
-        //if (value == null)
-        //{
-        //    return new ValidationResult($"{validationContext.MemberName}:{ErrorTypeEnum.RequiredFieldMissing.GetDescription()}", new[] { validationContext.MemberName });
-        //}
-
         var email = value?.ToString(); 
 
         if (!string.IsNullOrEmpty(email) && !s_emailRegex.IsMatch(email))
         {
-            return new ValidationResult($"{ErrorTypeEnum.Invalid.GetDescription()} email", new[] { validationContext.MemberName });
+            return new ValidationResult($"Email is invalid.", new[] { validationContext.MemberName });
         }
 
         return ValidationResult.Success;

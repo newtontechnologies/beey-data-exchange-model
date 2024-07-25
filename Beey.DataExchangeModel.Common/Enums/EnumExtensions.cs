@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Beey.DataExchangeModel.Common.Enums;
 public static class EnumExtensions
@@ -15,13 +10,17 @@ public static class EnumExtensions
         Type type = value.GetType();
 
         // Get the field information for the enum value
-        FieldInfo fieldInfo = type.GetField(value.ToString());
+        FieldInfo? fieldInfo = type.GetField(value.ToString());
 
         // Get the DescriptionAttribute on the enum value, if it exists
-        DescriptionAttribute attribute = fieldInfo.GetCustomAttribute<DescriptionAttribute>(false);
+        if (fieldInfo != null)
+        {
+            DescriptionAttribute? attribute = fieldInfo.GetCustomAttribute<DescriptionAttribute>(false);
 
-        // Return the description if the attribute exists; otherwise, return the enum value's name
-        return attribute?.Description ?? value.ToString();
+            // Return the description if the attribute exists; otherwise, return the enum value's name
+            return attribute?.Description ?? value.ToString();
+        }
+        return value.ToString();
     }
 
     public static string FormatMsg(this ErrorTypeEnum errorType, string? fieldName)
@@ -29,7 +28,10 @@ public static class EnumExtensions
         if (!string.IsNullOrEmpty(fieldName) && fieldName.Length > 1)
         {
             // Convert the first character to lowercase for camelCase formatting expected by FE
-            fieldName = char.ToLowerInvariant(fieldName[0]) + fieldName.Substring(1);
+            if (fieldName.Length >= 1)
+            {
+                fieldName = char.ToLowerInvariant(fieldName[0]) + fieldName[1..];
+            }
         }
         return fieldName + ":" + errorType.GetDescription();
     }

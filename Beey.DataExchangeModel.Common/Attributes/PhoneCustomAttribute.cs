@@ -15,13 +15,13 @@ public class PhoneCustomAttribute : ValidationAttribute
         {
             if (!PhoneNumberUtil.GetInstance().IsValidNumber(PhoneNumberUtil.GetInstance().Parse(phone, null)))
             {
-                return new ValidationResult($"{ErrorTypeEnum.Invalid.GetDescription()}:Format", new[] { validationContext.MemberName });
+                return new ValidationResult($"Phone is invalid", new[] { validationContext.MemberName });
             }
             return ValidationResult.Success;
         }
         catch (NumberParseException)
         {
-            return new ValidationResult($"{ErrorTypeEnum.Invalid.GetDescription()}:Format", new[] { validationContext.MemberName });
+            return new ValidationResult($"Phone is invalid", new[] { validationContext.MemberName });
             
         }
 
