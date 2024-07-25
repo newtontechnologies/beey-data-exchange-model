@@ -5,9 +5,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\objectgraphvalidation\ObjectGraphValidation.csproj" />
     <ProjectReference Include="..\TranscriptionCore\TranscriptionCore.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="libphonenumber-csharp" Version="8.13.39" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
   </ItemGroup>
 </Project>
