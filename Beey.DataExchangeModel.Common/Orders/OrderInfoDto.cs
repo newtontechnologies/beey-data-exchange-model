@@ -42,11 +42,14 @@ public class OrderInfoDto
     // Copy of properties from PaymentInfo to save actual data for order.
     public string? Email { get; set; }
     public string? PhoneNumber { get; set; }
-
+    [Obsolete]
     public string? FirstName { get; set; }
+    [Obsolete]
     public string? LastName { get; set; }
-
+    [Obsolete]
     public string? Company { get; set; }
+
+    public string? Name { get; set; }
     public string? TaxIdentificationNumber { get; set; }//DIČ
     public string? CompanyIdentificationNumber { get; set; }//IČ
 

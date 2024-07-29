@@ -25,6 +25,7 @@ public class UserDetail
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Company { get; set; }
+        public string Name { get; set; }
         public string TaxIdentificationNumber { get; set; }
         public string CompanyIdentificationNumber { get; set; }
         public string Address { get; set; }
