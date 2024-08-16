@@ -1,5 +1,4 @@
-﻿using ObjectGraphValidation;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using Beey.DataExchangeModel.Common.Attributes;
 
 namespace Beey.DataExchangeModel.Users;
@@ -56,8 +55,26 @@ public class PaymentInfoDto : PaymentInfoAddDto
     public PaymentInfoDto()
     {
     }
-
-    public PaymentInfoDto(int userId, string? name, string? address, string? addressComplement, string? city, string? company, string? companyIdentificationNumber, string? country, string? countryCode, DateTimeOffset? created, string? email, string? firstName, int id, string? lastName, string? phoneNumber, string? postalCode, bool reverseCharge, string? stateOrRegion, string? taxIdentificationNumber, DateTimeOffset? updated)
+    public PaymentInfoDto(int userId,
+        string? name,
+        string? address,
+        string? addressComplement,
+        string? city,
+        string? company,
+        string? companyIdentificationNumber,
+        string? country,
+        string? countryCode,
+        DateTimeOffset? created,
+        string? email,
+        string? firstName,
+        int id,
+        string? lastName,
+        string? phoneNumber,
+        string? postalCode,
+        bool reverseCharge,
+        string? stateOrRegion,
+        string? taxIdentificationNumber,
+        DateTimeOffset? updated)
     {
         UserId = userId;
         Address = address;
