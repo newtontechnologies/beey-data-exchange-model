@@ -31,4 +31,7 @@ public class AnnouncementDto : EntityDtoBase
         get => _Localizations == null ? null : (JsonObject)JsonNode.Parse(_Localizations)!;
         set => _Localizations = value?.ToJsonString();
     }
+
+    public int[]? TeamIds { get; set; }
+    public int? ManagementGroupId { get; set; }
 }
