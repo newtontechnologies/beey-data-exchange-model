@@ -33,7 +33,7 @@ If you update the speaker you should always keep the other fields intact.
 This document is a recommendation for best compatibility rather than a specification.
 
 | Field | JSON type | Meaning | Example(s) | C# constant for the key |
-|---|---|---|---|
+|---|---|---|---|---|
 | `"firstName"` | [localized text](#localized-texts) | First name | `"Vladimir"`, `{"cz-CZ": "Vladimír"}`, ... | `CommonSpeakerFields.FirstName` |
 | `"middleName"` | [localized text](#localized-texts) | Middle name | `null`, `{}`, ... | `CommonSpeakerFields.MiddleName` |
 | `"lastName"` | [localized text](#localized-texts) | Last name | `"Bind"`, `{"cz-CZ": ""}` | `CommonSpeakerFields.LastName` |
