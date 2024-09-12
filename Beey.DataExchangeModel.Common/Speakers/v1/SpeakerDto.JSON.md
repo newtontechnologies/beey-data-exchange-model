@@ -26,11 +26,11 @@ A complete example:
 
 This example shows multiple possible ways to express localized texts, languages etc.
 
-The JSON structure is opened and you can find anything in the JSON data. All fields are optinal and you can even find fields to have different data types.
-
-If you update the speaker you should always keep the other fields intact.
-
-This document is a recommendation for best compatibility rather than a specification.
+Follow these rules for working with the format:
+* Expect anything and always do the best effort to interpret the values the best way you can.
+* If you can't localized text for your language, implement fallback to other language or neutral variant.
+* The actual format can be always different from the specification. Don't throw exceptions, just read all the fields you can instead.
+* Preserve as much original data as possible when updating the structure.
 
 | Field | JSON type | Meaning | Example(s) | C# constant for the key |
 |---|---|---|---|---|
@@ -57,12 +57,12 @@ In the second case, the object has keys according to available [languages](#lang
 
 | Field | JSON type | Example | Meaning |
 |---|---|---|---|
-| `"*"` | text | `"Zelenskyy"` | optional default (language-agnostic) version of the value |
+| `"*"` | text | `"Zelenskyy"` | optional neutral version of the value |
 | `"cs"` | text | `"Zelenský"` | optional Czech translation |
 | `"de-DE"` | text | `"Selenskyj"` | optional German translation |
 | other | text | `...` | any unexpected translations may be also present |
 
-If you need specific version for your language and it's not there, you should use the `"*"` version. If that version is not found either, you should use the first version in the list.
+If you need specific version for your language and it's not there, you should use the neutral versio, or first version in the list.
 
 # Custom attributes
 
@@ -77,10 +77,27 @@ The custom attributes are here only for compatibility with TRSX attributes. Each
 
 # Languages
 
-Language codes are based on IETF language tag (RFC-4646). Usually the tag can have one of two forms:
-* `"cs"` – just the language code
-* `"cs-CZ"` – includes also country/region code
+Language codes are based on IETF language tag (BCP 47, former RFC-4646). Usually the tag can have one of two forms:
+* `"cs"` – just the language code (ISO 639)
+* `"cs-CZ"` – includes also country/region code (ISO 3166)
 
-Both forms are possible. The two-letter language code is defined by to ISO 639 while ISO 3166 defines country/region codes.
+Both forms are possible. The language code is case-insensitive. Any unknown language code should be accepted as well (just process it as an unknown language).
 
-The language code is case-sensitive. Any unknown language code should be accepted as well (just process it as an unknown language).
+All these variants have the same meaning: `"cs-CZ"`, `"CS-CZ"`, `"cs-cz"`, `"cs"`, `"CS"` (just like in [.NET](https://sharplab.io/#v2:EYLgtghglgdgNAFxAJwK7wCYgNQB8ACADAAT4CMAdAOIA2A9sBDVAF4QJR0wDcAsAFD4ATGQECAKgFMAzggAUAIgDG0gLQBhAFoKAlH35TZi9QGUN2vRJnzlapS137DNlY6tGFpt/wH4ALMTOcuQkNDrEALwAfKRkAJxy6qg0CKjIkgCSMABmdBTq6eySJgAOkkpQ2VBKSSlpknJhFAAy6hkAInpAA==)). When you have doubts, you can try [BCP 47 validator](https://schneegans.de/lv/).
+
+# Reading localized texts
+
+This procedure considers one parameter: optional requested language.
+
+* If direct text value is stored then it is the result no matter what language was requested
+* If field is stored as localized (JSON object), then:
+  * If a language was requested (not null), then:
+    * If there is an _exact match_ (see below) then the first exact value is the result
+    * If there is a _weak match_ (see below) then the first matching value is the result
+  * If there is a neutral value (key `"*"`) then it's value is the result
+  * If there is any value at all, the first value is the result
+* In any other case result is `null`
+
+_Exact match_ means that requested language and stored localized variant have the same language code AND country/culture code. Comparison is case-insensitive.
+
+_Weak match_ means that requested language and stored localized variant have only the same language code. Comparison is case-insensitive.
