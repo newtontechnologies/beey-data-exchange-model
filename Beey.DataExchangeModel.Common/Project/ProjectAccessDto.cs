@@ -1,9 +1,4 @@
-﻿using Beey.DataExchangeModel.Serialization;
-using Beey.DataExchangeModel.Auth;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Beey.DataExchangeModel.Auth;
 
 
 namespace Beey.DataExchangeModel.Projects;
@@ -15,7 +10,7 @@ public class ProjectAccessDto
     public DateTimeOffset? Updated { get; set; }
 
     public int UserId { get; set; }
-    public UserDto User { get; set; }
+    public UserDto? User { get; set; }
     public int ProjectId { get; set; }
     public ProjectDto Project { get; set; }
 
