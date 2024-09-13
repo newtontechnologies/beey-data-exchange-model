@@ -7,7 +7,7 @@ namespace Beey.DataExchangeModel.Common.Speakers;
 public static class SpeakerDtoExtensions
 {
     public static string? Get(this SpeakerDto dto, SpeakerStringField field)
-        => dto.Data.Json.TryGetPropertyValue(field.FieldName, out var propertyNode)
+        => dto.Data.Neutral.TryGetPropertyValue(field.FieldName, out var propertyNode)
            && propertyNode is JsonValue propertyValue
            && propertyValue.TryGetValue<string>(out var value)
             ? value
@@ -16,75 +16,97 @@ public static class SpeakerDtoExtensions
     public static void Set(this SpeakerDto dto, SpeakerStringField field, string? newValue)
     {
         if (newValue == null)
-            dto.Data.Json.Remove(field.FieldName);
+            dto.Data.Neutral.Remove(field.FieldName);
         else
-            dto.Data.Json[field.FieldName] = JsonValue.Create(newValue);
+            dto.Data.Neutral[field.FieldName] = JsonValue.Create(newValue);
     }
 
     public static string? Get(this SpeakerDto dto, SpeakerLocalizedStringField field, CultureInfo? ci)
     {
-        if (!dto.Data.Json.TryGetPropertyValue(field.FieldName, out var propertyNode))
-            return null; // not found at all
+        return dto.TryReadNode(field, ci, TryReadString, out string result)
+            ? result
+            : null;
 
-        if (TryReadAsText(propertyNode, out var result))
-            return result;
-
-        if (propertyNode is not JsonObject localizations)
-            return null; // unexpected type
-
-        string? candidate = null;
-
-        // 1 = at least something
-        // 2 = neutral match
-        // 3 = weak match (only by language, not by country/culture)
-        var candidateQuality = 0;
-
-        foreach (var kv in localizations)
+        bool TryReadString(JsonNode node, out string value)
         {
-            if (kv.Key == "*")
+            if (node is JsonValue textNode &&
+                textNode.TryGetValue<string>(out var text))
             {
-                if (ci is null && TryReadAsText(kv.Value, out result))
-                {
-                    // this is an exact match if we look for neutral version
-                    return result;
-                }
-
-                if (candidateQuality < 2 && TryReadAsText(kv.Value, out result))
-                {
-                    // neutral version is the best candidate so far
-                    candidate = result;
-                    candidateQuality = 2;
-                    continue;
-                }
+                value = text;
+                return true;
             }
 
-            if (ci is not null && LanguageHelper.TryParseLanguage(kv.Key, out var locLang))
-            {
-                if (locLang.LCID == ci.LCID && TryReadAsText(kv.Value, out result))
-                {
-                    // exact match
-                    return result;
-                }
+            value = null!;
+            return false;
+        }
+    }
 
-                if (candidateQuality < 3 && WeakMatch(ci, locLang) && TryReadAsText(kv.Value, out result))
-                {
-                    // weak match
-                    candidateQuality = 3;
-                    candidate = result;
-                    continue;
-                }
-            }
+    /// <summary>Return best possible value according to requirements</summary>
+    /// <returns>True if found any value at all, even if it is in different language</returns>
+    public static bool TryReadNode<TValue>(this SpeakerDto dto,
+        SpeakerLocalizedStringField field, CultureInfo? ci, TryGetNodeValue<TValue> reader, out TValue value)
+    {
+        var bestMatchLevel = -1;
+        value = default!;
 
-            if (candidateQuality < 1 && TryReadAsText(kv.Value, out result))
+        if (ci is null && TryReadNode(dto.Data.Neutral, field, reader, ref value))
+            return true; // requested and found neutral -> we are happy
+
+        foreach (var kv in dto.Data.Localizations)
+        {
+            var matchLevel = GetMatchLevel(ci, kv.Key);
+
+            if (matchLevel <= bestMatchLevel)
+                continue; // no reason to evaluate this item
+
+            if (!TryReadNode(kv.Value, field, reader, ref value))
+                continue; // cannot read from this localization
+
+            if (matchLevel == 3)
+                return true; // exact match, cannot be better
+
+            bestMatchLevel = matchLevel;
+        }
+
+        if (ci is not null && bestMatchLevel <= 0)
+        {
+            // try also neutral if only different language found (or none)
+            TValue neutralValue = default!;
+            if (TryReadNode(dto.Data.Neutral, field, reader, ref neutralValue))
             {
-                candidate = result;
-                candidateQuality = 1;
+                value = neutralValue;
+                return true;
             }
         }
 
-        // this is the best we have
-        return candidate;
+        return bestMatchLevel >= 0;
     }
+
+    // 0 = no match
+    // 1 = weak match
+    // 2 = exact match
+    static int GetMatchLevel(CultureInfo? requested, string itemLang)
+    {
+        if (requested is null)
+            return 3; // we don't have specific language request -> we take literally any value
+
+        if (!LanguageHelper.TryParseLanguage(itemLang, out var itemCi))
+            return 0; // cannot parse language -> no match at all
+
+        if (requested.IetfLanguageTag == itemCi.IetfLanguageTag)
+            return 2; // exact match
+
+        return WeakMatch(requested, itemCi) ? 1 : 0;
+    }
+
+    static bool TryReadNode<TValue>(JsonObject data, SpeakerLocalizedStringField field, TryGetNodeValue<TValue> reader, ref TValue value)
+    {
+        return data.TryGetPropertyValue(field.FieldName, out var fieldNode) &&
+               fieldNode is not null &&
+               reader(fieldNode, out value);
+    }
+
+    public delegate bool TryGetNodeValue<TValue>(JsonNode node, out TValue value);
 
     static bool WeakMatch(CultureInfo a, CultureInfo b) => a.TwoLetterISOLanguageName == b.TwoLetterISOLanguageName;
 
@@ -105,78 +127,47 @@ public static class SpeakerDtoExtensions
     {
         if (newValue is null)
         {
-            // deletes the value in all cases, because the format doesn't allow
-            // language-specific null values (fallback to other language is always applied in such case)
-            dto.Data.Json.Remove(field.FieldName);
+            // deletes the value in all languages, because language-specific null values are not allowed
+            // (fallback to other language is always applied in such case)
+
+            dto.Data.Neutral.Remove(field.FieldName);
+            foreach (var localized in dto.Data.Localizations.Values)
+            {
+                localized.Remove(field.FieldName);
+            }
             return;
         }
 
-        if (dto.Data.Json.TryGetPropertyValue(field.FieldName, out var propertyNode))
-        {
-            if (propertyNode is JsonObject locObject)
-            {
-                // original is localized
-                UpdateLocalized(locObject);
-                return;
-            }
-
-            if (TryReadAsText(propertyNode, out var originalText) && ci is not null)
-            {
-                // original is direct text, use it as neutral
-                dto.Data.Json[field.FieldName] = new JsonObject
-                {
-                    ["*"] = originalText, // neutral
-                    [ci.IetfLanguageTag] = newValue
-                };
-                return;
-            }
-        }
-
-        if (ci is null)
-        {
-            // overwrite the field as neutral (direct) value
-            dto.Data.Json[field.FieldName] = newValue;
-            return;
-        }
-
-        // store with language specification
-        dto.Data.Json[field.FieldName] = new JsonObject
-        {
-            [ci.IetfLanguageTag] = newValue
-        };
+        var json = GetJsonToUpdate();
+        json[field.FieldName] = newValue;
         return;
 
-        void UpdateLocalized(JsonObject locObject)
+        JsonObject GetJsonToUpdate()
         {
-            var newKey = ci is null ? "*" : ci.IetfLanguageTag;
-            List<string>? keysToRemove = null;
+            if (ci is null)
+                return dto.Data.Neutral;
 
-            foreach (var kv in locObject)
+            var bestMatchLevel = -1;
+            JsonObject? bestCandidate = null;
+            foreach (var kv in dto.Data.Localizations)
             {
-                if (kv.Key == newKey)
-                {
-                    // exact match will be overwritten, ignore here
+                var matchLevel = GetMatchLevel(ci, kv.Key);
+                if (matchLevel == 3)
+                    return kv.Value; // exact match, cannot be better
+
+                if (matchLevel <= bestMatchLevel)
                     continue;
-                }
 
-                if (ci is not null && LanguageHelper.TryParseLanguage(kv.Key, out var itemLang) &&
-                    WeakMatch(ci, itemLang))
-                {
-                    // weak match - this should be removed to clean up data
-                    // (we don't want multiple variants like cs, CS, cs-CZ etc.)
-                    keysToRemove ??= [];
-                    keysToRemove.Add(kv.Key);
-                }
+                bestMatchLevel = matchLevel;
+                bestCandidate = kv.Value;
             }
 
-            locObject[newKey] = newValue;
+            if (bestMatchLevel >= 1)
+                return bestCandidate!;
 
-            if (keysToRemove is not null)
-            {
-                foreach (var key in keysToRemove)
-                    locObject.Remove(key);
-            }
-
+            bestCandidate = new JsonObject(); // new localization
+            dto.Data.Localizations[ci.IetfLanguageTag] = bestCandidate;
+            return bestCandidate;
         }
     }
 }

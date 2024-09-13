@@ -25,8 +25,12 @@ public class SpeakerDto
 
 public class SpeakerData
 {
-    /// <summary> Any JSON data associated with the speaker </summary>
-    public JsonObject Json { get; set; } = new();
+    /// <summary> Language-neutral information about the speaker </summary>
+    public JsonObject Neutral { get; set; } = [];
+
+    /// <summary> Language-specific JSON data for various languages </summary>
+    /// <remarks> Key is any valid IETF (BCP 47) language tag </remarks>
+    public Dictionary<string, JsonObject> Localizations { get; set; } = [];
 
     /// <summary> Version of JSON data schema </summary>
     /// <remarks> This can be used in case of breaking changes of the schema in the future. </remarks>
