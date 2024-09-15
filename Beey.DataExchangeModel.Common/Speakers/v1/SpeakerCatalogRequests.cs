@@ -25,6 +25,9 @@ public class SpeakerCatalogRequestSuggest
     public int? Count { get; set; }
 
     public SpeakerCatalogScope? Scope { get; set; }
+
+    /// <summary>IETF language tag (BCP 47, former RFC-4646)</summary>
+    public string? Language { get; set; }
 }
 
 public class SpeakerCatalogRequestGet
