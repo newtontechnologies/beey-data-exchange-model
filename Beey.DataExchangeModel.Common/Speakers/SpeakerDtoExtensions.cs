@@ -13,12 +13,14 @@ public static class SpeakerDtoExtensions
             ? value
             : null;
 
-    public static void Set(this SpeakerDto dto, SpeakerStringField field, string? newValue)
+    public static SpeakerDto Set(this SpeakerDto dto, SpeakerStringField field, string? newValue)
     {
         if (newValue == null)
             dto.Data.Neutral.Remove(field.FieldName);
         else
             dto.Data.Neutral[field.FieldName] = JsonValue.Create(newValue);
+
+        return dto;
     }
 
     public static string? Get(this SpeakerDto dto, SpeakerLocalizedStringField field, CultureInfo? ci)
@@ -82,6 +84,14 @@ public static class SpeakerDtoExtensions
         return bestMatchLevel >= 0;
     }
 
+    public static void RemoveLocalization(this SpeakerDto dto, CultureInfo ci)
+    {
+        var matchingKeys = dto.Data.Localizations.Keys.Where(k => GetMatchLevel(ci, k) > 0).ToList();
+
+        foreach (var key in matchingKeys)
+            dto.Data.Localizations.Remove(key);
+    }
+
     // 0 = no match
     // 1 = weak match
     // 2 = exact match
@@ -110,20 +120,7 @@ public static class SpeakerDtoExtensions
 
     static bool WeakMatch(CultureInfo a, CultureInfo b) => a.TwoLetterISOLanguageName == b.TwoLetterISOLanguageName;
 
-    static bool TryReadAsText(JsonNode? itemNode, out string result)
-    {
-        if (itemNode is JsonValue textNode &&
-            textNode.TryGetValue<string>(out var text))
-        {
-            result = text;
-            return true;
-        }
-
-        result = null!;
-        return false;
-    }
-
-    public static void Set(this SpeakerDto dto, SpeakerLocalizedStringField field, string? newValue, CultureInfo? ci)
+    public static SpeakerDto Set(this SpeakerDto dto, SpeakerLocalizedStringField field, string? newValue, CultureInfo? ci)
     {
         if (newValue is null)
         {
@@ -131,16 +128,28 @@ public static class SpeakerDtoExtensions
             // (fallback to other language is always applied in such case)
 
             dto.Data.Neutral.Remove(field.FieldName);
-            foreach (var localized in dto.Data.Localizations.Values)
+            List<string>? languagesToRemove = null;
+            foreach (var kv in dto.Data.Localizations)
             {
-                localized.Remove(field.FieldName);
+                kv.Value.Remove(field.FieldName);
+                if (kv.Value.Count > 0)
+                    continue;
+
+                // localization is empty -> clean up
+                languagesToRemove ??= [];
+                languagesToRemove.Add(kv.Key);
             }
-            return;
+
+            if (languagesToRemove is not null)
+                foreach (var lang in languagesToRemove)
+                    dto.Data.Localizations.Remove(lang);
+
+            return dto;
         }
 
         var json = GetJsonToUpdate();
         json[field.FieldName] = newValue;
-        return;
+        return dto;
 
         JsonObject GetJsonToUpdate()
         {
