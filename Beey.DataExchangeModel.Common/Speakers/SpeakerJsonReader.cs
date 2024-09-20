@@ -8,9 +8,15 @@ namespace Beey.DataExchangeModel.Common.Speakers;
 public static class SpeakerJsonReader
 {
     public static string? GetString(JsonNode node, SpeakerDataStringReadOptions? options)
+        => GetString([node], options);
+
+    public static string? GetString(IEnumerable<JsonNode> nodes, SpeakerDataStringReadOptions? options)
     {
         StringCollector collector = new(options);
-        CollectValues(node, ref collector, options, StringCollector.TryCollectString);
+        foreach (var node in nodes)
+        {
+            CollectValues(node, ref collector, options, StringCollector.TryCollectString);
+        }
         return collector.Result;
     }
 
