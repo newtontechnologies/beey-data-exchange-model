@@ -7,10 +7,8 @@ namespace Beey.DataExchangeModel.Common.Speakers;
 public static class SpeakerDtoExtensions
 {
     public static string? Get(this SpeakerDto dto, SpeakerStringField field)
-        => dto.Data.Neutral.TryGetPropertyValue(field.FieldName, out var propertyNode)
-           && propertyNode is JsonValue propertyValue
-           && propertyValue.TryGetValue<string>(out var value)
-            ? value
+        => dto.Data.Neutral.TryGetPropertyValue(field.FieldName, out var propertyNode) && propertyNode is not null
+            ? SpeakerJsonReader.GetString(propertyNode, field.StringReadOptions)
             : null;
 
     public static SpeakerDto Set(this SpeakerDto dto, SpeakerStringField field, string? newValue)
@@ -23,6 +21,25 @@ public static class SpeakerDtoExtensions
         return dto;
     }
 
+    public static IReadOnlyList<string>? GetArray(this SpeakerDto dto, SpeakerStringField field)
+        => dto.Data.Neutral.TryGetPropertyValue(field.FieldName, out var propertyNode) && propertyNode is not null
+            ? SpeakerJsonReader.GetStringArray(propertyNode, field.StringReadOptions)
+            : null;
+
+    public static SpeakerDto SetArray(this SpeakerDto dto, SpeakerStringField field, IReadOnlyList<string>? newValue)
+    {
+        if (newValue == null)
+            dto.Data.Neutral.Remove(field.FieldName);
+        else
+        {
+            var array = new JsonArray();
+            foreach (var v in newValue)
+                array.Add(v);
+            dto.Data.Neutral[field.FieldName] = array;
+        }
+
+        return dto;
+    }
     public static string? Get(this SpeakerDto dto, SpeakerLocalizedStringField field, CultureInfo? ci)
     {
         return dto.TryReadNode(field, ci, TryReadString, out string result)
@@ -31,15 +48,23 @@ public static class SpeakerDtoExtensions
 
         bool TryReadString(JsonNode node, out string value)
         {
-            if (node is JsonValue textNode &&
-                textNode.TryGetValue<string>(out var text))
-            {
-                value = text;
-                return true;
-            }
+            var v = SpeakerJsonReader.GetString(node, field.StringReadOptions);
+            value = v!;
+            return v is not null;
+        }
+    }
 
-            value = null!;
-            return false;
+    public static IReadOnlyList<string>? GetArray(this SpeakerDto dto, SpeakerLocalizedStringField field, CultureInfo? ci)
+    {
+        return dto.TryReadNode<IReadOnlyList<string>>(field, ci, TryReadStringArray, out var result)
+            ? result
+            : null;
+
+        bool TryReadStringArray(JsonNode node, out IReadOnlyList<string> value)
+        {
+            var arrayData = SpeakerJsonReader.GetStringArray(node, field.StringReadOptions);
+            value = arrayData!;
+            return arrayData is not null;
         }
     }
 
@@ -48,10 +73,12 @@ public static class SpeakerDtoExtensions
     public static bool TryReadNode<TValue>(this SpeakerDto dto,
         SpeakerLocalizedStringField field, CultureInfo? ci, TryGetNodeValue<TValue> reader, out TValue value)
     {
+        var isNeutralRequest = ci.IsInvariant();
+
         var bestMatchLevel = -1;
         value = default!;
 
-        if (ci is null && TryReadNode(dto.Data.Neutral, field, reader, ref value))
+        if (isNeutralRequest && TryReadNode(dto.Data.Neutral, field.FieldName, reader, ref value))
             return true; // requested and found neutral -> we are happy
 
         foreach (var kv in dto.Data.Localizations)
@@ -61,7 +88,7 @@ public static class SpeakerDtoExtensions
             if (matchLevel <= bestMatchLevel)
                 continue; // no reason to evaluate this item
 
-            if (!TryReadNode(kv.Value, field, reader, ref value))
+            if (!TryReadNode(kv.Value, field.FieldName, reader, ref value))
                 continue; // cannot read from this localization
 
             if (matchLevel == 3)
@@ -70,11 +97,11 @@ public static class SpeakerDtoExtensions
             bestMatchLevel = matchLevel;
         }
 
-        if (ci is not null && bestMatchLevel <= 0)
+        if (!isNeutralRequest && bestMatchLevel <= 0)
         {
             // try also neutral if only different language found (or none)
             TValue neutralValue = default!;
-            if (TryReadNode(dto.Data.Neutral, field, reader, ref neutralValue))
+            if (TryReadNode(dto.Data.Neutral, field.FieldName, reader, ref neutralValue))
             {
                 value = neutralValue;
                 return true;
@@ -97,7 +124,7 @@ public static class SpeakerDtoExtensions
     // 2 = exact match
     static int GetMatchLevel(CultureInfo? requested, string itemLang)
     {
-        if (requested is null)
+        if (requested is null || requested.IsInvariant())
             return 3; // we don't have specific language request -> we take literally any value
 
         if (!LanguageHelper.TryParseLanguage(itemLang, out var itemCi))
@@ -109,9 +136,9 @@ public static class SpeakerDtoExtensions
         return WeakMatch(requested, itemCi) ? 1 : 0;
     }
 
-    static bool TryReadNode<TValue>(JsonObject data, SpeakerLocalizedStringField field, TryGetNodeValue<TValue> reader, ref TValue value)
+    static bool TryReadNode<TValue>(JsonObject data, string fieldName, TryGetNodeValue<TValue> reader, ref TValue value)
     {
-        return data.TryGetPropertyValue(field.FieldName, out var fieldNode) &&
+        return data.TryGetPropertyValue(fieldName, out var fieldNode) &&
                fieldNode is not null &&
                reader(fieldNode, out value);
     }
@@ -121,17 +148,39 @@ public static class SpeakerDtoExtensions
     static bool WeakMatch(CultureInfo a, CultureInfo b) => a.TwoLetterISOLanguageName == b.TwoLetterISOLanguageName;
 
     public static SpeakerDto Set(this SpeakerDto dto, SpeakerLocalizedStringField field, string? newValue, CultureInfo? ci)
+        => Set(dto, field.FieldName, newValue, CreateJsonNode, ci);
+
+    public static SpeakerDto SetArray(this SpeakerDto dto, SpeakerLocalizedStringField field, IReadOnlyList<string>? newValue, CultureInfo? ci)
+        => Set(dto, field.FieldName, newValue, CreateJsonNode, ci);
+
+    static JsonNode CreateJsonNode(string value)
+        => JsonValue.Create(value);
+
+    static JsonNode CreateJsonNode(IReadOnlyList<string> value)
+    {
+        if (value.Count == 1)
+            return CreateJsonNode(value[0]);
+
+        var arrayNode = new JsonArray();
+        foreach (var item in value)
+            arrayNode.Add(CreateJsonNode(item));
+
+        return arrayNode;
+    }
+
+    static SpeakerDto Set<TValue>(this SpeakerDto dto, string fieldName, TValue? newValue,
+        Func<TValue, JsonNode> createNode, CultureInfo? ci)
     {
         if (newValue is null)
         {
             // deletes the value in all languages, because language-specific null values are not allowed
             // (fallback to other language is always applied in such case)
 
-            dto.Data.Neutral.Remove(field.FieldName);
+            dto.Data.Neutral.Remove(fieldName);
             List<string>? languagesToRemove = null;
             foreach (var kv in dto.Data.Localizations)
             {
-                kv.Value.Remove(field.FieldName);
+                kv.Value.Remove(fieldName);
                 if (kv.Value.Count > 0)
                     continue;
 
@@ -148,12 +197,12 @@ public static class SpeakerDtoExtensions
         }
 
         var json = GetJsonToUpdate();
-        json[field.FieldName] = newValue;
+        json[fieldName] = createNode(newValue);
         return dto;
 
         JsonObject GetJsonToUpdate()
         {
-            if (ci is null)
+            if (ci.IsInvariant())
                 return dto.Data.Neutral;
 
             var bestMatchLevel = -1;

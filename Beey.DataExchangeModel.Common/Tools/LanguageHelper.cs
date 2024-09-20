@@ -26,4 +26,7 @@ public static class LanguageHelper
         ci = value!;
         return value is not null;
     }
+
+    public static bool IsInvariant(this CultureInfo? ci)
+        => ci is null || ci.TwoLetterISOLanguageName == "iv"; // TODO: or is there any better solution?
 }
