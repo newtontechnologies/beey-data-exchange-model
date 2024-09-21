@@ -2,24 +2,43 @@
 
 public static class CommonSpeakerFields
 {
-    public static SpeakerStringField FirstName { get; } = new("firstName");
+    public static SpeakerLocalizedStringField FirstName { get; } = new("firstName", TextReadOptions());
 
-    public static SpeakerStringField MiddleName { get; } = new("middleName");
+    public static SpeakerLocalizedStringField MiddleName { get; } = new("middleName", TextReadOptions());
 
-    public static SpeakerStringField LastName { get; } = new("lastName");
+    public static SpeakerLocalizedStringField LastName { get; } = new("lastName", TextReadOptions());
 
-    public static SpeakerStringField DegreeBefore { get; } = new("degreeBefore");
+    public static SpeakerLocalizedStringField DegreeBefore { get; } = new("degreeBefore", TextReadOptions());
 
-    public static SpeakerStringField DegreeAfter { get; } = new("degreeAfter");
+    public static SpeakerLocalizedStringField DegreeAfter { get; } = new("degreeAfter", TextReadOptions());
 
-    public static SpeakerStringField ImageBase64 { get; } = new("imageBase64");
+    public static SpeakerStringField ImageBase64 { get; } = new("imageBase64", TextReadOptions());
 
-    public static SpeakerStringField DefaultIsoLang { get; } = new("defaultIsoLang");
+    public static SpeakerStringField DefaultIsoLang { get; } = new("defaultIsoLang", TextReadOptions());
 
-    public static SpeakerStringField Role { get; } = new("role");
+    public static SpeakerLocalizedStringField Role { get; } = new("role", TextReadOptions());
+
+    static SpeakerDataStringReadOptions TextReadOptions() => new()
+    {
+        ReadNumberAsString = false,
+        ReadValuesFromObjects = false,
+        StringJoinCharacter = " "
+    };
 }
 
-public readonly record struct SpeakerStringField(string FieldName)
+public class SpeakerStringField(string fieldName, SpeakerDataStringReadOptions? options) : SpeakerFieldBase(fieldName)
 {
-    public override string ToString() => this.FieldName;
+    public SpeakerDataStringReadOptions? StringReadOptions { get; } = options;
+}
+
+public class SpeakerLocalizedStringField(string fieldName, SpeakerDataStringReadOptions? options) : SpeakerFieldBase(fieldName)
+{
+    public SpeakerDataStringReadOptions? StringReadOptions { get; } = options;
+}
+
+public class SpeakerFieldBase(string fieldName)
+{
+    public string FieldName { get; } = fieldName;
+
+    public override string ToString() => FieldName;
 }
