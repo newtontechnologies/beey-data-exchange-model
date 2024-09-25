@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Beey.DataExchangeModel;
+﻿namespace Beey.DataExchangeModel;
 
 public class Listing<T>
 {
@@ -28,5 +23,10 @@ public static class Listing
     public static Listing<T> Create<T>(int totalCount, int listedCount, T[] list)
     {
         return new Listing<T>(totalCount, listedCount, list);
+    }
+
+    public static Listing<T> CreateListing<T>(this T[] list, int totalCount, int? listedCount = null)
+    {
+        return new Listing<T>(totalCount, listedCount ?? list.Length, list);
     }
 }
