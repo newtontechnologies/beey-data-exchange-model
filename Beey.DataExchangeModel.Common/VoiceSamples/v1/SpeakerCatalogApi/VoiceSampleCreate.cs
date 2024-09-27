@@ -1,4 +1,6 @@
-﻿namespace Beey.DataExchangeModel.Common.VoiceSamples.v1.SpeakerCatalogApi;
+﻿using Beey.DataExchangeModel.Common.Speakers.v1;
+
+namespace Beey.DataExchangeModel.Common.VoiceSamples.v1.SpeakerCatalogApi;
 
 public class VoiceSampleCreateRequest
 {
@@ -9,6 +11,9 @@ public class VoiceSampleCreateRequest
     public required DateTimeOffset? Recorded { get; init; }
 
     public byte[]? Data { get; set; }
+
+    /// <summary>If set the speaker catalog will validate if the tenant has access to the given speaker</summary>
+    public SpeakerCatalogScope? Scope { get; set; }
 }
 
 public class VoiceSampleCreateResponse

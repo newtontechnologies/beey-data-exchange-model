@@ -8,4 +8,7 @@ public class SpeakerCatalogScope
 {
     [DefaultValue(DBSpeaker.GlobalId)]
     public required string TenantId { get; init; } = DBSpeaker.GlobalId;
+
+    public static SpeakerCatalogScope? CreateNullable(string? tenantId)
+        => tenantId is null ? null : new SpeakerCatalogScope { TenantId = tenantId };
 }

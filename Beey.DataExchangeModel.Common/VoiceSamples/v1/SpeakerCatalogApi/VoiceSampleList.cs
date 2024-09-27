@@ -2,6 +2,8 @@
 
 public class VoiceSampleListRequest
 {
+    // all properties are query params
+
     public int? Id { get; set; }
 
     public string? SpeakerId { get; set; }
@@ -11,6 +13,8 @@ public class VoiceSampleListRequest
     public int? Skip { get; set; }
 
     public int? Count { get; set; }
+
+    public string? TenantId { get; set; }
 }
 
 public class VoiceSampleListResponse
