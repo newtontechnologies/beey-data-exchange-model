@@ -21,6 +21,9 @@ public class SpeakerCatalogRequestSuggest
 {
     public required string Search { get; set; }
 
+    /// <summary>Suggestion profile key, if null then first profile is used as default</summary>
+    public required string? ProfileKey { get; set; }
+
     [DefaultValue(1000)] // for Swagger
     public int? Count { get; set; }
 
