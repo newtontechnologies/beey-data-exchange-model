@@ -21,9 +21,15 @@ public static class SpeakerJsonReader
     }
 
     public static IReadOnlyList<string>? GetStringArray(JsonNode node, SpeakerDataStringReadOptions? options)
+        => GetStringArray([node], options);
+
+    public static IReadOnlyList<string>? GetStringArray(IEnumerable<JsonNode> nodes, SpeakerDataStringReadOptions? options)
     {
         StringArrayCollector collector = new(options);
-        CollectValues(node, ref collector, options, StringArrayCollector.TryCollectString);
+        foreach (var node in nodes)
+        {
+            CollectValues(node, ref collector, options, StringArrayCollector.TryCollectString);
+        }
         return collector.Result;
     }
 
