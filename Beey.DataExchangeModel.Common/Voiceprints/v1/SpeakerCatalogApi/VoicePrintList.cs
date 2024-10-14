@@ -31,4 +31,6 @@ public class VoicePrintListResponse
 
     /// <summary>Speakers as referenced by voice-prints</summary>
     public Dictionary<string, SpeakerDto>? Speakers { get; init; }
+
+    public VoicePrintModelParamsDto? ModelParams { get; init; }
 }
