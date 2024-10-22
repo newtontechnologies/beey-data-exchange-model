@@ -210,6 +210,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Progress))]
         [JsonSerializable(typeof(Failed))]
         [JsonSerializable(typeof(Completed))]
+        [JsonSerializable(typeof(UploadProgress))]
         public partial class RawRecognitionSerializerContext : JsonSerializerContext { };
 
         public static string Name => KnownSubsystemNames.RawRecognitionSubsystem;
@@ -217,6 +218,7 @@ public static partial class KnownSubsystems
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
+        public sealed record UploadProgress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
     }
 
     public static partial class SpeakerId
