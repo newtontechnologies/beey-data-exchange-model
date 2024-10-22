@@ -1,6 +1,6 @@
 ﻿namespace Beey.DataExchangeModel.Common.Voiceprints.v1;
 
-public class VoicePrintModelParamsDto
+public class VoiceprintModelParamsDto
 {
     public required string Version { get; init; }
     public required int NeighborsCount { get; init; }

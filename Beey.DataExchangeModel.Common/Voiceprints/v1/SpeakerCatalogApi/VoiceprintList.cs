@@ -2,7 +2,7 @@
 
 namespace Beey.DataExchangeModel.Common.Voiceprints.v1.SpeakerCatalogApi;
 
-public class VoicePrintListRequest
+public class VoiceprintListRequest
 {
     // all properties are query params
 
@@ -25,12 +25,12 @@ public class VoicePrintListRequest
     public string? TenantId { get; init; }
 }
 
-public class VoicePrintListResponse
+public class VoiceprintListResponse
 {
-    public required Listing<VoicePrintDto> VoicePrints { get; init; }
+    public required Listing<VoiceprintDto> Voiceprints { get; init; }
 
     /// <summary>Speakers as referenced by voice-prints</summary>
     public Dictionary<string, SpeakerDto>? Speakers { get; init; }
 
-    public VoicePrintModelParamsDto? ModelParams { get; init; }
+    public VoiceprintModelParamsDto? ModelParams { get; init; }
 }

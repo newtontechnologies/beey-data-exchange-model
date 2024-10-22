@@ -1,6 +1,6 @@
 ﻿namespace Beey.DataExchangeModel.Common.Voiceprints.v1;
 
-public class VoicePrintDto
+public class VoiceprintDto
 {
     public required int Id { get; init; }
 

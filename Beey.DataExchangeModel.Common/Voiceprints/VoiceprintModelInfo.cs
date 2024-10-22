@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Beey.DataExchangeModel.Voiceprints;
+﻿namespace Beey.DataExchangeModel.Common.Voiceprints;
 
 public class VoiceprintModelInfo
 {
@@ -15,6 +9,6 @@ public class VoiceprintModelInfo
         AcceptanceThreshold = acceptanceThreshold;
     }
 
-    public string Hash { get; set; }
-    public float AcceptanceThreshold { get; set; }
+    public required string Hash { get; set; }
+    public required float AcceptanceThreshold { get; set; }
 }
