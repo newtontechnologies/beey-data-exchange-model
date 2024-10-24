@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
-using Backend.Messaging.Chain;
 using Beey.DataExchangeModel.Messaging;
 
 using static Beey.DataExchangeModel.Messaging.KnownSubsystems;
@@ -43,7 +39,7 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             MessageType.Failed => DiscriminateFailedMessage(jMessage, options, subsystem),
             MessageType.Completed => DiscriminateCompletedMessage(jMessage, options, subsystem),
             MessageType.Panic => JsonSerializer.Deserialize<PanicMessage>(jMessage),
-
+            MessageType.Tracing => JsonSerializer.Deserialize<TracingMessage>(jMessage),
             MessageType.ChainStatus => JsonSerializer.Deserialize<ChainControl.Status>(jMessage),
             MessageType.ChainCommand => JsonSerializer.Deserialize<ChainControl.Command>(jMessage),
             _ => throw new JsonException($"Unknown messageType: {messageType}"),
@@ -74,6 +70,9 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
                 return;
             case MessageType.Panic:
                 JsonSerializer.Serialize(writer, (PanicMessage)value, ChainControl.ChainControlSerializerContext.Default.PanicMessage);
+                return;
+            case MessageType.Tracing:
+                JsonSerializer.Serialize(writer, (TracingMessage)value, ChainControl.ChainControlSerializerContext.Default.TracingMessage);
                 return;
         }
         throw new NotImplementedException($"Unknown message {value}");

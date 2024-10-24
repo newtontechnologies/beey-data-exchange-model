@@ -41,5 +41,7 @@ public enum MessageType
     /// Subsystem control mechanism detected error in subsystem behavior.
     /// This indicates unrecoverable error and will trigger forecefull subsystem termination.
     /// </summary>
-    Panic
+    Panic,
+
+    Tracing
 }
