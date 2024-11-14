@@ -30,7 +30,8 @@ public class ProjectDto : ConcurrentEntityDto
 
     public int? IndexFileId { get; set; }
 
-    public int? OriginalTrsxId { get; set; }
+    public int? InitialTrsxId { get; set; }
+    public int? PartialTrsxId { get; set; }
     public int? CurrentTrsxId { get; set; }
     public int? CreatorId { get; set; }
 
