@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Beey.DataExchangeModel.Messaging;
+﻿namespace Beey.DataExchangeModel.Messaging;
 public static class KnownSubsystemNames
 {
     public const string UploadSubsystem = "Upload";
@@ -26,6 +20,7 @@ public static class KnownSubsystemNames
 
     public const string TranscriptionStreamingSubsystem = "TranscriptionStreaming";
     public const string LiveSubtitlesStreamingSubsystem = "LiveSubtitlesStreaming";
+    public const string LiveTranscriptionStreamingSubsystem = "LiveTranscriptionStreaming";
 
     public const string TranscriptionTracking = "TranscriptionTracking";
     public const string TranscriptionTimeLogging = "TranscriptionTimeLogging";
@@ -46,5 +41,6 @@ public static class KnownSubsystemNames
 
     // Virtual subsystems
     public const string CreditReservation = "CreditReservation";
+
     public const string ProjectUpdates = "ProjectUpdates";
 }
