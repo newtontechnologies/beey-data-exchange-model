@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 using Beey.DataExchangeModel.Messaging.Subsystems;
 
 namespace Beey.DataExchangeModel.Common.Messaging.Subsystems;
 
-public enum Changed { KeywordsHighlight, Tags, Metadata }
+public enum Changed { KeywordsHighlight, Tags, Metadata, Checklist }
 
 public class ProjectUpdatesData : SubsystemData<ProjectUpdatesData>
 {
