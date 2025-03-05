@@ -8,6 +8,13 @@ public class VoiceSampleListRequest
 
     public string? SpeakerId { get; set; }
 
+    /// <summary>
+    /// IETF tag;
+    /// empty = get samples with undefined language
+    /// null = get samples of all languages
+    /// </summary>
+    public string? Language { get; set; } = null;
+
     public bool? FileReady { get; set; }
 
     public int? Skip { get; set; }

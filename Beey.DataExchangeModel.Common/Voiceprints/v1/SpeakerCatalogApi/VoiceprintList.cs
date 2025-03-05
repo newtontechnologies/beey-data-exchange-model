@@ -12,6 +12,13 @@ public class VoiceprintListRequest
     /// <summary>Filter only to voice-prints generated with specific profile</summary>
     public string? Profile { get; init; }
 
+    /// <summary>
+    /// IETF tag;
+    /// empty = get samples with undefined language
+    /// null = get samples of all languages
+    /// </summary>
+    public string? Language { get; init; } = null;
+
     /// <summary>Filter only to voice-prints generated from specific voice-sample</summary>
     public int? SourceSampleId { get; init; }
 

@@ -7,6 +7,9 @@ public class VoiceSampleDto
 
     public required string SpeakerId { get; set; }
 
+    /// <summary>IETF tag or null if language is unknown</summary>
+    public required string? Language { get; set; }
+
     /// <summary>User-friendly file name suggestion provided by the uploader</summary>
     public required string? FileName { get; set; }
 

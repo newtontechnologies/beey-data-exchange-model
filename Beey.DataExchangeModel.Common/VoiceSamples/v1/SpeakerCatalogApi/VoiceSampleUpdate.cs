@@ -6,6 +6,9 @@ public class VoiceSampleUpdateRequest
 {
     public required string SpeakerId { get; init; }
 
+    /// <summary>IETF tag or null if language is unknown</summary>
+    public string? Language { get; set; } = null;
+
     public required string? FileName { get; init; }
 
     public required DateTimeOffset? Recorded { get; init; }

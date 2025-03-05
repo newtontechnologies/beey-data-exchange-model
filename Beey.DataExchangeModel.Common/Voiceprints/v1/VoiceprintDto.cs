@@ -6,6 +6,9 @@ public class VoiceprintDto
 
     public required string SpeakerId { get; init; }
 
+    /// <summary>IETF tag or null if language is unknown</summary>
+    public required string? Language { get; set; }
+
     public required string ProfileId { get; init; }
 
     /// <summary>Voice-print as binary data</summary>
