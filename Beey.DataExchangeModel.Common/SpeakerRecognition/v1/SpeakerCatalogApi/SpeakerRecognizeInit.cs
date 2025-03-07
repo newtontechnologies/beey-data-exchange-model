@@ -5,8 +5,6 @@ namespace Beey.DataExchangeModel.Common.SpeakerRecognition.v1.SpeakerCatalogApi;
 
 public class SpeakerRecognizeInitRequest
 {
-    public required byte[] Voiceprint { get; init; }
-
     /// <summary>Language IETF tag</summary>
     public required string Language { get; init; }
 
