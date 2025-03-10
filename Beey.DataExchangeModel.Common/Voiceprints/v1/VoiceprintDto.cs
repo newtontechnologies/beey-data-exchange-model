@@ -2,7 +2,7 @@
 
 public class VoiceprintDto
 {
-    public required int Id { get; init; }
+    public required long Id { get; init; }
 
     public required string SpeakerId { get; init; }
 
