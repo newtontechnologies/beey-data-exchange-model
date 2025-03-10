@@ -20,5 +20,15 @@ public class VoiceprintCreateRequest
 public class VoiceprintCreateResponse
 {
     /// <summary>Id of created voiceprint</summary>
-    public required int Id { get; init; }
+    public required long Id { get; init; }
+}
+
+public class VoiceprintCreateBatchRequest
+{
+    public required VoiceprintCreateRequest[] Items { get; set; }
+}
+
+public class VoiceprintCreateBatchResponse
+{
+    public int CreatedCount { get; set; }
 }
