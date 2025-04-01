@@ -18,4 +18,8 @@ public class RecognitionData : SubsystemData<RecognitionData>
     [JsonConverter(typeof(JsonNullableConverter<JsonTimeSpanConverter, TimeSpan>))]
     public TimeSpan? Transcribed { get; set; }
 
+    [JsonConverter(typeof(JsonNgEventConverter))]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public NgSpeakerEvent? IntegratedDiarizationData { get; set; }
+    
 }
