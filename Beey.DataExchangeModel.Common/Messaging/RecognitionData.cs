@@ -1,9 +1,5 @@
 ﻿using Beey.DataExchangeModel.Serialization.JsonConverters;
 using Beey.DataExchangeModel.Transcriptions;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Beey.DataExchangeModel.Messaging.Subsystems;
@@ -21,4 +17,5 @@ public class RecognitionData : SubsystemData<RecognitionData>
     [JsonIgnore(Condition =JsonIgnoreCondition.WhenWritingNull)]
     [JsonConverter(typeof(JsonNullableConverter<JsonTimeSpanConverter, TimeSpan>))]
     public TimeSpan? Transcribed { get; set; }
+
 }
