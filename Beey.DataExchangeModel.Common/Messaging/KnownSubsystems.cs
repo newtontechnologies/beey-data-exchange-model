@@ -2,6 +2,7 @@
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using Backend.Messaging.Chain;
+using Beey.DataExchangeModel.Messaging.Subsystems;
 
 namespace Beey.DataExchangeModel.Messaging;
 
@@ -17,7 +18,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class DiarizationSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.DiarizationSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.DiarizationSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -32,7 +33,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class RawDiarizationSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.RawDiarizationSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.RawDiarizationSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -47,7 +48,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class VoiceprintAggregationSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.VoiceprintAggregation;
+        public static SubsystemName Name => KnownSubsystemNames.VoiceprintAggregation;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -62,7 +63,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class UploadSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.UploadSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.UploadSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -77,7 +78,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class TranscriptionTrackingSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.TranscriptionTracking;
+        public static SubsystemName Name => KnownSubsystemNames.TranscriptionTracking;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -92,7 +93,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class TranscriptionTimeLoggingSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.TranscriptionTimeLogging;
+        public static SubsystemName Name => KnownSubsystemNames.TranscriptionTimeLogging;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -107,7 +108,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class TranscriptionCreationSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.TranscriptionCreation;
+        public static SubsystemName Name => KnownSubsystemNames.TranscriptionCreation;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -122,7 +123,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class MediaFilePackagingSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.MediaFilePackagingSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.MediaFilePackagingSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -137,7 +138,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class CreditReservationSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.CreditReservation;
+        public static SubsystemName Name => KnownSubsystemNames.CreditReservation;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -152,7 +153,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class MediaFileIndexingSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.MediaFileIndexingSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.MediaFileIndexingSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -167,7 +168,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class MediaIdentificationSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.MediaIdentificationSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.MediaIdentificationSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -182,7 +183,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class ProjectStatusMonitorSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.ProjectStatusMonitor;
+        public static SubsystemName Name => KnownSubsystemNames.ProjectStatusMonitor;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -197,7 +198,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class RecognitionSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.RecognitionSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.RecognitionSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -212,7 +213,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class RawRecognitionSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.RawRecognitionSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.RawRecognitionSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -227,7 +228,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class LiveTranscriptionStreamingSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.LiveTranscriptionStreamingSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.LiveTranscriptionStreamingSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -242,7 +243,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class SpeakerIdentificationSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.SpeakerIdentificationSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.SpeakerIdentificationSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -257,7 +258,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class SppSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.SppSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.SppSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -272,7 +273,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class TranscodingVideoSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.TranscodingVideoSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.TranscodingVideoSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -287,7 +288,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class TranscodingAudioSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.TranscodingAudioSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.TranscodingAudioSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -300,7 +301,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class TranscriptionQueueTrackingSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.TranscriptionQueueTrackingSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.TranscriptionQueueTrackingSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
     }
@@ -312,7 +313,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Failed))]
         public partial class LowQualityAudioSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.LowQualityAudioSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.LowQualityAudioSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -325,7 +326,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Failed))]
         public partial class SceneDetectionSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.SceneDetectionSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.SceneDetectionSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -343,7 +344,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(TracingMessage))]
         public partial class ChainControlSerializerContext : JsonSerializerContext { }
 
-        public static string Name => KnownSubsystemNames.ChainControl;
+        public static SubsystemName Name => KnownSubsystemNames.ChainControl;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
         public sealed record Completed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : CompletedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
@@ -359,7 +360,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class TranscriptionStreamingSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.TranscriptionStreamingSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.TranscriptionStreamingSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -374,7 +375,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class LiveSubtitlesStreamingSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.LiveSubtitlesStreamingSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.LiveSubtitlesStreamingSubsystem;
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);
         public sealed record Failed(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, string Reason) : FailedMessage(Id, Index, ProjectId, ChainId, Name, Sent, Reason);
@@ -386,7 +387,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Progress))]
         public partial class ProjectUpdatesSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.ProjectUpdates;
+        public static SubsystemName Name => KnownSubsystemNames.ProjectUpdates;
         public sealed record Progress(int? ProjectId, int? ChainId, JsonNode Data)
             : ProgressMessage(-1, new SubsystemNodeIndex(), ProjectId, ChainId, Name, DateTimeOffset.Now, Data);
     }
@@ -399,7 +400,7 @@ public static partial class KnownSubsystems
         [JsonSerializable(typeof(Completed))]
         public partial class NanoGridSerializerContext : JsonSerializerContext { };
 
-        public static string Name => KnownSubsystemNames.NanoGridCombinedSubsystem;
+        public static SubsystemName Name => KnownSubsystemNames.NanoGridCombinedSubsystem;
 
         public sealed record Started(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent) : StartedMessage(Id, Index, ProjectId, ChainId, Name, Sent);
         public sealed record Progress(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, JsonNode Data) : ProgressMessage(Id, Index, ProjectId, ChainId, Name, Sent, Data);

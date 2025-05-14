@@ -2,7 +2,6 @@
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using Beey.DataExchangeModel.Messaging;
-
 using static Beey.DataExchangeModel.Messaging.KnownSubsystems;
 
 namespace Beey.DataExchangeModel.Serialization.JsonConverters;
@@ -53,24 +52,31 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             case MessageType.Started:
                 DiscriminateStartedMessage(writer, value, options);
                 return;
+
             case MessageType.Progress:
                 DiscriminateProgressMessage(writer, value, options);
                 return;
+
             case MessageType.Failed:
                 DiscriminateFailedMessage(writer, value, options);
                 return;
+
             case MessageType.Completed:
                 DiscriminateCompletedMessage(writer, value, options);
                 return;
+
             case MessageType.ChainStatus:
                 JsonSerializer.Serialize(writer, (ChainControl.Status)value, ChainControl.ChainControlSerializerContext.Default.Status);
                 return;
+
             case MessageType.ChainCommand:
                 JsonSerializer.Serialize(writer, (ChainControl.Command)value, ChainControl.ChainControlSerializerContext.Default.Command);
                 return;
+
             case MessageType.Panic:
                 JsonSerializer.Serialize(writer, (PanicMessage)value, ChainControl.ChainControlSerializerContext.Default.PanicMessage);
                 return;
+
             case MessageType.Tracing:
                 JsonSerializer.Serialize(writer, (TracingMessage)value, ChainControl.ChainControlSerializerContext.Default.TracingMessage);
                 return;
@@ -596,55 +602,55 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
 
     static StartedMessage? DiscriminateStartedMessage(JsonObject jMessage, JsonSerializerOptions? options, string subsystem)
     {
-        if (subsystem == Diarization.Name)
+        if (subsystem == Diarization.Name.RawName)
             return JsonSerializer.Deserialize<Diarization.Started>(jMessage);
-        if (subsystem == VoiceprintAggregation.Name)
+        if (subsystem == VoiceprintAggregation.Name.RawName)
             return JsonSerializer.Deserialize<VoiceprintAggregation.Started>(jMessage);
-        if (subsystem == Upload.Name)
+        if (subsystem == Upload.Name.RawName)
             return JsonSerializer.Deserialize<Upload.Started>(jMessage);
-        if (subsystem == TranscriptionTracking.Name)
+        if (subsystem == TranscriptionTracking.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionTracking.Started>(jMessage);
-        if (subsystem == TranscriptionTimeLogging.Name)
+        if (subsystem == TranscriptionTimeLogging.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionTimeLogging.Started>(jMessage);
-        if (subsystem == TranscriptionCreation.Name)
+        if (subsystem == TranscriptionCreation.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionCreation.Started>(jMessage);
-        if (subsystem == MediaFilePackaging.Name)
+        if (subsystem == MediaFilePackaging.Name.RawName)
             return JsonSerializer.Deserialize<MediaFilePackaging.Started>(jMessage);
-        if (subsystem == CreditReservation.Name)
+        if (subsystem == CreditReservation.Name.RawName)
             return JsonSerializer.Deserialize<CreditReservation.Started>(jMessage);
-        if (subsystem == MediaFileIndexing.Name)
+        if (subsystem == MediaFileIndexing.Name.RawName)
             return JsonSerializer.Deserialize<MediaFileIndexing.Started>(jMessage);
-        if (subsystem == MediaIdentification.Name)
+        if (subsystem == MediaIdentification.Name.RawName)
             return JsonSerializer.Deserialize<MediaIdentification.Started>(jMessage);
-        if (subsystem == ProjectStatusMonitor.Name)
+        if (subsystem == ProjectStatusMonitor.Name.RawName)
             return JsonSerializer.Deserialize<ProjectStatusMonitor.Started>(jMessage);
-        if (subsystem == Recognition.Name)
+        if (subsystem == Recognition.Name.RawName)
             return JsonSerializer.Deserialize<Recognition.Started>(jMessage);
-        if (subsystem == SpeakerId.Name)
+        if (subsystem == SpeakerId.Name.RawName)
             return JsonSerializer.Deserialize<SpeakerId.Started>(jMessage);
-        if (subsystem == Spp.Name)
+        if (subsystem == Spp.Name.RawName)
             return JsonSerializer.Deserialize<Spp.Started>(jMessage);
-        if (subsystem == TranscodingVideo.Name)
+        if (subsystem == TranscodingVideo.Name.RawName)
             return JsonSerializer.Deserialize<TranscodingVideo.Started>(jMessage);
-        if (subsystem == TranscodingAudio.Name)
+        if (subsystem == TranscodingAudio.Name.RawName)
             return JsonSerializer.Deserialize<TranscodingAudio.Started>(jMessage);
-        if (subsystem == ChainControl.Name)
+        if (subsystem == ChainControl.Name.RawName)
             return JsonSerializer.Deserialize<ChainControl.Started>(jMessage);
-        if (subsystem == LowQualityAudio.Name)
+        if (subsystem == LowQualityAudio.Name.RawName)
             return JsonSerializer.Deserialize<LowQualityAudio.Started>(jMessage);
-        if (subsystem == SceneDetection.Name)
+        if (subsystem == SceneDetection.Name.RawName)
             return JsonSerializer.Deserialize<SceneDetection.Started>(jMessage);
-        if (subsystem == RawRecognition.Name)
+        if (subsystem == RawRecognition.Name.RawName)
             return JsonSerializer.Deserialize<RawRecognition.Started>(jMessage);
-        if (subsystem == RawDiarization.Name)
+        if (subsystem == RawDiarization.Name.RawName)
             return JsonSerializer.Deserialize<RawDiarization.Started>(jMessage);
-        if (subsystem == TranscriptionStreaming.Name)
+        if (subsystem == TranscriptionStreaming.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionStreaming.Started>(jMessage);
-        if (subsystem == TranscriptionQueueTracking.Name)
+        if (subsystem == TranscriptionQueueTracking.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionQueueTracking.Started>(jMessage);
-        if (subsystem == LiveSubtitlesStreaming.Name)
+        if (subsystem == LiveSubtitlesStreaming.Name.RawName)
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Started>(jMessage);
-        if (subsystem == NanoGrid.Name)
+        if (subsystem == NanoGrid.Name.RawName)
             return JsonSerializer.Deserialize<NanoGrid.Started>(jMessage);
 
         return JsonSerializer.Deserialize<StartedMessage>(jMessage);
@@ -652,55 +658,55 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
 
     static CompletedMessage? DiscriminateCompletedMessage(JsonObject jMessage, JsonSerializerOptions? options, string subsystem)
     {
-        if (subsystem == Diarization.Name)
+        if (subsystem == Diarization.Name.RawName)
             return JsonSerializer.Deserialize<Diarization.Completed>(jMessage);
-        if (subsystem == VoiceprintAggregation.Name)
+        if (subsystem == VoiceprintAggregation.Name.RawName)
             return JsonSerializer.Deserialize<VoiceprintAggregation.Completed>(jMessage);
-        if (subsystem == Upload.Name)
+        if (subsystem == Upload.Name.RawName)
             return JsonSerializer.Deserialize<Upload.Completed>(jMessage);
-        if (subsystem == TranscriptionTracking.Name)
+        if (subsystem == TranscriptionTracking.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionTracking.Completed>(jMessage);
-        if (subsystem == TranscriptionTimeLogging.Name)
+        if (subsystem == TranscriptionTimeLogging.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionTimeLogging.Completed>(jMessage);
-        if (subsystem == TranscriptionCreation.Name)
+        if (subsystem == TranscriptionCreation.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionCreation.Completed>(jMessage);
-        if (subsystem == MediaFilePackaging.Name)
+        if (subsystem == MediaFilePackaging.Name.RawName)
             return JsonSerializer.Deserialize<MediaFilePackaging.Completed>(jMessage);
-        if (subsystem == CreditReservation.Name)
+        if (subsystem == CreditReservation.Name.RawName)
             return JsonSerializer.Deserialize<CreditReservation.Completed>(jMessage);
-        if (subsystem == MediaFileIndexing.Name)
+        if (subsystem == MediaFileIndexing.Name.RawName)
             return JsonSerializer.Deserialize<MediaFileIndexing.Completed>(jMessage);
-        if (subsystem == MediaIdentification.Name)
+        if (subsystem == MediaIdentification.Name.RawName)
             return JsonSerializer.Deserialize<MediaIdentification.Completed>(jMessage);
-        if (subsystem == ProjectStatusMonitor.Name)
+        if (subsystem == ProjectStatusMonitor.Name.RawName)
             return JsonSerializer.Deserialize<ProjectStatusMonitor.Completed>(jMessage);
-        if (subsystem == Recognition.Name)
+        if (subsystem == Recognition.Name.RawName)
             return JsonSerializer.Deserialize<Recognition.Completed>(jMessage);
-        if (subsystem == SpeakerId.Name)
+        if (subsystem == SpeakerId.Name.RawName)
             return JsonSerializer.Deserialize<SpeakerId.Completed>(jMessage);
-        if (subsystem == Spp.Name)
+        if (subsystem == Spp.Name.RawName)
             return JsonSerializer.Deserialize<Spp.Completed>(jMessage);
-        if (subsystem == TranscodingVideo.Name)
+        if (subsystem == TranscodingVideo.Name.RawName)
             return JsonSerializer.Deserialize<TranscodingVideo.Completed>(jMessage);
-        if (subsystem == TranscodingAudio.Name)
+        if (subsystem == TranscodingAudio.Name.RawName)
             return JsonSerializer.Deserialize<TranscodingAudio.Completed>(jMessage);
-        if (subsystem == ChainControl.Name)
+        if (subsystem == ChainControl.Name.RawName)
             return JsonSerializer.Deserialize<ChainControl.Completed>(jMessage);
-        if (subsystem == LowQualityAudio.Name)
+        if (subsystem == LowQualityAudio.Name.RawName)
             return JsonSerializer.Deserialize<LowQualityAudio.Completed>(jMessage);
-        if (subsystem == SceneDetection.Name)
+        if (subsystem == SceneDetection.Name.RawName)
             return JsonSerializer.Deserialize<SceneDetection.Completed>(jMessage);
-        if (subsystem == RawRecognition.Name)
+        if (subsystem == RawRecognition.Name.RawName)
             return JsonSerializer.Deserialize<RawRecognition.Completed>(jMessage);
-        if (subsystem == RawDiarization.Name)
+        if (subsystem == RawDiarization.Name.RawName)
             return JsonSerializer.Deserialize<RawDiarization.Completed>(jMessage);
-        if (subsystem == TranscriptionStreaming.Name)
+        if (subsystem == TranscriptionStreaming.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionStreaming.Completed>(jMessage);
-        if (subsystem == TranscriptionQueueTracking.Name)
+        if (subsystem == TranscriptionQueueTracking.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionQueueTracking.Completed>(jMessage);
-        if (subsystem == LiveSubtitlesStreaming.Name)
+        if (subsystem == LiveSubtitlesStreaming.Name.RawName)
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Completed>(jMessage);
-        if (subsystem == NanoGrid.Name)
+        if (subsystem == NanoGrid.Name.RawName)
             return JsonSerializer.Deserialize<NanoGrid.Completed>(jMessage);
 
         return JsonSerializer.Deserialize<CompletedMessage>(jMessage);
@@ -709,53 +715,53 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
 
     static FailedMessage? DiscriminateFailedMessage(JsonObject jMessage, JsonSerializerOptions? options, string subsystem)
     {
-        if (subsystem == Diarization.Name)
+        if (subsystem == Diarization.Name.RawName)
             return JsonSerializer.Deserialize<Diarization.Failed>(jMessage);
-        if (subsystem == VoiceprintAggregation.Name)
+        if (subsystem == VoiceprintAggregation.Name.RawName)
             return JsonSerializer.Deserialize<VoiceprintAggregation.Failed>(jMessage)!;
-        if (subsystem == Upload.Name)
+        if (subsystem == Upload.Name.RawName)
             return JsonSerializer.Deserialize<Upload.Failed>(jMessage);
-        if (subsystem == TranscriptionTracking.Name)
+        if (subsystem == TranscriptionTracking.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionTracking.Failed>(jMessage);
-        if (subsystem == TranscriptionTimeLogging.Name)
+        if (subsystem == TranscriptionTimeLogging.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionTimeLogging.Failed>(jMessage);
-        if (subsystem == TranscriptionCreation.Name)
+        if (subsystem == TranscriptionCreation.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionCreation.Failed>(jMessage);
-        if (subsystem == MediaFilePackaging.Name)
+        if (subsystem == MediaFilePackaging.Name.RawName)
             return JsonSerializer.Deserialize<MediaFilePackaging.Failed>(jMessage);
-        if (subsystem == CreditReservation.Name)
+        if (subsystem == CreditReservation.Name.RawName)
             return JsonSerializer.Deserialize<CreditReservation.Failed>(jMessage);
-        if (subsystem == MediaFileIndexing.Name)
+        if (subsystem == MediaFileIndexing.Name.RawName)
             return JsonSerializer.Deserialize<MediaFileIndexing.Failed>(jMessage);
-        if (subsystem == MediaIdentification.Name)
+        if (subsystem == MediaIdentification.Name.RawName)
             return JsonSerializer.Deserialize<MediaIdentification.Failed>(jMessage);
-        if (subsystem == ProjectStatusMonitor.Name)
+        if (subsystem == ProjectStatusMonitor.Name.RawName)
             return JsonSerializer.Deserialize<ProjectStatusMonitor.Failed>(jMessage);
-        if (subsystem == Recognition.Name)
+        if (subsystem == Recognition.Name.RawName)
             return JsonSerializer.Deserialize<Recognition.Failed>(jMessage);
-        if (subsystem == SpeakerId.Name)
+        if (subsystem == SpeakerId.Name.RawName)
             return JsonSerializer.Deserialize<SpeakerId.Failed>(jMessage);
-        if (subsystem == Spp.Name)
+        if (subsystem == Spp.Name.RawName)
             return JsonSerializer.Deserialize<Spp.Failed>(jMessage);
-        if (subsystem == TranscodingVideo.Name)
+        if (subsystem == TranscodingVideo.Name.RawName)
             return JsonSerializer.Deserialize<TranscodingVideo.Failed>(jMessage);
-        if (subsystem == TranscodingAudio.Name)
+        if (subsystem == TranscodingAudio.Name.RawName)
             return JsonSerializer.Deserialize<TranscodingAudio.Failed>(jMessage);
-        if (subsystem == ChainControl.Name)
+        if (subsystem == ChainControl.Name.RawName)
             return JsonSerializer.Deserialize<ChainControl.Failed>(jMessage);
-        if (subsystem == LowQualityAudio.Name)
+        if (subsystem == LowQualityAudio.Name.RawName)
             return JsonSerializer.Deserialize<LowQualityAudio.Failed>(jMessage);
-        if (subsystem == SceneDetection.Name)
+        if (subsystem == SceneDetection.Name.RawName)
             return JsonSerializer.Deserialize<SceneDetection.Failed>(jMessage);
-        if (subsystem == RawRecognition.Name)
+        if (subsystem == RawRecognition.Name.RawName)
             return JsonSerializer.Deserialize<RawRecognition.Failed>(jMessage);
-        if (subsystem == RawDiarization.Name)
+        if (subsystem == RawDiarization.Name.RawName)
             return JsonSerializer.Deserialize<RawDiarization.Failed>(jMessage);
-        if (subsystem == TranscriptionStreaming.Name)
+        if (subsystem == TranscriptionStreaming.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionStreaming.Failed>(jMessage);
-        if (subsystem == LiveSubtitlesStreaming.Name)
+        if (subsystem == LiveSubtitlesStreaming.Name.RawName)
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Failed>(jMessage);
-        if (subsystem == NanoGrid.Name)
+        if (subsystem == NanoGrid.Name.RawName)
             return JsonSerializer.Deserialize<NanoGrid.Failed>(jMessage);
 
         return JsonSerializer.Deserialize<FailedMessage>(jMessage);
@@ -763,49 +769,49 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
 
     static ProgressMessage? DiscriminateProgressMessage(JsonObject jMessage, JsonSerializerOptions? options, string subsystem)
     {
-        if (subsystem == Diarization.Name)
+        if (subsystem == Diarization.Name.RawName)
             return JsonSerializer.Deserialize<Diarization.Progress>(jMessage);
-        if (subsystem == VoiceprintAggregation.Name)
+        if (subsystem == VoiceprintAggregation.Name.RawName)
             return JsonSerializer.Deserialize<VoiceprintAggregation.Progress>(jMessage);
-        if (subsystem == Upload.Name)
+        if (subsystem == Upload.Name.RawName)
             return JsonSerializer.Deserialize<Upload.Progress>(jMessage);
-        if (subsystem == TranscriptionTracking.Name)
+        if (subsystem == TranscriptionTracking.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionTracking.Progress>(jMessage);
-        if (subsystem == TranscriptionTimeLogging.Name)
+        if (subsystem == TranscriptionTimeLogging.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionTimeLogging.Progress>(jMessage);
-        if (subsystem == TranscriptionCreation.Name)
+        if (subsystem == TranscriptionCreation.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionCreation.Progress>(jMessage);
-        if (subsystem == MediaFilePackaging.Name)
+        if (subsystem == MediaFilePackaging.Name.RawName)
             return JsonSerializer.Deserialize<MediaFilePackaging.Progress>(jMessage);
-        if (subsystem == CreditReservation.Name)
+        if (subsystem == CreditReservation.Name.RawName)
             return JsonSerializer.Deserialize<CreditReservation.Progress>(jMessage);
-        if (subsystem == MediaFileIndexing.Name)
+        if (subsystem == MediaFileIndexing.Name.RawName)
             return JsonSerializer.Deserialize<MediaFileIndexing.Progress>(jMessage);
-        if (subsystem == MediaIdentification.Name)
+        if (subsystem == MediaIdentification.Name.RawName)
             return JsonSerializer.Deserialize<MediaIdentification.Progress>(jMessage);
-        if (subsystem == ProjectStatusMonitor.Name)
+        if (subsystem == ProjectStatusMonitor.Name.RawName)
             return JsonSerializer.Deserialize<ProjectStatusMonitor.Progress>(jMessage);
-        if (subsystem == Recognition.Name)
+        if (subsystem == Recognition.Name.RawName)
             return JsonSerializer.Deserialize<Recognition.Progress>(jMessage);
-        if (subsystem == SpeakerId.Name)
+        if (subsystem == SpeakerId.Name.RawName)
             return JsonSerializer.Deserialize<SpeakerId.Progress>(jMessage);
-        if (subsystem == Spp.Name)
+        if (subsystem == Spp.Name.RawName)
             return JsonSerializer.Deserialize<Spp.Progress>(jMessage);
-        if (subsystem == TranscodingVideo.Name)
+        if (subsystem == TranscodingVideo.Name.RawName)
             return JsonSerializer.Deserialize<TranscodingVideo.Progress>(jMessage);
-        if (subsystem == TranscodingAudio.Name)
+        if (subsystem == TranscodingAudio.Name.RawName)
             return JsonSerializer.Deserialize<TranscodingAudio.Progress>(jMessage);
-        if (subsystem == RawRecognition.Name)
+        if (subsystem == RawRecognition.Name.RawName)
             return JsonSerializer.Deserialize<RawRecognition.Progress>(jMessage);
-        if (subsystem == RawDiarization.Name)
+        if (subsystem == RawDiarization.Name.RawName)
             return JsonSerializer.Deserialize<RawDiarization.Progress>(jMessage);
-        if (subsystem == TranscriptionStreaming.Name)
+        if (subsystem == TranscriptionStreaming.Name.RawName)
             return JsonSerializer.Deserialize<TranscriptionStreaming.Progress>(jMessage);
-        if (subsystem == LiveSubtitlesStreaming.Name)
+        if (subsystem == LiveSubtitlesStreaming.Name.RawName)
             return JsonSerializer.Deserialize<LiveSubtitlesStreaming.Progress>(jMessage);
-        if (subsystem == ProjectUpdates.Name)
+        if (subsystem == ProjectUpdates.Name.RawName)
             return JsonSerializer.Deserialize<ProjectUpdates.Progress>(jMessage);
-        if (subsystem == NanoGrid.Name)
+        if (subsystem == NanoGrid.Name.RawName)
             return JsonSerializer.Deserialize<NanoGrid.Progress>(jMessage);
 
         return JsonSerializer.Deserialize<ProgressMessage>(jMessage);

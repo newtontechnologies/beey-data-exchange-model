@@ -1,6 +1,7 @@
 ﻿using System.Collections.Immutable;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
+using Beey.DataExchangeModel.Messaging.Subsystems;
 
 namespace Beey.DataExchangeModel.Messaging;
 
@@ -9,7 +10,7 @@ public record TracingMessage(
     ImmutableArray<int> Index,
     int? ProjectId,
     int? ChainId,
-    string Subsystem,
+    SubsystemName Subsystem,
     DateTimeOffset Sent,
     TracingMessage.Events Event,
     long? ByteCount = null)

@@ -1,46 +1,48 @@
-﻿namespace Beey.DataExchangeModel.Messaging;
+﻿using Beey.DataExchangeModel.Messaging.Subsystems;
+
+namespace Beey.DataExchangeModel.Messaging;
 public static class KnownSubsystemNames
 {
-    public const string UploadSubsystem = "Upload";
-    public const string MediaIdentificationSubsystem = "MediaIdentification";
-    public const string TranscodingVideoSubsystem = "TranscodingVideo";
-    public const string TranscodingAudioSubsystem = "TranscodingAudio";
-    public const string MediaFileIndexingSubsystem = "MediaFileIndexing";
-    public const string MediaFilePackagingSubsystem = "MediaFilePackaging";
-    public const string RecognitionSubsystem = "Recognition";
-    public const string DiarizationSubsystem = "Diarization";
+    public static readonly SubsystemName UploadSubsystem = SubsystemName.Get("Upload");
+    public static readonly SubsystemName MediaIdentificationSubsystem = SubsystemName.Get("MediaIdentification");
+    public static readonly SubsystemName TranscodingVideoSubsystem = SubsystemName.Get("TranscodingVideo");
+    public static readonly SubsystemName TranscodingAudioSubsystem = SubsystemName.Get("TranscodingAudio");
+    public static readonly SubsystemName MediaFileIndexingSubsystem = SubsystemName.Get("MediaFileIndexing");
+    public static readonly SubsystemName MediaFilePackagingSubsystem = SubsystemName.Get("MediaFilePackaging");
+    public static readonly SubsystemName RecognitionSubsystem = SubsystemName.Get("Recognition");
+    public static readonly SubsystemName DiarizationSubsystem = SubsystemName.Get("Diarization");
 
-    public const string RawRecognitionSubsystem = "RawRecognition";
-    public const string RawDiarizationSubsystem = "RawDiarization";
+    public static readonly SubsystemName RawRecognitionSubsystem = SubsystemName.Get("RawRecognition");
+    public static readonly SubsystemName RawDiarizationSubsystem = SubsystemName.Get("RawDiarization");
 
-    public const string NanoGridCombinedSubsystem = "NanoGrid";
+    public static readonly SubsystemName NanoGridCombinedSubsystem = SubsystemName.Get("NanoGrid");
 
-    public const string SpeakerIdentificationSubsystem = "SpeakerIdentification";
-    public const string SppSubsystem = "Spp";
+    public static readonly SubsystemName SpeakerIdentificationSubsystem = SubsystemName.Get("SpeakerIdentification");
+    public static readonly SubsystemName SppSubsystem = SubsystemName.Get("Spp");
 
-    public const string TranscriptionStreamingSubsystem = "TranscriptionStreaming";
-    public const string LiveSubtitlesStreamingSubsystem = "LiveSubtitlesStreaming";
-    public const string LiveTranscriptionStreamingSubsystem = "LiveTranscriptionStreaming";
+    public static readonly SubsystemName TranscriptionStreamingSubsystem = SubsystemName.Get("TranscriptionStreaming");
+    public static readonly SubsystemName LiveSubtitlesStreamingSubsystem = SubsystemName.Get("LiveSubtitlesStreaming");
+    public static readonly SubsystemName LiveTranscriptionStreamingSubsystem = SubsystemName.Get("LiveTranscriptionStreaming");
 
-    public const string TranscriptionTracking = "TranscriptionTracking";
-    public const string TranscriptionTimeLogging = "TranscriptionTimeLogging";
-    public const string TranscriptionCreation = "TranscriptionCreation";
-    public const string ProjectStatusMonitor = "ProjectStatusMonitor";
-    public const string VoiceprintAggregation = "VoiceprintAggregation";
-    public const string TranscriptionQueueTrackingSubsystem = "TranscriptionQueueTracking";
-    public const string LowQualityAudioSubsystem = "LowQualityAudio";
-    public const string SceneDetectionSubsystem = "SceneDetection";
+    public static readonly SubsystemName TranscriptionTracking = SubsystemName.Get("TranscriptionTracking");
+    public static readonly SubsystemName TranscriptionTimeLogging = SubsystemName.Get("TranscriptionTimeLogging");
+    public static readonly SubsystemName TranscriptionCreation = SubsystemName.Get("TranscriptionCreation");
+    public static readonly SubsystemName ProjectStatusMonitor = SubsystemName.Get("ProjectStatusMonitor");
+    public static readonly SubsystemName VoiceprintAggregation = SubsystemName.Get("VoiceprintAggregation");
+    public static readonly SubsystemName TranscriptionQueueTrackingSubsystem = SubsystemName.Get("TranscriptionQueueTracking");
+    public static readonly SubsystemName LowQualityAudioSubsystem = SubsystemName.Get("LowQualityAudio");
+    public static readonly SubsystemName SceneDetectionSubsystem = SubsystemName.Get("SceneDetection");
 
-    public const string TranscodingGroup = "Transcoding";
-    public const string TranscribingGroup = "Transcribing";
-    public const string RecognitionGroup = "Recognition";
-    public const string PostprocessingGroup = "Posprocessing";
-    public const string PackagingGroup = "Packaging";
-    public const string TextCreationGroup = "TextCreation";
-    public const string ChainControl = "ChainControl";
+    public static readonly SubsystemName TranscodingGroup = SubsystemName.Get("Transcoding");
+    public static readonly SubsystemName TranscribingGroup = SubsystemName.Get("Transcribing");
+    public static readonly SubsystemName RecognitionGroup = SubsystemName.Get("Recognition");
+    public static readonly SubsystemName PostprocessingGroup = SubsystemName.Get("Posprocessing");
+    public static readonly SubsystemName PackagingGroup = SubsystemName.Get("Packaging");
+    public static readonly SubsystemName TextCreationGroup = SubsystemName.Get("TextCreation");
+    public static readonly SubsystemName ChainControl = SubsystemName.Get("ChainControl");
 
     // Virtual subsystems
-    public const string CreditReservation = "CreditReservation";
+    public static readonly SubsystemName CreditReservation = SubsystemName.Get("CreditReservation");
 
-    public const string ProjectUpdates = "ProjectUpdates";
+    public static readonly SubsystemName ProjectUpdates = SubsystemName.Get("ProjectUpdates");
 }

@@ -2,18 +2,19 @@
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Beey.DataExchangeModel.Messaging.Subsystems;
 using Beey.DataExchangeModel.Serialization.JsonConverters;
 
 namespace Beey.DataExchangeModel.Messaging;
 
 //subsystem must be always second in serialized data..
-public abstract record Message(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, [property: JsonPropertyOrder(int.MinValue + 1)] string Subsystem, DateTimeOffset Sent)
+public abstract record Message(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, [property: JsonPropertyOrder(int.MinValue + 1)] SubsystemName Subsystem, DateTimeOffset Sent)
 {
     public abstract MessageType Type { get; }
 
     public static readonly JsonSerializerOptions DefaultJsonSerializerOptions = new JsonSerializerOptions()
     {
-        Converters = { new MessageJsonConverterWithTypeDiscriminator(), new JsonStringEnumConverter(), new JsonNgEventConverter() }
+        Converters = { new MessageJsonConverterWithTypeDiscriminator(), new JsonStringEnumConverter(), new JsonNgEventConverter(), new JsonSubsystemNameConverter() }
     };
 
     public static ArraySegment<byte> Serialize(Message message)

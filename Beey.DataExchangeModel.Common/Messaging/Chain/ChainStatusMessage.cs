@@ -1,20 +1,22 @@
 ﻿using System.Collections.Immutable;
 using System.Text.Json.Serialization;
 using Beey.DataExchangeModel.Messaging;
+using Beey.DataExchangeModel.Messaging.Subsystems;
 
 namespace Backend.Messaging.Chain;
 
 public abstract record ChainStatusMessage(int Id, ImmutableArray<int> Index, int? ProjectId, int? ChainId, DateTimeOffset Sent, StatusNode? Statuses)
     : Message(Id, Index, ProjectId, ChainId, KnownSubsystemNames.ChainControl, Sent)
 {
-    public SubsystemStatus? this[string name] => Statuses?[name]?.Status;
+    public SubsystemStatus? this[SubsystemName name] => Statuses?[name]?.Status;
+
     [JsonPropertyOrder(int.MinValue)]//always must be second for deserialization to work
     public override MessageType Type => MessageType.ChainStatus;
 }
 
 public class StatusNode
 {
-    public StatusNode? this[string name]
+    public StatusNode? this[SubsystemName name]
     {
         get
         {
@@ -49,9 +51,9 @@ public class StatusNode
     }
 
 
-    public string? Subsystem { get; set; }
+    public SubsystemName? Subsystem { get; set; }
     public SubsystemStatus Status { get; set; }
-    public ImmutableArray<int> Index { get; set; } = ImmutableArray<int>.Empty;
+    public ImmutableArray<int> Index { get; set; } = [];
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public StatusNode[]? Nodes { get; set; }
