@@ -1,19 +1,21 @@
 ﻿namespace Beey.DataExchangeModel.Common.Orders
 {
     public record LicenseDto(
-        string Name,
+        string? Name,
         DateTimeOffset TermStartDate,
         DateTimeOffset TermEndDate,
         string Email,
         int TeamId,
         string? Description,
         bool IsActive,
-        int Quantity,
-        string? ComponentsJson,
-        string? LicenseFileBase64,
-        DateTimeOffset? LicenseGeneratedAt,
+        uint Quantity,
+        string PlanKey,
+        string? Interval,
+        long IntervalCount,
+        string? SubscriptionKey,
+        string? SubscriptionItemKey,
         int? SubscriptionId,
-        string? SubscriptionKey
+        string? ComponentsJson
     );
 
 }
