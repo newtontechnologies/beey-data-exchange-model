@@ -15,8 +15,7 @@
         long IntervalCount,
         string? SubscriptionKey,
         string? SubscriptionItemKey,
-        int? SubscriptionId,
-        string? ComponentsJson
+        int? SubscriptionId
     );
 
 }
