@@ -1,5 +1,4 @@
-﻿
-using Beey.DataExchangeModel.Auth;
+﻿using Beey.DataExchangeModel.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +19,7 @@ public class TeamDto
     public int MemberCount { get; set; }
     public JsonObject? Settings { get; set; }
     public TimeSpan? AbandonProjectsIn { get; set; }
+    public string? ExternalId { get; set; }
 }
 
 public class TeamDtoStandard : TeamDto
