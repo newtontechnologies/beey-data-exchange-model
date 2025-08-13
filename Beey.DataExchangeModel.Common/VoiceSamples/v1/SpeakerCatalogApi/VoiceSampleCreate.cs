@@ -1,4 +1,5 @@
-﻿using Beey.DataExchangeModel.Common.Speakers.v1;
+﻿using System.Text.Json.Nodes;
+using Beey.DataExchangeModel.Common.Speakers.v1;
 
 namespace Beey.DataExchangeModel.Common.VoiceSamples.v1.SpeakerCatalogApi;
 
@@ -11,7 +12,10 @@ public class VoiceSampleCreateRequest
 
     public required string? FileName { get; set; }
 
-    public required DateTimeOffset? Recorded { get; init; }
+    public required JsonObject? Metadata { get; set; }
+
+    [Obsolete("Use Metadata instead")]
+    public DateTimeOffset? Recorded { get; init; }
 
     public byte[]? Data { get; set; }
 

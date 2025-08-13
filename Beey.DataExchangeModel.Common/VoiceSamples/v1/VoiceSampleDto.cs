@@ -1,4 +1,6 @@
-﻿namespace Beey.DataExchangeModel.Common.VoiceSamples.v1;
+﻿using System.Text.Json.Nodes;
+
+namespace Beey.DataExchangeModel.Common.VoiceSamples.v1;
 
 public class VoiceSampleDto
 {
@@ -20,7 +22,10 @@ public class VoiceSampleDto
     public required bool FileIsReady { get; set; }
 
     /// <summary>When was sample recorded; the information is provided by the sample uploader</summary>
-    public required DateTimeOffset? Recorded { get; init; }
+    [Obsolete("Use Metadata instead")]
+    public DateTimeOffset? Recorded { get; init; }
+
+    public JsonObject? Metadata { get; set; }
 
     /// <summary>When this entry was added to the SpeakerCatalog database</summary>
     public required DateTimeOffset? Uploaded { get; init; }
