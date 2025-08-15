@@ -9,6 +9,12 @@ namespace Beey.DataExchangeModel.Messaging;
 
 public static partial class KnownSubsystems
 {
+    [JsonSerializable(typeof(StartedMessage))]
+    [JsonSerializable(typeof(CompletedMessage))]
+    [JsonSerializable(typeof(FailedMessage))]
+    [JsonSerializable(typeof(ProgressMessage))]
+    public partial class KnownSubsystemsBaseContext : JsonSerializerContext { };
+
     public static partial class Diarization
     {
         [JsonSerializable(typeof(Started))]

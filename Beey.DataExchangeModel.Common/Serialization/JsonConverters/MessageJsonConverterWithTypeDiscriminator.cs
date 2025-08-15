@@ -53,24 +53,31 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             case MessageType.Started:
                 DiscriminateStartedMessage(writer, value, options);
                 return;
+
             case MessageType.Progress:
                 DiscriminateProgressMessage(writer, value, options);
                 return;
+
             case MessageType.Failed:
                 DiscriminateFailedMessage(writer, value, options);
                 return;
+
             case MessageType.Completed:
                 DiscriminateCompletedMessage(writer, value, options);
                 return;
+
             case MessageType.ChainStatus:
                 JsonSerializer.Serialize(writer, (ChainControl.Status)value, ChainControl.ChainControlSerializerContext.Default.Status);
                 return;
+
             case MessageType.ChainCommand:
                 JsonSerializer.Serialize(writer, (ChainControl.Command)value, ChainControl.ChainControlSerializerContext.Default.Command);
                 return;
+
             case MessageType.Panic:
                 JsonSerializer.Serialize(writer, (PanicMessage)value, ChainControl.ChainControlSerializerContext.Default.PanicMessage);
                 return;
+
             case MessageType.Tracing:
                 JsonSerializer.Serialize(writer, (TracingMessage)value, ChainControl.ChainControlSerializerContext.Default.TracingMessage);
                 return;
@@ -207,7 +214,7 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return;
         }
 
-        throw new NotImplementedException($"Unknown subsystem {subsystem}");
+        JsonSerializer.Serialize(writer, value, KnownSubsystemsBaseContext.Default.StartedMessage);
     }
 
     static void DiscriminateCompletedMessage(Utf8JsonWriter writer, Message value, JsonSerializerOptions options)
@@ -339,7 +346,7 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return;
         }
 
-        throw new NotImplementedException($"Unknown subsystem {subsystem}");
+        JsonSerializer.Serialize(writer, value, KnownSubsystemsBaseContext.Default.CompletedMessage);
     }
 
 
@@ -472,7 +479,7 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return;
         }
 
-        throw new NotImplementedException($"Unknown subsystem {subsystem}");
+        JsonSerializer.Serialize(writer, value, KnownSubsystemsBaseContext.Default.FailedMessage);
     }
 
     static void DiscriminateProgressMessage(Utf8JsonWriter writer, Message value, JsonSerializerOptions options)
@@ -589,7 +596,7 @@ public class MessageJsonConverterWithTypeDiscriminator : JsonConverter<Message>
             return;
         }
 
-        throw new NotImplementedException($"Unknown subsystem {subsystem}");
+        JsonSerializer.Serialize(writer, value, KnownSubsystemsBaseContext.Default.ProgressMessage);
     }
 
 
