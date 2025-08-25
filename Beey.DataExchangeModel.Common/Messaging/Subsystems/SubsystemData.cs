@@ -11,7 +11,7 @@ public abstract class SubsystemData
 {
     protected static readonly JsonSerializerOptions DefaultJsonSerializerOptions = new JsonSerializerOptions()
     {
-        Converters = { new JsonStringEnumConverter(), new JsonTimeSpanConverter(), new JsonUnknownObjectConverter() }
+        Converters = { new JsonStringEnumConverter(), new JsonTimeSpanConverter(), new JsonUnknownObjectConverter(), new MessageJsonConverterWithTypeDiscriminator() }
     };
 
     public virtual JsonNode Serialize()
